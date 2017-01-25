@@ -28,8 +28,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="edu.aku.hassannaqvi.mapps_form2.Part1Activity"
+            android:name="edu.aku.hassannaqvi.mapps_form2.SectionAActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name="edu.aku.hassannaqvi.mapps_form2.SectionBBActivity" />
+        <activity android:name="edu.aku.hassannaqvi.mapps_form2.SectionBAActivity" />
+        <activity android:name="edu.aku.hassannaqvi.mapps_form2.SectionCActivity" />
+        <activity android:name="edu.aku.hassannaqvi.mapps_form2.SectionCAActivity" />
+        <activity android:name="edu.aku.hassannaqvi.mapps_form2.SectionCBActivity" />
+        <activity android:name="edu.aku.hassannaqvi.mapps_form2.SectionCCActivity" />
+        <activity android:name="edu.aku.hassannaqvi.mapps_form2.SectionCDActivity" />
+        <activity android:name="edu.aku.hassannaqvi.mapps_form2.SectionCEActivity" />
+        <activity android:name="edu.aku.hassannaqvi.mapps_form2.SectionCFActivity" />
+        <activity android:name="edu.aku.hassannaqvi.mapps_form2.SectionCGActivity" />
+        <activity android:name="edu.aku.hassannaqvi.mapps_form2.SectionCHAActivity" />
+        <activity android:name="edu.aku.hassannaqvi.mapps_form2.SectionCHBActivity" />
+        <activity android:name="edu.aku.hassannaqvi.mapps_form2.SectionCHCActivity" />
+        <activity android:name="edu.aku.hassannaqvi.mapps_form2.SectionDActivity" />
+        <activity android:name="edu.aku.hassannaqvi.mapps_form2.SectionEActivity"></activity>
     </application>
 
 </manifest>

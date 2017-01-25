@@ -98,17 +98,17 @@ public class MainActivity extends Activity {
     }
 
     public void openForm(View v) {
-        Intent oF = new Intent(MainActivity.this, Part1Activity.class);
+        Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
         startActivity(oF);
     }
 
     public void openMembers(View v) {
-        Intent iMem = new Intent(this, FamilyMembersActivity.class);
-        startActivity(iMem);
+        //Intent iMem = new Intent(this, FamilyMembersActivity.class);
+        //startActivity(iMem);
     }
 
     public void openA(View v) {
-        Intent iA = new Intent(this, Part1Activity.class);
+        Intent iA = new Intent(this, SectionAActivity.class);
         startActivity(iA);
     }
 
