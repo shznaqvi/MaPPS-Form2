@@ -18,7 +18,7 @@ import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import edu.aku.hassannaqvi.dss_census.R;
+
 
 public class MainActivity extends Activity {
 

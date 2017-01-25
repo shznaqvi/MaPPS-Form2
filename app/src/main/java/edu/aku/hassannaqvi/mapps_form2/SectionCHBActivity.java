@@ -3,7 +3,6 @@ package edu.aku.hassannaqvi.mapps_form2;
 import android.app.Activity;
 import android.os.Bundle;
 
-import edu.aku.hassannaqvi.dss_census.R;
 
 public class SectionCHBActivity extends Activity {
 
