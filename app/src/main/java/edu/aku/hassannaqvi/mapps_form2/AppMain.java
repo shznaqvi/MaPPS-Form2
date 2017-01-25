@@ -42,7 +42,6 @@ public class AppMain extends Application {
 
     public static Boolean admin = false;
     public static String interviewerCode;
-    public static int loginFieldArea = -1;
     public static String child_name = "TEST";
     public static FormsContract fc;
     public static String userName = "0000";
