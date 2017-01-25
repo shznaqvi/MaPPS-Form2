@@ -39,10 +39,10 @@ public class MainActivity extends Activity {
         ButterKnife.bind(this);
 
         // Reset working variables
-        MainApp.child_name = "Test";
+        AppMain.child_name = "Test";
 
 
-//        if (MainApp.admin) {
+//        if (AppMain.admin) {
 //            adminsec.setVisibility(View.VISIBLE);
 //        } else {
 //            adminsec.setVisibility(View.GONE);
@@ -84,7 +84,7 @@ public class MainActivity extends Activity {
 //        }
 //
 //        rSumText += "--------------------------------------------------\r\n";
-//        if (MainApp.admin) {
+//        if (AppMain.admin) {
 //            adminsec.setVisibility(View.VISIBLE);
 //            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
 //            rSumText += "Last Update: " + syncPref.getString("LastUpdate", "Never Updated");
@@ -126,8 +126,8 @@ public class MainActivity extends Activity {
     }*/
     public void syncServer(View view) {
 
-        String formsUrl = MainApp._HOST_URL + "virband/api/forms.php";
-        String imsUrl = MainApp._HOST_URL + "virband/api/ims.php";
+        String formsUrl = AppMain._HOST_URL + "virband/api/forms.php";
+        String imsUrl = AppMain._HOST_URL + "virband/api/ims.php";
 
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
         ConnectivityManager connMgr = (ConnectivityManager)
@@ -155,8 +155,8 @@ public class MainActivity extends Activity {
 
     public void syncDevice(View view) {
 
-        String usersUrl = MainApp._HOST_URL + "virband/api/users.php";
-        String randsUrl = MainApp._HOST_URL + "virband/api/random.php"; // url to sync randomise data
+        String usersUrl = AppMain._HOST_URL + "virband/api/users.php";
+        String randsUrl = AppMain._HOST_URL + "virband/api/random.php"; // url to sync randomise data
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();

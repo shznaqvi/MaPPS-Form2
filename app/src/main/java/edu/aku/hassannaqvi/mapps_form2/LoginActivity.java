@@ -178,7 +178,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         spUC.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                MainApp.areaCode = values.get(position);
+                AppMain.areaCode = values.get(position);
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
                 Toast.makeText(LoginActivity.this, values.get(position), Toast.LENGTH_SHORT).show();
@@ -400,8 +400,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             if (mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                 DatabaseHelper db = new DatabaseHelper(LoginActivity.this);
                 if ((mEmail.equals("dmu@tvi") && mPassword.equals("tvi?dmu")) || db.Login(mEmail, mPassword)) {
-                    MainApp.userName = mEmail;
-                    MainApp.admin = mEmail.contains("@");
+                    AppMain.userName = mEmail;
+                    AppMain.admin = mEmail.contains("@");
 
                     Intent iLogin = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(iLogin);

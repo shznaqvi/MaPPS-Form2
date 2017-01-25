@@ -15,7 +15,7 @@ import android.widget.Toast;
  * Created by hassan.naqvi on 11/30/2016.
  */
 
-public class MainApp extends Application {
+public class AppMain extends Application {
 
     public static final String _IP = "192.168.1.10"; // Test PHP server
     public static final Integer _PORT = 8080; // Port - with colon (:)

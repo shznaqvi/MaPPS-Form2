@@ -30,7 +30,6 @@
         <activity
             android:name="edu.aku.hassannaqvi.mapps_form2.SectionAActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        <activity android:name="edu.aku.hassannaqvi.mapps_form2.FamilyMembersActivity"></activity>
     </application>
 
 </manifest>
