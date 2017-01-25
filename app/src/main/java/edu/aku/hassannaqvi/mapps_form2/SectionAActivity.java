@@ -10,7 +10,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import edu.aku.hassannaqvi.dss_census.R;
+
 
 public class SectionAActivity extends Activity {
 

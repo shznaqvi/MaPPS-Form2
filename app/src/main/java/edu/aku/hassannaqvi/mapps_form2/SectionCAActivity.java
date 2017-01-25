@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.mapps_form2;
 import android.app.Activity;
 import android.os.Bundle;
 
+
 public class SectionCAActivity extends Activity {
 
     @Override

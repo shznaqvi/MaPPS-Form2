@@ -44,7 +44,6 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import edu.aku.hassannaqvi.dss_census.R;
 
 
 /**
