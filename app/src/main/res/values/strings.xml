@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">MaPPS: Enrollment and Baseline Assessment</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+  <string name="permission_rationale">"Contacts permissions are needed for providing email
+    completions."
+  </string>
+
+    <!-- String related to form buttons -->
+    <string name="end_interview"> اختتام </string>
+    <string name="start_interview"> انٹرویو شروع کریں </string>
+
+    <!-- String related to section headings -->
+    <string name="Sec10Heading">سیکشن ۱</string>
+    <string name="Sec20Heading">سیکشن ۱</string>
+    <string name="Sec30Heading">سیکشن ۱</string>
+
+    <!-- Strings that are fixed for all apps -->
+    <string name="title_activity_splashscreen">SplashscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="other">دیگر(وضاحت کریں)</string>
+    <string name="dkn">معلوم نہیں</string>
+    <string name="yes">ہاں</string>
+    <string name="no">نہیں</string>
+    <string name="na">قابل اطلاق نہیں</string>
+    <string name="male"> مرد </string>
+    <string name="female"> عورت </string>
+
+
+    <!-- Strings related to Sections Below -->
+
+
+</resources>
