@@ -26,13 +26,15 @@
     <string name="title_activity_splashscreen">SplashscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="other">دیگر(وضاحت کریں)</string>
-    <string name="dkn">معلوم نہیں</string>
-    <string name="yes">ہاں</string>
-    <string name="no">نہیں</string>
+  <string name="other">ٻيو ڪو(وضاحت ڪريو)</string>
+  <string name="dkn">خبر ڪونهي</string>
+  <string name="yes">ها</string>
+  <string name="no">نه</string>
     <string name="na">قابل اطلاق نہیں</string>
     <string name="male"> مرد </string>
     <string name="female"> عورت </string>
+  <string name="year"> سال </string>
+  <string name="month"> مهينو </string>
 
 
     <!-- Strings related to Sections Below -->
@@ -43,7 +45,7 @@
     <string name="mp02a003"> خاندا ن نمبر </string>
     <string name="mp02a004"> شرڪت ڪندڙ جي سڃاڻپ </string>
     <string name="mp02a005"> ڪلسٽر جو نالو </string>
-    <string name="mp02a006"> ڳوٺ جو نال </string>
+  <string name="mp02a006"> ڳوٺ جو نالو </string>
     <string name="mp02a007"> مڪمل پتو </string>
     <string name="mp02a008"> رابطي لاء نمبر </string>
     <string name="mp02a009"> پهرين تحقيق ڪندڙ جو نالو ۽ سڃاڻپ </string>
@@ -253,7 +255,7 @@
     <string name="mp02bb01801"> 1هڪ يا ٻه دفعا گذريل 4 هفتن ۾ </string>
     <string name="mp02bb01802"> 2ٽن کان ڏه ڀيرا گذريل 4 هفتن ۾ </string>
     <string name="mp02bb01803"> 3 10 کان وڌيڪ ڀيرا گذريل چئن هفتن ۾ </string>
-    <string name="secc"> Individual information </string>
+  <string name="secc"> Individual Information </string>
     <string name="mp02c001"> Participant ID </string>
     <string name="mp02c002"> انٽرويو جو نتيجو </string>
     <string name="mp02c00201"> پورو ٿيو </string>
