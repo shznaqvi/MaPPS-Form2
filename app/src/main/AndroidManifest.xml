@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="edu.aku.hassannaqvi.mapps_form2.SectionAActivity"
+            android:name="edu.aku.hassannaqvi.mapps_form2.Part1Activity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
     </application>
 

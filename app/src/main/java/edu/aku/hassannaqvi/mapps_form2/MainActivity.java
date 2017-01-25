@@ -98,7 +98,7 @@ public class MainActivity extends Activity {
     }
 
     public void openForm(View v) {
-        Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
+        Intent oF = new Intent(MainActivity.this, Part1Activity.class);
         startActivity(oF);
     }
 
@@ -108,7 +108,7 @@ public class MainActivity extends Activity {
     }
 
     public void openA(View v) {
-        Intent iA = new Intent(this, SectionAActivity.class);
+        Intent iA = new Intent(this, Part1Activity.class);
         startActivity(iA);
     }
 

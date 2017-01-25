@@ -12,7 +12,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census.R;
 
-public class SectionAActivity extends Activity {
+public class Part1Activity extends Activity {
 
     @BindView(R.id.activity_section_a)
     RelativeLayout activitySectionA;
@@ -23,7 +23,7 @@ public class SectionAActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_section_a);
+        setContentView(R.layout.activity_part_1);
         ButterKnife.bind(this);
 
 
