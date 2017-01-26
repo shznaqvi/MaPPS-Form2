@@ -35,6 +35,10 @@ public class SectionBAActivity extends Activity {
     RadioButton mp02ba00202;
     @BindView(R.id.mp02ba00288)
     RadioButton mp02ba00288;
+    @BindView(R.id.mp02ba00299)
+    RadioButton mp02ba00299;
+    @BindView(R.id.mp02ba00288x)
+    EditText mp02ba00288x;
     @BindView(R.id.mp02ba003)
     RadioGroup mp02ba003;
     @BindView(R.id.mp02ba00301)
@@ -369,6 +373,7 @@ public class SectionBAActivity extends Activity {
     RadioButton mp02ba02088;
     @BindView(R.id.mp02ba02088x)
     EditText mp02ba02088x;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
