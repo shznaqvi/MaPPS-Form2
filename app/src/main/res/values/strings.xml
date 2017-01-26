@@ -9,9 +9,7 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-  <string name="permission_rationale">"Contacts permissions are needed for providing email
-    completions."
-  </string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions." </string>
 
     <!-- String related to form buttons -->
     <string name="end_interview"> اختتام </string>
@@ -28,6 +26,9 @@
     <string name="seccc"> صحت بابت سوال </string>
     <string name="seccd"> پاڻ کي پرکڻ </string>
     <string name="secce"> فيصلو ڪرڻ </string>
+    <string name="seccf"> ويم جي دوران صحت جي جانچ </string>
+    <string name="seccg"> اضافي خوراڪ جو پرکڻ </string>
+
     <string name="mp02ch"> ذهني صحت </string>
 
     <!-- Strings that are fixed for all apps -->
@@ -716,20 +717,21 @@
   <string name="mp02d"> جسم جي ماپ ۽ طور </string>
   <string name="mp02dsubM1"> Measurer 1 </string>
   <string name="mp02dsubM2"> Measurer 2 </string>
+    <string name="mp02dsubM3"> Measurer 3 </string>
   <string name="mp02d001"> قد جي ماپ لکو </string>
   <string name="mp02d002"> قد جي ماپ لکو </string>
   <string name="mp02d003"> ڇا قد جي ماپ ۾ ڪوفرق (>1 cm) آيوآهي </string>
-  <string name="mp02d003sub"> If no (differ by <1.0 cm), go to Q207 </string>
+    <string name="mp02d003sub"> If no (differ by 1.0 cm), go to Q207 </string>
   <string name="mp02d004"> قد جي ماپ لکو </string>
   <string name="mp02d005"> وزن لکو </string>
   <string name="mp02d006"> وزن لکو </string>
   <string name="mp02d007"> آيوآهي (>.5 kg) ڇا وزن۾ ڪو فرق </string>
-  <string name="mp02d007sub"> If no (differ by <0.5 kg), go to Q211 </string>
+    <string name="mp02d007sub"> If no (differ by 0.5 kg), go to Q211 </string>
   <string name="mp02d008"> وزن لکو </string>
   <string name="mp02d009"> کاٻي ٻانهن يا /ڏوري جي ماپ لکو </string>
   <string name="mp02d010"> کاٻي ٻانهن يا /ڏوري جي ماپ لکو </string>
   <string name="mp02d011"> ڇا کاٻي ٻانهن يا /ڏوري جيماپ ۾ (cm5(>.فرق آيو آهي. </string>
-  <string name="mp02d011sub"> If no (differ by <0.5cm), go to Q215 </string>
+    <string name="mp02d011sub"> If no (differ by 0.5cm), go to Q215 </string>
   <string name="mp02d012"> کاٻي ٻانهن يا /ڏوري جي ماپ لکو </string>
   <string name="mp02e"> غذائيت بابت رت جي چڪاس </string>
   <string name="mp02e001"> هيموگلوبن </string>
