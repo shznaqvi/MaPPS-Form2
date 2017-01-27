@@ -9,6 +9,7 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -189,7 +190,11 @@ public class SectionCGActivity extends Activity {
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
-        //TODO implement
+        Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
+        Intent endSec = new Intent(this, EndingActivity.class);
+        endSec.putExtra("complete", false);
+        startActivity(endSec);
+
     }
 
 
