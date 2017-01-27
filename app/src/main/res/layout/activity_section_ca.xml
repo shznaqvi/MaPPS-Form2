@@ -47,7 +47,7 @@
                 android:textColor="@android:color/white" />
 
             <RadioGroup
-                android:id="@+id/mp02ca00101"
+                android:id="@+id/mp02ca001"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -86,7 +86,7 @@
                     android:text="@string/yes" />
 
                 <RadioButton
-                    android:id="@+id/mp02bb00202"
+                    android:id="@+id/mp02ca00202"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/no" />
