@@ -20,7 +20,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="edu.aku.hassannaqvi.mapps_form2.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,53 +28,54 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="edu.aku.hassannaqvi.mapps_form2.SectionAActivity"
+            android:name=".SectionAActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.mapps_form2.SectionBBActivity"
+            android:name=".SectionBBActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.mapps_form2.SectionBAActivity"
+            android:name=".SectionBAActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.mapps_form2.SectionCActivity"
+            android:name=".SectionCActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.mapps_form2.SectionCAActivity"
+            android:name=".SectionCAActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.mapps_form2.SectionCBActivity"
+            android:name=".SectionCBActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.mapps_form2.SectionCCActivity"
+            android:name=".SectionCCActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.mapps_form2.SectionCDActivity"
+            android:name=".SectionCDActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.mapps_form2.SectionCEActivity"
+            android:name=".SectionCEActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.mapps_form2.SectionCFActivity"
+            android:name=".SectionCFActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.mapps_form2.SectionCGActivity"
+            android:name=".SectionCGActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.mapps_form2.SectionCHAActivity"
+            android:name=".SectionCHAActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.mapps_form2.SectionCHBActivity"
+            android:name=".SectionCHBActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.mapps_form2.SectionCHCActivity"
+            android:name=".SectionCHCActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.mapps_form2.SectionDActivity"
+            android:name=".SectionDActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.mapps_form2.SectionEActivity"
-            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
+            android:name=".SectionEActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name=".EndingActivity"></activity>
     </application>
 
 </manifest>

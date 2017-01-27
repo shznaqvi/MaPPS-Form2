@@ -115,6 +115,15 @@
                     android:textColor="#ff1e1e" />
 
                 <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
+                <Button
+                    android:id="@+id/btn_Continue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="startInterview"
+                    android:padding="2dp"
+                    android:text="@string/start_interview"
+                    android:textColor="@color/colorPrimaryDark" />
+                <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
 
 
             </LinearLayout>
