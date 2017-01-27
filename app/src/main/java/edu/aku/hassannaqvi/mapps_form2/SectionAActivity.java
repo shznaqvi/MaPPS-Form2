@@ -52,18 +52,6 @@ public class SectionAActivity extends Activity {
     RadioButton mp02a01301;
     @BindView(R.id.mp02a1302)
     RadioButton mp02a1302;
-    @BindView(R.id.mp02a014)
-    RadioGroup mp02a014;
-    @BindView(R.id.mp02a01401)
-    RadioButton mp02a01401;
-    @BindView(R.id.mp02a01402)
-    RadioButton mp02a01402;
-    @BindView(R.id.mp02a01403)
-    RadioButton mp02a01403;
-    @BindView(R.id.mp02a01404)
-    RadioButton mp02a01404;
-    @BindView(R.id.mp02a01405)
-    RadioButton mp02a01405;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
