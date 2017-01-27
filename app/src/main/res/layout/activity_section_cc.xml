@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_section_cc"
     android:layout_width="match_parent"
@@ -276,6 +277,50 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
 
+
+            <!--<com.etiennelawlor.discreteslider.library.ui.DiscreteLabelSlider
+                android:id="@+id/mp02cc006"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="4dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:background="@color/grey_100"
+                app:backdropFillColor="@color/grey_200"
+                app:backdropStrokeColor="@color/grey_300"
+                app:backdropStrokeWidth="1dp"
+                app:horizontalBarThickness="4dp"
+                app:tickMarkCount="5"
+                app:tickMarkRadius="8dp"
+                app:position="0"
+                app:thumb="@drawable/thumb"
+                app:sliderLables="@array/mp02cc"
+                app:labelNormalColor="#FF0000"
+                app:labelSelectedColor="#0000FF"
+                app:progressDrawable="@drawable/transparent_progress_drawable"/>
+-->
+
+            <com.etiennelawlor.discreteslider.library.ui.DiscreteLabelSlider
+                android:id="@+id/discrete_slider"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/grey_100"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                app:backdropFillColor="@color/grey_200"
+                app:backdropStrokeColor="@color/grey_300"
+                app:backdropStrokeWidth="1dp"
+                app:horizontalBarThickness="4dp"
+                app:labelNormalColor="#FF0000"
+                app:labelSelectedColor="#0000FF"
+                app:position="0"
+                app:progressDrawable="@drawable/transparent_progress_drawable"
+                app:sliderLables="@array/mp02cc"
+                app:thumb="@drawable/thumb"
+                app:tickMarkCount="5"
+                app:tickMarkRadius="8dp" />
 
             <TextView
                 android:layout_width="match_parent"

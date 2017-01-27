@@ -739,4 +739,16 @@
   <string name="mp02e002sub"> جيڪڏهن ها ته رت جو نمونو وٺڻ لاء ٽيم کي ٻڌايو. جيڪڏهن نه ته فارم بند ڪريو. </string>
 
 
+  <!-- Slider Labels-->
+  <string-array name="mp02cc">
+    <item>تمام آسان</item>
+    <item>آسان</item>
+    <item>ڏکيو</item>
+    <item>تمام ڏکيو</item>
+    <item>لاڳو نه آهي</item>
+  </string-array>
+
+
 </resources>
+
+
