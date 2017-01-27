@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.mapps_form2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -16,168 +17,144 @@ import butterknife.OnClick;
 
 public class SectionCHCActivity extends Activity {
 
-    @BindView(R.id.activity_section_cg)
-    RelativeLayout activitySectionCg;
+    @BindView(R.id.activity_section_chc)
+    RelativeLayout activitySectionChc;
     @BindView(R.id.scrollView01)
     ScrollView scrollView01;
     @BindView(R.id.app_header)
     TextView appHeader;
-    @BindView(R.id.mp02cg001)
-    RadioGroup mp02cg001;
-    @BindView(R.id.mp02cg00101)
-    RadioButton mp02cg00101;
-    @BindView(R.id.mp02cg00102)
-    RadioButton mp02cg00102;
-    @BindView(R.id.mp02cg002)
-    RadioGroup mp02cg002;
-    @BindView(R.id.mp02cg00201)
-    RadioButton mp02cg00201;
-    @BindView(R.id.mp02cg00202)
-    RadioButton mp02cg00202;
-    @BindView(R.id.mp02cg00203)
-    RadioButton mp02cg00203;
-    @BindView(R.id.mp02cg00204)
-    RadioButton mp02cg00204;
-    @BindView(R.id.mp02cg00205)
-    RadioButton mp02cg00205;
-    @BindView(R.id.mp02cg00301)
-    EditText mp02cg00301;
-    @BindView(R.id.mp02cg00302)
-    EditText mp02cg00302;
-    @BindView(R.id.mp02cg004)
-    RadioGroup mp02cg004;
-    @BindView(R.id.mp02cg00401)
-    RadioButton mp02cg00401;
-    @BindView(R.id.mp02cg00402)
-    RadioButton mp02cg00402;
-    @BindView(R.id.mp02cg00403)
-    RadioButton mp02cg00403;
-    @BindView(R.id.mp02cg00404)
-    RadioButton mp02cg00404;
-    @BindView(R.id.mp02cg00488)
-    RadioButton mp02cg00488;
-    @BindView(R.id.mp02cg00488x)
-    EditText mp02cg00488x;
-    @BindView(R.id.mp02cg005)
-    RadioGroup mp02cg005;
-    @BindView(R.id.mp02cg00501)
-    RadioButton mp02cg00501;
-    @BindView(R.id.mp02cg00502)
-    RadioButton mp02cg00502;
-    @BindView(R.id.mp02cg00503)
-    RadioButton mp02cg00503;
-    @BindView(R.id.mp02cg00504)
-    RadioButton mp02cg00504;
-    @BindView(R.id.mp02cg00599)
-    RadioButton mp02cg00599;
-    @BindView(R.id.mp02cg006)
-    RadioGroup mp02cg006;
-    @BindView(R.id.mp02cg00601)
-    RadioButton mp02cg00601;
-    @BindView(R.id.mp02cg00602)
-    RadioButton mp02cg00602;
-    @BindView(R.id.mp02cg00603)
-    RadioButton mp02cg00603;
-    @BindView(R.id.mp02cg00604)
-    RadioButton mp02cg00604;
-    @BindView(R.id.mp02cg00605)
-    RadioButton mp02cg00605;
-    @BindView(R.id.mp02cg00701)
-    EditText mp02cg00701;
-    @BindView(R.id.mp02cg00702)
-    EditText mp02cg00702;
-    @BindView(R.id.mp02cg008)
-    RadioGroup mp02cg008;
-    @BindView(R.id.mp02cg00801)
-    RadioButton mp02cg00801;
-    @BindView(R.id.mp02cg00802)
-    RadioButton mp02cg00802;
-    @BindView(R.id.mp02cg00803)
-    RadioButton mp02cg00803;
-    @BindView(R.id.mp02cg00804)
-    RadioButton mp02cg00804;
-    @BindView(R.id.mp02cg00888)
-    RadioButton mp02cg00888;
-    @BindView(R.id.mp02cg00888x)
-    EditText mp02cg00888x;
-    @BindView(R.id.mp02cg009)
-    RadioGroup mp02cg009;
-    @BindView(R.id.mp02cg00901)
-    RadioButton mp02cg00901;
-    @BindView(R.id.mp02cg00902)
-    RadioButton mp02cg00902;
-    @BindView(R.id.mp02cg010)
-    RadioGroup mp02cg010;
-    @BindView(R.id.mp02cg01001)
-    RadioButton mp02cg01001;
-    @BindView(R.id.mp02cg01002)
-    RadioButton mp02cg01002;
-    @BindView(R.id.mp02cg01003)
-    RadioButton mp02cg01003;
-    @BindView(R.id.mp02cg01004)
-    RadioButton mp02cg01004;
-    @BindView(R.id.mp02cg01005)
-    RadioButton mp02cg01005;
-    @BindView(R.id.mp02cg01101)
-    EditText mp02cg01101;
-    @BindView(R.id.mp02cg01102)
-    EditText mp02cg01102;
-    @BindView(R.id.mp02cg012)
-    RadioGroup mp02cg012;
-    @BindView(R.id.mp02cg01201)
-    RadioButton mp02cg01201;
-    @BindView(R.id.mp02cg01202)
-    RadioButton mp02cg01202;
-    @BindView(R.id.mp02cg01203)
-    RadioButton mp02cg01203;
-    @BindView(R.id.mp02cg01204)
-    RadioButton mp02cg01204;
-    @BindView(R.id.mp02cg01288)
-    RadioButton mp02cg01288;
-    @BindView(R.id.mp02cg01288x)
-    EditText mp02cg01288x;
-    @BindView(R.id.mp02cg013)
-    RadioGroup mp02cg013;
-    @BindView(R.id.mp02cg01301)
-    RadioButton mp02cg01301;
-    @BindView(R.id.mp02cg01302)
-    RadioButton mp02cg01302;
-    @BindView(R.id.mp02cg01303)
-    RadioButton mp02cg01303;
-    @BindView(R.id.mp02cg01304)
-    RadioButton mp02cg01304;
-    @BindView(R.id.mp02cg01399)
-    RadioButton mp02cg01399;
-    @BindView(R.id.mp02cg014)
-    RadioGroup mp02cg014;
-    @BindView(R.id.mp02cg01401)
-    RadioButton mp02cg01401;
-    @BindView(R.id.mp02cg01402)
-    RadioButton mp02cg01402;
-    @BindView(R.id.mp02cg01403)
-    RadioButton mp02cg01403;
-    @BindView(R.id.mp02cg01404)
-    RadioButton mp02cg01404;
-    @BindView(R.id.mp02cg01405)
-    RadioButton mp02cg01405;
-    @BindView(R.id.mp02cg01501)
-    EditText mp02cg01501;
-    @BindView(R.id.mp02cg01502)
-    EditText mp02cg01502;
-    @BindView(R.id.mp02cg016)
-    RadioGroup mp02cg016;
-    @BindView(R.id.mp02cg01601)
-    RadioButton mp02cg01601;
-    @BindView(R.id.mp02cg01602)
-    RadioButton mp02cg01602;
-    @BindView(R.id.mp02cg01603)
-    RadioButton mp02cg01603;
-    @BindView(R.id.mp02cg01604)
-    RadioButton mp02cg01604;
-    @BindView(R.id.mp02cg01688)
-    RadioButton mp02cg01688;
-    @BindView(R.id.mp02cg01688x)
-    EditText mp02cg01688x;
+    @BindView(R.id.mp02chc001)
+    RadioGroup mp02chc001;
+    @BindView(R.id.mp02chc00101)
+    RadioButton mp02chc00101;
+    @BindView(R.id.mp02chc00102)
+    RadioButton mp02chc00102;
+    @BindView(R.id.mp02chc002)
+    RadioGroup mp02chc002;
+    @BindView(R.id.mp02chc00201)
+    RadioButton mp02chc00201;
+    @BindView(R.id.mp02chc00202)
+    RadioButton mp02chc00202;
+    @BindView(R.id.mp02chc00203)
+    RadioButton mp02chc00203;
+    @BindView(R.id.mp02chc00204)
+    RadioButton mp02chc00204;
+    @BindView(R.id.mp02chc003)
+    RadioGroup mp02chc003;
+    @BindView(R.id.mp02chc00301)
+    RadioButton mp02chc00301;
+    @BindView(R.id.mp02chc00302)
+    RadioButton mp02chc00302;
+    @BindView(R.id.mp02chc00303)
+    RadioButton mp02chc00303;
+    @BindView(R.id.mp02chc00304)
+    RadioButton mp02chc00304;
+    @BindView(R.id.mp02chc004)
+    RadioGroup mp02chc004;
+    @BindView(R.id.mp02chc00401)
+    RadioButton mp02chc00401;
+    @BindView(R.id.mp02chc00402)
+    RadioButton mp02chc00402;
+    @BindView(R.id.mp02chc00403)
+    RadioButton mp02chc00403;
+    @BindView(R.id.mp02chc00404)
+    RadioButton mp02chc00404;
+    @BindView(R.id.mp02chc005)
+    RadioGroup mp02chc005;
+    @BindView(R.id.mp02chc00501)
+    RadioButton mp02chc00501;
+    @BindView(R.id.mp02chc00502)
+    RadioButton mp02chc00502;
+    @BindView(R.id.mp02chc00503)
+    RadioButton mp02chc00503;
+    @BindView(R.id.mp02chc00504)
+    RadioButton mp02chc00504;
+    @BindView(R.id.mp02chc006)
+    RadioGroup mp02chc006;
+    @BindView(R.id.mp02chc00601)
+    RadioButton mp02chc00601;
+    @BindView(R.id.mp02chc00602)
+    RadioButton mp02chc00602;
+    @BindView(R.id.mp02chc00603)
+    RadioButton mp02chc00603;
+    @BindView(R.id.mp02chc00604)
+    RadioButton mp02chc00604;
+    @BindView(R.id.mp02chc007)
+    RadioGroup mp02chc007;
+    @BindView(R.id.mp02chc00701)
+    RadioButton mp02chc00701;
+    @BindView(R.id.mp02chc00702)
+    RadioButton mp02chc00702;
+    @BindView(R.id.mp02chc00703)
+    RadioButton mp02chc00703;
+    @BindView(R.id.mp02chc00704)
+    RadioButton mp02chc00704;
+    @BindView(R.id.mp02chc008)
+    RadioGroup mp02chc008;
+    @BindView(R.id.mp02chc00801)
+    RadioButton mp02chc00801;
+    @BindView(R.id.mp02chc00802)
+    RadioButton mp02chc00802;
+    @BindView(R.id.mp02chc00803)
+    RadioButton mp02chc00803;
+    @BindView(R.id.mp02chc00804)
+    RadioButton mp02chc00804;
+    @BindView(R.id.mp02chc009)
+    RadioGroup mp02chc009;
+    @BindView(R.id.mp02chc00901)
+    RadioButton mp02chc00901;
+    @BindView(R.id.mp02chc00902)
+    RadioButton mp02chc00902;
+    @BindView(R.id.mp02chc00903)
+    RadioButton mp02chc00903;
+    @BindView(R.id.mp02chc00904)
+    RadioButton mp02chc00904;
+    @BindView(R.id.mp02chc010)
+    RadioGroup mp02chc010;
+    @BindView(R.id.mp02chc01001)
+    RadioButton mp02chc01001;
+    @BindView(R.id.mp02chc01002)
+    RadioButton mp02chc01002;
+    @BindView(R.id.mp02chc01003)
+    RadioButton mp02chc01003;
+    @BindView(R.id.mp02chc01101)
+    CheckBox mp02chc01101;
+    @BindView(R.id.mp02chc01102)
+    CheckBox mp02chc01102;
+    @BindView(R.id.mp02chc01103)
+    CheckBox mp02chc01103;
+    @BindView(R.id.mp02chc01104)
+    CheckBox mp02chc01104;
+    @BindView(R.id.mp02chc01105)
+    CheckBox mp02chc01105;
+    @BindView(R.id.mp02chc01106)
+    CheckBox mp02chc01106;
+    @BindView(R.id.mp02chc01107)
+    CheckBox mp02chc01107;
+    @BindView(R.id.mp02chc01108)
+    CheckBox mp02chc01108;
+    @BindView(R.id.mp02chc01109)
+    CheckBox mp02chc01109;
+    @BindView(R.id.mp02chc01110)
+    CheckBox mp02chc01110;
+    @BindView(R.id.mp02chc01111)
+    CheckBox mp02chc01111;
+    @BindView(R.id.mp02chc01112)
+    CheckBox mp02chc01112;
+    @BindView(R.id.mp02chc01113)
+    CheckBox mp02chc01113;
+    @BindView(R.id.mp02chc01188)
+    CheckBox mp02chc01188;
+    @BindView(R.id.dce0696x)
+    EditText dce0696x;
+    @BindView(R.id.mp02chc012)
+    RadioGroup mp02chc012;
+    @BindView(R.id.mp02chc01201)
+    RadioButton mp02chc01201;
+    @BindView(R.id.mp02chc01202)
+    RadioButton mp02chc01202;
+    @BindView(R.id.mp02chc01203)
+    RadioButton mp02chc01203;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -189,7 +166,7 @@ public class SectionCHCActivity extends Activity {
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
-        //TODO implement
+
     }
 
 
@@ -199,5 +176,6 @@ public class SectionCHCActivity extends Activity {
         startActivity(secd);
 
     }
+
 
 }

@@ -6,5 +6,436 @@
     android:layout_height="match_parent"
     tools:context="edu.aku.hassannaqvi.mapps_form2.SectionCEActivity">
 
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scrollView01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:scrollbars="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/app_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorAccent"
+                android:gravity="center"
+                android:text="@string/seccd"
+                android:textSize="30sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorPrimary" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="#efefef"
+                android:padding="2dp"
+                android:text="@string/mp02ce001sub"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorPrimary"
+                android:padding="2dp"
+                android:text="@string/mp02ce001"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00101"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mprespondent" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00102"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpparents" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00103"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mphusband" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00104"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpmotherinlaw" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00105"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpnotapplicable" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00106"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpinvidually" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00188"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/other" />
+
+            <EditText
+                android:id="@+id/mp02ce00188x"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/other"
+                android:inputType="textCapWords" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorPrimary"
+                android:padding="2dp"
+                android:text="@string/mp02ce002"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00201"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mprespondent" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00202"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpparents" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00203"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mphusband" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00204"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpmotherinlaw" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00205"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpnotapplicable" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00206"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpinvidually" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00288"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/other" />
+
+            <EditText
+                android:id="@+id/mp02ce00288x"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/other"
+                android:inputType="textCapWords" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorPrimary"
+                android:padding="2dp"
+                android:text="@string/mp02ce003"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00301"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mprespondent" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00302"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpparents" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00303"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mphusband" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00304"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpmotherinlaw" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00305"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpnotapplicable" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00306"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpinvidually" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00388"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/other" />
+
+            <EditText
+                android:id="@+id/mp02ce00388x"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/other"
+                android:inputType="textCapWords" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorPrimary"
+                android:padding="2dp"
+                android:text="@string/mp02ce004"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00401"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mprespondent" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00402"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpparents" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00403"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mphusband" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00404"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpmotherinlaw" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00405"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpnotapplicable" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00406"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpinvidually" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00488"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/other" />
+
+            <EditText
+                android:id="@+id/mp02ce00488x"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/other"
+                android:inputType="textCapWords" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorPrimary"
+                android:padding="2dp"
+                android:text="@string/mp02ce005"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00501"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mprespondent" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00502"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpparents" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00503"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mphusband" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00504"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpmotherinlaw" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00505"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpnotapplicable" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00506"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpinvidually" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00588"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/other" />
+
+            <EditText
+                android:id="@+id/mp02ce00588x"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/other"
+                android:inputType="textCapWords" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorPrimary"
+                android:padding="2dp"
+                android:text="@string/mp02ce006"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00601"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mprespondent" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00602"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpparents" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00603"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mphusband" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00604"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpmotherinlaw" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00605"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpnotapplicable" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00606"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mpinvidually" />
+
+            <CheckBox
+                android:id="@+id/mp02ce00688"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/other" />
+
+            <EditText
+                android:id="@+id/mp02ce00688x"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/other"
+                android:inputType="textCapWords" />
+
+
+            <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_End"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="endInterview"
+                    android:text="@string/end_interview"
+                    android:textColor="#ff1e1e" />
+
+                <!--'onClick' for btn_End will NOT change and always ll 'endInterview'-->
+
+                <Button
+                    android:id="@+id/btn_Continue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="startInterview"
+                    android:text="@string/start_interview"
+                    android:textColor="@color/colorPrimary" />
+                <!--'onClick' for btn_Continue will ll next section form e.g.: openSection2-->
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
+
 
 </RelativeLayout>
