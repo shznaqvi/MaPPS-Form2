@@ -484,7 +484,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@color/colorPrimary"
                 android:padding="2dp"
-                android:text="@string/mp02cd001"
+                android:text="@string/mp02cd010"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
 

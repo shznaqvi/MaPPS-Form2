@@ -29,7 +29,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@color/colorAccent"
                 android:gravity="center"
-                android:text="@string/Secba"
+                android:text="@string/seccc"
                 android:textSize="30sp" />
 
 
