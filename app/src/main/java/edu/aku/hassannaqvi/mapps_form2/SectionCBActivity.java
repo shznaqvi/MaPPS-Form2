@@ -4,12 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -67,6 +71,8 @@ public class SectionCBActivity extends Activity {
     RadioButton mp02cb00501;
     @BindView(R.id.mp02cb00502)
     RadioButton mp02cb00502;
+    @BindView(R.id.fldGrpmp02cb006)
+    LinearLayout fldGrpmp02cb006;
     @BindView(R.id.mp02cb006)
     EditText mp02cb006;
     @BindView(R.id.mp02cb007)
@@ -117,6 +123,10 @@ public class SectionCBActivity extends Activity {
     RadioButton mp02cb00904;
     @BindView(R.id.mp02cb00905)
     RadioButton mp02cb00905;
+    @BindView(R.id.fldGrpmp02cb010)
+    LinearLayout fldGrpmp02cb010;
+    @BindView(R.id.fldGrpmp02cb010a)
+    LinearLayout fldGrpmp02cb010a;
     @BindView(R.id.mp02cb010)
     EditText mp02cb010;
     @BindView(R.id.mp02cb011)
@@ -125,6 +135,8 @@ public class SectionCBActivity extends Activity {
     RadioButton mp02cb01101;
     @BindView(R.id.mp02cb01102)
     RadioButton mp02cb01102;
+    @BindView(R.id.fldGrpmp02cb012)
+    LinearLayout fldGrpmp02cb012;
     @BindView(R.id.mp02cb012)
     EditText mp02cb012;
     @BindView(R.id.mp02cb013)
@@ -177,6 +189,8 @@ public class SectionCBActivity extends Activity {
     RadioButton mp02cb01602;
     @BindView(R.id.mp02cb01603)
     RadioButton mp02cb01603;
+    @BindView(R.id.fldGrpmp02cb017)
+    LinearLayout fldGrpmp02cb017;
     @BindView(R.id.mp02cb017)
     EditText mp02cb017;
     @BindView(R.id.mp02cb018)
@@ -187,6 +201,8 @@ public class SectionCBActivity extends Activity {
     RadioButton mp02cb01802;
     @BindView(R.id.mp02cb01803)
     RadioButton mp02cb01803;
+    @BindView(R.id.fldGrpmp02cb019)
+    LinearLayout fldGrpmp02cb019;
     @BindView(R.id.mp02cb019)
     RadioGroup mp02cb019;
     @BindView(R.id.mp02cb01901)
@@ -250,11 +266,16 @@ public class SectionCBActivity extends Activity {
         setContentView(R.layout.activity_section_cb);
         ButterKnife.bind(this);
 
+        // =================== Q2 Others ====================
+
+
     }
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
-        Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
         Intent endSec = new Intent(this, EndingActivity.class);
         endSec.putExtra("complete", false);
         startActivity(endSec);
@@ -264,10 +285,64 @@ public class SectionCBActivity extends Activity {
 
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
-        Intent seccc = new Intent(this, SectionCCActivity.class);
-        startActivity(seccc);
+
+        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+
+        if (ValidateForm()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
+                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+
+                finish();
+                Intent seccc = new Intent(this, SectionCCActivity.class);
+                startActivity(seccc);
+
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        }
 
     }
+
+    private boolean UpdateDB() {
+/*        MP02DBHelper db = new MP02DBHelper(this);
+
+        int updcount = db.updateSCB();
+
+        if (updcount == 1) {
+            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();*/
+        return false;
+    }
+
+    private void SaveDraft() throws JSONException {
+        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
+
+        JSONObject sa = new JSONObject();
+
+
+        //MPApp.fc.setROW_Scb(String.valueOf(scb));
+
+        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+
+    }
+
+    public boolean ValidateForm() {
+
+        //======================= Q 1 ===============
+
+
+        return true;
+    }
+
+
+
 
 
 }
