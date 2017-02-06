@@ -264,7 +264,7 @@ public class SectionCBActivity extends Activity {
 
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
-        Intent seccc = new Intent(this, SectionCCActivity.class);
+        Intent seccc = new Intent(this, SectionCcActivity.class);
         startActivity(seccc);
 
     }
