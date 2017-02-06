@@ -15,7 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SectionCCActivity extends Activity  {
+public class SectionCcActivity extends Activity  {
 
     @BindView(R.id.activity_section_cc) RelativeLayout activitySectionCc;
     @BindView(R.id.scrollView01) ScrollView scrollView01;
