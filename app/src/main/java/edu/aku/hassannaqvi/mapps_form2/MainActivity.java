@@ -18,7 +18,7 @@ import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import edu.aku.hassannaqvi.dss_census.R;
+
 
 public class MainActivity extends Activity {
 
@@ -103,8 +103,8 @@ public class MainActivity extends Activity {
     }
 
     public void openMembers(View v) {
-        Intent iMem = new Intent(this, FamilyMembersActivity.class);
-        startActivity(iMem);
+        //Intent iMem = new Intent(this, FamilyMembersActivity.class);
+        //startActivity(iMem);
     }
 
     public void openA(View v) {

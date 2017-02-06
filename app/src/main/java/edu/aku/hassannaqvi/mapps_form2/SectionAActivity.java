@@ -3,14 +3,19 @@ package edu.aku.hassannaqvi.mapps_form2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import edu.aku.hassannaqvi.dss_census.R;
 
 public class SectionAActivity extends Activity {
 
@@ -18,7 +23,36 @@ public class SectionAActivity extends Activity {
     RelativeLayout activitySectionA;
     @BindView(R.id.scrollView01)
     ScrollView scrollView01;
-
+    @BindView(R.id.app_header)
+    TextView appHeader;
+    @BindView(R.id.mp02a001)
+    EditText mp02a001;
+    @BindView(R.id.mp02a002)
+    EditText mp02a002;
+    @BindView(R.id.mp02a003)
+    EditText mp02a003;
+    @BindView(R.id.mp02a005)
+    EditText mp02a005;
+    @BindView(R.id.mp02a006)
+    EditText mp02a006;
+    @BindView(R.id.mp02a007)
+    EditText mp02a007;
+    @BindView(R.id.mp02a008)
+    EditText mp02a008;
+    @BindView(R.id.mp02a009)
+    EditText mp02a009;
+    @BindView(R.id.mp02a010)
+    EditText mp02a010;
+    @BindView(R.id.mn02a011)
+    DatePicker mn02a011;
+    @BindView(R.id.mp02a012)
+    TimePicker mp02a012;
+    @BindView(R.id.mp02a013)
+    RadioGroup mp02a013;
+    @BindView(R.id.mp02a01301)
+    RadioButton mp02a01301;
+    @BindView(R.id.mp02a1302)
+    RadioButton mp02a1302;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,38 +60,22 @@ public class SectionAActivity extends Activity {
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
 
-
     }
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
-
-        Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
-       /* if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {*/
-        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-        Intent endSec = new Intent(this, MainActivity.class);
+        Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
+        Intent endSec = new Intent(this, EndingActivity.class);
         endSec.putExtra("complete", false);
         startActivity(endSec);
-           /* } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-        } */
 
     }
 
 
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
-
-/*
-        startActivity(new Intent(this, SectionBActivity.class));
-*/
+        Intent secba = new Intent(this, SectionBAActivity.class);
+        startActivity(secba);
 
     }
 
