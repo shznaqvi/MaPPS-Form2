@@ -119,40 +119,6 @@
                 android:layout_marginTop="10dp"
                 android:background="@color/colorPrimary"
                 android:padding="2dp"
-                android:text="@string/mp02a005"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
-
-            <EditText
-                android:id="@+id/mp02a005"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/mp02a005"
-                android:inputType="textCapWords" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/mp02a006"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
-
-            <EditText
-                android:id="@+id/mp02a006"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/mp02a006"
-                android:inputType="textCapWords" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/mp02a007"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -188,81 +154,6 @@
                 android:layout_marginTop="10dp"
                 android:background="@color/colorPrimary"
                 android:padding="2dp"
-                android:text="@string/mp02a009"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
-
-            <EditText
-                android:id="@+id/mp02a009"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/mp02a009"
-                android:inputType="number"
-                android:maxLength="3" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/mp02a010"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
-
-            <EditText
-                android:id="@+id/mp02a010"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/mp02a010"
-                android:inputType="number"
-                android:maxLength="3" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/mp02a011"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
-
-            <DatePicker
-                android:id="@+id/mn02a011"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:calendarViewShown="false"
-                android:datePickerMode="spinner"
-                android:ems="10"
-                android:spinnersShown="true" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/mp02a012"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
-
-            <TimePicker
-                android:id="@+id/mp02a012"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:ems="10"
-                android:timePickerMode="spinner">
-
-            </TimePicker>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/mp02a013"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -279,7 +170,7 @@
                     android:text="@string/yes" />
 
                 <RadioButton
-                    android:id="@+id/mp02a1302"
+                    android:id="@+id/mp02a01302"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/no" />
