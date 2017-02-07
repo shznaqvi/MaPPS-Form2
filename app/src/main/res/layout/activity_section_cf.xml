@@ -138,6 +138,12 @@
 
             </RadioGroup>
 
+            <LinearLayout
+                android:id="@+id/fldGrpmp02cf04"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:visibility="gone">
 
             <TextView
                 android:layout_width="match_parent"
@@ -205,18 +211,14 @@
 
             </RadioGroup>
 
-            <!--check-->
-            <!--  <TextView
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_marginTop="10dp"
-                  android:background="@color/colorPrimary"
-                  android:padding="2dp"
-                  android:text="@string/mp02cf006"
-                  android:textAppearance="?android:attr/textAppearanceLarge"
-                  android:textColor="@android:color/white" />-->
+                <LinearLayout
+                    android:id="@+id/fldGrpmp02cf06"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
-            <TextView
+                    <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -710,7 +712,9 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/other" />
 
-            <TextView
+                </LinearLayout>
+
+                <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -1004,8 +1008,15 @@
 
             </RadioGroup>
 
+                <LinearLayout
+                    android:id="@+id/fldGrpmp02cf26"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
-            <TextView
+
+                    <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -1084,6 +1095,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/other" />
+
+                </LinearLayout>
+
+            </LinearLayout>
 
 
             <!--  = = = = =  END OF FORM FIELDS  = = = = = -->

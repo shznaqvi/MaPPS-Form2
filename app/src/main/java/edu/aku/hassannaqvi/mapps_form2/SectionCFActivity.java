@@ -12,6 +12,9 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -255,18 +258,72 @@ public class SectionCFActivity extends Activity {
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
-        Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
         Intent endSec = new Intent(this, EndingActivity.class);
         endSec.putExtra("complete", false);
         startActivity(endSec);
+
     }
 
 
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
-        Intent seccg = new Intent(this, SectionCGActivity.class);
-        startActivity(seccg);
 
+        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+
+
+        if (ValidateForm()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
+                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+
+                finish();
+
+                Intent seccg = new Intent(this, SectionCGActivity.class);
+                startActivity(seccg);
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+
+    }
+
+    private boolean UpdateDB() {
+/*        MP03DBHelper db = new MP03DBHelper(this);
+
+        int updcount = db.updateSA();
+
+        if (updcount == 1) {
+            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();*/
+        return false;
+    }
+
+
+    private void SaveDraft() throws JSONException {
+        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
+
+        JSONObject sbb = new JSONObject();
+        //MPApp.fc.setROW_Sbb(String.valueOf(sbb));
+
+        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+
+    }
+
+    public boolean ValidateForm() {
+
+        //======================= Q 1 ===============
+
+        return true;
     }
 
 
