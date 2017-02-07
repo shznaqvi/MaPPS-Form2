@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
+import edu.aku.hassannaqvi.mapps_form2.FormsContract.FormColumns;
+
 /**
  * Created by hassan.naqvi on 11/30/2016.
  */
@@ -27,38 +29,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + UsersContract.singleUser._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + UsersContract.singleUser.ROW_USERNAME + " TEXT,"
             + UsersContract.singleUser.ROW_PASSWORD + " TEXT );";
-    private static final String DATABASE_NAME = "virband.db";
+    private static final String DATABASE_NAME = "mapps_f2.db";
     private static final int DATABASE_VERSION = 1;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
-            + FormsContract.singleForm.TABLE_NAME + "("
-            + FormsContract.singleForm._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + FormsContract.singleForm.COLUMN_NAME_UID + " TEXT,"
-            + FormsContract.singleForm.COLUMN_NAME_DEVICE_ID + " TEXT,"
-            + FormsContract.singleForm.COLUMN_NAME_PROJECT_NAME + " TEXT,"
-            //+ singleForm.COLUMN_NAME_SURVEY_TYPE + " TEXT,"
-            + FormsContract.singleForm.COLUMN_NAME_GPS_ACC + " TEXT,"
-            + FormsContract.singleForm.COLUMN_NAME_GPS_LAT + " TEXT,"
-            + FormsContract.singleForm.COLUMN_NAME_GPS_LNG + " TEXT,"
-            + FormsContract.singleForm.COLUMN_NAME_GPS_TIME + " TEXT,"
-            + FormsContract.singleForm.COLUMN_NAME_SYNCED + " TEXT,"
-            + FormsContract.singleForm.COLUMN_NAME_SYNCED_DATE + " TEXT,"
-            + FormsContract.singleForm.COLUMN_NAME_FORM_DATE + " TEXT,"
-            + FormsContract.singleForm.COLUMN_NAME_INTERVIEWER + " TEXT,"
-            + FormsContract.singleForm.COLUMN_NAME_AREA_CODE + " TEXT,"
-            + FormsContract.singleForm.COLUMN_NAME_SUBAREA_CODE + " TEXT,"
-            + FormsContract.singleForm.COLUMN_NAME_ISTATUS + " TEXT,"
-
-            //+ singleForm.COLUMN_NAME_SA + " TEXT,"
-            + FormsContract.singleForm.COLUMN_NAME_SB + " TEXT,"
-            + FormsContract.singleForm.COLUMN_NAME_SC + " TEXT,"
-            + FormsContract.singleForm.COLUMN_NAME_SD + " TEXT,"
-
-            + FormsContract.singleForm.COLUMN_NAME_SIC + " TEXT"
+            + FormsContract.FormColumns.TABLE_NAME + "(" +
+            FormColumns.COLUMN_PROJECTNAME + " TEXT," +
+            FormColumns.COLUMN_SURVEYTYPE + " TEXT," +
+            FormColumns.COLUMN__ID + " TEXT," +
+            FormColumns.COLUMN_UID + " TEXT," +
+            FormColumns.COLUMN_FORMDATE + " TEXT," +
+            FormColumns.COLUMN_INTERVIEWER01 + " TEXT," +
+            FormColumns.COLUMN_INTERVIEWER02 + " TEXT," +
+            FormColumns.COLUMN_CLUSTERCODE + " TEXT," +
+            FormColumns.COLUMN_VILLAGEACODE + " TEXT," +
+            FormColumns.COLUMN_HOUSEHOLD + " TEXT," +
+            FormColumns.COLUMN_ISTATUS + " TEXT," +
+            FormColumns.COLUMN_SA + " TEXT," +
+            FormColumns.COLUMN_SBA + " TEXT," +
+            FormColumns.COLUMN_SBB + " TEXT," +
+            FormColumns.COLUMN_GPSLAT + " TEXT," +
+            FormColumns.COLUMN_GPSLNG + " TEXT," +
+            FormColumns.COLUMN_GPSTIME + " TEXT," +
+            FormColumns.COLUMN_GPSACC + " TEXT," +
+            FormColumns.COLUMN_DEVICEID + " TEXT," +
+            FormColumns.COLUMN_SYNCED + " TEXT," +
+            FormColumns.COLUMN_SYNCED_DATE + " TEXT"
             + " );";
     private static final String SQL_DELETE_USERS =
             "DROP TABLE IF EXISTS " + UsersContract.singleUser.TABLE_NAME;
     private static final String SQL_DELETE_FORMS =
-            "DROP TABLE IF EXISTS " + FormsContract.singleForm.TABLE_NAME;
+            "DROP TABLE IF EXISTS " + FormsContract.FormColumns.TABLE_NAME;
     private final String TAG = "DatabaseHelper";
     public String spDateT = new SimpleDateFormat("dd-MM-yy").format(new Date().getTime());
 
@@ -148,49 +148,90 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
-        values.put(FormsContract.singleForm.COLUMN_NAME_PROJECT_NAME, fc.getProjectName());
-        //values.put(singleForm.COLUMN_NAME_SURVEY_TYPE, fc.getProjectName());
-        values.put(FormsContract.singleForm.COLUMN_NAME_DEVICE_ID, fc.getDeviceID());
-        values.put(FormsContract.singleForm.COLUMN_NAME_GPS_ACC, fc.getGpsAcc());
-        values.put(FormsContract.singleForm.COLUMN_NAME_GPS_LAT, fc.getGpsLat());
-        values.put(FormsContract.singleForm.COLUMN_NAME_GPS_LNG, fc.getGpsLng());
-        values.put(FormsContract.singleForm.COLUMN_NAME_GPS_TIME, fc.getGpsTime());
-        values.put(FormsContract.singleForm.COLUMN_NAME_FORM_DATE, fc.getFormDate());
-        values.put(FormsContract.singleForm.COLUMN_NAME_INTERVIEWER, fc.getInterviewer());
-        values.put(FormsContract.singleForm.COLUMN_NAME_AREA_CODE, fc.getAreacode());
-        values.put(FormsContract.singleForm.COLUMN_NAME_SUBAREA_CODE, fc.getSubareacode());
-        values.put(FormsContract.singleForm.COLUMN_NAME_HOUSEHOLD, fc.getHousehold());
-        values.put(FormsContract.singleForm.COLUMN_NAME_ISTATUS, fc.getIstatus());
-        //values.put(singleForm.COLUMN_NAME_SA, fc.getsA());
-        values.put(FormsContract.singleForm.COLUMN_NAME_SB, fc.getsB());
-        values.put(FormsContract.singleForm.COLUMN_NAME_SC, fc.getsC());
-        values.put(FormsContract.singleForm.COLUMN_NAME_SD, fc.getsD());
-        values.put(FormsContract.singleForm.COLUMN_NAME_SIC, fc.getsIC());
+        values.put(FormColumns.COLUMN_PROJECTNAME, fc.getProjectName());
+        values.put(FormColumns.COLUMN_SURVEYTYPE, fc.getSurveyType());
+        //values.put(FormColumns.COLUMN__ID, fc.getID()); // WONT BE SET AT 'INSERT'
+        values.put(FormColumns.COLUMN_UID, fc.getUID());
+        values.put(FormColumns.COLUMN_FORMDATE, fc.getFormDate());
+        values.put(FormColumns.COLUMN_INTERVIEWER01, fc.getInterviewer01());
+        values.put(FormColumns.COLUMN_INTERVIEWER02, fc.getInterviewer02());
+        values.put(FormColumns.COLUMN_CLUSTERCODE, fc.getClustercode());
+        values.put(FormColumns.COLUMN_VILLAGEACODE, fc.getVillageacode());
+        values.put(FormColumns.COLUMN_HOUSEHOLD, fc.getHousehold());
+        values.put(FormColumns.COLUMN_ISTATUS, fc.getIstatus());
+        values.put(FormColumns.COLUMN_SA, fc.getsA());
+        values.put(FormColumns.COLUMN_GPSLAT, fc.getGpsLat());
+        values.put(FormColumns.COLUMN_GPSLNG, fc.getGpsLng());
+        values.put(FormColumns.COLUMN_GPSTIME, fc.getGpsTime());
+        values.put(FormColumns.COLUMN_GPSACC, fc.getGpsAcc());
+        values.put(FormColumns.COLUMN_DEVICEID, fc.getDeviceID());
+        
+        /* * * * * NO NEED TO USE THESE IN 'INSERT' * * * * */
+        /*
+        values.put(FormColumns.COLUMN_SYNCED, fc.getSynced());
+        values.put(FormColumns.COLUMN_SYNCED_DATE, fc.getSynced_date());
+        */
 
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
         newRowId = db.insert(
-                FormsContract.singleForm.TABLE_NAME,
-                FormsContract.singleForm.COLUMN_NAME_NULLABLE,
+                FormsContract.FormColumns.TABLE_NAME,
+                FormsContract.FormColumns.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
 
-    public void updateForms(String id) {
+    public void updatesSyncedForms(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(FormsContract.singleForm.COLUMN_NAME_SYNCED, true);
-        values.put(FormsContract.singleForm.COLUMN_NAME_SYNCED_DATE, new Date().toString());
+        values.put(FormColumns.COLUMN_SYNCED, true);
+        values.put(FormColumns.COLUMN_SYNCED_DATE, new Date().toString());
 
 // Which row to update, based on the title
-        String where = FormsContract.singleForm._ID + " LIKE ?";
+        String where = FormColumns._ID + " LIKE ?";
         String[] whereArgs = {id};
 
         int count = db.update(
-                FormsContract.singleForm.TABLE_NAME,
+                FormColumns.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+    public void updateBA(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // New value for one column
+        ContentValues values = new ContentValues();
+        values.put(FormColumns.COLUMN_SBA, true);
+
+        // Which row to update, based on the title
+        String where = FormColumns._ID + " LIKE ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                FormColumns.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+    public void updateBB(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // New value for one column
+        ContentValues values = new ContentValues();
+        values.put(FormColumns.COLUMN_SBB, true);
+
+        // Which row to update, based on the title
+        String where = FormColumns._ID + " LIKE ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                FormColumns.TABLE_NAME,
                 values,
                 where,
                 whereArgs);
@@ -200,30 +241,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                FormsContract.singleForm._ID,
-                FormsContract.singleForm.COLUMN_NAME_UID,
-                FormsContract.singleForm.COLUMN_NAME_PROJECT_NAME,
-                //singleForm.COLUMN_NAME_SURVEY_TYPE,
-                FormsContract.singleForm.COLUMN_NAME_DEVICE_ID,
-                FormsContract.singleForm.COLUMN_NAME_GPS_LAT,
-                FormsContract.singleForm.COLUMN_NAME_GPS_LNG,
-                FormsContract.singleForm.COLUMN_NAME_GPS_ACC,
-                FormsContract.singleForm.COLUMN_NAME_GPS_TIME,
-                FormsContract.singleForm.COLUMN_NAME_SYNCED,
-                FormsContract.singleForm.COLUMN_NAME_SYNCED_DATE,
-                FormsContract.singleForm.COLUMN_NAME_FORM_DATE,
-                FormsContract.singleForm.COLUMN_NAME_INTERVIEWER,
-                FormsContract.singleForm.COLUMN_NAME_AREA_CODE,
-                FormsContract.singleForm.COLUMN_NAME_SUBAREA_CODE,
-                FormsContract.singleForm.COLUMN_NAME_HOUSEHOLD,
-                FormsContract.singleForm.COLUMN_NAME_ISTATUS,
-                //singleForm.COLUMN_NAME_SA,
-                FormsContract.singleForm.COLUMN_NAME_SB,
-                FormsContract.singleForm.COLUMN_NAME_SC,
-                FormsContract.singleForm.COLUMN_NAME_SD,
-                FormsContract.singleForm.COLUMN_NAME_SIC,
-
-
+                FormColumns.COLUMN_PROJECTNAME,
+                FormColumns.COLUMN_SURVEYTYPE,
+                FormColumns.COLUMN__ID,
+                FormColumns.COLUMN_UID,
+                FormColumns.COLUMN_FORMDATE,
+                FormColumns.COLUMN_INTERVIEWER01,
+                FormColumns.COLUMN_INTERVIEWER02,
+                FormColumns.COLUMN_CLUSTERCODE,
+                FormColumns.COLUMN_VILLAGEACODE,
+                FormColumns.COLUMN_HOUSEHOLD,
+                FormColumns.COLUMN_ISTATUS,
+                FormColumns.COLUMN_SA,
+                FormColumns.COLUMN_SBA,
+                FormColumns.COLUMN_SBB,
+                FormColumns.COLUMN_GPSLAT,
+                FormColumns.COLUMN_GPSLNG,
+                FormColumns.COLUMN_GPSTIME,
+                FormColumns.COLUMN_GPSACC,
+                FormColumns.COLUMN_DEVICEID,
+                FormColumns.COLUMN_SYNCED,
+                FormColumns.COLUMN_SYNCED_DATE,
         };
         String whereClause = null;
         String[] whereArgs = null;
@@ -231,12 +269,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String having = null;
 
         String orderBy =
-                FormsContract.singleForm._ID + " ASC";
+                FormColumns._ID + " ASC";
 
         Collection<FormsContract> allFC = new ArrayList<FormsContract>();
         try {
             c = db.query(
-                    FormsContract.singleForm.TABLE_NAME,  // The table to query
+                    FormColumns.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -264,24 +302,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                FormsContract.singleForm._ID,
-                FormsContract.singleForm.COLUMN_NAME_AREA_CODE,
-                FormsContract.singleForm.COLUMN_NAME_SUBAREA_CODE,
-                FormsContract.singleForm.COLUMN_NAME_HOUSEHOLD,
+                FormsContract.FormColumns._ID,
+                FormColumns.COLUMN_CLUSTERCODE,
+                FormColumns.COLUMN_VILLAGEACODE,
+                FormColumns.COLUMN_HOUSEHOLD,
         };
 
-        String whereClause = FormsContract.singleForm.COLUMN_NAME_AREA_CODE + " LIKE ?";
+        String whereClause = FormColumns.COLUMN_CLUSTERCODE + " LIKE ?";
         String[] whereArgs = {spDateT};
         String groupBy = null;
         String having = null;
 
         String orderBy =
-                FormsContract.singleForm._ID + " ASC";
+                FormColumns._ID + " ASC";
 
         Collection<FormsContract> formList = new ArrayList<FormsContract>();
         try {
             c = db.query(
-                    FormsContract.singleForm.TABLE_NAME,  // The table to query
+                    FormColumns.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
