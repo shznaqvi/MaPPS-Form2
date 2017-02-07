@@ -491,25 +491,25 @@
                     android:text="@string/mpStrAgree" />
 
                 <RadioButton
-                    android:id="@+id/mp02cc001002"
+                    android:id="@+id/mp02cc01002"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpAgree" />
 
                 <RadioButton
-                    android:id="@+id/mp02cc001003"
+                    android:id="@+id/mp02cc01003"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpNAgreeNDisAg" />
 
                 <RadioButton
-                    android:id="@+id/mp02cc001004"
+                    android:id="@+id/mp02cc01004"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpDisagree" />
 
                 <RadioButton
-                    android:id="@+id/mp02cc001005"
+                    android:id="@+id/mp02cc01005"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpStrDisAgr" />
@@ -1068,185 +1068,193 @@
                     android:text="@string/mp02cc02202" />
             </RadioGroup>
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/fldGrpmp02cc023"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/mp02cc023"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                android:orientation="vertical">
 
-            <RadioGroup
-                android:id="@+id/mp02cc023"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:id="@+id/mp02cc02301"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mp02cc02301" />
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="2dp"
+                    android:text="@string/mp02cc023"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
 
-                <RadioButton
-                    android:id="@+id/mp02cc02302"
+                <RadioGroup
+                    android:id="@+id/mp02cc023"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/mp02cc02301"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mp02cc02301" />
+
+                    <RadioButton
+                        android:id="@+id/mp02cc02302"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mp02cc02302" />
+
+                    <RadioButton
+                        android:id="@+id/mp02cc02303"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mp02cc02303" />
+
+                    <RadioButton
+                        android:id="@+id/mp02cc02304"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mp02cc02304" />
+
+                </RadioGroup>
+
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mp02cc02302" />
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="2dp"
+                    android:text="@string/mp02cc024"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
 
-                <RadioButton
-                    android:id="@+id/mp02cc02303"
+                <RadioGroup
+                    android:id="@+id/mp02cc024"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/mp02cc02401"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mpStrAgree" />
+
+                    <RadioButton
+                        android:id="@+id/mp02cc02402"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mpAgree" />
+
+                    <RadioButton
+                        android:id="@+id/mp02cc02403"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mpNAgreeNDisAg" />
+
+                    <RadioButton
+                        android:id="@+id/mp02cc02404"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mpDisagree" />
+
+                    <RadioButton
+                        android:id="@+id/mp02cc02405"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mpStrDisAgr" />
+                </RadioGroup>
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mp02cc02303" />
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="2dp"
+                    android:text="@string/mp02cc025"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
 
-                <RadioButton
-                    android:id="@+id/mp02cc02304"
+                <RadioGroup
+                    android:id="@+id/mp02cc025"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/mp02cc02501"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mpStrAgree" />
+
+                    <RadioButton
+                        android:id="@+id/mp02cc02502"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mpAgree" />
+
+                    <RadioButton
+                        android:id="@+id/mp02cc02503"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mpNAgreeNDisAg" />
+
+                    <RadioButton
+                        android:id="@+id/mp02cc02504"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mpDisagree" />
+
+                    <RadioButton
+                        android:id="@+id/mp02cc02505"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mpStrDisAgr" />
+                </RadioGroup>
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mp02cc02304" />
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="2dp"
+                    android:text="@string/mp02cc026"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
 
-            </RadioGroup>
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/mp02cc024"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
-
-            <RadioGroup
-                android:id="@+id/mp02cc024"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:id="@+id/mp02cc02401"
+                <RadioGroup
+                    android:id="@+id/mp02cc026"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mpStrAgree" />
+                    android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/mp02cc02402"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mpAgree" />
+                    <RadioButton
+                        android:id="@+id/mp02cc02601"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mpStrAgree" />
 
-                <RadioButton
-                    android:id="@+id/mp02cc02403"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mpNAgreeNDisAg" />
+                    <RadioButton
+                        android:id="@+id/mp02cc02602"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mpAgree" />
 
-                <RadioButton
-                    android:id="@+id/mp02cc02404"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mpDisagree" />
+                    <RadioButton
+                        android:id="@+id/mp02cc02603"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mpNAgreeNDisAg" />
 
-                <RadioButton
-                    android:id="@+id/mp02cc02405"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mpStrDisAgr" />
-            </RadioGroup>
+                    <RadioButton
+                        android:id="@+id/mp02cc02604"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mpDisagree" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/mp02cc025"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                    <RadioButton
+                        android:id="@+id/mp02cc02605"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mpStrDisAgr" />
+                </RadioGroup>
 
-            <RadioGroup
-                android:id="@+id/mp02cc025"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:id="@+id/mp02cc02501"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mpStrAgree" />
-
-                <RadioButton
-                    android:id="@+id/mp02cc02502"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mpAgree" />
-
-                <RadioButton
-                    android:id="@+id/mp02cc02503"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mpNAgreeNDisAg" />
-
-                <RadioButton
-                    android:id="@+id/mp02cc02504"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mpDisagree" />
-
-                <RadioButton
-                    android:id="@+id/mp02cc02505"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mpStrDisAgr" />
-            </RadioGroup>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/mp02cc026"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
-
-            <RadioGroup
-                android:id="@+id/mp02cc026"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:id="@+id/mp02cc02601"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mpStrAgree" />
-
-                <RadioButton
-                    android:id="@+id/mp02cc02602"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mpAgree" />
-
-                <RadioButton
-                    android:id="@+id/mp02cc02603"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mpNAgreeNDisAg" />
-
-                <RadioButton
-                    android:id="@+id/mp02cc02604"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mpDisagree" />
-
-                <RadioButton
-                    android:id="@+id/mp02cc02605"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mpStrDisAgr" />
-            </RadioGroup>
+            </LinearLayout>
 
 
             <!--  = = = = =  END OF FORM FIELDS  = = = = = -->

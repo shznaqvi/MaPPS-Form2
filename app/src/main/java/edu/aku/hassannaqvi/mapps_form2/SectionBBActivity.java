@@ -365,7 +365,7 @@ public class SectionBBActivity extends Activity {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();*/
-        return false;
+        return true;
     }
 
     private void SaveDraft() throws JSONException {

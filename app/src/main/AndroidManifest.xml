@@ -46,7 +46,7 @@
             android:name=".SectionCBActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".SectionCcActivity"
+            android:name=".SectionCCActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".SectionCDActivity"
