@@ -3,8 +3,12 @@ package edu.aku.hassannaqvi.mapps_form2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -20,6 +24,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class SectionCFActivity extends Activity {
+
+    private static final String TAG = SectionCFActivity.class.getSimpleName();
 
     @BindView(R.id.activity_section_cf)
     RelativeLayout activitySectionCf;
@@ -45,6 +51,8 @@ public class SectionCFActivity extends Activity {
     RadioButton mp02cf00301;
     @BindView(R.id.mp02cf00302)
     RadioButton mp02cf00302;
+    @BindView(R.id.fldGrpmp02cf04)
+    LinearLayout fldGrpmp02cf04;
     @BindView(R.id.mp02cf004)
     EditText mp02cf004;
     @BindView(R.id.mp02cf005)
@@ -53,6 +61,8 @@ public class SectionCFActivity extends Activity {
     RadioButton mp02cf00501;
     @BindView(R.id.mp02cf00502)
     RadioButton mp02cf00502;
+    @BindView(R.id.fldGrpmp02cf06)
+    LinearLayout fldGrpmp02cf06;
     @BindView(R.id.mp02cf006)
     EditText mp02cf006;
     @BindView(R.id.mp02cf007)
@@ -81,10 +91,10 @@ public class SectionCFActivity extends Activity {
     RadioButton mp02cf01602;
     @BindView(R.id.mp02cf01603)
     RadioButton mp02cf01603;
-    @BindView(R.id.mp02cf01688)
-    RadioButton mp02cf01688;
     @BindView(R.id.mp02cf01699)
     RadioButton mp02cf01699;
+    @BindView(R.id.mp02cf01688)
+    RadioButton mp02cf01688;
     @BindView(R.id.mp02cf01688x)
     EditText mp02cf01688x;
     @BindView(R.id.mp02cf017)
@@ -103,10 +113,10 @@ public class SectionCFActivity extends Activity {
     RadioButton mp02cf01706;
     @BindView(R.id.mp02cf01707)
     RadioButton mp02cf01707;
-    @BindView(R.id.mp02cf01788)
-    RadioButton mp02cf01788;
     @BindView(R.id.mp02cf01799)
     RadioButton mp02cf01799;
+    @BindView(R.id.mp02cf01788)
+    RadioButton mp02cf01788;
     @BindView(R.id.mp02cf01788x)
     EditText mp02cf01788x;
     @BindView(R.id.mp02cf018)
@@ -147,10 +157,10 @@ public class SectionCFActivity extends Activity {
     CheckBox mp02cf01914;
     @BindView(R.id.mp02cf01915)
     CheckBox mp02cf01915;
-    @BindView(R.id.mp02cf01988)
-    CheckBox mp02cf01988;
     @BindView(R.id.mp02cf01999)
     CheckBox mp02cf01999;
+    @BindView(R.id.mp02cf01988)
+    CheckBox mp02cf01988;
     @BindView(R.id.mp02cf01988x)
     EditText mp02cf01988x;
     @BindView(R.id.mp02cf020)
@@ -225,6 +235,8 @@ public class SectionCFActivity extends Activity {
     RadioButton mp02cf02502;
     @BindView(R.id.mp02cf02599)
     RadioButton mp02cf02599;
+    @BindView(R.id.fldGrpmp02cf26)
+    LinearLayout fldGrpmp02cf26;
     @BindView(R.id.mp02cf026)
     RadioGroup mp02cf026;
     @BindView(R.id.mp02cf02601)
@@ -247,12 +259,245 @@ public class SectionCFActivity extends Activity {
     RadioButton mp02cf02688;
     @BindView(R.id.mp02cf02688x)
     EditText mp02cf02688x;
+    @BindView(R.id.fldGrpmp02cf21)
+    LinearLayout fldGrpmp02cf21;
+    @BindView(R.id.fldGrpmp02cf23)
+    LinearLayout fldGrpmp02cf23;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_cf);
         ButterKnife.bind(this);
+
+        // ================= Q 16 Others ===============
+        mp02cf016.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mp02cf01688.isChecked()) {
+                    mp02cf01688x.setVisibility(View.VISIBLE);
+                } else {
+                    mp02cf01688x.setVisibility(View.GONE);
+                    mp02cf01688x.setText(null);
+                }
+            }
+        });
+
+        // ================= Q 17 Others ===============
+        mp02cf017.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mp02cf01788.isChecked()) {
+                    mp02cf01788x.setVisibility(View.VISIBLE);
+                } else {
+                    mp02cf01788x.setVisibility(View.GONE);
+                    mp02cf01788x.setText(null);
+                }
+            }
+        });
+
+        // ================= Q 19 Others ===============
+        mp02cf01988.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mp02cf01988x.setVisibility(View.VISIBLE);
+                } else {
+                    mp02cf01988x.setVisibility(View.GONE);
+                    mp02cf01688x.setText(null);
+                }
+            }
+        });
+
+        // ================= Q 23 Others ===============
+        mp02cf023.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mp02cf02388.isChecked()) {
+                    mp02cf02388x.setVisibility(View.VISIBLE);
+                } else {
+                    mp02cf02388x.setVisibility(View.GONE);
+                    mp02cf02388x.setText(null);
+                }
+            }
+        });
+
+
+        // ================= Q 24 Others ===============
+        mp02cf024.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mp02cf02488.isChecked()) {
+                    mp02cf02488x.setVisibility(View.VISIBLE);
+                } else {
+                    mp02cf02488x.setVisibility(View.GONE);
+                    mp02cf02488x.setText(null);
+                }
+            }
+        });
+
+        // ================= Q 26 Others ===============
+        mp02cf026.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mp02cf02688.isChecked()) {
+                    mp02cf02688x.setVisibility(View.VISIBLE);
+                } else {
+                    mp02cf02688x.setVisibility(View.GONE);
+                    mp02cf02688x.setText(null);
+                }
+            }
+        });
+
+        //==================== Q 3 Skip pattern ==================
+        mp02cf003.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mp02cf00301.isChecked()) {
+                    fldGrpmp02cf04.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpmp02cf04.setVisibility(View.GONE);
+                    mp02cf004.setText(null);
+                    mp02cf005.clearCheck();
+                    mp02cf006.setText(null);
+                    mp02cf007.setText(null);
+                    mp02cf008.setText(null);
+                    mp02cf009.setText(null);
+                    mp02cf010.setText(null);
+                    mp02cf011.setText(null);
+                    mp02cf012.setText(null);
+                    mp02cf013.setText(null);
+                    mp02cf014.setText(null);
+                    mp02cf015.setText(null);
+                    mp02cf016.clearCheck();
+                    mp02cf01688x.setText(null);
+                    mp02cf017.clearCheck();
+                    mp02cf01788x.setText(null);
+                    mp02cf018.clearCheck();
+                    mp02cf01901.setChecked(false);
+                    mp02cf01902.setChecked(false);
+                    mp02cf01903.setChecked(false);
+                    mp02cf01904.setChecked(false);
+                    mp02cf01905.setChecked(false);
+                    mp02cf01906.setChecked(false);
+                    mp02cf01907.setChecked(false);
+                    mp02cf01908.setChecked(false);
+                    mp02cf01909.setChecked(false);
+                    mp02cf01910.setChecked(false);
+                    mp02cf01911.setChecked(false);
+                    mp02cf01912.setChecked(false);
+                    mp02cf01913.setChecked(false);
+                    mp02cf01914.setChecked(false);
+                    mp02cf01915.setChecked(false);
+                    mp02cf01999.setChecked(false);
+                    mp02cf01988.setChecked(false);
+                    mp02cf01988x.setText(null);
+                    mp02cf020.clearCheck();
+                    mp02cf021.setText(null);
+                    mp02cf022.clearCheck();
+                    mp02cf023.clearCheck();
+                    mp02cf02388x.setText(null);
+                    mp02cf024.clearCheck();
+                    mp02cf02488x.setText(null);
+                    mp02cf025.clearCheck();
+                    mp02cf026.clearCheck();
+                    mp02cf02688x.setText(null);
+
+                }
+            }
+        });
+
+
+        //==================== Q 4 Skip pattern ==================
+        mp02cf005.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mp02cf00501.isChecked()) {
+                    fldGrpmp02cf06.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpmp02cf06.setVisibility(View.GONE);
+                    mp02cf006.setText(null);
+                    mp02cf007.setText(null);
+                    mp02cf008.setText(null);
+                    mp02cf009.setText(null);
+                    mp02cf010.setText(null);
+                    mp02cf011.setText(null);
+                    mp02cf012.setText(null);
+                    mp02cf013.setText(null);
+                    mp02cf014.setText(null);
+                    mp02cf015.setText(null);
+                    mp02cf016.clearCheck();
+                    mp02cf01688x.setText(null);
+                    mp02cf017.clearCheck();
+                    mp02cf01788x.setText(null);
+                    mp02cf018.clearCheck();
+                    mp02cf01901.setChecked(false);
+                    mp02cf01902.setChecked(false);
+                    mp02cf01903.setChecked(false);
+                    mp02cf01904.setChecked(false);
+                    mp02cf01905.setChecked(false);
+                    mp02cf01906.setChecked(false);
+                    mp02cf01907.setChecked(false);
+                    mp02cf01908.setChecked(false);
+                    mp02cf01909.setChecked(false);
+                    mp02cf01910.setChecked(false);
+                    mp02cf01911.setChecked(false);
+                    mp02cf01912.setChecked(false);
+                    mp02cf01913.setChecked(false);
+                    mp02cf01914.setChecked(false);
+                    mp02cf01915.setChecked(false);
+                    mp02cf01999.setChecked(false);
+                    mp02cf01988.setChecked(false);
+                    mp02cf01988x.setText(null);
+
+                }
+            }
+        });
+
+        //==================== Q 20 Skip pattern ==================
+        mp02cf020.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mp02cf02001.isChecked()) {
+                    fldGrpmp02cf21.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpmp02cf21.setVisibility(View.GONE);
+                    mp02cf021.setText(null);
+                }
+            }
+        });
+
+        //==================== Q 22 Skip pattern ==================
+        mp02cf022.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mp02cf02201.isChecked()) {
+                    fldGrpmp02cf23.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpmp02cf23.setVisibility(View.GONE);
+                    mp02cf023.clearCheck();
+                    mp02cf02388x.setText(null);
+                    mp02cf024.clearCheck();
+                    mp02cf02488x.setText(null);
+                }
+            }
+        });
+
+        //==================== Q 25 Skip pattern ==================
+        mp02cf025.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mp02cf02501.isChecked()) {
+                    fldGrpmp02cf26.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpmp02cf26.setVisibility(View.GONE);
+                    mp02cf026.clearCheck();
+                    mp02cf02688x.setText(null);
+                }
+            }
+        });
+
 
     }
 
@@ -312,8 +557,69 @@ public class SectionCFActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        JSONObject sbb = new JSONObject();
-        //MPApp.fc.setROW_Sbb(String.valueOf(sbb));
+        JSONObject scf = new JSONObject();
+
+        scf.put("mp02cf001", mp02cf00101.isChecked() ? "1" : mp02cf00102.isChecked() ? "2" : mp02cf00103.isChecked() ? "3"
+                : mp02cf00104.isChecked() ? "4" : "0");
+        scf.put("mp02cf002", mp02cf002.getText().toString());
+        scf.put("mp02cf003", mp02cf00301.isChecked() ? "1" : mp02cf00302.isChecked() ? "2" : "0");
+        scf.put("mp02cf004", mp02cf004.getText().toString());
+        scf.put("mp02cf005", mp02cf00501.isChecked() ? "1" : mp02cf00502.isChecked() ? "2" : "0");
+        scf.put("mp02cf006", mp02cf006.getText().toString());
+        scf.put("mp02cf007", mp02cf007.getText().toString());
+        scf.put("mp02cf008", mp02cf008.getText().toString());
+        scf.put("mp02cf009", mp02cf009.getText().toString());
+        scf.put("mp02cf010", mp02cf010.getText().toString());
+        scf.put("mp02cf011", mp02cf011.getText().toString());
+        scf.put("mp02cf012", mp02cf012.getText().toString());
+        scf.put("mp02cf013", mp02cf013.getText().toString());
+        scf.put("mp02cf014", mp02cf014.getText().toString());
+        scf.put("mp02cf015", mp02cf015.getText().toString());
+        scf.put("mp02cf016", mp02cf01601.isChecked() ? "1" : mp02cf01602.isChecked() ? "2" : mp02cf01603.isChecked() ? "3"
+                : mp02cf01699.isChecked() ? "99" : mp02cf01688.isChecked() ? "88" : "0");
+        scf.put("mp02cf01688x", mp02cf01688x.getText().toString());
+        scf.put("mp02cf017", mp02cf01701.isChecked() ? "1" : mp02cf01702.isChecked() ? "2" : mp02cf01703.isChecked() ? "3"
+                : mp02cf01704.isChecked() ? "4" : mp02cf01705.isChecked() ? "5" : mp02cf01706.isChecked() ? "6"
+                : mp02cf01707.isChecked() ? "7" : mp02cf01799.isChecked() ? "99" : mp02cf01788.isChecked() ? "88" : "0");
+        scf.put("mp02cf01788x", mp02cf01788x.getText().toString());
+        scf.put("mp02cf018", mp02cf01801.isChecked() ? "1" : mp02cf01802.isChecked() ? "2" : mp02cf01899.isChecked() ? "99" : "0");
+        scf.put("mp02cf01901", mp02cf01901.isChecked() ? "1" : "0");
+        scf.put("mp02cf01902", mp02cf01902.isChecked() ? "1" : "0");
+        scf.put("mp02cf01903", mp02cf01903.isChecked() ? "1" : "0");
+        scf.put("mp02cf01904", mp02cf01904.isChecked() ? "1" : "0");
+        scf.put("mp02cf01905", mp02cf01905.isChecked() ? "1" : "0");
+        scf.put("mp02cf01906", mp02cf01906.isChecked() ? "1" : "0");
+        scf.put("mp02cf01907", mp02cf01907.isChecked() ? "1" : "0");
+        scf.put("mp02cf01908", mp02cf01908.isChecked() ? "1" : "0");
+        scf.put("mp02cf01901", mp02cf01909.isChecked() ? "1" : "0");
+        scf.put("mp02cf01901", mp02cf01910.isChecked() ? "1" : "0");
+        scf.put("mp02cf01901", mp02cf01911.isChecked() ? "1" : "0");
+        scf.put("mp02cf01901", mp02cf01912.isChecked() ? "1" : "0");
+        scf.put("mp02cf01901", mp02cf01913.isChecked() ? "1" : "0");
+        scf.put("mp02cf01901", mp02cf01914.isChecked() ? "1" : "0");
+        scf.put("mp02cf01901", mp02cf01915.isChecked() ? "1" : "0");
+        scf.put("mp02cf01901", mp02cf01988.isChecked() ? "1" : "0");
+        scf.put("mp02cf01901", mp02cf01999.isChecked() ? "1" : "0");
+        scf.put("mp02cf01988x", mp02cf01988x.getText().toString());
+        scf.put("mp02cf020", mp02cf02001.isChecked() ? "1" : mp02cf02002.isChecked() ? "2" : mp02cf02099.isChecked() ? "99" : "0");
+        scf.put("mp02cf021", mp02cf021.getText().toString());
+        scf.put("mp02cf022", mp02cf02201.isChecked() ? "1" : mp02cf02202.isChecked() ? "2" : "0");
+        scf.put("mp02cf023", mp02cf02301.isChecked() ? "1" : mp02cf02302.isChecked() ? "2" : mp02cf02303.isChecked() ? "3"
+                : mp02cf02304.isChecked() ? "4" : mp02cf02305.isChecked() ? "5" : mp02cf02306.isChecked() ? "6"
+                : mp02cf02307.isChecked() ? "7" : mp02cf02308.isChecked() ? "8" : mp02cf02309.isChecked() ? "9"
+                : mp02cf02310.isChecked() ? "10" : mp02cf02388.isChecked() ? "88" : "0");
+        scf.put("mp02cf02388x", mp02cf02388x.getText().toString());
+        scf.put("mp02cf024", mp02cf02401.isChecked() ? "1" : mp02cf02402.isChecked() ? "2" : mp02cf02403.isChecked() ? "3"
+                : mp02cf02404.isChecked() ? "4" : mp02cf02405.isChecked() ? "5" : mp02cf02406.isChecked() ? "6"
+                : mp02cf02407.isChecked() ? "7" : mp02cf02408.isChecked() ? "8" : mp02cf02488.isChecked() ? "88" : "0");
+        scf.put("mp02cf02488x", mp02cf02488x.getText().toString());
+        scf.put("mp02cf025", mp02cf02501.isChecked() ? "1" : mp02cf02502.isChecked() ? "2" : mp02cf02599.isChecked() ? "99" : "0");
+        scf.put("mp02cf026", mp02cf02601.isChecked() ? "1" : mp02cf02602.isChecked() ? "2" : mp02cf02603.isChecked() ? "3"
+                : mp02cf02604.isChecked() ? "4" : mp02cf02605.isChecked() ? "5" : mp02cf02606.isChecked() ? "6"
+                : mp02cf02607.isChecked() ? "7" : mp02cf02608.isChecked() ? "8" : mp02cf02688.isChecked() ? "88" : "0");
+        scf.put("mp02cf02688x", mp02cf02688x.getText().toString());
+
+        //MPApp.fc.setROW_Sbb(String.valueOf(scf));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
@@ -322,9 +628,375 @@ public class SectionCFActivity extends Activity {
     public boolean ValidateForm() {
 
         //======================= Q 1 ===============
+        if (mp02cf001.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf001), Toast.LENGTH_LONG).show();
+            mp02cf00104.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "mp02cf001: This data is Required!");
+            return false;
+        } else {
+            mp02cf00104.setError(null);
+        }
+
+        //======================= Q 2 ===============
+        if (mp02cf002.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf002), Toast.LENGTH_LONG).show();
+            mp02cf002.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "mp02cf002: This data is Required!");
+            return false;
+        } else {
+            mp02cf002.setError(null);
+        }
+
+        //======================= Q 3 ===============
+        if (mp02cf003.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf003), Toast.LENGTH_LONG).show();
+            mp02cf00302.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "mp02cf003: This data is Required!");
+            return false;
+        } else {
+            mp02cf00302.setError(null);
+        }
+
+        // ======================= Skip Check till Q 26 ==================
+        if (mp02cf00301.isChecked()) {
+
+            // ====================== Q 4 ===================
+            if (mp02cf004.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf004), Toast.LENGTH_LONG).show();
+                mp02cf004.setError("This data is Required!");    // Set Error on last radio button
+
+                Log.i(TAG, "mp02cf004: This data is Required!");
+                return false;
+            } else {
+                mp02cf004.setError(null);
+            }
+
+            // ====================== Q 5 ===================
+            if (mp02cf005.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf005), Toast.LENGTH_LONG).show();
+                mp02cf00502.setError("This data is Required!");    // Set Error on last radio button
+
+                Log.i(TAG, "mp02cf005: This data is Required!");
+                return false;
+            } else {
+                mp02cf00502.setError(null);
+            }
+            // ============ Skip Check till question 20 ============
+            if (mp02cf00501.isChecked()) {
+                // ====================== Q 6 ===================
+                if (mp02cf006.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf006), Toast.LENGTH_LONG).show();
+                    mp02cf006.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf006: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf006.setError(null);
+                }
+
+                // ====================== Q 7 ===================
+                if (mp02cf007.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf007), Toast.LENGTH_LONG).show();
+                    mp02cf007.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf007: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf007.setError(null);
+                }
+
+                // ====================== Q 8 ===================
+                if (mp02cf008.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf008), Toast.LENGTH_LONG).show();
+                    mp02cf008.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf008: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf008.setError(null);
+                }
+
+                // ====================== Q 9 ===================
+                if (mp02cf009.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf009), Toast.LENGTH_LONG).show();
+                    mp02cf009.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf009: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf009.setError(null);
+                }
+
+                // ====================== Q 10 ===================
+                if (mp02cf010.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf010), Toast.LENGTH_LONG).show();
+                    mp02cf010.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf010: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf010.setError(null);
+                }
+
+                // ====================== Q 11 ===================
+                if (mp02cf011.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf011), Toast.LENGTH_LONG).show();
+                    mp02cf011.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf011: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf011.setError(null);
+                }
+                // ====================== Q 12 ===================
+                if (mp02cf012.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf012), Toast.LENGTH_LONG).show();
+                    mp02cf012.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf012: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf012.setError(null);
+                }
+
+                // ====================== Q 13 ===================
+                if (mp02cf013.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf013), Toast.LENGTH_LONG).show();
+                    mp02cf013.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf013: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf013.setError(null);
+                }
+
+                // ====================== Q 14 ===================
+                if (mp02cf014.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf014), Toast.LENGTH_LONG).show();
+                    mp02cf014.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf014: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf014.setError(null);
+                }
+
+                // ====================== Q 15 ===================
+                if (mp02cf015.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf015), Toast.LENGTH_LONG).show();
+                    mp02cf015.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf015: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf015.setError(null);
+                }
+
+                // ====================== Q 16 ===================
+                if (mp02cf016.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf016), Toast.LENGTH_LONG).show();
+                    mp02cf01688.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf016: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf01688.setError(null);
+                }
+                // ====================== Q 16 Others ===================
+                if (mp02cf01688.isChecked() && mp02cf01688x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf016) + " - " + getString(R.string.other), Toast.LENGTH_LONG).show();
+                    mp02cf01688x.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf01688x: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf01688x.setError(null);
+                }
+
+                // ====================== Q 17 ===================
+                if (mp02cf017.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf017), Toast.LENGTH_LONG).show();
+                    mp02cf01788.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf017: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf01788.setError(null);
+                }
+                // ====================== Q 17 Others ===================
+                if (mp02cf01788.isChecked() && mp02cf01788x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf017) + " - " + getString(R.string.other), Toast.LENGTH_LONG).show();
+                    mp02cf01788x.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf01788x: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf01788x.setError(null);
+                }
+
+                // ====================== Q 18 ===================
+                if (mp02cf018.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf018), Toast.LENGTH_LONG).show();
+                    mp02cf01899.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf018: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf01899.setError(null);
+                }
+
+                // ====================== Q 19 ===================
+                if (!(mp02cf01901.isChecked() || mp02cf01902.isChecked() || mp02cf01903.isChecked() || mp02cf01904.isChecked()
+                        || mp02cf01905.isChecked() || mp02cf01906.isChecked() || mp02cf01907.isChecked()
+                        || mp02cf01908.isChecked() || mp02cf01909.isChecked() || mp02cf01910.isChecked()
+                        || mp02cf01911.isChecked() || mp02cf01912.isChecked() || mp02cf01913.isChecked()
+                        || mp02cf01914.isChecked() || mp02cf01915.isChecked() || mp02cf01999.isChecked()
+                        || mp02cf01988.isChecked())) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf019), Toast.LENGTH_LONG).show();
+                    mp02cf01988.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf019: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf01988.setError(null);
+                }
+                // ====================== Q 17 Others ===================
+                if (mp02cf01988.isChecked() && mp02cf01988x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf019) + " - " + getString(R.string.other), Toast.LENGTH_LONG).show();
+                    mp02cf01988x.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf01988x: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf01988x.setError(null);
+                }
+
+
+            }
+
+            // ====================== Q 20 ===================
+            if (mp02cf020.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf020), Toast.LENGTH_LONG).show();
+                mp02cf02099.setError("This data is Required!");    // Set Error on last radio button
+
+                Log.i(TAG, "mp02cf020: This data is Required!");
+                return false;
+            } else {
+                mp02cf02099.setError(null);
+            }
+            /// ========== Skip Check Q20
+            if (mp02cf02001.isChecked()) {
+                if (mp02cf021.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf021), Toast.LENGTH_LONG).show();
+                    mp02cf021.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf021: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf021.setError(null);
+                }
+            }
+
+            // ====================== Q 22 ===================
+            if (mp02cf022.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf022), Toast.LENGTH_LONG).show();
+                mp02cf02202.setError("This data is Required!");    // Set Error on last radio button
+
+                Log.i(TAG, "mp02cf022: This data is Required!");
+                return false;
+            } else {
+                mp02cf02202.setError(null);
+            }
+
+            /// ========== Skip Check Q21
+            if (mp02cf02201.isChecked()) {
+                if (mp02cf023.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf023), Toast.LENGTH_LONG).show();
+                    mp02cf02388.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf023: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf02388.setError(null);
+                }
+
+                //============= Q 23 Others ===============
+                if (mp02cf02388.isChecked() && mp02cf02388x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf023) + " - " + getString(R.string.other), Toast.LENGTH_LONG).show();
+                    mp02cf02388x.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf02388x: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf02388x.setError(null);
+                }
+
+                if (mp02cf024.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf024), Toast.LENGTH_LONG).show();
+                    mp02cf02488.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf024: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf02488.setError(null);
+                }
+
+                //============= Q 24 Others ===============
+                if (mp02cf02488.isChecked() && mp02cf02488x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf024) + " - " + getString(R.string.other), Toast.LENGTH_LONG).show();
+                    mp02cf02488x.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf02488x: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf02488x.setError(null);
+                }
+
+
+            }
+            // ================ Q 25 ===============
+            if (mp02cf025.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf025), Toast.LENGTH_LONG).show();
+                mp02cf02599.setError("This data is Required!");    // Set Error on last radio button
+
+                Log.i(TAG, "mp02cf025: This data is Required!");
+                return false;
+            } else {
+                mp02cf02599.setError(null);
+            }
+            /// ========== Skip Check Q21
+            if (mp02cf02501.isChecked()) {
+                if (mp02cf026.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf026), Toast.LENGTH_LONG).show();
+                    mp02cf02688.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf026: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf02688.setError(null);
+                }
+
+                //============= Q 24 Others ===============
+                if (mp02cf02688.isChecked() && mp02cf02688x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf026) + " - " + getString(R.string.other), Toast.LENGTH_LONG).show();
+                    mp02cf02688x.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf02688x: This data is Required!");
+                    return false;
+                } else {
+                    mp02cf02688x.setError(null);
+                }
+
+
+            }
+        }
+
 
         return true;
+
+
     }
-
-
 }

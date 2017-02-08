@@ -573,7 +573,7 @@ public class SectionCBActivity extends Activity {
                 finish();
 
                 if (mp02ca00101.isChecked() && mp02ca00201.isChecked()) {
-                    Intent seccc = new Intent(this, SectionCCActivity.class);
+                    Intent seccc = new Intent(this, SectionCcActivity.class);
                     startActivity(seccc);
                 } else {
                     Intent endSec = new Intent(this, EndingActivity.class);
