@@ -18,6 +18,7 @@ import java.util.Collection;
 import java.util.Date;
 
 import edu.aku.hassannaqvi.mapps_form2.FormsContract.FormColumns;
+import edu.aku.hassannaqvi.mapps_form2.ParticipantsContract.ParticipantColumns;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
@@ -54,6 +55,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             FormColumns.COLUMN_DEVICEID + " TEXT," +
             FormColumns.COLUMN_SYNCED + " TEXT," +
             FormColumns.COLUMN_SYNCED_DATE + " TEXT"
+            + " );";
+    private static final String SQL_CREATE_PARTICIPANTS = "CREATE TABLE "
+            + FormsContract.FormColumns.TABLE_NAME + "("
+            + ParticipantColumns.COLUMN_PROJECTNAME + " TEXT,"
+            + ParticipantColumns.COLUMN_SURVEYTYPE + " TEXT,"
+            + ParticipantColumns.COLUMN__ID + " TEXT,"
+            + ParticipantColumns.COLUMN_UID + " TEXT,"
+            + ParticipantColumns.COLUMN_UUID + " TEXT,"
+            + ParticipantColumns.COLUMN_FORMDATE + " TEXT,"
+            + ParticipantColumns.COLUMN_INTERVIEWER01 + " TEXT,"
+            + ParticipantColumns.COLUMN_INTERVIEWER02 + " TEXT,"
+            + ParticipantColumns.COLUMN_ISTATUS + " TEXT,"
+            + ParticipantColumns.COLUMN_SCA + " TEXT,"
+            + ParticipantColumns.COLUMN_SCB + " TEXT,"
+            + ParticipantColumns.COLUMN_SCC + " TEXT,"
+            + ParticipantColumns.COLUMN_SCD + " TEXT,"
+            + ParticipantColumns.COLUMN_SCE + " TEXT,"
+            + ParticipantColumns.COLUMN_SCF + " TEXT,"
+            + ParticipantColumns.COLUMN_SCG + " TEXT,"
+            + ParticipantColumns.COLUMN_SCHA + " TEXT,"
+            + ParticipantColumns.COLUMN_SCHB + " TEXT,"
+            + ParticipantColumns.COLUMN_SCHBC + " TEXT,"
+            + ParticipantColumns.COLUMN_SD + " TEXT,"
+            + ParticipantColumns.COLUMN_SE + " TEXT,"
+            + ParticipantColumns.COLUMN_GPSLAT + " TEXT,"
+            + ParticipantColumns.COLUMN_GPSLNG + " TEXT,"
+            + ParticipantColumns.COLUMN_GPSTIME + " TEXT,"
+            + ParticipantColumns.COLUMN_GPSACC + " TEXT,"
+            + ParticipantColumns.COLUMN_DEVICEID + " TEXT,"
+            + ParticipantColumns.COLUMN_SYNCED + " TEXT,"
+            + ParticipantColumns.COLUMN_SYNCED_DATE + " TEXT"
             + " );";
     private static final String SQL_DELETE_USERS =
             "DROP TABLE IF EXISTS " + UsersContract.singleUser.TABLE_NAME;
@@ -176,13 +208,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
         newRowId = db.insert(
-                FormsContract.FormColumns.TABLE_NAME,
-                FormsContract.FormColumns.COLUMN_NAME_NULLABLE,
+                FormColumns.TABLE_NAME,
+                FormColumns.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
 
-    public void updatesSyncedForms(String id) {
+    public void updateSyncedForms(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
@@ -201,6 +233,70 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 whereArgs);
     }
 
+    public Long addParticipants(ParticipantsContract pc) {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(ParticipantColumns.COLUMN_PROJECTNAME, pc.getProjectName());
+        values.put(ParticipantColumns.COLUMN_SURVEYTYPE, pc.getSurveyType());
+        values.put(ParticipantColumns.COLUMN__ID, pc.getID());
+        values.put(ParticipantColumns.COLUMN_UID, pc.getUID());
+        values.put(ParticipantColumns.COLUMN_UUID, pc.getUUID());
+        values.put(ParticipantColumns.COLUMN_FORMDATE, pc.getFormDate());
+        values.put(ParticipantColumns.COLUMN_INTERVIEWER01, pc.getInterviewer01());
+        values.put(ParticipantColumns.COLUMN_INTERVIEWER02, pc.getInterviewer02());
+        values.put(ParticipantColumns.COLUMN_ISTATUS, pc.getIstatus());
+        values.put(ParticipantColumns.COLUMN_SCA, pc.getsCA());
+        values.put(ParticipantColumns.COLUMN_SCB, pc.getsCB());
+        values.put(ParticipantColumns.COLUMN_SCC, pc.getsCC());
+        values.put(ParticipantColumns.COLUMN_SCD, pc.getsCD());
+        values.put(ParticipantColumns.COLUMN_SCE, pc.getsCE());
+        values.put(ParticipantColumns.COLUMN_SCF, pc.getsCF());
+        values.put(ParticipantColumns.COLUMN_SCG, pc.getsCG());
+        values.put(ParticipantColumns.COLUMN_SCHA, pc.getsCHA());
+        values.put(ParticipantColumns.COLUMN_SCHB, pc.getsCHB());
+        values.put(ParticipantColumns.COLUMN_SCHBC, pc.getsCHBC());
+        values.put(ParticipantColumns.COLUMN_SD, pc.getsD());
+        values.put(ParticipantColumns.COLUMN_SE, pc.getsE());
+        values.put(ParticipantColumns.COLUMN_GPSLAT, pc.getGpsLat());
+        values.put(ParticipantColumns.COLUMN_GPSLNG, pc.getGpsLng());
+        values.put(ParticipantColumns.COLUMN_GPSTIME, pc.getGpsTime());
+        values.put(ParticipantColumns.COLUMN_GPSACC, pc.getGpsAcc());
+        values.put(ParticipantColumns.COLUMN_DEVICEID, pc.getDeviceID());
+        values.put(ParticipantColumns.COLUMN_SYNCED, pc.getSynced());
+        values.put(ParticipantColumns.COLUMN_SYNCED_DATE, pc.getSynced_date());
+
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                ParticipantColumns.TABLE_NAME,
+                ParticipantColumns.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
+    public void updatesSyncedParticipants(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(ParticipantColumns.COLUMN_SYNCED, true);
+        values.put(ParticipantColumns.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = ParticipantColumns._ID + " LIKE ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                ParticipantColumns.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
     public void updateBA(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -296,6 +392,75 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return allFC;
     }
+
+    public Collection<ParticipantsContract> getAllParticipants() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                ParticipantColumns.COLUMN_PROJECTNAME,
+                ParticipantColumns.COLUMN_SURVEYTYPE,
+                ParticipantColumns.COLUMN__ID,
+                ParticipantColumns.COLUMN_UID,
+                ParticipantColumns.COLUMN_UUID,
+                ParticipantColumns.COLUMN_FORMDATE,
+                ParticipantColumns.COLUMN_INTERVIEWER01,
+                ParticipantColumns.COLUMN_INTERVIEWER02,
+                ParticipantColumns.COLUMN_ISTATUS,
+                ParticipantColumns.COLUMN_SCA,
+                ParticipantColumns.COLUMN_SCB,
+                ParticipantColumns.COLUMN_SCC,
+                ParticipantColumns.COLUMN_SCD,
+                ParticipantColumns.COLUMN_SCE,
+                ParticipantColumns.COLUMN_SCF,
+                ParticipantColumns.COLUMN_SCG,
+                ParticipantColumns.COLUMN_SCHA,
+                ParticipantColumns.COLUMN_SCHB,
+                ParticipantColumns.COLUMN_SCHBC,
+                ParticipantColumns.COLUMN_SD,
+                ParticipantColumns.COLUMN_SE,
+                ParticipantColumns.COLUMN_GPSLAT,
+                ParticipantColumns.COLUMN_GPSLNG,
+                ParticipantColumns.COLUMN_GPSTIME,
+                ParticipantColumns.COLUMN_GPSACC,
+                ParticipantColumns.COLUMN_DEVICEID,
+                ParticipantColumns.COLUMN_SYNCED,
+                ParticipantColumns.COLUMN_SYNCED_DATE,
+
+        };
+        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                ParticipantColumns._ID + " ASC";
+
+        Collection<ParticipantsContract> allPC = new ArrayList<>();
+        try {
+            c = db.query(
+                    ParticipantColumns.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                ParticipantsContract pc = new ParticipantsContract();
+                allPC.add(pc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allPC;
+    }
+
 
     public Collection<FormsContract> getTodayForms() {
 
