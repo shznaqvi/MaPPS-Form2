@@ -423,6 +423,150 @@ public class SectionBAActivity extends Activity {
             }
         });
 
+
+        mp02ba00288.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    mp02ba00288x.setVisibility(View.VISIBLE);
+                }else {
+                    mp02ba00288x.setVisibility(View.GONE);
+                    mp02ba00288x.setText(null);
+
+                }
+            }
+        });
+
+        mp02ba00388.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    mp02ba00388x.setVisibility(View.VISIBLE);
+                }else {
+                    mp02ba00388x.setVisibility(View.GONE);
+                    mp02ba00388x.setText(null);
+
+                }
+            }
+        });
+
+        mp02ba00488.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    mp02ba00488x.setVisibility(View.VISIBLE);
+                }else {
+                    mp02ba00488x.setVisibility(View.GONE);
+                    mp02ba00488x.setText(null);
+
+                }
+            }
+        });
+
+        mp02ba00588.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    mp02ba00588x.setVisibility(View.VISIBLE);
+                }else {
+                    mp02ba00588x.setVisibility(View.GONE);
+                    mp02ba00588x.setText(null);
+
+                }
+            }
+        });
+
+        mp02ba00788.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    mp02ba00788x.setVisibility(View.VISIBLE);
+                }else {
+                    mp02ba00788x.setVisibility(View.GONE);
+                    mp02ba00788x.setText(null);
+
+                }
+            }
+        });
+
+        mp02ba00888.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    mp02ba00888x.setVisibility(View.VISIBLE);
+                }else {
+                    mp02ba00888x.setVisibility(View.GONE);
+                    mp02ba00888x.setText(null);
+
+                }
+            }
+        });
+
+        mp02ba00988.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    mp02ba00988x.setVisibility(View.VISIBLE);
+                }else {
+                    mp02ba00988x.setVisibility(View.GONE);
+                    mp02ba00988x.setText(null);
+
+                }
+            }
+        });
+
+        mp02ba01288.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    mp02ba01288x.setVisibility(View.VISIBLE);
+                }else {
+                    mp02ba01288x.setVisibility(View.GONE);
+                    mp02ba01288x.setText(null);
+
+                }
+            }
+        });
+
+        mp02ba01488.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    mp02ba01488x.setVisibility(View.VISIBLE);
+                }else {
+                    mp02ba01488x.setVisibility(View.GONE);
+                    mp02ba01488x.setText(null);
+
+                }
+            }
+        });
+
+        mp02ba01588.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    mp02ba01588x.setVisibility(View.VISIBLE);
+                }else {
+                    mp02ba01588x.setVisibility(View.GONE);
+                    mp02ba01588x.setText(null);
+
+                }
+            }
+        });
+
+        mp02ba02088.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    mp02ba02088x.setVisibility(View.VISIBLE);
+                }else {
+                    mp02ba02088x.setVisibility(View.GONE);
+                    mp02ba02088x.setText(null);
+
+                }
+            }
+        });
+
     }
 
     @OnClick(R.id.btn_End)
@@ -875,6 +1019,9 @@ public class SectionBAActivity extends Activity {
                 : mp02ba02088.isChecked() ? "88" : "0");
         sBA.put("mp02ba02088x", mp02ba02088x.getText().toString());
 
+        //MPApp.fc.setROW_SBA(String.valueOf(sBA));
+
+        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
 
     private boolean UpdateDB() {

@@ -106,6 +106,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/other"
+                android:visibility="gone"
                 android:inputType="textCapWords" />
 
             <TextView
@@ -165,6 +166,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/other"
+                android:visibility="gone"
                 android:inputType="textCapWords" />
 
             <TextView
@@ -224,6 +226,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/other"
+                android:visibility="gone"
                 android:inputType="textCapWords" />
 
             <TextView
@@ -283,6 +286,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/other"
+                android:visibility="gone"
                 android:inputType="textCapWords" />
 
             <TextView
@@ -342,6 +346,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/other"
+                android:visibility="gone"
                 android:inputType="textCapWords" />
 
             <TextView
@@ -401,6 +406,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/other"
+                android:visibility="gone"
                 android:inputType="textCapWords" />
 
 

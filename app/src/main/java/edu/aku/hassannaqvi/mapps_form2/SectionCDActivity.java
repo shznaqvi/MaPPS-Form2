@@ -10,6 +10,9 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -22,8 +25,8 @@ public class SectionCDActivity extends Activity {
     ScrollView scrollView01;
     @BindView(R.id.app_header)
     TextView appHeader;
-    @BindView(R.id.mp02ca001)
-    RadioGroup mp02ca001;
+    @BindView(R.id.mp02cd001)
+    RadioGroup mp02cd001;
     @BindView(R.id.mp02cd00101)
     RadioButton mp02cd00101;
     @BindView(R.id.mp02cd00102)
@@ -163,9 +166,181 @@ public class SectionCDActivity extends Activity {
 
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
-        Intent secce = new Intent(this, SectionCEActivity.class);
-        startActivity(secce);
+        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
 
+
+        if (ValidateForm()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
+                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+
+                finish();
+                Intent secce = new Intent(this, SectionCEActivity.class);
+                startActivity(secce);
+
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+    }
+
+    private void SaveDraft() throws JSONException {
+        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
+
+        JSONObject sCD = new JSONObject();
+
+        sCD.put("mp02cd001", mp02cd00101.isChecked() ? "1" : mp02cd00102.isChecked() ? "2" : mp02cd00103.isChecked() ? "3"
+                : mp02cd00104.isChecked() ? "4" : mp02cd00105.isChecked() ? "5" : "0");
+
+        sCD.put("mp02cd002", mp02cd00201.isChecked() ? "1" : mp02cd00202.isChecked() ? "2" : mp02cd00203.isChecked() ? "3"
+                : mp02cd00204.isChecked() ? "4" : mp02cd00205.isChecked() ? "5" : "0");
+
+        sCD.put("mp02cd003", mp02cd00301.isChecked() ? "1" : mp02cd00302.isChecked() ? "2" : mp02cd00303.isChecked() ? "3"
+                : mp02cd00304.isChecked() ? "4" : mp02cd00305.isChecked() ? "5" : "0");
+
+        sCD.put("mp02cd004", mp02cd00401.isChecked() ? "1" : mp02cd00402.isChecked() ? "2" : mp02cd00403.isChecked() ? "3"
+                : mp02cd00404.isChecked() ? "4" : mp02cd00405.isChecked() ? "5" : "0");
+
+        sCD.put("mp02cd005", mp02cd00501.isChecked() ? "1" : mp02cd00502.isChecked() ? "2" : mp02cd00503.isChecked() ? "3"
+                : mp02cd00504.isChecked() ? "4" : mp02cd00505.isChecked() ? "5" : "0");
+
+        sCD.put("mp02cd006", mp02cd00601.isChecked() ? "1" : mp02cd00602.isChecked() ? "2" : mp02cd00603.isChecked() ? "3"
+                : mp02cd00604.isChecked() ? "4" : mp02cd00605.isChecked() ? "5" : "0");
+
+        sCD.put("mp02cd007", mp02cd00701.isChecked() ? "1" : mp02cd00702.isChecked() ? "2" : mp02cd00703.isChecked() ? "3"
+                : mp02cd00704.isChecked() ? "4" : mp02cd00705.isChecked() ? "5" : "0");
+
+        sCD.put("mp02cd008", mp02cd00801.isChecked() ? "1" : mp02cd00802.isChecked() ? "2" : mp02cd00803.isChecked() ? "3"
+                : mp02cd00804.isChecked() ? "4" : mp02cd00805.isChecked() ? "5" : "0");
+
+        sCD.put("mp02cd009", mp02cd00901.isChecked() ? "1" : mp02cd00902.isChecked() ? "2" : mp02cd00903.isChecked() ? "3"
+                : mp02cd00904.isChecked() ? "4" : mp02cd00905.isChecked() ? "5" : "0");
+
+        sCD.put("mp02cd010", mp02cd01001.isChecked() ? "1" : mp02cd01002.isChecked() ? "2" : mp02cd01003.isChecked() ? "3"
+                : mp02cd01004.isChecked() ? "4" : mp02cd01005.isChecked() ? "5" : "0");
+
+        //MPApp.fc.setROW_SCD(String.valueOf(sCD));
+
+        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+    }
+
+    private boolean UpdateDB() {
+        DatabaseHelper db = new DatabaseHelper(this);
+
+//        int updcount = db.updateSCD();
+//
+//        if (updcount == 1) {
+//            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+//            return true;
+//        } else {
+//            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+//            return false;
+//        }
+
+        return true;
+
+    }
+
+
+    public boolean ValidateForm() {
+
+
+//        1
+        if (mp02cd001.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mp02cd001), Toast.LENGTH_SHORT).show();
+            mp02cd00105.setError("This data is Required!");
+            return false;
+        } else {
+            mp02cd00105.setError(null);
+        }
+
+//        1
+        if (mp02cd002.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mp02cd002), Toast.LENGTH_SHORT).show();
+            mp02cd00205.setError("This data is Required!");
+            return false;
+        } else {
+            mp02cd00205.setError(null);
+        }
+
+//        1
+        if (mp02cd003.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mp02cd003), Toast.LENGTH_SHORT).show();
+            mp02cd00305.setError("This data is Required!");
+            return false;
+        } else {
+            mp02cd00305.setError(null);
+        }
+
+//        1
+        if (mp02cd004.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mp02cd004), Toast.LENGTH_SHORT).show();
+            mp02cd00405.setError("This data is Required!");
+            return false;
+        } else {
+            mp02cd00405.setError(null);
+        }
+
+//        1
+        if (mp02cd005.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mp02cd005), Toast.LENGTH_SHORT).show();
+            mp02cd00505.setError("This data is Required!");
+            return false;
+        } else {
+            mp02cd00505.setError(null);
+        }
+
+//        1
+        if (mp02cd006.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mp02cd006), Toast.LENGTH_SHORT).show();
+            mp02cd00605.setError("This data is Required!");
+            return false;
+        } else {
+            mp02cd00605.setError(null);
+        }
+
+//        1
+        if (mp02cd007.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mp02cd007), Toast.LENGTH_SHORT).show();
+            mp02cd00705.setError("This data is Required!");
+            return false;
+        } else {
+            mp02cd00705.setError(null);
+        }
+
+//        1
+        if (mp02cd008.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mp02cd008), Toast.LENGTH_SHORT).show();
+            mp02cd00805.setError("This data is Required!");
+            return false;
+        } else {
+            mp02cd00805.setError(null);
+        }
+
+//        1
+        if (mp02cd009.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mp02cd009), Toast.LENGTH_SHORT).show();
+            mp02cd00905.setError("This data is Required!");
+            return false;
+        } else {
+            mp02cd00905.setError(null);
+        }
+
+//        1
+        if (mp02cd010.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mp02cd010), Toast.LENGTH_SHORT).show();
+            mp02cd01005.setError("This data is Required!");
+            return false;
+        } else {
+            mp02cd01005.setError(null);
+        }
+
+        return true;
     }
 
 

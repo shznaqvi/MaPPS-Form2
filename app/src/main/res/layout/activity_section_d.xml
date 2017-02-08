@@ -81,7 +81,7 @@
                 android:maxLength="2" />
 
             <EditText
-                android:id="@+id/mp02d002id2"
+                android:id="@+id/mp02d002id1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mp02dsubM2"
@@ -116,39 +116,39 @@
                     android:text="@string/no" />
             </RadioGroup>
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/fldGrpmp02d004"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/dullWhile"
-                android:text="@string/mp02d003sub"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/mp02d004"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="2dp"
+                    android:text="@string/mp02d004"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
 
-            <EditText
-                android:id="@+id/mp02d004"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="cm"
-                android:inputType="number"
-                android:maxLength="2" />
+                <EditText
+                    android:id="@+id/mp02d004"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="cm"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
-            <EditText
-                android:id="@+id/mp02d004id3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/mp02dsubM3"
-                android:inputType="number"
-                android:maxLength="2" />
+                <EditText
+                    android:id="@+id/mp02d004id3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mp02dsubM3"
+                    android:inputType="number"
+                    android:maxLength="2" />
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -230,39 +230,39 @@
                     android:text="@string/no" />
             </RadioGroup>
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/fldGrpmp02d008"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/dullWhile"
-                android:text="@string/mp02d007sub"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/mp02d008"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="2dp"
+                    android:text="@string/mp02d008"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
 
-            <EditText
-                android:id="@+id/mp02d008"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="kg"
-                android:inputType="number"
-                android:maxLength="2" />
+                <EditText
+                    android:id="@+id/mp02d008"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="kg"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
-            <EditText
-                android:id="@+id/mp02d008id3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/mp02dsubM3"
-                android:inputType="number"
-                android:maxLength="2" />
+                <EditText
+                    android:id="@+id/mp02d008id3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mp02dsubM3"
+                    android:inputType="number"
+                    android:maxLength="2" />
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -344,40 +344,39 @@
                     android:text="@string/no" />
             </RadioGroup>
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/fldGrpmp02d012"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/dullWhile"
-                android:text="@string/mp02d011sub"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/mp02d012"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="2dp"
+                    android:text="@string/mp02d012"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
 
-            <EditText
-                android:id="@+id/mp02d012"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="cm"
-                android:inputType="number"
-                android:maxLength="2" />
+                <EditText
+                    android:id="@+id/mp02d012"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="cm"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
-            <EditText
-                android:id="@+id/mp02d012id3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/mp02dsubM3"
-                android:inputType="number"
-                android:maxLength="2" />
+                <EditText
+                    android:id="@+id/mp02d012id3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mp02dsubM3"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
+            </LinearLayout>
 
             <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
 
