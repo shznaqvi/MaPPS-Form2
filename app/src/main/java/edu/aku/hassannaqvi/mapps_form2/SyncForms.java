@@ -74,7 +74,7 @@ public class SyncForms extends AsyncTask<String, Void, String> {
             json = new JSONArray(result);
             DatabaseHelper db = new DatabaseHelper(mContext);
             for (int i = 0; i < json.length(); i++) {
-                db.updateForms(json.getString(i));
+//                db.updateForms(json.getString(i));
             }
             Toast.makeText(mContext, "Successfully Synced " + json.length() + " Forms", Toast.LENGTH_SHORT).show();
 
