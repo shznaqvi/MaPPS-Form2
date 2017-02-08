@@ -307,7 +307,7 @@ public class SectionBBActivity extends Activity {
                     fldGrpmp02bb018.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpmp02bb018.setVisibility(View.GONE);
-                    mp02bb017.clearCheck();
+                    mp02bb018.clearCheck();
 
                 }
             }
