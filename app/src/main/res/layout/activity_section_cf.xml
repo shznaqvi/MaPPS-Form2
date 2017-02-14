@@ -142,8 +142,7 @@
                 android:id="@+id/fldGrpmp02cf04"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:visibility="gone">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -158,17 +157,18 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
+                    android:textColor="@color/white"
                     android:text="@string/mp02cf004sub00"
-                    android:textColor="@color/colorPrimary"
+                    android:background="@color/colorPrimary"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
+                    android:textColor="@color/white"
                     android:text="@string/mp02cf004sub99"
-                    android:textColor="@color/colorPrimary"
+                    android:background="@color/colorPrimary"
                     android:textSize="15sp" />
 
                 <EditText
@@ -215,8 +215,7 @@
                     android:id="@+id/fldGrpmp02cf06"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:visibility="gone">
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -744,8 +743,7 @@
                     android:id="@+id/fldGrpmp02cf21"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:visibility="gone">
+                    android:orientation="vertical">
 
 
                     <TextView
@@ -802,8 +800,7 @@
                     android:id="@+id/fldGrpmp02cf23"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:visibility="gone">
+                    android:orientation="vertical">
 
 
                     <TextView
@@ -1021,8 +1018,7 @@
                     android:id="@+id/fldGrpmp02cf26"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:visibility="gone">
+                    android:orientation="vertical">
 
 
                     <TextView
@@ -1124,7 +1120,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="endInterview"
                     android:text="@string/end_interview"
                     android:textColor="#ff1e1e" />
 
@@ -1134,7 +1129,6 @@
                     android:id="@+id/btn_Continue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="startInterview"
                     android:text="@string/start_interview"
                     android:textColor="@color/colorPrimary" />
                 <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
