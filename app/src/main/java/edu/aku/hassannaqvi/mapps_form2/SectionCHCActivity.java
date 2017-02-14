@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -163,9 +164,9 @@ public class SectionCHCActivity extends Activity {
     RadioButton mp02chc01203;
 
     @BindView(R.id.fldGrpmp02chc002)
-    RadioButton fldGrpmp02chc002;
+    LinearLayout fldGrpmp02chc002;
     @BindView(R.id.fldGrpmp02chc011)
-    RadioButton fldGrpmp02chc011;
+    LinearLayout fldGrpmp02chc011;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
