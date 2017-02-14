@@ -319,7 +319,7 @@ public class SectionCEActivity extends Activity {
 
 //      1
         if (!(mp02ce00101.isChecked() || mp02ce00102.isChecked() || mp02ce00103.isChecked() || mp02ce00104.isChecked()
-                || mp02ce00105.isChecked() || mp02ce00106.isChecked() || mp02ce00106.isChecked() || mp02ce00188.isChecked()
+                || mp02ce00105.isChecked() || mp02ce00106.isChecked() || mp02ce00188.isChecked()
         )) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02ce001), Toast.LENGTH_LONG).show();
             mp02ce00188.setError("This data is Required!");    // Set Error on last radio button
@@ -338,7 +338,7 @@ public class SectionCEActivity extends Activity {
 
 //      2
         if (!(mp02ce00201.isChecked() || mp02ce00202.isChecked() || mp02ce00203.isChecked() || mp02ce00204.isChecked()
-                || mp02ce00205.isChecked() || mp02ce00206.isChecked() || mp02ce00206.isChecked() || mp02ce00288.isChecked()
+                || mp02ce00205.isChecked() || mp02ce00206.isChecked() || mp02ce00288.isChecked()
         )) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02ce002), Toast.LENGTH_LONG).show();
             mp02ce00288.setError("This data is Required!");    // Set Error on last radio button
@@ -357,7 +357,7 @@ public class SectionCEActivity extends Activity {
 
 //      3
         if (!(mp02ce00301.isChecked() || mp02ce00302.isChecked() || mp02ce00303.isChecked() || mp02ce00304.isChecked()
-                || mp02ce00305.isChecked() || mp02ce00306.isChecked() || mp02ce00306.isChecked() || mp02ce00388.isChecked()
+                || mp02ce00305.isChecked() || mp02ce00306.isChecked() || mp02ce00388.isChecked()
         )) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02ce003), Toast.LENGTH_LONG).show();
             mp02ce00388.setError("This data is Required!");    // Set Error on last radio button
@@ -376,7 +376,7 @@ public class SectionCEActivity extends Activity {
 
 //      4
         if (!(mp02ce00401.isChecked() || mp02ce00402.isChecked() || mp02ce00403.isChecked() || mp02ce00404.isChecked()
-                || mp02ce00405.isChecked() || mp02ce00406.isChecked() || mp02ce00406.isChecked() || mp02ce00488.isChecked()
+                || mp02ce00405.isChecked() || mp02ce00406.isChecked() || mp02ce00488.isChecked()
         )) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02ce004), Toast.LENGTH_LONG).show();
             mp02ce00488.setError("This data is Required!");    // Set Error on last radio button
@@ -395,7 +395,7 @@ public class SectionCEActivity extends Activity {
 
 //      5
         if (!(mp02ce00501.isChecked() || mp02ce00502.isChecked() || mp02ce00503.isChecked() || mp02ce00504.isChecked()
-                || mp02ce00505.isChecked() || mp02ce00506.isChecked() || mp02ce00506.isChecked() || mp02ce00588.isChecked()
+                || mp02ce00505.isChecked() || mp02ce00506.isChecked() || mp02ce00588.isChecked()
         )) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02ce005), Toast.LENGTH_LONG).show();
             mp02ce00588.setError("This data is Required!");    // Set Error on last radio button
@@ -414,7 +414,7 @@ public class SectionCEActivity extends Activity {
 
 //      6
         if (!(mp02ce00601.isChecked() || mp02ce00602.isChecked() || mp02ce00603.isChecked() || mp02ce00604.isChecked()
-                || mp02ce00605.isChecked() || mp02ce00606.isChecked() || mp02ce00606.isChecked() || mp02ce00688.isChecked()
+                || mp02ce00605.isChecked() || mp02ce00606.isChecked() || mp02ce00688.isChecked()
         )) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02ce006), Toast.LENGTH_LONG).show();
             mp02ce00688.setError("This data is Required!");    // Set Error on last radio button
