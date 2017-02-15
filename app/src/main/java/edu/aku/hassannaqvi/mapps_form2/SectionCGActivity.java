@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -186,13 +187,13 @@ public class SectionCGActivity extends Activity {
     EditText mp02cg01688x;
 
     @BindView(R.id.fldGrpmp02cg002)
-    EditText fldGrpmp02cg002;
+    LinearLayout fldGrpmp02cg002;
     @BindView(R.id.fldGrpmp02cg006)
-    EditText fldGrpmp02cg006;
+    LinearLayout fldGrpmp02cg006;
     @BindView(R.id.fldGrpmp02cg010)
-    EditText fldGrpmp02cg010;
+    LinearLayout fldGrpmp02cg010;
     @BindView(R.id.fldGrpmp02cg014)
-    EditText fldGrpmp02cg014;
+    LinearLayout fldGrpmp02cg014;
 
 
     @Override
