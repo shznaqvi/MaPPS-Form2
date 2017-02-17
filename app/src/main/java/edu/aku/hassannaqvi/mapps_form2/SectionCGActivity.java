@@ -403,6 +403,13 @@ public class SectionCGActivity extends Activity {
             } else {
                 mp02cg00301.setError(null);
             }
+            if (Integer.parseInt(mp02cg00301.getText().toString()) < 0 || Integer.parseInt(mp02cg00301.getText().toString()) > 11) {
+                Toast.makeText(this, "Invalid:" + getString(R.string.mp02cg003m), Toast.LENGTH_SHORT).show();
+                mp02cg00301.setError("Invalid:Month range 0 - 11");
+                return false;
+            } else {
+                mp02cg00301.setError(null);
+            }
 
             if (mp02cg00302.getText().toString().isEmpty()) {
                 Toast.makeText(this, "" + getString(R.string.mp02cg003d), Toast.LENGTH_SHORT).show();
@@ -411,6 +418,14 @@ public class SectionCGActivity extends Activity {
             } else {
                 mp02cg00302.setError(null);
             }
+            if (Integer.parseInt(mp02cg00302.getText().toString()) < 0 || Integer.parseInt(mp02cg00302.getText().toString()) > 29) {
+                Toast.makeText(this, "Invalid:" + getString(R.string.mp02cg003d), Toast.LENGTH_SHORT).show();
+                mp02cg00302.setError("Invalid:Month range 0 - 29");
+                return false;
+            } else {
+                mp02cg00302.setError(null);
+            }
+
 
 //            4
             if (mp02cg004.getCheckedRadioButtonId() == -1) {
@@ -459,10 +474,24 @@ public class SectionCGActivity extends Activity {
             } else {
                 mp02cg00701.setError(null);
             }
+            if (Integer.parseInt(mp02cg00701.getText().toString()) < 0 || Integer.parseInt(mp02cg00701.getText().toString()) > 11) {
+                Toast.makeText(this, "Invalid:" + getString(R.string.mp02cg007m), Toast.LENGTH_SHORT).show();
+                mp02cg00701.setError("Invalid:Month range 0 - 11");
+                return false;
+            } else {
+                mp02cg00701.setError(null);
+            }
 
             if (mp02cg00702.getText().toString().isEmpty()) {
                 Toast.makeText(this, "" + getString(R.string.mp02cg007d), Toast.LENGTH_SHORT).show();
                 mp02cg00702.setError("This data is Required!");
+                return false;
+            } else {
+                mp02cg00702.setError(null);
+            }
+            if (Integer.parseInt(mp02cg00702.getText().toString()) < 0 || Integer.parseInt(mp02cg00702.getText().toString()) > 29) {
+                Toast.makeText(this, "Invalid:" + getString(R.string.mp02cg007d), Toast.LENGTH_SHORT).show();
+                mp02cg00702.setError("Invalid:Month range 0 - 29");
                 return false;
             } else {
                 mp02cg00702.setError(null);
@@ -515,10 +544,24 @@ public class SectionCGActivity extends Activity {
             } else {
                 mp02cg01101.setError(null);
             }
+            if (Integer.parseInt(mp02cg01101.getText().toString()) < 0 || Integer.parseInt(mp02cg01101.getText().toString()) > 11) {
+                Toast.makeText(this, "Invalid:" + getString(R.string.mp02cg011m), Toast.LENGTH_SHORT).show();
+                mp02cg01101.setError("Invalid:Month range 0 - 11");
+                return false;
+            } else {
+                mp02cg01101.setError(null);
+            }
 
             if (mp02cg01102.getText().toString().isEmpty()) {
                 Toast.makeText(this, "" + getString(R.string.mp02cg011d), Toast.LENGTH_SHORT).show();
                 mp02cg01102.setError("This data is Required!");
+                return false;
+            } else {
+                mp02cg01102.setError(null);
+            }
+            if (Integer.parseInt(mp02cg01102.getText().toString()) < 0 || Integer.parseInt(mp02cg01102.getText().toString()) > 29) {
+                Toast.makeText(this, "Invalid:" + getString(R.string.mp02cg011d), Toast.LENGTH_SHORT).show();
+                mp02cg01102.setError("Invalid:Month range 0 - 29");
                 return false;
             } else {
                 mp02cg01102.setError(null);
@@ -554,7 +597,7 @@ public class SectionCGActivity extends Activity {
 //        Skip
         if (mp02cg01301.isChecked()) {
 
-//            10
+//            14
             if (mp02cg014.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "" + getString(R.string.mp02cg014), Toast.LENGTH_SHORT).show();
                 mp02cg01405.setError("This data is Required!");
@@ -563,10 +606,17 @@ public class SectionCGActivity extends Activity {
                 mp02cg01405.setError(null);
             }
 
-//        11
+//        15
             if (mp02cg01501.getText().toString().isEmpty()) {
                 Toast.makeText(this, "" + getString(R.string.mp02cg015m), Toast.LENGTH_SHORT).show();
                 mp02cg01501.setError("This data is Required!");
+                return false;
+            } else {
+                mp02cg01501.setError(null);
+            }
+            if (Integer.parseInt(mp02cg01501.getText().toString()) < 0 || Integer.parseInt(mp02cg01501.getText().toString()) > 11) {
+                Toast.makeText(this, "Invalid:" + getString(R.string.mp02cg015m), Toast.LENGTH_SHORT).show();
+                mp02cg01501.setError("Invalid:Month range 0 - 11");
                 return false;
             } else {
                 mp02cg01501.setError(null);
@@ -579,8 +629,15 @@ public class SectionCGActivity extends Activity {
             } else {
                 mp02cg01502.setError(null);
             }
+            if (Integer.parseInt(mp02cg01502.getText().toString()) < 0 || Integer.parseInt(mp02cg01502.getText().toString()) > 29) {
+                Toast.makeText(this, "Invalid:" + getString(R.string.mp02cg015d), Toast.LENGTH_SHORT).show();
+                mp02cg01502.setError("Invalid:Month range 0 - 29");
+                return false;
+            } else {
+                mp02cg01502.setError(null);
+            }
 
-//            12
+//            16
             if (mp02cg016.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "" + getString(R.string.mp02cg016), Toast.LENGTH_SHORT).show();
                 mp02cg01688.setError("This data is Required!");

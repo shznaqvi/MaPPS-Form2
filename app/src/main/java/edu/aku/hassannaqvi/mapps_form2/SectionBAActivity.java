@@ -381,6 +381,8 @@ public class SectionBAActivity extends Activity {
     @BindView(R.id.mp02ba02088x)
     EditText mp02ba02088x;
 
+    @BindView(R.id.fldGrpmp02ba010)
+    LinearLayout fldGrpmp02ba010;
     @BindView(R.id.fldGrpmp02ba011)
     LinearLayout fldGrpmp02ba011;
     @BindView(R.id.fldGrpmp02ba019)
@@ -502,6 +504,19 @@ public class SectionBAActivity extends Activity {
             }
         });
 
+        mp02ba00905.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    fldGrpmp02ba010.setVisibility(View.GONE);
+                    mp02ba010.clearCheck();
+                    mp02ba011.setText(null);
+                }else {
+                    fldGrpmp02ba010.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
         mp02ba00988.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -612,6 +627,14 @@ public class SectionBAActivity extends Activity {
         if (mp02ba001.getText().toString().isEmpty()) {
             Toast.makeText(this, "" + getString(R.string.mp02ba001), Toast.LENGTH_SHORT).show();
             mp02ba001.setError("This data is Required!");
+            return false;
+        } else {
+            mp02ba001.setError(null);
+        }
+
+        if (Integer.parseInt(mp02ba001.getText().toString()) < 1) {
+            Toast.makeText(this, "Invalid:" + getString(R.string.mp02ba001), Toast.LENGTH_SHORT).show();
+            mp02ba001.setError("Invalid: Greater than 0");
             return false;
         } else {
             mp02ba001.setError(null);
@@ -750,23 +773,34 @@ public class SectionBAActivity extends Activity {
             mp02ba00988x.setError(null);
         }
 
+//        Skip
+        if (!mp02ba00905.isChecked()) {
 //        24
-        if (mp02ba010.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "" + getString(R.string.mp02ba010), Toast.LENGTH_SHORT).show();
-            mp02ba01002.setError("This data is Required!");
-            return false;
-        } else {
-            mp02ba01002.setError(null);
-        }
-
-//        25
-        if (mp02ba01001.isChecked()){
-            if (mp02ba011.getText().toString().isEmpty()) {
-                Toast.makeText(this, "" + getString(R.string.mp02ba011), Toast.LENGTH_SHORT).show();
-                mp02ba011.setError("This data is Required!");
+            if (mp02ba010.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "" + getString(R.string.mp02ba010), Toast.LENGTH_SHORT).show();
+                mp02ba01002.setError("This data is Required!");
                 return false;
             } else {
-                mp02ba011.setError(null);
+                mp02ba01002.setError(null);
+            }
+
+//        25
+            if (mp02ba01001.isChecked()) {
+                if (mp02ba011.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "" + getString(R.string.mp02ba011), Toast.LENGTH_SHORT).show();
+                    mp02ba011.setError("This data is Required!");
+                    return false;
+                } else {
+                    mp02ba011.setError(null);
+                }
+
+                if (Integer.parseInt(mp02ba011.getText().toString()) < 1) {
+                    Toast.makeText(this, "Invalid:" + getString(R.string.mp02ba011), Toast.LENGTH_SHORT).show();
+                    mp02ba011.setError("Invalid: Greater than 0");
+                    return false;
+                } else {
+                    mp02ba011.setError(null);
+                }
             }
         }
 
