@@ -182,9 +182,24 @@ public class SectionDActivity extends Activity {
         } else {
             mp02d001.setError(null);
         }
+        if (Integer.parseInt(mp02d001.getText().toString()) < 1) {
+            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d001), Toast.LENGTH_SHORT).show();
+            mp02d001.setError("Invalid: Greater then 0");
+            return false;
+        } else {
+            mp02d001.setError(null);
+        }
+
         if (mp02d001id1.getText().toString().isEmpty()) {
             Toast.makeText(this, "" + getString(R.string.mp02d001), Toast.LENGTH_SHORT).show();
             mp02d001id1.setError("This data is Required!");
+            return false;
+        } else {
+            mp02d001id1.setError(null);
+        }
+        if (Integer.parseInt(mp02d001id1.getText().toString()) < 1) {
+            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d001), Toast.LENGTH_SHORT).show();
+            mp02d001id1.setError("Invalid: Greater then 0");
             return false;
         } else {
             mp02d001id1.setError(null);
@@ -198,9 +213,24 @@ public class SectionDActivity extends Activity {
         } else {
             mp02d002.setError(null);
         }
+        if (Integer.parseInt(mp02d002.getText().toString()) < 1) {
+            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d002), Toast.LENGTH_SHORT).show();
+            mp02d002.setError("Invalid: Greater then 0");
+            return false;
+        } else {
+            mp02d002.setError(null);
+        }
+
         if (mp02d002id2.getText().toString().isEmpty()) {
             Toast.makeText(this, "" + getString(R.string.mp02d002), Toast.LENGTH_SHORT).show();
             mp02d002id2.setError("This data is Required!");
+            return false;
+        } else {
+            mp02d002id2.setError(null);
+        }
+        if (Integer.parseInt(mp02d002id2.getText().toString()) < 1) {
+            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d002), Toast.LENGTH_SHORT).show();
+            mp02d002id2.setError("Invalid: Greater then 0");
             return false;
         } else {
             mp02d002id2.setError(null);
@@ -225,9 +255,24 @@ public class SectionDActivity extends Activity {
             } else {
                 mp02d004.setError(null);
             }
+            if (Integer.parseInt(mp02d004.getText().toString()) < 1) {
+                Toast.makeText(this, "Invalid:" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
+                mp02d004.setError("Invalid: Greater then 0");
+                return false;
+            } else {
+                mp02d004.setError(null);
+            }
+
             if (mp02d004id3.getText().toString().isEmpty()) {
                 Toast.makeText(this, "" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
                 mp02d004id3.setError("This data is Required!");
+                return false;
+            } else {
+                mp02d004id3.setError(null);
+            }
+            if (Integer.parseInt(mp02d004id3.getText().toString()) < 1) {
+                Toast.makeText(this, "Invalid:" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
+                mp02d004id3.setError("Invalid: Greater then 0");
                 return false;
             } else {
                 mp02d004id3.setError(null);
@@ -242,9 +287,24 @@ public class SectionDActivity extends Activity {
         } else {
             mp02d005.setError(null);
         }
+        if (Integer.parseInt(mp02d005.getText().toString()) < 1) {
+            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d005), Toast.LENGTH_SHORT).show();
+            mp02d005.setError("Invalid: Greater then 0");
+            return false;
+        } else {
+            mp02d005.setError(null);
+        }
+
         if (mp02d005id1.getText().toString().isEmpty()) {
             Toast.makeText(this, "" + getString(R.string.mp02d005), Toast.LENGTH_SHORT).show();
             mp02d005id1.setError("This data is Required!");
+            return false;
+        } else {
+            mp02d005id1.setError(null);
+        }
+        if (Integer.parseInt(mp02d005id1.getText().toString()) < 1) {
+            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d005), Toast.LENGTH_SHORT).show();
+            mp02d005id1.setError("Invalid: Greater then 0");
             return false;
         } else {
             mp02d005id1.setError(null);
@@ -258,9 +318,24 @@ public class SectionDActivity extends Activity {
         } else {
             mp02d006.setError(null);
         }
+        if (Integer.parseInt(mp02d006.getText().toString()) < 1) {
+            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d006), Toast.LENGTH_SHORT).show();
+            mp02d006.setError("Invalid: Greater then 0");
+            return false;
+        } else {
+            mp02d006.setError(null);
+        }
+
         if (mp02d006id1.getText().toString().isEmpty()) {
             Toast.makeText(this, "" + getString(R.string.mp02d006), Toast.LENGTH_SHORT).show();
             mp02d006id1.setError("This data is Required!");
+            return false;
+        } else {
+            mp02d006id1.setError(null);
+        }
+        if (Integer.parseInt(mp02d006id1.getText().toString()) < 1) {
+            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d006), Toast.LENGTH_SHORT).show();
+            mp02d006id1.setError("Invalid: Greater then 0");
             return false;
         } else {
             mp02d006id1.setError(null);
@@ -285,9 +360,24 @@ public class SectionDActivity extends Activity {
             } else {
                 mp02d008.setError(null);
             }
+            if (Integer.parseInt(mp02d008.getText().toString()) < 1) {
+                Toast.makeText(this, "Invalid:" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
+                mp02d008.setError("Invalid: Greater then 0");
+                return false;
+            } else {
+                mp02d008.setError(null);
+            }
+
             if (mp02d008id3.getText().toString().isEmpty()) {
                 Toast.makeText(this, "" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
                 mp02d008id3.setError("This data is Required!");
+                return false;
+            } else {
+                mp02d008id3.setError(null);
+            }
+            if (Integer.parseInt(mp02d008id3.getText().toString()) < 1) {
+                Toast.makeText(this, "Invalid:" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
+                mp02d008id3.setError("Invalid: Greater then 0");
                 return false;
             } else {
                 mp02d008id3.setError(null);
@@ -302,9 +392,24 @@ public class SectionDActivity extends Activity {
         } else {
             mp02d009.setError(null);
         }
+        if (Integer.parseInt(mp02d009.getText().toString()) < 1) {
+            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d009), Toast.LENGTH_SHORT).show();
+            mp02d009.setError("Invalid: Greater then 0");
+            return false;
+        } else {
+            mp02d009.setError(null);
+        }
+
         if (mp02d009id1.getText().toString().isEmpty()) {
             Toast.makeText(this, "" + getString(R.string.mp02d009), Toast.LENGTH_SHORT).show();
             mp02d009id1.setError("This data is Required!");
+            return false;
+        } else {
+            mp02d009id1.setError(null);
+        }
+        if (Integer.parseInt(mp02d009id1.getText().toString()) < 1) {
+            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d009), Toast.LENGTH_SHORT).show();
+            mp02d009id1.setError("Invalid: Greater then 0");
             return false;
         } else {
             mp02d009id1.setError(null);
@@ -318,9 +423,24 @@ public class SectionDActivity extends Activity {
         } else {
             mp02d010.setError(null);
         }
+        if (Integer.parseInt(mp02d010.getText().toString()) < 1) {
+            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d010), Toast.LENGTH_SHORT).show();
+            mp02d010.setError("Invalid: Greater then 0");
+            return false;
+        } else {
+            mp02d010.setError(null);
+        }
+
         if (mp02d010id2.getText().toString().isEmpty()) {
             Toast.makeText(this, "" + getString(R.string.mp02d010), Toast.LENGTH_SHORT).show();
             mp02d010id2.setError("This data is Required!");
+            return false;
+        } else {
+            mp02d010id2.setError(null);
+        }
+        if (Integer.parseInt(mp02d010id2.getText().toString()) < 1) {
+            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d010), Toast.LENGTH_SHORT).show();
+            mp02d010id2.setError("Invalid: Greater then 0");
             return false;
         } else {
             mp02d010id2.setError(null);
@@ -345,9 +465,24 @@ public class SectionDActivity extends Activity {
             } else {
                 mp02d012.setError(null);
             }
+            if (Integer.parseInt(mp02d012.getText().toString()) < 1) {
+                Toast.makeText(this, "Invalid:" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
+                mp02d012.setError("Invalid: Greater then 0");
+                return false;
+            } else {
+                mp02d012.setError(null);
+            }
+
             if (mp02d012id3.getText().toString().isEmpty()) {
                 Toast.makeText(this, "" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
                 mp02d012id3.setError("This data is Required!");
+                return false;
+            } else {
+                mp02d012id3.setError(null);
+            }
+            if (Integer.parseInt(mp02d012id3.getText().toString()) < 1) {
+                Toast.makeText(this, "Invalid:" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
+                mp02d012id3.setError("Invalid: Greater then 0");
                 return false;
             } else {
                 mp02d012id3.setError(null);
