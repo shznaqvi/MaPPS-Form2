@@ -653,6 +653,7 @@ public class SectionCFActivity extends Activity {
                 (Integer.parseInt(mp02cf002.getText().toString()) < 10) || (Integer.parseInt(mp02cf002.getText().toString()) > 18)) {
             Toast.makeText(this, "ERROR: " + getString(R.string.mp02cf002), Toast.LENGTH_LONG).show();
             mp02cf002.setError("Age Limit is from 10 to 18 Years! ");
+            Log.i(TAG, "mp02cf002: Age Limit is from 10 to 18 Years");
             return false;
         } else {
             mp02cf002.setError(null);
@@ -689,6 +690,7 @@ public class SectionCFActivity extends Activity {
                     && (Integer.parseInt(mp02cf004.getText().toString()) != 99)) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mp02cf004), Toast.LENGTH_LONG).show();
                 mp02cf004.setError("Age Limit is from 13 to 23 Years");
+                Log.i(TAG, "mp02cf004: Age Limit is from 13 to 23 Years");
                 return false;
             } else {
                 mp02cf004.setError(null);
@@ -808,6 +810,7 @@ public class SectionCFActivity extends Activity {
                         && (Integer.parseInt(mp02cf014.getText().toString()) != 99))) {
                     Toast.makeText(this, "ERROR(Range Error): " + getString(R.string.mp02cf014), Toast.LENGTH_LONG).show();
                     mp02cf014.setError("Range is 13 to 23 Years!");    // Set Error on last radio button
+                    Log.i(TAG, "mp02cf014: Age Limit is from 13 to 23 Years");
 
                 } else {
                     mp02cf014.setError(null);
@@ -827,7 +830,8 @@ public class SectionCFActivity extends Activity {
                 if ((Integer.parseInt(mp02cf015.getText().toString()) < 0) || (Integer.parseInt(mp02cf015.getText().toString()) > 15
                         && (Integer.parseInt(mp02cf015.getText().toString()) != 99))) {
                     Toast.makeText(this, "ERROR(Range Error): " + getString(R.string.mp02cf015), Toast.LENGTH_LONG).show();
-                    mp02cf015.setError("Range is 13 to 23 Years!");    // Set Error on last radio button
+                    mp02cf015.setError("Range is 1 to 15 Times!");    // Set Error on last radio button
+                    Log.i(TAG, "mp02cf015: Range is 1 to 15 times");
 
                 } else {
                     mp02cf015.setError(null);
