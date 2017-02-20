@@ -157,18 +157,18 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="@string/mp02cf004sub00"
                     android:background="@color/colorPrimary"
+                    android:text="@string/mp02cf004sub00"
                     android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/white"
                     android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="@string/mp02cf004sub99"
                     android:background="@color/colorPrimary"
+                    android:text="@string/mp02cf004sub99"
+                    android:textColor="@color/white"
                     android:textSize="15sp" />
 
                 <EditText
@@ -231,7 +231,9 @@
                         android:id="@+id/mp02cf006"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/mp02cf006" />
+                        android:hint="@string/mp02cf006"
+                        android:inputType="number"
+                        android:maxLength="1" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -248,7 +250,9 @@
                         android:id="@+id/mp02cf007"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/mp02cf007" />
+                        android:hint="@string/mp02cf007"
+                        android:inputType="number"
+                        android:maxLength="1" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -264,7 +268,9 @@
                         android:id="@+id/mp02cf008"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/mp02cf008" />
+                        android:hint="@string/mp02cf008"
+                        android:inputType="number"
+                        android:maxLength="1" />
 
 
                     <TextView
@@ -281,7 +287,9 @@
                         android:id="@+id/mp02cf009"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/mp02cf009" />
+                        android:hint="@string/mp02cf009"
+                        android:inputType="number"
+                        android:maxLength="1" />
 
 
                     <TextView
@@ -299,7 +307,9 @@
                         android:id="@+id/mp02cf010"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/mp02cf010" />
+                        android:hint="@string/mp02cf010"
+                        android:inputType="number"
+                        android:maxLength="1" />
 
 
                     <TextView
@@ -317,7 +327,9 @@
                         android:id="@+id/mp02cf011"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/mp02cf011" />
+                        android:hint="@string/mp02cf011"
+                        android:inputType="number"
+                        android:maxLength="1" />
 
 
                     <TextView
@@ -335,7 +347,9 @@
                         android:id="@+id/mp02cf012"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/mp02cf012" />
+                        android:hint="@string/mp02cf012"
+                        android:inputType="number"
+                        android:maxLength="1" />
 
 
                     <TextView
@@ -353,7 +367,9 @@
                         android:id="@+id/mp02cf013"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/mp02cf013" />
+                        android:hint="@string/mp02cf013"
+                        android:inputType="number"
+                        android:maxLength="1" />
 
 
                     <TextView
