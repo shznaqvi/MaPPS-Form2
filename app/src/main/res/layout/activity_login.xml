@@ -59,6 +59,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="0dp"
                 android:contentDescription="TVI LOGO"
+                android:src="@drawable/logo"
                 android:onClick="gotoMain" />
 
             <AutoCompleteTextView

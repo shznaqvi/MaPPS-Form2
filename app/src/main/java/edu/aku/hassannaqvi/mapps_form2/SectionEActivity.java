@@ -86,6 +86,13 @@ public class SectionEActivity extends Activity {
         } else {
             mp02e001.setError(null);
         }
+        if (Integer.parseInt(mp02e001.getText().toString()) < 1) {
+            Toast.makeText(this, "Invalid:" + getString(R.string.mp02e001), Toast.LENGTH_SHORT).show();
+            mp02e001.setError("Invalid: Greater then 0");
+            return false;
+        } else {
+            mp02e001.setError(null);
+        }
 
 //        2
         if (mp02e002.getCheckedRadioButtonId() == -1) {

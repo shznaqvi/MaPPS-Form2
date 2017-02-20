@@ -352,6 +352,14 @@ public class SectionCCActivity extends Activity  {
         } else {
             mp02cc001.setError(null);
         }
+        if (Integer.parseInt(mp02cc001.getText().toString()) < 0 || Integer.parseInt(mp02cc001.getText().toString()) > 7) {
+            Toast.makeText(this, "Invalid:" + getString(R.string.mp02cc001), Toast.LENGTH_SHORT).show();
+            mp02cc001.setError("Invalid: Range 0-7");
+            return false;
+        } else {
+            mp02cc001.setError(null);
+        }
+
 
 //        2
         if (mp02cc002.getCheckedRadioButtonId() == -1) {
@@ -568,7 +576,7 @@ public class SectionCCActivity extends Activity  {
         }
 
 //        23
-        if (!mp02cc02201.isChecked()){
+        if (mp02cc02201.isChecked()){
 
             //        23
             if (mp02cc023.getCheckedRadioButtonId() == -1) {
