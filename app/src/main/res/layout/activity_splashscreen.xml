@@ -18,8 +18,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:contentDescription="TVI LOGO"
-            android:src="@drawable/logo"
+            android:contentDescription="Mapps LOGO"
+            android:src="@drawable/mapps2_icon"
             android:paddingTop="72dp" />
 
         <TextView
