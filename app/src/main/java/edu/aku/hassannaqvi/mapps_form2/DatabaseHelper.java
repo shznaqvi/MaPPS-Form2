@@ -17,9 +17,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
+import edu.aku.hassannaqvi.mapps_form2.EligiblesContract.singleWoman;
 import edu.aku.hassannaqvi.mapps_form2.FormsContract.FormColumns;
 import edu.aku.hassannaqvi.mapps_form2.ParticipantsContract.ParticipantColumns;
-import edu.aku.hassannaqvi.mapps_form2.WomensContrat.singleWoman;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
@@ -88,7 +88,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + ParticipantColumns.COLUMN_SYNCED + " TEXT,"
             + ParticipantColumns.COLUMN_SYNCED_DATE + " TEXT"
             + " );";
-    private static final String SQL_CREATE_ELEGIBLES = "CREATE TABLE "
+    private static final String SQL_CREATE_ELIGIBLES = "CREATE TABLE "
             + ParticipantColumns.TABLE_NAME + "(" +
             singleWoman.COLUMN_NAME_LUID + " TEXT," +
             singleWoman.COLUMN_NAME_SUBAREACODE + " TEXT," +
@@ -147,6 +147,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public void syncEligiblies(JSONArray userlist) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(UsersContract.singleUser.TABLE_NAME, null, null);
+        Collection<EligiblesContract> allEC = new ArrayList<>();
+
+        try {
+            JSONArray jsonArray = userlist;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectEC = jsonArray.getJSONObject(i);
+
+                EligiblesContract ec = new EligiblesContract();
+                ec.Sync(jsonObjectEC);
+
+
+                ContentValues values = new ContentValues();
+
+                values.put(singleWoman.COLUMN_NAME_LUID, ec.getLUID());
+                values.put(singleWoman.COLUMN_NAME_SUBAREACODE, ec.getSubAreaCode());
+                values.put(singleWoman.COLUMN_NAME_LHWCODE, ec.getLhwCode());
+                values.put(singleWoman.COLUMN_NAME_HOUSEHOLD, ec.getHouseHold());
+                values.put(singleWoman.COLUMN_NAME_WOMEN_NAME, ec.getWomen_name());
+
+                db.insert(singleWoman.TABLE_NAME, null, values);
+            }
+            db.close();
+
+        } catch (Exception e) {
+        }
+    }
+
     public ArrayList<UsersContract> getAllUsers() {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<UsersContract> userList = null;
@@ -174,6 +204,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor mCursor = db.rawQuery("SELECT * FROM " + UsersContract.singleUser.TABLE_NAME + " WHERE " + UsersContract.singleUser.ROW_USERNAME + "=? AND " + UsersContract.singleUser.ROW_PASSWORD + "=?", new String[]{username, password});
+        db.close();
         if (mCursor != null) {
             if (mCursor.getCount() > 0) {
                 return true;
@@ -220,6 +251,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormColumns.TABLE_NAME,
                 FormColumns.COLUMN_NAME_NULLABLE,
                 values);
+        db.close();
         return newRowId;
     }
 
@@ -240,6 +272,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values,
                 where,
                 whereArgs);
+        db.close();
     }
 
     public Long addParticipants(ParticipantsContract pc) {
@@ -285,6 +318,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ParticipantColumns.TABLE_NAME,
                 ParticipantColumns.COLUMN_NAME_NULLABLE,
                 values);
+        db.close();
         return newRowId;
     }
 
@@ -305,6 +339,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values,
                 where,
                 whereArgs);
+        db.close();
     }
     public void updateBA(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -322,6 +357,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values,
                 where,
                 whereArgs);
+        db.close();
     }
 
     public void updateBB(String id) {
@@ -340,6 +376,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values,
                 where,
                 whereArgs);
+        db.close();
     }
 
     public Collection<FormsContract> getAllForms() {

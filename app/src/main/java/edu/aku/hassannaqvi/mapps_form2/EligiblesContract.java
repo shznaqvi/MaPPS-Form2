@@ -9,7 +9,7 @@ import org.json.JSONObject;
 /**
  * Created by hassan.naqvi on 12/2/2016.
  */
-public class WomensContrat {
+public class EligiblesContract {
     private static final String TAG = "Womens_CONTRACT";
 
     private Long _ID;
@@ -22,11 +22,11 @@ public class WomensContrat {
     private String houseHold;  // Structure
     private String women_name;
 
-    public WomensContrat() {
+    public EligiblesContract() {
     }
 
 
-    public WomensContrat Sync(JSONObject jsonObject) throws JSONException {
+    public EligiblesContract Sync(JSONObject jsonObject) throws JSONException {
         this._ID = jsonObject.getLong(singleWoman._ID);
         this.LUID = jsonObject.getString(singleWoman.COLUMN_NAME_LUID);
         this.subAreaCode = jsonObject.getString(singleWoman.COLUMN_NAME_SUBAREACODE);
@@ -37,7 +37,7 @@ public class WomensContrat {
 
     }
 
-    public WomensContrat Hydrate(Cursor cursor) {
+    public EligiblesContract Hydrate(Cursor cursor) {
         this._ID = cursor.getLong(cursor.getColumnIndex(singleWoman._ID));
         this.LUID = cursor.getString(cursor.getColumnIndex(singleWoman.COLUMN_NAME_LUID));
         this.subAreaCode = cursor.getString(cursor.getColumnIndex(singleWoman.COLUMN_NAME_SUBAREACODE));
