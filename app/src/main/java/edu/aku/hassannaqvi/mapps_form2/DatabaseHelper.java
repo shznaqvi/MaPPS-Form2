@@ -19,6 +19,7 @@ import java.util.Date;
 
 import edu.aku.hassannaqvi.mapps_form2.FormsContract.FormColumns;
 import edu.aku.hassannaqvi.mapps_form2.ParticipantsContract.ParticipantColumns;
+import edu.aku.hassannaqvi.mapps_form2.WomensContrat.singleWoman;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
@@ -33,7 +34,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "mapps_f2.db";
     private static final int DATABASE_VERSION = 1;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
-            + FormsContract.FormColumns.TABLE_NAME + "(" +
+            + FormColumns.TABLE_NAME + "(" +
             FormColumns.COLUMN_PROJECTNAME + " TEXT," +
             FormColumns.COLUMN_SURVEYTYPE + " TEXT," +
             FormColumns.COLUMN__ID + " TEXT," +
@@ -57,7 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             FormColumns.COLUMN_SYNCED_DATE + " TEXT"
             + " );";
     private static final String SQL_CREATE_PARTICIPANTS = "CREATE TABLE "
-            + FormsContract.FormColumns.TABLE_NAME + "("
+            + ParticipantColumns.TABLE_NAME + "("
             + ParticipantColumns.COLUMN_PROJECTNAME + " TEXT,"
             + ParticipantColumns.COLUMN_SURVEYTYPE + " TEXT,"
             + ParticipantColumns.COLUMN__ID + " TEXT,"
@@ -87,6 +88,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + ParticipantColumns.COLUMN_SYNCED + " TEXT,"
             + ParticipantColumns.COLUMN_SYNCED_DATE + " TEXT"
             + " );";
+    private static final String SQL_CREATE_ELEGIBLES = "CREATE TABLE "
+            + ParticipantColumns.TABLE_NAME + "(" +
+            singleWoman.COLUMN_NAME_LUID + " TEXT," +
+            singleWoman.COLUMN_NAME_SUBAREACODE + " TEXT," +
+            singleWoman.COLUMN_NAME_LHWCODE + " TEXT," +
+            singleWoman.COLUMN_NAME_HOUSEHOLD + " TEXT," +
+            singleWoman.COLUMN_NAME_WOMEN_NAME + " TEXT," +
+            " );";
     private static final String SQL_DELETE_USERS =
             "DROP TABLE IF EXISTS " + UsersContract.singleUser.TABLE_NAME;
     private static final String SQL_DELETE_FORMS =
