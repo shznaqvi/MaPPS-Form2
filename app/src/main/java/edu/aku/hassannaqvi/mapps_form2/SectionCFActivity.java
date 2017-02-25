@@ -649,6 +649,16 @@ public class SectionCFActivity extends Activity {
             mp02cf002.setError(null);
         }
 
+        if (Integer.parseInt(mp02cf002.getText().toString()) < 0 &&
+                (Integer.parseInt(mp02cf002.getText().toString()) < 10) || (Integer.parseInt(mp02cf002.getText().toString()) > 18)) {
+            Toast.makeText(this, "ERROR: " + getString(R.string.mp02cf002), Toast.LENGTH_LONG).show();
+            mp02cf002.setError("Age Limit is from 10 to 18 Years! ");
+            Log.i(TAG, "mp02cf002: Age Limit is from 10 to 18 Years");
+            return false;
+        } else {
+            mp02cf002.setError(null);
+        }
+
         //======================= Q 3 ===============
         if (mp02cf003.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf003), Toast.LENGTH_LONG).show();
@@ -674,6 +684,18 @@ public class SectionCFActivity extends Activity {
                 mp02cf004.setError(null);
             }
 
+            if (((Integer.parseInt(mp02cf004.getText().toString()) < 0)
+                    && (Integer.parseInt(mp02cf004.getText().toString()) < 13))
+                    || Integer.parseInt(mp02cf004.getText().toString()) > 23
+                    && (Integer.parseInt(mp02cf004.getText().toString()) != 99)) {
+                Toast.makeText(this, "ERROR: " + getString(R.string.mp02cf004), Toast.LENGTH_LONG).show();
+                mp02cf004.setError("Age Limit is from 13 to 23 Years");
+                Log.i(TAG, "mp02cf004: Age Limit is from 13 to 23 Years");
+                return false;
+            } else {
+                mp02cf004.setError(null);
+            }
+
             // ====================== Q 5 ===================
             if (mp02cf005.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf005), Toast.LENGTH_LONG).show();
@@ -687,7 +709,7 @@ public class SectionCFActivity extends Activity {
             // ============ Skip Check till question 20 ============
             if (mp02cf00501.isChecked()) {
                 // ====================== Q 6 ===================
-                if (mp02cf006.getText().toString().isEmpty()) {
+                if ((mp02cf006.getText().toString().isEmpty()) || Integer.parseInt(mp02cf006.getText().toString()) < 0) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf006), Toast.LENGTH_LONG).show();
                     mp02cf006.setError("This data is Required!");    // Set Error on last radio button
 
@@ -698,7 +720,7 @@ public class SectionCFActivity extends Activity {
                 }
 
                 // ====================== Q 7 ===================
-                if (mp02cf007.getText().toString().isEmpty()) {
+                if ((mp02cf007.getText().toString().isEmpty()) || Integer.parseInt(mp02cf007.getText().toString()) < 0) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf007), Toast.LENGTH_LONG).show();
                     mp02cf007.setError("This data is Required!");    // Set Error on last radio button
 
@@ -709,7 +731,7 @@ public class SectionCFActivity extends Activity {
                 }
 
                 // ====================== Q 8 ===================
-                if (mp02cf008.getText().toString().isEmpty()) {
+                if ((mp02cf008.getText().toString().isEmpty()) || Integer.parseInt(mp02cf008.getText().toString()) < 0) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf008), Toast.LENGTH_LONG).show();
                     mp02cf008.setError("This data is Required!");    // Set Error on last radio button
 
@@ -720,7 +742,7 @@ public class SectionCFActivity extends Activity {
                 }
 
                 // ====================== Q 9 ===================
-                if (mp02cf009.getText().toString().isEmpty()) {
+                if ((mp02cf009.getText().toString().isEmpty()) || Integer.parseInt(mp02cf009.getText().toString()) < 0) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf009), Toast.LENGTH_LONG).show();
                     mp02cf009.setError("This data is Required!");    // Set Error on last radio button
 
@@ -731,7 +753,7 @@ public class SectionCFActivity extends Activity {
                 }
 
                 // ====================== Q 10 ===================
-                if (mp02cf010.getText().toString().isEmpty()) {
+                if ((mp02cf010.getText().toString().isEmpty()) || Integer.parseInt(mp02cf010.getText().toString()) < 0) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf010), Toast.LENGTH_LONG).show();
                     mp02cf010.setError("This data is Required!");    // Set Error on last radio button
 
@@ -742,7 +764,7 @@ public class SectionCFActivity extends Activity {
                 }
 
                 // ====================== Q 11 ===================
-                if (mp02cf011.getText().toString().isEmpty()) {
+                if ((mp02cf011.getText().toString().isEmpty()) || Integer.parseInt(mp02cf011.getText().toString()) < 0) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf011), Toast.LENGTH_LONG).show();
                     mp02cf011.setError("This data is Required!");    // Set Error on last radio button
 
@@ -752,7 +774,7 @@ public class SectionCFActivity extends Activity {
                     mp02cf011.setError(null);
                 }
                 // ====================== Q 12 ===================
-                if (mp02cf012.getText().toString().isEmpty()) {
+                if ((mp02cf012.getText().toString().isEmpty()) || Integer.parseInt(mp02cf012.getText().toString()) < 0) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf012), Toast.LENGTH_LONG).show();
                     mp02cf012.setError("This data is Required!");    // Set Error on last radio button
 
@@ -763,7 +785,7 @@ public class SectionCFActivity extends Activity {
                 }
 
                 // ====================== Q 13 ===================
-                if (mp02cf013.getText().toString().isEmpty()) {
+                if ((mp02cf013.getText().toString().isEmpty()) || Integer.parseInt(mp02cf013.getText().toString()) < 0) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf013), Toast.LENGTH_LONG).show();
                     mp02cf013.setError("This data is Required!");    // Set Error on last radio button
 
@@ -784,6 +806,16 @@ public class SectionCFActivity extends Activity {
                     mp02cf014.setError(null);
                 }
 
+                if ((Integer.parseInt(mp02cf014.getText().toString()) < 13) || (Integer.parseInt(mp02cf014.getText().toString()) > 23
+                        && (Integer.parseInt(mp02cf014.getText().toString()) != 99))) {
+                    Toast.makeText(this, "ERROR(Range Error): " + getString(R.string.mp02cf014), Toast.LENGTH_LONG).show();
+                    mp02cf014.setError("Range is 13 to 23 Years!");    // Set Error on last radio button
+                    Log.i(TAG, "mp02cf014: Age Limit is from 13 to 23 Years");
+
+                } else {
+                    mp02cf014.setError(null);
+                }
+
                 // ====================== Q 15 ===================
                 if (mp02cf015.getText().toString().isEmpty()) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf015), Toast.LENGTH_LONG).show();
@@ -791,6 +823,16 @@ public class SectionCFActivity extends Activity {
 
                     Log.i(TAG, "mp02cf015: This data is Required!");
                     return false;
+                } else {
+                    mp02cf015.setError(null);
+                }
+
+                if ((Integer.parseInt(mp02cf015.getText().toString()) < 0) || (Integer.parseInt(mp02cf015.getText().toString()) > 15
+                        && (Integer.parseInt(mp02cf015.getText().toString()) != 99))) {
+                    Toast.makeText(this, "ERROR(Range Error): " + getString(R.string.mp02cf015), Toast.LENGTH_LONG).show();
+                    mp02cf015.setError("Range is 1 to 15 Times!");    // Set Error on last radio button
+                    Log.i(TAG, "mp02cf015: Range is 1 to 15 times");
+
                 } else {
                     mp02cf015.setError(null);
                 }
@@ -863,7 +905,77 @@ public class SectionCFActivity extends Activity {
                 } else {
                     mp02cf01988.setError(null);
                 }
-                // ====================== Q 17 Others ===================
+
+                if (mp02cf01999.isChecked()) {
+                    mp02cf01901.setEnabled(false);
+                    mp02cf01901.setChecked(false);
+                    mp02cf01902.setEnabled(false);
+                    mp02cf01902.setChecked(false);
+                    mp02cf01903.setEnabled(false);
+                    mp02cf01903.setChecked(false);
+                    mp02cf01904.setEnabled(false);
+                    mp02cf01904.setChecked(false);
+                    mp02cf01905.setEnabled(false);
+                    mp02cf01905.setChecked(false);
+                    mp02cf01906.setEnabled(false);
+                    mp02cf01906.setChecked(false);
+                    mp02cf01907.setEnabled(false);
+                    mp02cf01907.setChecked(false);
+                    mp02cf01908.setEnabled(false);
+                    mp02cf01908.setChecked(false);
+                    mp02cf01909.setEnabled(false);
+                    mp02cf01909.setChecked(false);
+                    mp02cf01910.setEnabled(false);
+                    mp02cf01910.setChecked(false);
+                    mp02cf01911.setEnabled(false);
+                    mp02cf01911.setChecked(false);
+                    mp02cf01912.setEnabled(false);
+                    mp02cf01912.setChecked(false);
+                    mp02cf01913.setEnabled(false);
+                    mp02cf01913.setChecked(false);
+                    mp02cf01914.setEnabled(false);
+                    mp02cf01914.setChecked(false);
+                    mp02cf01915.setEnabled(false);
+                    mp02cf01915.setChecked(false);
+                    mp02cf01988.setEnabled(false);
+                    mp02cf01988.setChecked(false);
+                    mp02cf01988x.setText(null);
+                } else {
+                    mp02cf01901.setEnabled(true);
+                    mp02cf01901.setChecked(true);
+                    mp02cf01902.setEnabled(true);
+                    mp02cf01902.setChecked(true);
+                    mp02cf01903.setEnabled(true);
+                    mp02cf01903.setChecked(true);
+                    mp02cf01904.setEnabled(true);
+                    mp02cf01904.setChecked(true);
+                    mp02cf01905.setEnabled(true);
+                    mp02cf01905.setChecked(true);
+                    mp02cf01906.setEnabled(true);
+                    mp02cf01906.setChecked(true);
+                    mp02cf01907.setEnabled(true);
+                    mp02cf01907.setChecked(true);
+                    mp02cf01908.setEnabled(true);
+                    mp02cf01908.setChecked(true);
+                    mp02cf01909.setEnabled(true);
+                    mp02cf01909.setChecked(true);
+                    mp02cf01910.setEnabled(true);
+                    mp02cf01910.setChecked(true);
+                    mp02cf01911.setEnabled(true);
+                    mp02cf01911.setChecked(true);
+                    mp02cf01912.setEnabled(true);
+                    mp02cf01912.setChecked(true);
+                    mp02cf01913.setEnabled(true);
+                    mp02cf01913.setChecked(true);
+                    mp02cf01914.setEnabled(true);
+                    mp02cf01914.setChecked(true);
+                    mp02cf01915.setEnabled(true);
+                    mp02cf01915.setChecked(true);
+                    mp02cf01988.setEnabled(true);
+                    mp02cf01988.setChecked(true);
+
+                }
+                // ====================== Q 19 Others ===================
                 if (mp02cf01988.isChecked() && mp02cf01988x.getText().toString().isEmpty()) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf019) + " - " + getString(R.string.other), Toast.LENGTH_LONG).show();
                     mp02cf01988x.setError("This data is Required!");    // Set Error on last radio button
@@ -895,6 +1007,14 @@ public class SectionCFActivity extends Activity {
 
                     Log.i(TAG, "mp02cf021: This data is Required!");
                     return false;
+                } else {
+                    mp02cf021.setError(null);
+                }
+
+                if (Integer.parseInt(mp02cf021.getText().toString()) < 1 || (Integer.parseInt(mp02cf021.getText().toString()) > 19)) {
+                    Toast.makeText(this, "ERROR(Range Error): " + getString(R.string.mp02cf021), Toast.LENGTH_LONG).show();
+                    mp02cf021.setError("Range is 1 - 19 Months");    // Set Error on last radio button
+
                 } else {
                     mp02cf021.setError(null);
                 }
