@@ -155,8 +155,8 @@ public class MainActivity extends Activity {
 
     public void syncDevice(View view) {
 
-        String usersUrl = AppMain._HOST_URL + "virband/api/users.php";
-        String randsUrl = AppMain._HOST_URL + "virband/api/random.php"; // url to sync randomise data
+        //String usersUrl = AppMain._HOST_URL + "virband/api/users.php";
+        //String randsUrl = AppMain._HOST_URL + "virband/api/random.php"; // url to sync randomise data
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
@@ -164,11 +164,11 @@ public class MainActivity extends Activity {
 
             // Sync Users
             Toast.makeText(getApplicationContext(), "Syncing Users", Toast.LENGTH_SHORT).show();
-            new GetUsers(this).execute(usersUrl);
+            new GetUsers(this).execute();
 
             // Sync Randomization
-            // Toast.makeText(getApplicationContext(), "Syncing Randomization", Toast.LENGTH_SHORT).show();
-            // new GetRands(this).execute(randsUrl);
+            Toast.makeText(getApplicationContext(), "Syncing Eligibleomization", Toast.LENGTH_SHORT).show();
+            new GetEligibles(this).execute();
 
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);

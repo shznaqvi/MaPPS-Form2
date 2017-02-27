@@ -19,14 +19,14 @@ import java.util.ArrayList;
 /**
  * Created by hassan.naqvi on 4/28/2016.
  */
-public class GetUsers extends AsyncTask<String, String, String> {
+public class GetEligibles extends AsyncTask<String, String, String> {
 
-    private final String TAG = "GetUsers()";
+    private final String TAG = "GetEligibles()";
     HttpURLConnection urlConnection;
     private Context mContext;
     private ProgressDialog pd;
 
-    public GetUsers(Context context) {
+    public GetEligibles(Context context) {
         mContext = context;
     }
 
@@ -34,7 +34,7 @@ public class GetUsers extends AsyncTask<String, String, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         pd = new ProgressDialog(mContext);
-        pd.setTitle("Syncing Users");
+        pd.setTitle("Syncing Eligibles");
         pd.setMessage("Getting connected to server...");
         pd.show();
 
@@ -46,7 +46,7 @@ public class GetUsers extends AsyncTask<String, String, String> {
         StringBuilder result = new StringBuilder();
 
         try {
-            URL url = new URL(AppMain._HOST_URL + UsersContract.singleUser._URI);
+            URL url = new URL(AppMain._HOST_URL + EligiblesContract.singleWoman._URI);
             urlConnection = (HttpURLConnection) url.openConnection();
             if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
@@ -55,7 +55,7 @@ public class GetUsers extends AsyncTask<String, String, String> {
 
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    Log.i(TAG, "User In: " + line);
+                    Log.i(TAG, "Eligible In: " + line);
                     result.append(line);
                 }
             }
@@ -80,19 +80,19 @@ public class GetUsers extends AsyncTask<String, String, String> {
         //json = json.replaceAll("\\[", "").replaceAll("\\]","");
         Log.d(TAG, result);
         if (json.length() > 0) {
-            ArrayList<UsersContract> userArrayList;
+            ArrayList<EligiblesContract> eligibleArrayList;
             DatabaseHelper db = new DatabaseHelper(mContext);
             try {
-                userArrayList = new ArrayList<UsersContract>();
+                eligibleArrayList = new ArrayList<EligiblesContract>();
                 //JSONObject jsonObject = new JSONObject(json);
                 JSONArray jsonArray = new JSONArray(json);
-                db.syncUser(jsonArray);
+                db.syncEligible(jsonArray);
                 pd.setMessage("Received: " + jsonArray.length());
                 pd.show();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            // db.getAllUsers();
+            //db.getAllEligibles();
         } else {
             pd.setMessage("Received: " + json.length() + "");
             pd.show();

@@ -17,10 +17,10 @@ import android.widget.Toast;
 
 public class AppMain extends Application {
 
-    public static final String _IP = "192.168.1.10"; // Test PHP server
+    public static final String _IP = "43.245.131.159"; // Test PHP server
     public static final Integer _PORT = 8080; // Port - with colon (:)
 
-    public static final String _PROJECT_FOLDER = "mapps/api/";
+    public static final String _PROJECT_FOLDER = "mapps/form2/api/";
 
     public static final String _HOST_URL =
             "http://" + _IP

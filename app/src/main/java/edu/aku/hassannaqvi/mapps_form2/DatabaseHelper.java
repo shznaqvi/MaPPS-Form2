@@ -35,9 +35,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + FormColumns.TABLE_NAME + "(" +
+            FormColumns.COLUMN__ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             FormColumns.COLUMN_PROJECTNAME + " TEXT," +
             FormColumns.COLUMN_SURVEYTYPE + " TEXT," +
-            FormColumns.COLUMN__ID + " TEXT," +
             FormColumns.COLUMN_UID + " TEXT," +
             FormColumns.COLUMN_FORMDATE + " TEXT," +
             FormColumns.COLUMN_INTERVIEWER01 + " TEXT," +
@@ -61,7 +61,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + ParticipantColumns.TABLE_NAME + "("
             + ParticipantColumns.COLUMN_PROJECTNAME + " TEXT,"
             + ParticipantColumns.COLUMN_SURVEYTYPE + " TEXT,"
-            + ParticipantColumns.COLUMN__ID + " TEXT,"
+            + ParticipantColumns.COLUMN__ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + ParticipantColumns.COLUMN_UID + " TEXT,"
             + ParticipantColumns.COLUMN_UUID + " TEXT,"
             + ParticipantColumns.COLUMN_FORMDATE + " TEXT,"
@@ -89,17 +89,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + ParticipantColumns.COLUMN_SYNCED_DATE + " TEXT"
             + " );";
     private static final String SQL_CREATE_ELIGIBLES = "CREATE TABLE "
-            + ParticipantColumns.TABLE_NAME + "(" +
+            + singleWoman.TABLE_NAME + "(" +
+
+            singleWoman._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             singleWoman.COLUMN_NAME_LUID + " TEXT," +
             singleWoman.COLUMN_NAME_SUBAREACODE + " TEXT," +
             singleWoman.COLUMN_NAME_LHWCODE + " TEXT," +
             singleWoman.COLUMN_NAME_HOUSEHOLD + " TEXT," +
-            singleWoman.COLUMN_NAME_WOMEN_NAME + " TEXT," +
+            singleWoman.COLUMN_NAME_WOMEN_NAME + " TEXT" +
             " );";
     private static final String SQL_DELETE_USERS =
             "DROP TABLE IF EXISTS " + UsersContract.singleUser.TABLE_NAME;
+    private static final String SQL_DELETE_ELIGIBLES =
+            "DROP TABLE IF EXISTS " + singleWoman.TABLE_NAME;
     private static final String SQL_DELETE_FORMS =
             "DROP TABLE IF EXISTS " + FormsContract.FormColumns.TABLE_NAME;
+    private static final String SQL_DELETE_PARTICIPANTS =
+            "DROP TABLE IF EXISTS " + ParticipantColumns.TABLE_NAME;
     private final String TAG = "DatabaseHelper";
     public String spDateT = new SimpleDateFormat("dd-MM-yy").format(new Date().getTime());
 
@@ -114,52 +120,56 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL(SQL_CREATE_USERS);
+        db.execSQL(SQL_CREATE_ELIGIBLES);
         db.execSQL(SQL_CREATE_FORMS);
+        db.execSQL(SQL_CREATE_PARTICIPANTS);
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-
+        db.execSQL(SQL_DELETE_USERS);
+        db.execSQL(SQL_DELETE_ELIGIBLES);
+        db.execSQL(SQL_DELETE_FORMS);
+        db.execSQL(SQL_DELETE_PARTICIPANTS);
     }
 
     public void syncUser(JSONArray userlist) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(UsersContract.singleUser.TABLE_NAME, null, null);
-
         try {
             JSONArray jsonArray = userlist;
             for (int i = 0; i < jsonArray.length(); i++) {
+
                 JSONObject jsonObjectUser = jsonArray.getJSONObject(i);
 
                 UsersContract user =new UsersContract();
                 user.Sync(jsonObjectUser);
-
                 ContentValues values = new ContentValues();
 
-                values.put(UsersContract.singleUser.ROW_USERNAME, user.getUserName() );
+                values.put(UsersContract.singleUser.ROW_USERNAME, user.getUserName());
                 values.put(UsersContract.singleUser.ROW_PASSWORD, user.getPassword());
                 db.insert(UsersContract.singleUser.TABLE_NAME, null, values);
             }
             db.close();
 
         } catch (Exception e) {
+            Log.d(TAG, "syncUser(e): " + e);
         }
     }
 
-    public void syncEligiblies(JSONArray userlist) {
+    public void syncEligible(JSONArray eligibleslist) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(UsersContract.singleUser.TABLE_NAME, null, null);
+        db.delete(EligiblesContract.singleWoman.TABLE_NAME, null, null);
         Collection<EligiblesContract> allEC = new ArrayList<>();
 
         try {
-            JSONArray jsonArray = userlist;
+            JSONArray jsonArray = eligibleslist;
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObjectEC = jsonArray.getJSONObject(i);
 
                 EligiblesContract ec = new EligiblesContract();
                 ec.Sync(jsonObjectEC);
-
 
                 ContentValues values = new ContentValues();
 
@@ -284,7 +294,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(ParticipantColumns.COLUMN_PROJECTNAME, pc.getProjectName());
         values.put(ParticipantColumns.COLUMN_SURVEYTYPE, pc.getSurveyType());
-        values.put(ParticipantColumns.COLUMN__ID, pc.getID());
+        //values.put(ParticipantColumns.COLUMN__ID, pc.getID());
         values.put(ParticipantColumns.COLUMN_UID, pc.getUID());
         values.put(ParticipantColumns.COLUMN_UUID, pc.getUUID());
         values.put(ParticipantColumns.COLUMN_FORMDATE, pc.getFormDate());

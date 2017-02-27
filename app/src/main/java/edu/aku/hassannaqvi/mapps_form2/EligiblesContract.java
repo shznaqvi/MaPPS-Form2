@@ -27,7 +27,6 @@ public class EligiblesContract {
 
 
     public EligiblesContract Sync(JSONObject jsonObject) throws JSONException {
-        this._ID = jsonObject.getLong(singleWoman._ID);
         this.LUID = jsonObject.getString(singleWoman.COLUMN_NAME_LUID);
         this.subAreaCode = jsonObject.getString(singleWoman.COLUMN_NAME_SUBAREACODE);
         this.lhwCode = jsonObject.getString(singleWoman.COLUMN_NAME_LHWCODE);

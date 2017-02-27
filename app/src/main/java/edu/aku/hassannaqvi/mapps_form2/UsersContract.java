@@ -51,7 +51,7 @@ public class UsersContract {
     }
 
     public UsersContract Sync(JSONObject jsonObject) throws JSONException {
-        this._ID= jsonObject.getLong(singleUser._ID);
+        //this._ID= jsonObject.getLong(singleUser._ID);
         this.ROW_USERNAME= jsonObject.getString(singleUser.ROW_USERNAME);
         this.ROW_PASSWORD= jsonObject.getString(singleUser.ROW_PASSWORD);
         return this;
@@ -85,5 +85,6 @@ public class UsersContract {
         public static final String ROW_PASSWORD = "password";
 
 
+        public static final String _URI = "getusers.php";
     }
 }
