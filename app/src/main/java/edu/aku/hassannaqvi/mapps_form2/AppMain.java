@@ -54,13 +54,10 @@ public class AppMain extends Application {
     public static FormsContract fc;
     public static String userName = "0000";
     public static String areaCode;
-    public static String curCluster = "22";
+    public static String curCluster;
     protected LocationManager locationManager;
     Location location;
 
-
-//    Cluster
-    public static String curCluster;
 
     @Override
     public void onCreate() {
