@@ -23,7 +23,6 @@ public class ClustersContract {
     }
 
     public ClustersContract Sync(JSONObject jsonObject) throws JSONException {
-        this._ID= jsonObject.getLong(singleCluster._ID);
         this.clusterCode = jsonObject.getString(singleCluster.COLUMN_CLUSTERCODE);
         this.clusterName = jsonObject.getString(singleCluster.COLUMN_CLUSTERNAME);
 
@@ -77,7 +76,7 @@ public class ClustersContract {
 
         public static final String TABLE_NAME = "clusters";
         public static final String _ID = "_id";
-        public static final String COLUMN_CLUSTERCODE = "clusterid";
+        public static final String COLUMN_CLUSTERCODE = "clustercode";
         public static final String COLUMN_CLUSTERNAME = "clustername";
 
         public static final String _URI = "getclusters.php";

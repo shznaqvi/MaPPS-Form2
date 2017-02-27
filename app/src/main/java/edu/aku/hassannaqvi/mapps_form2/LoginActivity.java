@@ -14,6 +14,8 @@ import android.content.Loader;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -44,6 +46,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 /**
@@ -77,11 +80,12 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     Button mEmailSignInButton;
     @BindView(R.id.spUC)
     Spinner spUC;
+    @BindView(R.id.syncClusters)
+    Button syncClusters;
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
     private UserLoginTask mAuthTask = null;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -134,15 +138,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
        /* ArrayList<UCContract> ucList = new ArrayList<UCContract>();
         ucList = db.getAllUC();*/
 
-        // Spinner Drop down elements
-        lables = new ArrayList<String>();
-        lables.add("Pehelwan Goth");
-        lables.add("Sachal Goth");
-
-        values = new ArrayList<String>();
-        values.add("01");
-        values.add("02");
-
 
         // Polulating 'lables' and 'values' from ucList
         // ==>> OPTIMIZED
@@ -162,6 +157,31 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
         }*/
 
+    }
+
+    @OnClick(R.id.syncClusters) void onSyncClustersClick() {
+        //TODO implement
+
+        // Spinner Drop down elements
+        lables = new ArrayList<String>();
+        lables.add("Pehelwan Goth");
+        lables.add("Sachal Goth");
+
+        values = new ArrayList<String>();
+        values.add("01");
+        values.add("02");
+
+        // Require permissions INTERNET & ACCESS_NETWORK_STATE
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            Toast.makeText(getApplicationContext(), "Getting Users", Toast.LENGTH_SHORT).show();
+            new GetClusters(this).execute();
+        }
+        else {
+            Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
+        }
 
         // Creating adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getApplicationContext(),
@@ -188,7 +208,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
             }
         });
-
 
     }
 
