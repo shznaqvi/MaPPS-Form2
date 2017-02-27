@@ -54,6 +54,7 @@ public class AppMain extends Application {
     public static FormsContract fc;
     public static String userName = "0000";
     public static String areaCode;
+    public static String curCluster = "22";
     protected LocationManager locationManager;
     Location location;
 

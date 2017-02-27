@@ -470,6 +470,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ClustersContract.singleCluster.COLUMN_CLUSTERNAME,
                 ClustersContract.singleCluster._ID,
         };
+
         String whereClause = null;
         String[] whereArgs = null;
         String groupBy = null;
