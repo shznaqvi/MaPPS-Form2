@@ -131,14 +131,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             JSONArray jsonArray = userlist;
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObjectUser = jsonArray.getJSONObject(i);
-                String userName = jsonObjectUser.getString("username");
-                String password = jsonObjectUser.getString("password");
 
+                UsersContract user =new UsersContract();
+                user.Sync(jsonObjectUser);
 
                 ContentValues values = new ContentValues();
 
-                values.put(UsersContract.singleUser.ROW_USERNAME, userName);
-                values.put(UsersContract.singleUser.ROW_PASSWORD, password);
+                values.put(UsersContract.singleUser.ROW_USERNAME, user.getUserName() );
+                values.put(UsersContract.singleUser.ROW_PASSWORD, user.getPassword());
                 db.insert(UsersContract.singleUser.TABLE_NAME, null, values);
             }
             db.close();

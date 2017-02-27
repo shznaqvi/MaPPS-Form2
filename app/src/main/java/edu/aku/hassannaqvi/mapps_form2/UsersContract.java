@@ -1,6 +1,10 @@
 package edu.aku.hassannaqvi.mapps_form2;
 
+import android.database.Cursor;
 import android.provider.BaseColumns;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
@@ -45,6 +49,33 @@ public class UsersContract {
     public void setPassword(String password) {
         this.ROW_PASSWORD = password;
     }
+
+    public UsersContract Sync(JSONObject jsonObject) throws JSONException {
+        this._ID= jsonObject.getLong(singleUser._ID);
+        this.ROW_USERNAME= jsonObject.getString(singleUser.ROW_USERNAME);
+        this.ROW_PASSWORD= jsonObject.getString(singleUser.ROW_PASSWORD);
+        return this;
+
+    }
+
+    public UsersContract Hydrate(Cursor cursor) {
+        this._ID = cursor.getLong(cursor.getColumnIndex(singleUser._ID));
+        this.ROW_USERNAME = cursor.getString(cursor.getColumnIndex(singleUser.ROW_USERNAME));
+        this.ROW_PASSWORD = cursor.getString(cursor.getColumnIndex(singleUser.ROW_PASSWORD));
+        return this;
+
+    }
+
+
+    public JSONObject toJSONObject() throws JSONException {
+
+        JSONObject json = new JSONObject();
+        json.put(singleUser._ID, this._ID == null ? JSONObject.NULL : this._ID);
+        json.put(singleUser.ROW_USERNAME, this.ROW_USERNAME == null ? JSONObject.NULL : this.ROW_USERNAME);
+        json.put(singleUser.ROW_PASSWORD, this.ROW_PASSWORD == null ? JSONObject.NULL : this.ROW_PASSWORD);
+        return json;
+    }
+
 
     public static abstract class singleUser implements BaseColumns {
 
