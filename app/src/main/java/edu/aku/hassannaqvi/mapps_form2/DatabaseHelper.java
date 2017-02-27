@@ -27,6 +27,9 @@ import edu.aku.hassannaqvi.mapps_form2.ParticipantsContract.ParticipantColumns;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
+    /**
+     * CREATE STRINGS
+     */
     public static final String SQL_CREATE_USERS = "CREATE TABLE " + UsersContract.singleUser.TABLE_NAME + "("
             + UsersContract.singleUser._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + UsersContract.singleUser.ROW_USERNAME + " TEXT,"
@@ -90,7 +93,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + " );";
     private static final String SQL_CREATE_ELIGIBLES = "CREATE TABLE "
             + singleWoman.TABLE_NAME + "(" +
-
             singleWoman._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             singleWoman.COLUMN_NAME_LUID + " TEXT," +
             singleWoman.COLUMN_NAME_SUBAREACODE + " TEXT," +
@@ -98,8 +100,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             singleWoman.COLUMN_NAME_HOUSEHOLD + " TEXT," +
             singleWoman.COLUMN_NAME_WOMEN_NAME + " TEXT" +
             " );";
+    private static final String SQL_CREATE_LHWS = "CREATE TABLE "
+            + LHWsContract.singleLhw.TABLE_NAME + "(" +
+            LHWsContract.singleLhw._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            LHWsContract.singleLhw.COLUMN_LHWID + " TEXT," +
+            LHWsContract.singleLhw.COLUMN_LHWNAME + " TEXT," +
+            LHWsContract.singleLhw.COLUMN_CLUSTERNAME + " TEXT," +
+            LHWsContract.singleLhw.COLUMN_CLUSTERCODE + " TEXT" +
+            " );";
+    private static final String SQL_CREATE_CLUSTERS = "CREATE TABLE "
+            + ClustersContract.singleCluster.TABLE_NAME + "(" +
+            ClustersContract.singleCluster._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            ClustersContract.singleCluster.COLUMN_CLUSTERNAME + " TEXT," +
+            ClustersContract.singleCluster.COLUMN_CLUSTERCODE + " TEXT" +
+            " );";
+    /**
+     * DELETE STRINGS
+     */
     private static final String SQL_DELETE_USERS =
             "DROP TABLE IF EXISTS " + UsersContract.singleUser.TABLE_NAME;
+    private static final String SQL_DELETE_LHWS =
+            "DROP TABLE IF EXISTS " + LHWsContract.singleLhw.TABLE_NAME;
+    private static final String SQL_DELETE_CLUSTERS =
+            "DROP TABLE IF EXISTS " + ClustersContract.singleCluster.TABLE_NAME;
     private static final String SQL_DELETE_ELIGIBLES =
             "DROP TABLE IF EXISTS " + singleWoman.TABLE_NAME;
     private static final String SQL_DELETE_FORMS =
@@ -111,16 +134,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     public DatabaseHelper(Context context) {
-
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
         db.execSQL(SQL_CREATE_USERS);
         db.execSQL(SQL_CREATE_ELIGIBLES);
+        db.execSQL(SQL_CREATE_LHWS);
+        db.execSQL(SQL_CREATE_CLUSTERS);
         db.execSQL(SQL_CREATE_FORMS);
         db.execSQL(SQL_CREATE_PARTICIPANTS);
 
@@ -130,6 +152,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL(SQL_DELETE_USERS);
         db.execSQL(SQL_DELETE_ELIGIBLES);
+        db.execSQL(SQL_DELETE_LHWS);
+        db.execSQL(SQL_DELETE_CLUSTERS);
         db.execSQL(SQL_DELETE_FORMS);
         db.execSQL(SQL_DELETE_PARTICIPANTS);
     }
@@ -161,8 +185,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void syncEligible(JSONArray eligibleslist) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(EligiblesContract.singleWoman.TABLE_NAME, null, null);
-        Collection<EligiblesContract> allEC = new ArrayList<>();
-
         try {
             JSONArray jsonArray = eligibleslist;
             for (int i = 0; i < jsonArray.length(); i++) {
@@ -178,6 +200,57 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(singleWoman.COLUMN_NAME_LHWCODE, ec.getLhwCode());
                 values.put(singleWoman.COLUMN_NAME_HOUSEHOLD, ec.getHouseHold());
                 values.put(singleWoman.COLUMN_NAME_WOMEN_NAME, ec.getWomen_name());
+
+                db.insert(singleWoman.TABLE_NAME, null, values);
+            }
+            db.close();
+
+        } catch (Exception e) {
+        }
+    }
+
+    public void syncLHWs(JSONArray lhwslist) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(LHWsContract.singleLhw.TABLE_NAME, null, null);
+        try {
+            JSONArray jsonArray = lhwslist;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectLC = jsonArray.getJSONObject(i);
+
+                LHWsContract lc = new LHWsContract();
+                lc.Sync(jsonObjectLC);
+
+                ContentValues values = new ContentValues();
+
+                values.put(LHWsContract.singleLhw.COLUMN_LHWID, lc.getLhwId());
+                values.put(LHWsContract.singleLhw.COLUMN_LHWNAME, lc.getLhwName());
+                values.put(LHWsContract.singleLhw.COLUMN_CLUSTERCODE, lc.getClusterCode());
+                values.put(LHWsContract.singleLhw.COLUMN_CLUSTERNAME, lc.getClusterName());
+
+                db.insert(LHWsContract.singleLhw.TABLE_NAME, null, values);
+            }
+            db.close();
+
+        } catch (Exception e) {
+        }
+    }
+
+    public void syncClusters(JSONArray Clusterslist) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(ClustersContract.singleCluster.TABLE_NAME, null, null);
+        try {
+            JSONArray jsonArray = Clusterslist;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectCC = jsonArray.getJSONObject(i);
+
+                ClustersContract cc = new ClustersContract();
+                cc.Sync(jsonObjectCC);
+
+                ContentValues values = new ContentValues();
+
+                values.put(ClustersContract.singleCluster.COLUMN_CLUSTERCODE, cc.getClusterCode());
+                values.put(ClustersContract.singleCluster.COLUMN_CLUSTERNAME, cc.getClusterName());
+
 
                 db.insert(singleWoman.TABLE_NAME, null, values);
             }
@@ -387,6 +460,90 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 where,
                 whereArgs);
         db.close();
+    }
+
+    public Collection<ClustersContract> getAllClusters() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                ClustersContract.singleCluster.COLUMN_CLUSTERCODE,
+                ClustersContract.singleCluster.COLUMN_CLUSTERNAME,
+                ClustersContract.singleCluster._ID,
+        };
+        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                ClustersContract.singleCluster._ID + " ASC";
+
+        Collection<ClustersContract> allCC = new ArrayList<>();
+        try {
+            c = db.query(
+                    ClustersContract.singleCluster.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                ClustersContract cc = new ClustersContract();
+                allCC.add(cc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allCC;
+    }
+
+    public Collection<LHWsContract> getLHWsByCluster(String clusterCode) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                LHWsContract.singleLhw.COLUMN_LHWID,
+                LHWsContract.singleLhw.COLUMN_LHWNAME,
+                LHWsContract.singleLhw._ID,
+        };
+        String whereClause = LHWsContract.singleLhw.COLUMN_CLUSTERCODE + " = ?";
+        String[] whereArgs = new String[]{clusterCode};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                LHWsContract.singleLhw._ID + " ASC";
+
+        Collection<LHWsContract> allCC = new ArrayList<>();
+        try {
+            c = db.query(
+                    LHWsContract.singleLhw.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                LHWsContract cc = new LHWsContract();
+                allCC.add(cc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allCC;
     }
 
     public Collection<FormsContract> getAllForms() {

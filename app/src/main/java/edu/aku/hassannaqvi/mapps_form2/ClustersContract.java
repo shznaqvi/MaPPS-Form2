@@ -14,7 +14,7 @@ public class ClustersContract {
 
     private static final String TAG = "Clusters_CONTRACT";
     Long _ID;
-    String clusterId;
+    String clusterCode;
     String clusterName;
 
 
@@ -24,8 +24,8 @@ public class ClustersContract {
 
     public ClustersContract Sync(JSONObject jsonObject) throws JSONException {
         this._ID= jsonObject.getLong(singleCluster._ID);
-        this.clusterId= jsonObject.getString(singleCluster.CLUSTERID);
-        this.clusterName= jsonObject.getString(singleCluster.CLUSTERNAME);
+        this.clusterCode = jsonObject.getString(singleCluster.COLUMN_CLUSTERCODE);
+        this.clusterName = jsonObject.getString(singleCluster.COLUMN_CLUSTERNAME);
 
         return this;
 
@@ -33,8 +33,8 @@ public class ClustersContract {
 
     public ClustersContract Hydrate(Cursor cursor) {
         this._ID = cursor.getLong(cursor.getColumnIndex(singleCluster._ID));
-        this.clusterId = cursor.getString(cursor.getColumnIndex(singleCluster.CLUSTERID));
-        this.clusterName = cursor.getString(cursor.getColumnIndex(singleCluster.CLUSTERNAME));
+        this.clusterCode = cursor.getString(cursor.getColumnIndex(singleCluster.COLUMN_CLUSTERCODE));
+        this.clusterName = cursor.getString(cursor.getColumnIndex(singleCluster.COLUMN_CLUSTERNAME));
 
         return this;
     }
@@ -47,12 +47,12 @@ public class ClustersContract {
         this._ID = _ID;
     }
 
-    public String getClusterId() {
-        return clusterId;
+    public String getClusterCode() {
+        return clusterCode;
     }
 
-    public void setClusterId(String clusterId) {
-        this.clusterId = clusterId;
+    public void setClusterCode(String clusterCode) {
+        this.clusterCode = clusterCode;
     }
 
     public String getClusterName() {
@@ -67,8 +67,8 @@ public class ClustersContract {
 
         JSONObject json = new JSONObject();
         json.put(singleCluster._ID, this._ID == null ? JSONObject.NULL : this._ID);
-        json.put(singleCluster.CLUSTERID, this.clusterId == null ? JSONObject.NULL : this.clusterId);
-        json.put(singleCluster.CLUSTERNAME, this.clusterName == null ? JSONObject.NULL : this.clusterName);
+        json.put(singleCluster.COLUMN_CLUSTERCODE, this.clusterCode == null ? JSONObject.NULL : this.clusterCode);
+        json.put(singleCluster.COLUMN_CLUSTERNAME, this.clusterName == null ? JSONObject.NULL : this.clusterName);
         return json;
     }
 
@@ -77,8 +77,8 @@ public class ClustersContract {
 
         public static final String TABLE_NAME = "clusters";
         public static final String _ID = "_id";
-        public static final String CLUSTERID = "clusterid";
-        public static final String CLUSTERNAME = "clustername";
+        public static final String COLUMN_CLUSTERCODE = "clusterid";
+        public static final String COLUMN_CLUSTERNAME = "clustername";
 
         public static final String _URI = "getclusters.php";
     }
