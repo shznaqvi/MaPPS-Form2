@@ -19,7 +19,15 @@ public class AppMain extends Application {
 
     public static final String _IP = "192.168.1.10"; // Test PHP server
     public static final Integer _PORT = 8080; // Port - with colon (:)
-    public static final String _HOST_URL = "http://" + _IP + ":" + _PORT + "/";
+
+    public static final String _PROJECT_FOLDER = "mapps/api/";
+
+    public static final String _HOST_URL =
+            "http://" + _IP
+                    + ":" + _PORT
+                    + "/" + _PROJECT_FOLDER;
+    // Retrieve FileName.php from Contract class Abstract _URI
+
 
     /*
         public static final String _IP = "43.245.131.159"; // Test server

@@ -110,13 +110,16 @@ public class EligiblesContract {
 
     public static abstract class singleWoman implements BaseColumns {
 
+        public static final String _URI = "eligibles.php";
+
         public static final String TABLE_NAME = "eligibles";
+
         public static final String _ID = "id";
-        public static final String COLUMN_NAME_LUID = "luid";
-        public static final String COLUMN_NAME_SUBAREACODE = "subareacode";
+        public static final String COLUMN_NAME_LUID = "uid";
+        public static final String COLUMN_NAME_SUBAREACODE = "clustercode";
         public static final String COLUMN_NAME_LHWCODE = "lhwcode";
-        public static final String COLUMN_NAME_HOUSEHOLD = "household";
-        public static final String COLUMN_NAME_WOMEN_NAME = "women_name";
+        public static final String COLUMN_NAME_HOUSEHOLD = "hhno";
+        public static final String COLUMN_NAME_WOMEN_NAME = "epname";
 
     }
 
