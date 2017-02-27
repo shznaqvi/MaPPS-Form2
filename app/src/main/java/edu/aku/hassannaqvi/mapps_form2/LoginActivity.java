@@ -20,6 +20,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -40,6 +41,7 @@ import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -82,6 +84,11 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     Spinner spUC;
     @BindView(R.id.syncClusters)
     Button syncClusters;
+
+    DatabaseHelper db;
+    List<String> clustersCode;
+    List<String> clustersName;
+
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -133,43 +140,48 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             }
         });
 
-        // District Spinner
-        // Populate from District Table
-       /* ArrayList<UCContract> ucList = new ArrayList<UCContract>();
-        ucList = db.getAllUC();*/
+//        Spinner Cluster
 
+        db=new DatabaseHelper(this);
+        Collection<ClustersContract> clusterCollection = db.getAllClusters();
 
-        // Polulating 'lables' and 'values' from ucList
-        // ==>> OPTIMIZED
-       /* for (UCContract uc : ucList) {
-            lables.add(uc.getUCName);
+        clustersCode =new ArrayList<>();
+        clustersName =new ArrayList<>();
+
+        if (clusterCollection.size() != 0){
+            for (ClustersContract c : clusterCollection){
+                clustersCode.add(c.getClusterCode());
+                clustersName.add(c.getClusterName());
+            }
+
+            // Creating adapter for spinner
+            ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                    android.R.layout.simple_spinner_item, clustersName);
+
+            // Drop down layout style - list view with radio button
+            dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            // attaching data adapter to spinner
+            spUC.setAdapter(dataAdapter);
+
+            spUC.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    AppMain.curCluster = clustersCode.get(position);
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+
         }
-        for (UCContract uc : ucList) {
-            values.add(uc.getID);
-        }*/
-
-        // ==>> OLD
-        /*for (int i = 0; i < ucList.size(); i++) {
-            lables.add(ucList.get(i).getUCName());
-            values.add(String.valueOf(ucList.get(i).getID()));
-
-            Log.i("Key - Value:", ucList.get(i).getTownId() + " - " + ucList.get(i).getUCId() + " - " + ucList.get(i).getUCName() + " - " + ucList.get(i).getID());
-
-        }*/
 
     }
 
     @OnClick(R.id.syncClusters) void onSyncClustersClick() {
         //TODO implement
-
-        // Spinner Drop down elements
-        lables = new ArrayList<String>();
-        lables.add("Pehelwan Goth");
-        lables.add("Sachal Goth");
-
-        values = new ArrayList<String>();
-        values.add("01");
-        values.add("02");
 
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
         ConnectivityManager connMgr = (ConnectivityManager)
@@ -177,37 +189,35 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
             Toast.makeText(getApplicationContext(), "Getting Users", Toast.LENGTH_SHORT).show();
+            new GetUsers(this).execute();
+            Toast.makeText(getApplicationContext(), "Getting Clusters", Toast.LENGTH_SHORT).show();
             new GetClusters(this).execute();
+            Toast.makeText(getApplicationContext(), "Getting LHW's", Toast.LENGTH_SHORT).show();
+            new GetLHWs(this).execute();
+
+            clustersCode =new ArrayList<>();
+            clustersName =new ArrayList<>();
+            Collection<ClustersContract> clusterCollection = db.getAllClusters();
+            for (ClustersContract c : clusterCollection){
+                clustersCode.add(c.getClusterCode());
+                clustersName.add(c.getClusterName());
+            }
+
+            // Creating adapter for spinner
+            ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                    android.R.layout.simple_spinner_item, clustersName);
+
+            // Drop down layout style - list view with radio button
+            dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            // attaching data adapter to spinner
+            spUC.setAdapter(dataAdapter);
         }
         else {
             Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
         }
 
-        // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getApplicationContext(),
-                android.R.layout.simple_spinner_item, lables);
 
-        // Drop down layout style - list view with radio button
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // attaching data adapter to spinner
-        spUC.setAdapter(dataAdapter);
-        spUC.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
-        //spUC.setOnItemSelectedListener(this);
-        spUC.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                AppMain.areaCode = values.get(position);
-                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
-                Toast.makeText(LoginActivity.this, values.get(position), Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
     }
 

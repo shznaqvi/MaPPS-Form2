@@ -58,6 +58,10 @@ public class AppMain extends Application {
     protected LocationManager locationManager;
     Location location;
 
+
+//    Cluster
+    public static String curCluster;
+
     @Override
     public void onCreate() {
         super.onCreate();
