@@ -252,7 +252,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(ClustersContract.singleCluster.COLUMN_CLUSTERNAME, cc.getClusterName());
 
 
-                db.insert(singleWoman.TABLE_NAME, null, values);
+                db.insert(ClustersContract.singleCluster.TABLE_NAME, null, values);
             }
             db.close();
 

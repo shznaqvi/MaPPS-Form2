@@ -76,7 +76,6 @@ public class LHWsContract {
     }
 
     public LHWsContract Sync(JSONObject jsonObject) throws JSONException {
-        this._ID= jsonObject.getLong(singleLhw._ID);
         this.lhwId = jsonObject.getString(singleLhw.COLUMN_LHWID);
         this.lhwName = jsonObject.getString(singleLhw.COLUMN_LHWNAME);
         this.clusterName = jsonObject.getString(singleLhw.COLUMN_CLUSTERNAME);
