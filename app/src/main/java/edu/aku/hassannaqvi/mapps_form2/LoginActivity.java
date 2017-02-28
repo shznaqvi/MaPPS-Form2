@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -43,6 +44,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -88,6 +90,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     DatabaseHelper db;
     List<String> clustersCode;
     List<String> clustersName;
+    HashMap<String,String> cluster;
 
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -145,13 +148,14 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         db=new DatabaseHelper(this);
         Collection<ClustersContract> clusterCollection = db.getAllClusters();
 
-        clustersCode =new ArrayList<>();
         clustersName =new ArrayList<>();
+
+        cluster = new HashMap<>();
 
         if (clusterCollection.size() != 0){
             for (ClustersContract c : clusterCollection){
-                clustersCode.add(c.getClusterCode());
                 clustersName.add(c.getClusterName());
+                cluster.put(c.getClusterName(),c.getClusterCode());
             }
 
             // Creating adapter for spinner
@@ -167,7 +171,10 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             spUC.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    AppMain.curCluster = clustersCode.get(position);
+                    AppMain.curCluster = cluster.get(spUC.getSelectedItem().toString());
+
+                    Log.d("Selected Cluster", AppMain.curCluster);
+
                 }
 
                 @Override
