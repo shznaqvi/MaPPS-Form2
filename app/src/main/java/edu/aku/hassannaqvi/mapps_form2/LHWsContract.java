@@ -89,16 +89,13 @@ public class LHWsContract {
         this._ID = cursor.getLong(cursor.getColumnIndex(singleLhw._ID));
         this.lhwId = cursor.getString(cursor.getColumnIndex(singleLhw.COLUMN_LHWID));
         this.lhwName = cursor.getString(cursor.getColumnIndex(singleLhw.COLUMN_LHWNAME));
-        this.clusterName = cursor.getString(cursor.getColumnIndex(singleLhw.COLUMN_CLUSTERNAME));
-        this.clusterCode = cursor.getString(cursor.getColumnIndex(singleLhw.COLUMN_CLUSTERCODE));
-
         return this;
     }
 
 
     public static abstract class singleLhw implements BaseColumns {
 
-        public static final String TABLE_NAME = "lhws";
+        public static final String TABLE_NAME = "LHWs";
         public static final String _ID = "id";
         public static final String COLUMN_LHWID = "lhwid";
         public static final String COLUMN_LHWNAME = "lhwname";

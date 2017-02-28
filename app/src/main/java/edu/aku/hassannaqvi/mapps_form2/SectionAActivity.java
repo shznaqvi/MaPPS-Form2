@@ -3,16 +3,24 @@ package edu.aku.hassannaqvi.mapps_form2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,6 +51,12 @@ public class SectionAActivity extends Activity {
     @BindView(R.id.mp02a01302)
     RadioButton mp02a01302;
 
+    @BindView(R.id.mp02aLHWs)
+    Spinner mp02aLHWs;
+
+    List<String> LHWsID;
+    List<String> LHWsName;
+    DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +64,17 @@ public class SectionAActivity extends Activity {
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
 
+        db=new DatabaseHelper(this);
+
+        LHWsID = new ArrayList<>();
+        LHWsName = new ArrayList<>();
+        Collection<LHWsContract> collectionLHWs= db.getLHWsByCluster(AppMain.curCluster);
+
+        for (LHWsContract lhws : collectionLHWs){
+            LHWsID.add(lhws.getLhwId());
+            LHWsName.add(lhws.getLhwName());
+        }
+        mp02aLHWs.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,LHWsName));
 
     }
 

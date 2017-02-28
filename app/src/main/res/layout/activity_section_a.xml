@@ -76,6 +76,23 @@
                 android:layout_marginTop="10dp"
                 android:background="@color/colorPrimary"
                 android:padding="2dp"
+                android:text="LHWs"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+            <Spinner
+                android:id="@+id/mp02aLHWs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:popupBackground="#3d3d3d" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/mp02a003"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />

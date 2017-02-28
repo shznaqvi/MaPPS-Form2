@@ -511,7 +511,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = {
                 LHWsContract.singleLhw.COLUMN_LHWID,
                 LHWsContract.singleLhw.COLUMN_LHWNAME,
-                LHWsContract.singleLhw._ID,
+                LHWsContract.singleLhw._ID
         };
         String whereClause = LHWsContract.singleLhw.COLUMN_CLUSTERCODE + " = ?";
         String[] whereArgs = new String[]{clusterCode};
