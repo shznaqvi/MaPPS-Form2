@@ -162,10 +162,6 @@ public class MainActivity extends Activity {
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
 
-            // Sync Users
-            Toast.makeText(getApplicationContext(), "Syncing Users", Toast.LENGTH_SHORT).show();
-            new GetUsers(this).execute();
-
             // Sync Randomization
             Toast.makeText(getApplicationContext(), "Syncing Eligibleomization", Toast.LENGTH_SHORT).show();
             new SyncEligibles(this).execute();

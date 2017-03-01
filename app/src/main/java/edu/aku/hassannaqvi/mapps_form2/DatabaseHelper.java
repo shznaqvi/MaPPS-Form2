@@ -556,8 +556,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleWoman.COLUMN_NAME_WOMEN_NAME
         };
 
-        String whereClause = singleWoman.COLUMN_NAME_SUBAREACODE + " = ? AND" +
-                singleWoman.COLUMN_NAME_LHWCODE + " = ? AND" +
+        String whereClause = singleWoman.COLUMN_NAME_SUBAREACODE + " = ? AND " +
+                singleWoman.COLUMN_NAME_LHWCODE + " = ? AND " +
                 singleWoman.COLUMN_NAME_HOUSEHOLD + " = ?";
         String[] whereArgs = new String[]{clusterCode, lhwCode, hhno};
         String groupBy = null;

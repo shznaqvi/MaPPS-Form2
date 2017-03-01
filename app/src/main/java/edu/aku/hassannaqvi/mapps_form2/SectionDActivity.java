@@ -140,7 +140,10 @@ public class SectionDActivity extends Activity {
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
         Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
-        Intent endSec = new Intent(this, EndingActivity.class);
+
+        finish();
+
+        Intent endSec = new Intent(this, SectionCActivity.class);
         endSec.putExtra("complete", false);
         startActivity(endSec);
 

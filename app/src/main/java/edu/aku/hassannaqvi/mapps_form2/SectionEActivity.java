@@ -47,7 +47,10 @@ public class SectionEActivity extends Activity {
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
         Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
-        Intent endSec = new Intent(this, EndingActivity.class);
+
+        finish();
+
+        Intent endSec = new Intent(this, SectionCActivity.class);
         endSec.putExtra("complete", false);
         startActivity(endSec);
 
@@ -65,7 +68,7 @@ public class SectionEActivity extends Activity {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
-                Intent end = new Intent(this, EndingActivity.class);
+                Intent end = new Intent(this, SectionCActivity.class);
                 startActivity(end);
 
             } else {

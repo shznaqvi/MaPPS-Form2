@@ -39,11 +39,26 @@ public class EndingActivity extends Activity {
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
-        Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
-        Intent endSec = new Intent(this, MainActivity.class);
-        endSec.putExtra("complete", false);
-        startActivity(endSec);
+        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+        if (ValidateForm()) {
+            Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
+            Intent endSec = new Intent(this, MainActivity.class);
+            endSec.putExtra("complete", false);
+            startActivity(endSec);
+        }
+    }
 
+    public boolean ValidateForm() {
+
+        if (mp02a014.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mp02a013), Toast.LENGTH_SHORT).show();
+            mp02a01405.setError("This data is Required!");
+            return false;
+        } else {
+            mp02a01405.setError(null);
+        }
+
+        return true;
     }
 
 

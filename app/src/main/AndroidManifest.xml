@@ -27,11 +27,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".LoginActivity"></activity>
-
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".MainActivity"></activity>
         <activity
             android:name=".SectionAActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
@@ -51,7 +48,7 @@
             android:name=".SectionCBActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".SectionCcActivity"
+            android:name=".SectionCCActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".SectionCDActivity"
@@ -80,10 +77,13 @@
         <activity
             android:name=".SectionEActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        <activity android:name=".EndingActivity"></activity>
+        <activity android:name=".EndingActivity" />
         <activity
             android:name=".AndroidDatabaseManager"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ParticipantListActivity"
+            android:label="@string/title_activity_participant_list"></activity>
     </application>
 
 </manifest>

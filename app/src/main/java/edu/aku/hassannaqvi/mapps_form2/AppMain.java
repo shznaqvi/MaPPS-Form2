@@ -11,6 +11,8 @@ import android.provider.Settings;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 /**
  * Created by hassan.naqvi on 11/30/2016.
  */
@@ -54,10 +56,14 @@ public class AppMain extends Application {
     public static FormsContract fc;
     public static String userName = "0000";
     public static String areaCode;
-    public static String curCluster = "22";
+    public static String curCluster;
     protected LocationManager locationManager;
     Location location;
 
+//    For participant
+    public static ArrayList<EligibleParticipants> Eparticipant;
+    public static String currentParticipantName = "";
+    public static int currentParticipantPosition;
 
     @Override
     public void onCreate() {

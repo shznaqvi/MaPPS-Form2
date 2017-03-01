@@ -345,7 +345,7 @@ public class SectionBBActivity extends Activity {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
-                Intent secc = new Intent(this, SectionCActivity.class);
+                Intent secc = new Intent(this, ParticipantListActivity.class);
                 startActivity(secc);
 
             } else {
