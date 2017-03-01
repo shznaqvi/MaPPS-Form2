@@ -168,7 +168,7 @@ public class MainActivity extends Activity {
 
             // Sync Randomization
             Toast.makeText(getApplicationContext(), "Syncing Eligibleomization", Toast.LENGTH_SHORT).show();
-            new GetEligibles(this).execute();
+            new SyncEligibles(this).execute();
 
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);

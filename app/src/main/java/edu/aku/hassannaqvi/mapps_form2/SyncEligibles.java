@@ -12,9 +12,9 @@ import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
-import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,6 +22,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 
 /**
  * Created by hassan.naqvi on 7/26/2016.
@@ -38,10 +39,10 @@ public class SyncEligibles extends AsyncTask<String, Void, String> {
 
     public static void longInfo(String str) {
         if (str.length() > 4000) {
-            Log.i("TAG: ", str.substring(0, 4000));
+            Log.i(TAG + "LongInfo", str.substring(0, 4000));
             longInfo(str.substring(4000));
         } else
-            Log.i("TAG: ", str);
+            Log.i(TAG + "LongInfo", str);
     }
 
     @Override
@@ -59,7 +60,7 @@ public class SyncEligibles extends AsyncTask<String, Void, String> {
 
         String line = "No Response";
         try {
-            return downloadUrl(urls[0]);
+            return downloadUrl(AppMain._HOST_URL + EligiblesContract.singleWoman._URI);
         } catch (IOException e) {
             return "Unable to upload data. Server may be down.";
         }
@@ -74,13 +75,11 @@ public class SyncEligibles extends AsyncTask<String, Void, String> {
         try {
             json = new JSONArray(result);
             DatabaseHelper db = new DatabaseHelper(mContext);
-            for (int i = 0; i < json.length(); i++) {
-//                db.updateEligibles(json.getString(i));
-            }
+            db.syncEligible(json);
             Toast.makeText(mContext, "Successfully Synced " + json.length() + " Eligibles", Toast.LENGTH_SHORT).show();
 
             pd.setMessage(json.length() + " eligibles synced.");
-            pd.setTitle("Done uploading eligibles data");
+            pd.setTitle("Eligibles: Done");
             pd.show();
         } catch (JSONException e) {
             e.printStackTrace();
@@ -98,12 +97,13 @@ public class SyncEligibles extends AsyncTask<String, Void, String> {
         InputStream is = null;
         // Only display the first 500 characters of the retrieved
         // web page content.
-        int len = 500;
+        int len = 5000;
 
         HttpURLConnection conn = null;
         StringBuilder result = null;
         try {
             URL url = new URL(myurl);
+            Log.d(TAG, "downloadUrl: " + myurl);
             conn = (HttpURLConnection) url.openConnection();
             conn.setReadTimeout(10000 /* milliseconds */);
             conn.setConnectTimeout(15000 /* milliseconds */);
@@ -113,7 +113,6 @@ public class SyncEligibles extends AsyncTask<String, Void, String> {
             conn.setRequestProperty("Content-Type", "application/json");
             conn.setRequestProperty("charset", "utf-8");
             conn.setUseCaches(false);
-            String urlParameters = "cluster=" + AppMain.curCluster;
 
             // Starts the query
             conn.connect();
@@ -127,13 +126,23 @@ public class SyncEligibles extends AsyncTask<String, Void, String> {
                     jsonSync.put(fc.toJSONObject());
 
                 }*/
-            wr.writeBytes(urlParameters);
+            JSONObject json = new JSONObject();
+            try {
+                json.put("cluster", AppMain.curCluster);
+            } catch (JSONException e1) {
+                e1.printStackTrace();
+            }
+            Log.d(TAG, "downloadUrl: " + json.toString());
+            wr.writeBytes(URLEncoder.encode(json.toString(), "UTF-8"));
             longInfo(jsonSync.toString().replace("\uFEFF", "") + "\n");
             wr.flush();
+            wr.close();
 
             InputStream in = new BufferedInputStream(conn.getInputStream());
+            String contentAsString = readIt(in, len);
+            return contentAsString;
 
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            /*BufferedReader reader = new BufferedReader(new InputStreamReader(in));
             result = new StringBuilder();
 
             String line;
@@ -142,7 +151,7 @@ public class SyncEligibles extends AsyncTask<String, Void, String> {
                 result.append(line);
                 // Makes sure that the InputStream is closed after the app is
                 // finished using it.
-            }
+            }*/
         } catch (Exception e) {
             e.printStackTrace();
 
