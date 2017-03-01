@@ -262,7 +262,7 @@
     <string name="mp02bb01801"> 1هڪ يا ٻه دفعا گذريل 4 هفتن ۾ </string>
     <string name="mp02bb01802"> 2ٽن کان ڏه ڀيرا گذريل 4 هفتن ۾ </string>
     <string name="mp02bb01803"> 3 10 کان وڌيڪ ڀيرا گذريل چئن هفتن ۾ </string>
-    <string name="mp02c001"> Participant ID </string>
+    <string name="mp02c001"> Participant Name </string>
     <string name="mp02c002"> انٽرويو جو نتيجو </string>
     <string name="mp02c00201"> پورو ٿيو </string>
     <string name="mp02c00202"> اڌ ۾ ڇڏيو </string>
@@ -737,6 +737,7 @@
     <string name="mp02e001"> هيموگلوبن </string>
     <string name="mp02e002"> ڇا شرڪت ڪندڙ سب اسٽڊي ۾ آهي؟ </string>
     <string name="mp02e002sub"> جيڪڏهن ها ته رت جو نمونو وٺڻ لاء ٽيم کي ٻڌايو. جيڪڏهن نه ته فارم بند ڪريو. </string>
+    <string name="title_activity_participant_list">ParticipantList</string>
 
 
 </resources>

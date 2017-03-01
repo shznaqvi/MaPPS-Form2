@@ -85,7 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:popupBackground="#3d3d3d" />
+                android:popupBackground="#ffffff" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -131,68 +131,90 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/mp02_count"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="@color/colorPrimary"
+                android:background="@color/gray"
                 android:padding="2dp"
-                android:text="@string/mp02a007"
+                android:visibility="gone"
+                android:text="Eligible Women Found = 0"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
 
-            <EditText
-                android:id="@+id/mp02a007"
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mp02a007"
-                android:inputType="textCapWords" />
+                android:id="@+id/fldGrpmp02a007"
+                android:visibility="gone"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/mp02a008"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
-
-            <EditText
-                android:id="@+id/mp02a008"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/mp02a008"
-                android:inputType="number"
-                android:maxLength="11" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/mp02a013"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
-
-            <RadioGroup
-                android:id="@+id/mp02a013"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:id="@+id/mp02a01301"
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/yes" />
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="2dp"
+                    android:text="@string/mp02a007"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
 
-                <RadioButton
-                    android:id="@+id/mp02a01302"
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/mp02a007"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/no" />
+                    android:hint="@string/mp02a007"
+                    android:inputType="textCapWords" />
 
-            </RadioGroup>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="2dp"
+                    android:text="@string/mp02a008"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
+
+                <EditText
+                    android:id="@+id/mp02a008"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mp02a008"
+                    android:inputType="number"
+                    android:maxLength="11" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="2dp"
+                    android:text="@string/mp02a013"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
+
+                <RadioGroup
+                    android:id="@+id/mp02a013"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/mp02a01301"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/yes" />
+
+                    <RadioButton
+                        android:id="@+id/mp02a01302"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no" />
+
+                </RadioGroup>
+
+            </LinearLayout>
 
 
             <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
@@ -208,7 +230,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="endInterview"
                     android:padding="2dp"
                     android:text="@string/end_interview"
                     android:textColor="#ff1e1e" />
@@ -219,8 +240,8 @@
                     android:id="@+id/btn_Continue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="startInterview"
                     android:padding="2dp"
+                    android:visibility="gone"
                     android:text="@string/start_interview"
                     android:textColor="@color/colorPrimaryDark" />
                 <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->

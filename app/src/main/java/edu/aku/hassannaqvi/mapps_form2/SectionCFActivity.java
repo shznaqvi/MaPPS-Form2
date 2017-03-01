@@ -505,8 +505,9 @@ public class SectionCFActivity extends Activity {
     void onBtnEndClick() {
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
 
-        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-        Intent endSec = new Intent(this, EndingActivity.class);
+        finish();
+
+        Intent endSec = new Intent(this, SectionCActivity.class);
         endSec.putExtra("complete", false);
         startActivity(endSec);
 

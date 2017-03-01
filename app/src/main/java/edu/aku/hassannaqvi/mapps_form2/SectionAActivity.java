@@ -3,8 +3,14 @@ package edu.aku.hassannaqvi.mapps_form2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -18,6 +24,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
@@ -52,9 +59,21 @@ public class SectionAActivity extends Activity {
     @BindView(R.id.mp02aLHWs)
     Spinner mp02aLHWs;
 
-    List<String> LHWsID;
+    @BindView(R.id.fldGrpmp02a007)
+    LinearLayout fldGrpmp02a007;
+
+    @BindView(R.id.btn_Continue)
+    Button btn_Continue;
+    @BindView(R.id.btn_End)
+    Button btn_End;
+
+    @BindView(R.id.mp02_count)
+    TextView mp02_count;
+
     List<String> LHWsName;
     DatabaseHelper db;
+    HashMap<String, String> LHWs;
+    Boolean flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,34 +81,105 @@ public class SectionAActivity extends Activity {
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
 
-        db=new DatabaseHelper(this);
+        db = new DatabaseHelper(this);
 
-        LHWsID = new ArrayList<>();
         LHWsName = new ArrayList<>();
-        Collection<LHWsContract> collectionLHWs= db.getLHWsByCluster(AppMain.curCluster);
 
-        for (LHWsContract lhws : collectionLHWs){
-            LHWsID.add(lhws.getLhwId());
+        LHWs = new HashMap<>();
+
+        AppMain.Eparticipant = new ArrayList<>();
+
+        Collection<LHWsContract> collectionLHWs = db.getLHWsByCluster(AppMain.curCluster);
+
+        for (LHWsContract lhws : collectionLHWs) {
             LHWsName.add(lhws.getLhwName());
+            LHWs.put(lhws.getLhwName(), lhws.getLhwId());
         }
-        mp02aLHWs.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,LHWsName));
+        mp02aLHWs.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, LHWsName));
+
+        mp02aLHWs.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                Log.d("Selected LHWs", LHWs.get(mp02aLHWs.getSelectedItem().toString()));
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
 
     }
 
     @OnClick(R.id.checkParticipants)
     void onCheckParticipantsClick() {
         //TODO implement
+
+        mp02_count.setVisibility(View.VISIBLE);
+
+        if (!mp02a003.getText().toString().isEmpty()) {
+
+            mp02a003.setError(null);
+
+            Collection<EligiblesContract> Econtract = db.getEligiblesByHousehold(AppMain.curCluster, LHWs.get(mp02aLHWs.getSelectedItem().toString()), mp02a003.getText().toString());
+
+            mp02_count.setText("Eligible Women found = "+Econtract.size());
+
+            if (Econtract.size() != 0) {
+
+                for (EligiblesContract ec : Econtract) {
+                    AppMain.Eparticipant.add(new EligibleParticipants(ec.getLUID(), ec.getWomen_name()));
+                }
+
+                Toast.makeText(this, "Participant Found", Toast.LENGTH_LONG).show();
+
+                fldGrpmp02a007.setVisibility(View.VISIBLE);
+                btn_Continue.setVisibility(View.VISIBLE);
+
+                flag = true;
+
+            } else {
+
+                fldGrpmp02a007.setVisibility(View.GONE);
+                btn_Continue.setVisibility(View.GONE);
+                mp02a007.setText(null);
+                mp02a008.setText(null);
+                mp02a013.clearCheck();
+
+                flag = false;
+
+                Toast.makeText(this, "No Participant Found", Toast.LENGTH_LONG).show();
+            }
+        } else {
+            mp02a003.setError("This data is Required!");
+        }
+
+
     }
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
-        Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
 
-        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-        Intent endSec = new Intent(this, EndingActivity.class);
-        endSec.putExtra("complete", false);
-        startActivity(endSec);
+        if (ValidateForm()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
 
+                Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+                Intent endSec = new Intent(this, EndingActivity.class);
+                endSec.putExtra("complete", false);
+                startActivity(endSec);
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
 
@@ -97,6 +187,9 @@ public class SectionAActivity extends Activity {
     void onBtnContinueClick() {
 
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+
+//        Intent secba = new Intent(this, ParticipantListActivity.class);
+//        startActivity(secba);
 
         if (ValidateForm()) {
             try {
@@ -170,36 +263,47 @@ public class SectionAActivity extends Activity {
             mp02a002.setError(null);
         }
 
+        //======================= Q 3 ===============
 
-        //======================= Q 7 ===============
-
-        if (mp02a007.getText().toString().isEmpty()) {
-            Toast.makeText(this, "" + getString(R.string.mp02a007), Toast.LENGTH_SHORT).show();
-            mp02a007.setError("This data is Required!");
+        if (mp02a003.getText().toString().isEmpty()) {
+            Toast.makeText(this, "" + getString(R.string.mp02a003), Toast.LENGTH_SHORT).show();
+            mp02a003.setError("This data is Required!");
             return false;
         } else {
-            mp02a007.setError(null);
+            mp02a003.setError(null);
         }
 
-        //======================= Q 8 ===============
+        if (flag) {
+            //======================= Q 7 ===============
 
-        if (mp02a008.getText().toString().isEmpty()) {
-            Toast.makeText(this, "" + getString(R.string.mp02a008), Toast.LENGTH_SHORT).show();
-            mp02a008.setError("This data is Required!");
-            return false;
-        } else {
-            mp02a008.setError(null);
-        }
+            if (mp02a007.getText().toString().isEmpty()) {
+                Toast.makeText(this, "" + getString(R.string.mp02a007), Toast.LENGTH_SHORT).show();
+                mp02a007.setError("This data is Required!");
+                return false;
+            } else {
+                mp02a007.setError(null);
+            }
+
+            //======================= Q 8 ===============
+
+            if (mp02a008.getText().toString().isEmpty()) {
+                Toast.makeText(this, "" + getString(R.string.mp02a008), Toast.LENGTH_SHORT).show();
+                mp02a008.setError("This data is Required!");
+                return false;
+            } else {
+                mp02a008.setError(null);
+            }
 
 
-        //======================= Q 13 ===============
+            //======================= Q 13 ===============
 
-        if (mp02a013.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "" + getString(R.string.mp02a013), Toast.LENGTH_SHORT).show();
-            mp02a01302.setError("This data is Required!");
-            return false;
-        } else {
-            mp02a01302.setError(null);
+            if (mp02a013.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "" + getString(R.string.mp02a013), Toast.LENGTH_SHORT).show();
+                mp02a01302.setError("This data is Required!");
+                return false;
+            } else {
+                mp02a01302.setError(null);
+            }
         }
 
         return true;

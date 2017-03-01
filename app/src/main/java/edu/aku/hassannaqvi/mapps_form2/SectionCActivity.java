@@ -24,7 +24,7 @@ public class SectionCActivity extends Activity {
     @BindView(R.id.app_header)
     TextView appHeader;
     @BindView(R.id.mp02c001)
-    EditText mp02c001;
+    TextView mp02c001;
     @BindView(R.id.mp02c002)
     RadioGroup mp02c002;
     @BindView(R.id.mp02c00201)
@@ -46,23 +46,35 @@ public class SectionCActivity extends Activity {
         setContentView(R.layout.activity_section_c);
         ButterKnife.bind(this);
 
+        mp02c001.setText(AppMain.currentParticipantName);
+
     }
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
-        Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
-        Intent endSec = new Intent(this, EndingActivity.class);
-        endSec.putExtra("complete", false);
-        startActivity(endSec);
 
+        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+
+        if (ValidateForm()) {
+            Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
+            Intent endSec = new Intent(this, EndingActivity.class);
+            endSec.putExtra("complete", false);
+            startActivity(endSec);
+            finish();
+        }
     }
 
+    public boolean ValidateForm() {
 
-    @OnClick(R.id.btn_Continue)
-    void onBtnContinueClick() {
-        Intent secca = new Intent(this, SectionCBActivity.class);
-        startActivity(secca);
+        if (mp02c002.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mp02a013), Toast.LENGTH_SHORT).show();
+            mp02c00206.setError("This data is Required!");
+            return false;
+        } else {
+            mp02c00206.setError(null);
+        }
 
+        return true;
     }
 
 }

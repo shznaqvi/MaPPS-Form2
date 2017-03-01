@@ -585,8 +585,10 @@ public class SectionCBActivity extends Activity {
     void onBtnEndClick() {
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
 
+        finish();
+
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-        Intent endSec = new Intent(this, EndingActivity.class);
+        Intent endSec = new Intent(this, SectionCActivity.class);
         endSec.putExtra("complete", false);
         startActivity(endSec);
 
@@ -613,7 +615,7 @@ public class SectionCBActivity extends Activity {
                     Intent seccc = new Intent(this, SectionCCActivity.class);
                     startActivity(seccc);
                 } else {
-                    Intent endSec = new Intent(this, EndingActivity.class);
+                    Intent endSec = new Intent(this, SectionCActivity.class);
                     endSec.putExtra("complete", false);
                     startActivity(endSec);
                 }

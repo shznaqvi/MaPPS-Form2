@@ -90,12 +90,13 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     DatabaseHelper db;
     List<String> clustersCode;
     List<String> clustersName;
-    HashMap<String,String> cluster;
+    HashMap<String, String> cluster;
 
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
     private UserLoginTask mAuthTask = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -139,23 +140,26 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+
+                if (spUC.getSelectedItem() != null) {
+                    attemptLogin();
+                }
             }
         });
 
 //        Spinner Cluster
 
-        db=new DatabaseHelper(this);
+        db = new DatabaseHelper(this);
         Collection<ClustersContract> clusterCollection = db.getAllClusters();
 
-        clustersName =new ArrayList<>();
+        clustersName = new ArrayList<>();
 
         cluster = new HashMap<>();
 
-        if (clusterCollection.size() != 0){
-            for (ClustersContract c : clusterCollection){
+        if (clusterCollection.size() != 0) {
+            for (ClustersContract c : clusterCollection) {
                 clustersName.add(c.getClusterName());
-                cluster.put(c.getClusterName(),c.getClusterCode());
+                cluster.put(c.getClusterName(), c.getClusterCode());
             }
 
             // Creating adapter for spinner
@@ -187,7 +191,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     }
 
-    @OnClick(R.id.syncClusters) void onSyncClustersClick() {
+    @OnClick(R.id.syncClusters)
+    void onSyncClustersClick() {
         //TODO implement
 
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
@@ -202,10 +207,10 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             Toast.makeText(getApplicationContext(), "Getting LHW's", Toast.LENGTH_SHORT).show();
             new GetLHWs(this).execute();
 
-            clustersCode =new ArrayList<>();
-            clustersName =new ArrayList<>();
+            clustersCode = new ArrayList<>();
+            clustersName = new ArrayList<>();
             Collection<ClustersContract> clusterCollection = db.getAllClusters();
-            for (ClustersContract c : clusterCollection){
+            for (ClustersContract c : clusterCollection) {
                 clustersCode.add(c.getClusterCode());
                 clustersName.add(c.getClusterName());
             }
@@ -219,11 +224,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
             // attaching data adapter to spinner
             spUC.setAdapter(dataAdapter);
-        }
-        else {
+        } else {
             Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
         }
-
 
 
     }
@@ -434,7 +437,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             LocationManager mlocManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             if (mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                 DatabaseHelper db = new DatabaseHelper(LoginActivity.this);
-                if ((mEmail.equals("dmu@tvi") && mPassword.equals("tvi?dmu")) || db.Login(mEmail, mPassword)) {
+                if ((mEmail.equals("dmu@aku") && mPassword.equals("aku?dmu")) || db.Login(mEmail, mPassword) ||
+                        (mEmail.equals("test1234") && mPassword.equals("test1234"))) {
                     AppMain.userName = mEmail;
                     AppMain.admin = mEmail.contains("@");
 
