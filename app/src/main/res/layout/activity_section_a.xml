@@ -112,6 +112,7 @@
                     android:maxLength="3" />
 
                 <Button
+                    android:id="@+id/checkParticipants"
                     style="@style/button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -120,7 +121,6 @@
                     android:layout_weight="2"
                     android:background="@color/colorAccent"
                     android:elevation="1dp"
-                    android:onClick="chekHHID"
                     android:padding="2dp"
                     android:text="CHECK"
                     android:textColor="@color/colorPrimary"

@@ -167,7 +167,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
                 JSONObject jsonObjectUser = jsonArray.getJSONObject(i);
 
-                UsersContract user =new UsersContract();
+                UsersContract user = new UsersContract();
                 user.Sync(jsonObjectUser);
                 ContentValues values = new ContentValues();
 
@@ -424,6 +424,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 whereArgs);
         db.close();
     }
+
     public void updateBA(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -545,6 +546,50 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return allCC;
+    }
+
+    public Collection<EligiblesContract> getEligiblesByHousehold(String clusterCode, String lhwCode, String hhno) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                singleWoman.COLUMN_NAME_LUID,
+                singleWoman.COLUMN_NAME_WOMEN_NAME
+        };
+
+        String whereClause = singleWoman.COLUMN_NAME_SUBAREACODE + " = ? AND" +
+                singleWoman.COLUMN_NAME_LHWCODE + " = ? AND" +
+                singleWoman.COLUMN_NAME_HOUSEHOLD + " = ?";
+        String[] whereArgs = new String[]{clusterCode, lhwCode, hhno};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                singleWoman.COLUMN_NAME_WOMEN_NAME + " ASC";
+
+        Collection<EligiblesContract> allEC = new ArrayList<>();
+        try {
+            c = db.query(
+                    singleWoman.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                EligiblesContract ec = new EligiblesContract();
+                allEC.add(ec.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allEC;
     }
 
     public Collection<FormsContract> getAllForms() {

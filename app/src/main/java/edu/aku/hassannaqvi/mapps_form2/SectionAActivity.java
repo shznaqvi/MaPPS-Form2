@@ -3,8 +3,6 @@ package edu.aku.hassannaqvi.mapps_form2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -76,6 +74,11 @@ public class SectionAActivity extends Activity {
         }
         mp02aLHWs.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,LHWsName));
 
+    }
+
+    @OnClick(R.id.checkParticipants)
+    void onCheckParticipantsClick() {
+        //TODO implement
     }
 
     @OnClick(R.id.btn_End)
