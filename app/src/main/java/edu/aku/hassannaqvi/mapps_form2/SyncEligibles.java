@@ -15,6 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,7 +23,6 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
 
 /**
  * Created by hassan.naqvi on 7/26/2016.
@@ -133,16 +133,16 @@ public class SyncEligibles extends AsyncTask<String, Void, String> {
                 e1.printStackTrace();
             }
             Log.d(TAG, "downloadUrl: " + json.toString());
-            wr.writeBytes(URLEncoder.encode(json.toString(), "UTF-8"));
+            wr.writeBytes(json.toString());
             longInfo(jsonSync.toString().replace("\uFEFF", "") + "\n");
             wr.flush();
             wr.close();
 
             InputStream in = new BufferedInputStream(conn.getInputStream());
-            String contentAsString = readIt(in, len);
-            return contentAsString;
+            /*String contentAsString = readIt(in, len);
+            return contentAsString;*/
 
-            /*BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
             result = new StringBuilder();
 
             String line;
@@ -151,7 +151,7 @@ public class SyncEligibles extends AsyncTask<String, Void, String> {
                 result.append(line);
                 // Makes sure that the InputStream is closed after the app is
                 // finished using it.
-            }*/
+            }
         } catch (Exception e) {
             e.printStackTrace();
 
