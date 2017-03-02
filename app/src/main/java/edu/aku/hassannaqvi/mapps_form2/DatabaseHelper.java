@@ -175,10 +175,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(UsersContract.singleUser.ROW_PASSWORD, user.getPassword());
                 db.insert(UsersContract.singleUser.TABLE_NAME, null, values);
             }
-            db.close();
+
 
         } catch (Exception e) {
             Log.d(TAG, "syncUser(e): " + e);
+        } finally {
+            db.close();
         }
     }
 
@@ -203,9 +205,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
                 db.insert(singleWoman.TABLE_NAME, null, values);
             }
-            db.close();
+
 
         } catch (Exception e) {
+        } finally {
+            db.close();
         }
     }
 
@@ -229,9 +233,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
                 db.insert(LHWsContract.singleLhw.TABLE_NAME, null, values);
             }
-            db.close();
+
 
         } catch (Exception e) {
+        } finally {
+            db.close();
         }
     }
 
@@ -254,9 +260,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
                 db.insert(ClustersContract.singleCluster.TABLE_NAME, null, values);
             }
-            db.close();
+
 
         } catch (Exception e) {
+        } finally {
+            db.close();
         }
     }
 
@@ -277,8 +285,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     userList.add(user);
                 }
             }
-            db.close();
+
         } catch (Exception e) {
+        } finally {
+            db.close();
         }
         return userList;
     }
@@ -287,12 +297,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor mCursor = db.rawQuery("SELECT * FROM " + UsersContract.singleUser.TABLE_NAME + " WHERE " + UsersContract.singleUser.ROW_USERNAME + "=? AND " + UsersContract.singleUser.ROW_PASSWORD + "=?", new String[]{username, password});
-        db.close();
+
         if (mCursor != null) {
             if (mCursor.getCount() > 0) {
                 return true;
             }
         }
+        db.close();
         return false;
     }
 
