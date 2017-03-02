@@ -63,7 +63,6 @@ public class AppMain extends Application {
 //    For participant
     public static ArrayList<EligibleParticipants> Eparticipant;
     public static String currentParticipantName = "";
-    public static int currentParticipantPosition;
 
     @Override
     public void onCreate() {

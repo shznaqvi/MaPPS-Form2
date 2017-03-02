@@ -47,7 +47,8 @@ public class ParticipantListActivity extends Activity  {
 
                 AppMain.currentParticipantName = (String) participantList.getItemAtPosition(position);
 
-                AppMain.currentParticipantPosition = position;
+                participantList.getChildAt(position).setEnabled(false);
+                participantList.getChildAt(position).setBackgroundColor(getResources().getColor(R.color.gray));
 
 //                Toast.makeText(getApplicationContext(),AppMain.currentParticipantName,Toast.LENGTH_LONG).show();
 //                Toast.makeText(getApplicationContext(),""+position,Toast.LENGTH_LONG).show();
@@ -55,16 +56,6 @@ public class ParticipantListActivity extends Activity  {
                 startActivity(new Intent(getApplicationContext(),SectionCBActivity.class));
             }
         });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        if (AppMain.currentParticipantName!="") {
-            participantList.getChildAt(AppMain.currentParticipantPosition).setClickable(false);
-            participantList.getChildAt(AppMain.currentParticipantPosition).setBackgroundColor(getResources().getColor(R.color.gray));
-        }
     }
 
     @OnClick(R.id.btn_End) void onBtnEndClick() {

@@ -209,10 +209,10 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
-            Toast.makeText(getApplicationContext(), "Getting Users", Toast.LENGTH_SHORT).show();
-            new GetUsers(this).execute();
             Toast.makeText(getApplicationContext(), "Getting Clusters", Toast.LENGTH_SHORT).show();
             new GetClusters(this).execute();
+            Toast.makeText(getApplicationContext(), "Getting Users", Toast.LENGTH_SHORT).show();
+            new GetUsers(this).execute();
             Toast.makeText(getApplicationContext(), "Getting LHW's", Toast.LENGTH_SHORT).show();
             new GetLHWs(this).execute();
 
