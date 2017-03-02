@@ -3,9 +3,10 @@ package edu.aku.hassannaqvi.mapps_form2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -74,12 +75,49 @@ public class SectionAActivity extends Activity {
     DatabaseHelper db;
     HashMap<String, String> LHWs;
     Boolean flag = false;
+    Boolean checked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
+
+        mp02a003.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                checked = false;
+
+                if (!checked) {
+                    fldGrpmp02a007.setVisibility(View.GONE);
+                    btn_Continue.setVisibility(View.GONE);
+                    mp02a007.setText(null);
+                    mp02a008.setText(null);
+                    mp02a013.clearCheck();
+                    mp02a003.setError("Please check household number first");
+
+                } else {
+                    checked = true;
+                    mp02a003.setError(null);
+                }
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+
+            }
+        });
+
+
 
         db = new DatabaseHelper(this);
 
@@ -99,6 +137,7 @@ public class SectionAActivity extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+                ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorPrimary));
                 Log.d("Selected LHWs", LHWs.get(mp02aLHWs.getSelectedItem().toString()));
 
             }
@@ -114,7 +153,8 @@ public class SectionAActivity extends Activity {
 
     @OnClick(R.id.checkParticipants)
     void onCheckParticipantsClick() {
-        //TODO implement
+
+        checked = true;
 
         mp02_count.setVisibility(View.VISIBLE);
 
@@ -124,7 +164,7 @@ public class SectionAActivity extends Activity {
 
             Collection<EligiblesContract> Econtract = db.getEligiblesByHousehold(AppMain.curCluster, LHWs.get(mp02aLHWs.getSelectedItem().toString()), mp02a003.getText().toString());
 
-            mp02_count.setText("Eligible Women found = "+Econtract.size());
+            mp02_count.setText("Eligible Women found = " + Econtract.size());
 
             if (Econtract.size() != 0) {
 

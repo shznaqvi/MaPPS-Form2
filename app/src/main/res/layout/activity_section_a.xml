@@ -18,7 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layoutDirection="rtl"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingEnd="5dp">
 
             <TextView
                 android:id="@+id/app_header"
@@ -137,18 +138,18 @@
                 android:layout_marginTop="10dp"
                 android:background="@color/gray"
                 android:padding="2dp"
-                android:visibility="gone"
                 android:text="Eligible Women Found = 0"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
 
 
             <LinearLayout
+                android:id="@+id/fldGrpmp02a007"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/fldGrpmp02a007"
-                android:visibility="gone"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -241,9 +242,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="2dp"
-                    android:visibility="gone"
                     android:text="@string/start_interview"
-                    android:textColor="@color/colorPrimaryDark" />
+                    android:textColor="@color/colorPrimaryDark"
+                    android:visibility="gone" />
                 <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
 
             </LinearLayout>

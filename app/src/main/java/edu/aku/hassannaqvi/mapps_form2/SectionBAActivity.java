@@ -582,6 +582,7 @@ public class SectionBAActivity extends Activity {
             }
         });
 
+
     }
 
     @OnClick(R.id.btn_End)
