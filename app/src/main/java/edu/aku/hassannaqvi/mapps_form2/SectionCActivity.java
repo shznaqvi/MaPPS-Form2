@@ -57,9 +57,9 @@ public class SectionCActivity extends Activity {
 
         if (ValidateForm()) {
             Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
-            Intent endSec = new Intent(this, EndingActivity.class);
-            endSec.putExtra("complete", false);
-            startActivity(endSec);
+//            Intent endSec = new Intent(this, EndingActivity.class);
+//            endSec.putExtra("complete", false);
+//            startActivity(endSec);
             finish();
         }
     }
