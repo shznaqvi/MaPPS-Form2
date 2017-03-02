@@ -287,12 +287,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor mCursor = db.rawQuery("SELECT * FROM " + UsersContract.singleUser.TABLE_NAME + " WHERE " + UsersContract.singleUser.ROW_USERNAME + "=? AND " + UsersContract.singleUser.ROW_PASSWORD + "=?", new String[]{username, password});
-        db.close();
         if (mCursor != null) {
             if (mCursor.getCount() > 0) {
                 return true;
             }
-        }
+        }        db.close();
+
         return false;
     }
 

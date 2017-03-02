@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.content.Loader;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -141,8 +142,16 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             @Override
             public void onClick(View view) {
 
+//                TextView spUCTxtView = (TextView) spUC.getSelectedView();
+
                 if (spUC.getSelectedItem() != null) {
+//                    spUCTxtView.setText(null);
                     attemptLogin();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Please Sync Clusters!!", Toast.LENGTH_LONG).show();
+//                    spUCTxtView.setTextColor(Color.RED);//just to highlight that this is an error
+//                    spUCTxtView.setText("Please Sync Clusters");//changes the selected item text to this
                 }
             }
         });
@@ -378,8 +387,20 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     }
 
     public void gotoMain(View v) {
-        Intent im = new Intent(LoginActivity.this, MainActivity.class);
-        startActivity(im);
+
+//        TextView spUCTxtView = (TextView) spUC.getSelectedView();
+
+        if (spUC.getSelectedItem() != null) {
+
+//            spUCTxtView.setError(null);
+
+            Intent im = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(im);
+        }else {
+            Toast.makeText(this, "Please Sync Clusters!!", Toast.LENGTH_LONG).show();
+//            spUCTxtView.setTextColor(Color.RED);//just to highlight that this is an error
+//            spUCTxtView.setText("Please Sync Clusters");//changes the selected item text to this
+        }
     }
 
     private interface ProfileQuery {

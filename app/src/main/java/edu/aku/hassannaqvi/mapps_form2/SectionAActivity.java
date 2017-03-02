@@ -87,8 +87,6 @@ public class SectionAActivity extends Activity {
 
         LHWs = new HashMap<>();
 
-        AppMain.Eparticipant = new ArrayList<>();
-
         Collection<LHWsContract> collectionLHWs = db.getLHWsByCluster(AppMain.curCluster);
 
         for (LHWsContract lhws : collectionLHWs) {
@@ -129,6 +127,8 @@ public class SectionAActivity extends Activity {
             mp02_count.setText("Eligible Women found = "+Econtract.size());
 
             if (Econtract.size() != 0) {
+
+                AppMain.Eparticipant = new ArrayList<>();
 
                 for (EligiblesContract ec : Econtract) {
                     AppMain.Eparticipant.add(new EligibleParticipants(ec.getLUID(), ec.getWomen_name()));
