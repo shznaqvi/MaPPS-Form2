@@ -943,37 +943,22 @@ public class SectionCFActivity extends Activity {
                     mp02cf01988x.setText(null);
                 } else {
                     mp02cf01901.setEnabled(true);
-                    mp02cf01901.setChecked(true);
                     mp02cf01902.setEnabled(true);
-                    mp02cf01902.setChecked(true);
                     mp02cf01903.setEnabled(true);
-                    mp02cf01903.setChecked(true);
                     mp02cf01904.setEnabled(true);
-                    mp02cf01904.setChecked(true);
                     mp02cf01905.setEnabled(true);
-                    mp02cf01905.setChecked(true);
                     mp02cf01906.setEnabled(true);
-                    mp02cf01906.setChecked(true);
                     mp02cf01907.setEnabled(true);
-                    mp02cf01907.setChecked(true);
                     mp02cf01908.setEnabled(true);
-                    mp02cf01908.setChecked(true);
                     mp02cf01909.setEnabled(true);
-                    mp02cf01909.setChecked(true);
                     mp02cf01910.setEnabled(true);
-                    mp02cf01910.setChecked(true);
                     mp02cf01911.setEnabled(true);
-                    mp02cf01911.setChecked(true);
                     mp02cf01912.setEnabled(true);
-                    mp02cf01912.setChecked(true);
                     mp02cf01913.setEnabled(true);
-                    mp02cf01913.setChecked(true);
                     mp02cf01914.setEnabled(true);
-                    mp02cf01914.setChecked(true);
                     mp02cf01915.setEnabled(true);
-                    mp02cf01915.setChecked(true);
                     mp02cf01988.setEnabled(true);
-                    mp02cf01988.setChecked(true);
+
 
                 }
                 // ====================== Q 19 Others ===================
