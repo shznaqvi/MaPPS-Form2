@@ -45,9 +45,13 @@ public class GetClusters extends AsyncTask<String, String, String> {
 
         StringBuilder result = new StringBuilder();
 
+        URL url = null;
         try {
-            URL url = new URL(AppMain._HOST_URL + ClustersContract.singleCluster._URI);
+            url = new URL(AppMain._HOST_URL + ClustersContract.singleCluster._URI);
             urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setReadTimeout(10000 /* milliseconds */);
+            urlConnection.setConnectTimeout(15000 /* milliseconds */);
+            Log.d(TAG, "doInBackground: " + urlConnection.getResponseCode());
             if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
 
@@ -59,10 +63,10 @@ public class GetClusters extends AsyncTask<String, String, String> {
                     result.append(line);
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-
-
+        } catch (java.net.SocketTimeoutException e) {
+            return null;
+        } catch (java.io.IOException e) {
+            return null;
         } finally {
             urlConnection.disconnect();
         }
@@ -76,9 +80,10 @@ public class GetClusters extends AsyncTask<String, String, String> {
 
         //Do something with the JSON string
 
+        if (result != null) {
         String json = result;
         //json = json.replaceAll("\\[", "").replaceAll("\\]","");
-        Log.d(TAG, result);
+
         if (json.length() > 0) {
             ArrayList<ClustersContract> clusterArrayList;
             DatabaseHelper db = new DatabaseHelper(mContext);
@@ -95,6 +100,11 @@ public class GetClusters extends AsyncTask<String, String, String> {
             //db.getAllClusters();
         } else {
             pd.setMessage("Received: " + json.length() + "");
+            pd.show();
+        }
+        } else {
+            pd.setTitle("Connection Error");
+            pd.setMessage("Server not found!");
             pd.show();
         }
     }
