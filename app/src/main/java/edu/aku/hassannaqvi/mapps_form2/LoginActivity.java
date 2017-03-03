@@ -216,6 +216,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             Toast.makeText(getApplicationContext(), "Getting LHW's", Toast.LENGTH_SHORT).show();
             new GetLHWs(this).execute();
 
+
             clustersCode = new ArrayList<>();
             clustersName = new ArrayList<>();
             Collection<ClustersContract> clusterCollection = db.getAllClusters();
