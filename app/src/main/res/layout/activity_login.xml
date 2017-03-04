@@ -38,7 +38,7 @@
                 android:gravity="center_horizontal"
 
                 android:keepScreenOn="true"
-                android:text="VIR Band Household Survey"
+                android:text="@string/app_name"
                 android:textColor="@color/colorAccent"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -101,8 +101,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
-                    android:gravity="center"
                     android:layout_weight="35"
+                    android:gravity="center"
                     android:popupBackground="#ffffff" />
 
                 <Button
@@ -111,9 +111,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:padding="16dp"
                     android:layout_weight="3"
                     android:drawableStart="@drawable/ic_cloud_download_black_24dp"
+                    android:padding="16dp"
                     android:text="Cluster"
                     android:textStyle="bold" />
 
