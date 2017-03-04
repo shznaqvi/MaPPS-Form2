@@ -18,10 +18,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ParticipantListActivity extends Activity  {
+public class ParticipantListActivity extends Activity {
 
-    @BindView(R.id.app_header) TextView appHeader;
-    @BindView(R.id.participantList) ListView participantList;
+    @BindView(R.id.app_header)
+    TextView appHeader;
+    @BindView(R.id.participantList)
+    ListView participantList;
 
     ArrayList<String> Ewomens;
 
@@ -33,13 +35,13 @@ public class ParticipantListActivity extends Activity  {
 
         Ewomens = new ArrayList<>();
 
-        Log.d("Size",""+AppMain.Eparticipant.size());
+        Log.d("Size", "" + AppMain.Eparticipant.size());
 
-        for (int i=0;i<AppMain.Eparticipant.size();i++){
+        for (int i = 0; i < AppMain.Eparticipant.size(); i++) {
             Ewomens.add((AppMain.Eparticipant.get(i).getWname()).toUpperCase());
         }
 
-        participantList.setAdapter(new ArrayAdapter<>(this,R.layout.lstview, Ewomens));
+        participantList.setAdapter(new ArrayAdapter<>(this, R.layout.lstview, Ewomens));
 
         participantList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -53,12 +55,17 @@ public class ParticipantListActivity extends Activity  {
 //                Toast.makeText(getApplicationContext(),AppMain.currentParticipantName,Toast.LENGTH_LONG).show();
 //                Toast.makeText(getApplicationContext(),""+position,Toast.LENGTH_LONG).show();
 
-                startActivity(new Intent(getApplicationContext(),SectionCBActivity.class));
+                startActivity(new Intent(getApplicationContext(), SectionCBActivity.class));
             }
         });
     }
 
-    @OnClick(R.id.btn_End) void onBtnEndClick() {
+    @OnClick(R.id.btn_End)
+    void onBtnEndClick() {
         //TODO implement
+        finish();
+        Intent endSec = new Intent(this, EndingActivity.class);
+        endSec.putExtra("complete", false);
+        startActivity(endSec);
     }
 }
