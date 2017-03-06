@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.mapps_form2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -77,6 +78,8 @@ public class SectionAActivity extends Activity {
     Boolean flag = false;
     Boolean checked = false;
 
+    Collection<EligiblesContract> Econtract;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,6 +120,16 @@ public class SectionAActivity extends Activity {
             }
         });
 
+        mp02a013.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (mp02a01301.isChecked()) {
+                    btn_Continue.setVisibility(View.VISIBLE);
+                } else {
+                    btn_Continue.setVisibility(View.GONE);
+                }
+            }
+        });
 
 
         db = new DatabaseHelper(this);
@@ -162,9 +175,10 @@ public class SectionAActivity extends Activity {
 
             mp02a003.setError(null);
 
-            Collection<EligiblesContract> Econtract = db.getEligiblesByHousehold(AppMain.curCluster, LHWs.get(mp02aLHWs.getSelectedItem().toString()), mp02a003.getText().toString());
+            Econtract = db.getEligiblesByHousehold(AppMain.curCluster, LHWs.get(mp02aLHWs.getSelectedItem().toString()), mp02a003.getText().toString());
 
             mp02_count.setText("Eligible Women found = " + Econtract.size());
+
 
             if (Econtract.size() != 0) {
 
@@ -242,6 +256,7 @@ public class SectionAActivity extends Activity {
 
                 finish();
                 Intent secba = new Intent(this, SectionBAActivity.class);
+                secba.putExtra("data", Econtract.size());
                 startActivity(secba);
 
             } else {

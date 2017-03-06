@@ -4,7 +4,7 @@
     android:id="@+id/activity_section_cc"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.aku.hassannaqvi.mapps_form2.SectionCcActivity">
+    tools:context="edu.aku.hassannaqvi.mapps_form2.SectionCCActivity">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/scrollView01"
@@ -1072,7 +1072,8 @@
                 android:id="@+id/fldGrpmp02cc023"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -1114,6 +1115,14 @@
                         android:text="@string/mp02cc02304" />
 
                 </RadioGroup>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/dullWhile"
+                    android:text="@string/mp02cc024sub"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="25sp" />
 
 
                 <TextView

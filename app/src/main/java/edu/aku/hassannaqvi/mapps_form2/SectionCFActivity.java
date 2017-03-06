@@ -3,6 +3,8 @@ package edu.aku.hassannaqvi.mapps_form2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -263,6 +265,10 @@ public class SectionCFActivity extends Activity {
     LinearLayout fldGrpmp02cf21;
     @BindView(R.id.fldGrpmp02cf23)
     LinearLayout fldGrpmp02cf23;
+    @BindView(R.id.fldGrpmp02cf006)
+    LinearLayout fldGrpmp02cf006;
+    @BindView(R.id.fldGrpmp02cf010)
+    LinearLayout fldGrpmp02cf010;
 
 
     @Override
@@ -498,6 +504,57 @@ public class SectionCFActivity extends Activity {
             }
         });
 
+        mp02cf006.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (mp02cf006.getText().toString().equals("0")) {
+                    fldGrpmp02cf006.setVisibility(View.GONE);
+                    mp02cf007.setText(null);
+                    mp02cf008.setText(null);
+                    mp02cf009.setText(null);
+                } else {
+                    fldGrpmp02cf006.setVisibility(View.VISIBLE);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        mp02cf010.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (mp02cf010.getText().toString().equals("0")) {
+                    fldGrpmp02cf010.setVisibility(View.GONE);
+                    mp02cf011.setText(null);
+                    mp02cf012.setText(null);
+                    mp02cf013.setText(null);
+                } else {
+                    fldGrpmp02cf010.setVisibility(View.VISIBLE);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
 
     }
 
@@ -686,12 +743,12 @@ public class SectionCFActivity extends Activity {
             }
 
             if (((Integer.parseInt(mp02cf004.getText().toString()) < 0)
-                    && (Integer.parseInt(mp02cf004.getText().toString()) < 13))
-                    || Integer.parseInt(mp02cf004.getText().toString()) > 23
+                    && (Integer.parseInt(mp02cf004.getText().toString()) < 15))
+                    || Integer.parseInt(mp02cf004.getText().toString()) > 24
                     && (Integer.parseInt(mp02cf004.getText().toString()) != 99)) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mp02cf004), Toast.LENGTH_LONG).show();
-                mp02cf004.setError("Age Limit is from 13 to 23 Years");
-                Log.i(TAG, "mp02cf004: Age Limit is from 13 to 23 Years");
+                mp02cf004.setError("Age Limit is from 15 to 24 Years");
+                Log.i(TAG, "mp02cf004: Age Limit is from 15 to 24 Years");
                 return false;
             } else {
                 mp02cf004.setError(null);
@@ -710,7 +767,7 @@ public class SectionCFActivity extends Activity {
             // ============ Skip Check till question 20 ============
             if (mp02cf00501.isChecked()) {
                 // ====================== Q 6 ===================
-                if ((mp02cf006.getText().toString().isEmpty()) || Integer.parseInt(mp02cf006.getText().toString()) < 0) {
+                if ((mp02cf006.getText().toString().isEmpty())) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf006), Toast.LENGTH_LONG).show();
                     mp02cf006.setError("This data is Required!");    // Set Error on last radio button
 
@@ -754,7 +811,7 @@ public class SectionCFActivity extends Activity {
                 }
 
                 // ====================== Q 10 ===================
-                if ((mp02cf010.getText().toString().isEmpty()) || Integer.parseInt(mp02cf010.getText().toString()) < 0) {
+                if ((mp02cf010.getText().toString().isEmpty())) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf010), Toast.LENGTH_LONG).show();
                     mp02cf010.setError("This data is Required!");    // Set Error on last radio button
 
@@ -795,6 +852,31 @@ public class SectionCFActivity extends Activity {
                 } else {
                     mp02cf013.setError(null);
                 }
+
+                if (Integer.parseInt(mp02cf006.getText().toString()) < 1 && Integer.parseInt(mp02cf010.getText().toString()) < 1) {
+                    Toast.makeText(this, "Invalid: " + getString(R.string.mp02cf006), Toast.LENGTH_LONG).show();
+                    mp02cf006.setError("Invalid : Can not be zero");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cf006: Can not be Zero");
+                    return false;
+                } else {
+                    mp02cf006.setError(null);
+                }
+
+                if (Integer.parseInt(mp02cf006.getText().toString()) > 0) {
+                    if (Integer.parseInt(mp02cf007.getText().toString().isEmpty() ? "0" : mp02cf007.getText().toString()) < 1) {
+                        Toast.makeText(this, "Invalid: " + getString(R.string.mp02cf007), Toast.LENGTH_LONG).show();
+                        mp02cf007.setError("Invalid : Can not be zero");    // Set Error on last radio button
+
+                        Log.i(TAG, "mp02cf006: Can not be Zero");
+                        return false;
+                    } else {
+                        mp02cf006.setError(null);
+                    }
+
+
+                }
+
 
                 // ====================== Q 14 ===================
                 if (mp02cf014.getText().toString().isEmpty()) {
@@ -985,7 +1067,7 @@ public class SectionCFActivity extends Activity {
             } else {
                 mp02cf02099.setError(null);
             }
-            /// ========== Skip Check Q20
+            // ========== Skip Check Q20
             if (mp02cf02001.isChecked()) {
                 if (mp02cf021.getText().toString().isEmpty()) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf021), Toast.LENGTH_LONG).show();

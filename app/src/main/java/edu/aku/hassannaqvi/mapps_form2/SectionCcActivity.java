@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.mapps_form2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -185,9 +186,9 @@ public class SectionCCActivity extends Activity  {
         ButterKnife.bind(this);
 
 
-        mp02cc022.setOnClickListener(new View.OnClickListener() {
+        mp02cc022.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onClick(View view) {
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 if (mp02cc02201.isChecked()){
                     fldGrpmp02cc023.setVisibility(View.VISIBLE);
                 }
@@ -201,7 +202,6 @@ public class SectionCCActivity extends Activity  {
                 }
             }
         });
-
     }
 
     @OnClick(R.id.btn_End) void onBtnEndClick() {

@@ -383,11 +383,11 @@
     <string name="mp02cc00406"> روزانو </string>
     <string name="mp02cc00407"> اسين نيرن تيار نه ڪندا آهيون </string>
     <string name="mp02cc005"> توهان پنهنجي ماءُ پيءُ/يا مڙس سان ڪيترا دفعا گڏ منجهند جي ماني کائيندا آهيو؟ </string>
-    <string name="mp02cc00501"> ڪڏهن به نه 1 </string>
-    <string name="mp02cc00502"> هفتي ۾ هڪ دفعي کان گهٽ 2 </string>
-    <string name="mp02cc00503"> هفتي ۾ هڪ يا 2 دفعا 3 </string>
-    <string name="mp02cc00504"> هفتي ۾ 3 يا 4 دفعا 4 </string>
-    <string name="mp02cc00505"> هفتي ۾ 5 يا 6 دفعا 5 </string>
+    <string name="mp02cc00501"> ڪڏهن به نه  </string>
+    <string name="mp02cc00502"> هفتي ۾ هڪ دفعي کان گهٽ </string>
+    <string name="mp02cc00503"> هفتي ۾ هڪ يا 2 دفعا </string>
+    <string name="mp02cc00504"> هفتي ۾ 3 يا 4 دفعا </string>
+    <string name="mp02cc00505"> هفتي ۾ 5 يا 6 دفعا </string>
     <string name="mp02cc00506"> روزانو </string>
     <string name="mpVeryEasy"> تمام آسان </string>
     <string name="mpEasy"> آسان </string>
@@ -455,7 +455,7 @@
     <string name="mp02ce004"> توھان جي گھر ۾ توهان جو علاج ڪرائڻ جو فيصلو عام طور تي ڪير ڪندو آهي؟ </string>
     <string name="mp02ce005"> گهر جي روز مره ضرورت جون شيون خريد ڪرڻ جو فيصلو عام طور تي ڪير ڪندو آهي؟ </string>
     <string name="mp02ce006"> جيڪو توهان گهر ۾ پئسو ڪمائي آڻيندا آهيو ان کي استعمال ڪرڻ جو فيصلو عام طور تي ڪير ڪندو آهي؟ </string>
-
+    <string name="mp02cfsub"> وڏي آواز ۾ پڙهو ؛ هاڻي آئون توهان کان توهان جي صحت بابت سوال ڪندس </string>
     <string name="mp02cf001"> توهان پنهنجي صحت ڪيئن محسوس ڪري رهيا آهيو؟ </string>
     <string name="mp02cf00101"> تمام بهترين </string>
     <string name="mp02cf00102"> سٺو </string>
