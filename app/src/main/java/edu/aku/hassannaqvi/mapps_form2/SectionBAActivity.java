@@ -388,12 +388,15 @@ public class SectionBAActivity extends Activity {
     @BindView(R.id.fldGrpmp02ba019)
     LinearLayout fldGrpmp02ba019;
 
+    String data = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_ba);
         ButterKnife.bind(this);
+
 
         mp02ba01002.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -625,6 +628,7 @@ public class SectionBAActivity extends Activity {
 
 //        15
 
+
         if (mp02ba001.getText().toString().isEmpty()) {
             Toast.makeText(this, "" + getString(R.string.mp02ba001), Toast.LENGTH_SHORT).show();
             mp02ba001.setError("This data is Required!");
@@ -633,9 +637,16 @@ public class SectionBAActivity extends Activity {
             mp02ba001.setError(null);
         }
 
-        if (Integer.parseInt(mp02ba001.getText().toString()) < 1) {
+        int eligible = 0;
+        if (getIntent().hasExtra("data"))
+
+            eligible = (getIntent().getExtras().getInt("data"));
+
+
+        if ((Integer.parseInt(mp02ba001.getText().toString().isEmpty() ? "0" : mp02ba001.getText().toString()) < eligible)
+                || Integer.parseInt(mp02ba001.getText().toString()) > 99) {
             Toast.makeText(this, "Invalid:" + getString(R.string.mp02ba001), Toast.LENGTH_SHORT).show();
-            mp02ba001.setError("Invalid: Greater than 0");
+            mp02ba001.setError("Invalid: Can not be less than eligible woman");
             return false;
         } else {
             mp02ba001.setError(null);
@@ -718,6 +729,14 @@ public class SectionBAActivity extends Activity {
         if (mp02ba006.getText().toString().isEmpty()) {
             Toast.makeText(this, "" + getString(R.string.mp02ba006), Toast.LENGTH_SHORT).show();
             mp02ba006.setError("This data is Required!");
+            return false;
+        } else {
+            mp02ba006.setError(null);
+        }
+
+        if (Integer.parseInt(mp02ba006.getText().toString()) < 1 || Integer.parseInt(mp02ba006.getText().toString()) > 20) {
+            Toast.makeText(this, "Invalid" + getString(R.string.mp02ba006), Toast.LENGTH_SHORT).show();
+            mp02ba006.setError("Invalid: Cant be less than 1");
             return false;
         } else {
             mp02ba006.setError(null);
