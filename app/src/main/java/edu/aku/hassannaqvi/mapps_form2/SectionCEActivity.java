@@ -167,14 +167,14 @@ public class SectionCEActivity extends Activity {
             }
         });
 
-        mp02ce00588.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mp02ce00488.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b){
-                    mp02ce00588x.setVisibility(View.VISIBLE);
+                    mp02ce00488x.setVisibility(View.VISIBLE);
                 }else {
-                    mp02ce00588x.setVisibility(View.GONE);
-                    mp02ce00588x.setText(null);
+                    mp02ce00488x.setVisibility(View.GONE);
+                    mp02ce00488x.setText(null);
                 }
             }
         });

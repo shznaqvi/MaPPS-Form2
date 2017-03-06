@@ -97,6 +97,8 @@ public class SectionDActivity extends Activity {
         setContentView(R.layout.activity_section_d);
         ButterKnife.bind(this);
 
+        appHeader.setText(" وڏي آوا ز ۾ پڙهو ؛ هاڻ اسين قد، وزن ۽ ٻانهن جي ماپ ڪنداسين. اهو عمل گھٽ ۾ گھٽ ٻه دفعا ٿيندو ");
+
         mp02d00302.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
