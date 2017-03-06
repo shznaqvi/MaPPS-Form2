@@ -59,15 +59,13 @@ public class GetLHWs extends AsyncTask<String, String, String> {
                     result.append(line);
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-
-
+        } catch (java.net.SocketTimeoutException e) {
+            return null;
+        } catch (java.io.IOException e) {
+            return null;
         } finally {
             urlConnection.disconnect();
         }
-
-
         return result.toString();
     }
 
@@ -75,6 +73,7 @@ public class GetLHWs extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result) {
 
         //Do something with the JSON string
+        if (result != null) {
 
         String json = result;
         //json = json.replaceAll("\\[", "").replaceAll("\\]","");
@@ -95,6 +94,11 @@ public class GetLHWs extends AsyncTask<String, String, String> {
             //db.getAllLHWs();
         } else {
             pd.setMessage("Received: " + json.length() + "");
+            pd.show();
+        }
+        } else {
+            pd.setTitle("Connection Error");
+            pd.setMessage("Server not found!");
             pd.show();
         }
     }
