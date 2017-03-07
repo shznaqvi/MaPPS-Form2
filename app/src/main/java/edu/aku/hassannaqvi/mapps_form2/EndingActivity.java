@@ -35,6 +35,22 @@ public class EndingActivity extends Activity {
         setContentView(R.layout.activity_ending);
         ButterKnife.bind(this);
 
+        Boolean check = getIntent().getExtras().getBoolean("complete");
+
+        if (check) {
+            mp02a01401.setEnabled(true);
+            mp02a01402.setEnabled(false);
+            mp02a01403.setEnabled(false);
+            mp02a01404.setEnabled(false);
+            mp02a01405.setEnabled(false);
+        } else {
+            mp02a01401.setEnabled(false);
+            mp02a01402.setEnabled(true);
+            mp02a01403.setEnabled(true);
+            mp02a01404.setEnabled(true);
+            mp02a01405.setEnabled(true);
+        }
+
     }
 
     @OnClick(R.id.btn_End)

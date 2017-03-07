@@ -20,7 +20,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Calendar;
-import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -757,9 +756,11 @@ public class SectionCBActivity extends Activity {
 
             Calendar now = Calendar.getInstance();
 
-            now.add(now.YEAR, -(Integer.parseInt(mp02cb00101.getText().toString())));
+            int year = now.get(Calendar.YEAR);
 
-            if (now.YEAR < 15 || now.YEAR > 24) {
+            int currentAge = year - (Integer.parseInt(mp02cb00101.getText().toString()));
+
+            if (currentAge < 15 || currentAge > 24) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb001), Toast.LENGTH_LONG).show();
                 mp02cb00101.setError("Age Limit is from 15 to 24 Years");
                 Log.i(TAG, "mp02cb00101: Age Limit is from 15 to 24 Years");
