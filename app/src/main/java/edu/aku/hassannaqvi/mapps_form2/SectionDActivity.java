@@ -42,12 +42,12 @@ public class SectionDActivity extends Activity {
     EditText mp02d002;
     @BindView(R.id.mp02d002id2)
     Spinner mp02d002id2;
-    @BindView(R.id.mp02d003)
-    RadioGroup mp02d003;
-    @BindView(R.id.mp02d00301)
-    RadioButton mp02d00301;
-    @BindView(R.id.mp02d00302)
-    RadioButton mp02d00302;
+    //    @BindView(R.id.mp02d003)
+//    RadioGroup mp02d003;
+//    @BindView(R.id.mp02d00301)
+//    RadioButton mp02d00301;
+//    @BindView(R.id.mp02d00302)
+//    RadioButton mp02d00302;
     @BindView(R.id.mp02d004)
     EditText mp02d004;
     @BindView(R.id.mp02d004id3)
@@ -60,12 +60,12 @@ public class SectionDActivity extends Activity {
     EditText mp02d006;
     @BindView(R.id.mp02d006id1)
     Spinner mp02d006id1;
-    @BindView(R.id.mp02d007)
-    RadioGroup mp02d007;
-    @BindView(R.id.mp02d00701)
-    RadioButton mp02d00701;
-    @BindView(R.id.mp02d00702)
-    RadioButton mp02d00702;
+    //    @BindView(R.id.mp02d007)
+//    RadioGroup mp02d007;
+//    @BindView(R.id.mp02d00701)
+//    RadioButton mp02d00701;
+//    @BindView(R.id.mp02d00702)
+//    RadioButton mp02d00702;
     @BindView(R.id.mp02d008)
     EditText mp02d008;
     @BindView(R.id.mp02d008id3)
@@ -78,12 +78,12 @@ public class SectionDActivity extends Activity {
     EditText mp02d010;
     @BindView(R.id.mp02d010id2)
     Spinner mp02d010id2;
-    @BindView(R.id.mp02d011)
-    RadioGroup mp02d011;
-    @BindView(R.id.mp02d01101)
-    RadioButton mp02d01101;
-    @BindView(R.id.mp02d01102)
-    RadioButton mp02d01102;
+    //    @BindView(R.id.mp02d011)
+//    RadioGroup mp02d011;
+//    @BindView(R.id.mp02d01101)
+//    RadioButton mp02d01101;
+//    @BindView(R.id.mp02d01102)
+//    RadioButton mp02d01102;
     @BindView(R.id.mp02d012)
     EditText mp02d012;
     @BindView(R.id.mp02d012id3)
@@ -104,55 +104,55 @@ public class SectionDActivity extends Activity {
 
         appHeader.setText(" وڏي آوا ز ۾ پڙهو ؛ هاڻ اسين قد، وزن ۽ ٻانهن جي ماپ ڪنداسين. اهو عمل گھٽ ۾ گھٽ ٻه دفعا ٿيندو ");
 
-        mp02d00302.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b) {
-                    fldGrpmp02d004.setVisibility(View.GONE);
-                    mp02d004.setText(null);
-                    mp02d004id3.setSelection(0);
-                } else {
-                    fldGrpmp02d004.setVisibility(View.VISIBLE);
-                }
-            }
-        });
+//        mp02d00302.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if (b) {
+//                    fldGrpmp02d004.setVisibility(View.GONE);
+//                    mp02d004.setText(null);
+//                    mp02d004id3.setSelection(0);
+//                } else {
+//                    fldGrpmp02d004.setVisibility(View.VISIBLE);
+//                }
+//            }
+//        });
+//
+//        mp02d00702.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if (b) {
+//                    fldGrpmp02d008.setVisibility(View.GONE);
+//                    mp02d008.setText(null);
+//                    mp02d008id3.setSelection(0);
+//                } else {
+//                    fldGrpmp02d008.setVisibility(View.VISIBLE);
+//                }
+//            }
+//        });
+//
+//        mp02d01102.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if (b) {
+//                    fldGrpmp02d012.setVisibility(View.GONE);
+//                    mp02d012.setText(null);
+//                    mp02d012id3.setSelection(0);
+//                } else {
+//                    fldGrpmp02d012.setVisibility(View.VISIBLE);
+//                }
+//            }
+//        });
 
-        mp02d00702.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b) {
-                    fldGrpmp02d008.setVisibility(View.GONE);
-                    mp02d008.setText(null);
-                    mp02d008id3.setSelection(0);
-                } else {
-                    fldGrpmp02d008.setVisibility(View.VISIBLE);
-                }
-            }
-        });
 
-        mp02d01102.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b) {
-                    fldGrpmp02d012.setVisibility(View.GONE);
-                    mp02d012.setText(null);
-                    mp02d012id3.setSelection(0);
-                } else {
-                    fldGrpmp02d012.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-
-
-        mp02d001id1.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
-        mp02d002id2.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
-        mp02d004id3.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
-        mp02d005id1.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
-        mp02d006id1.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
-        mp02d008id3.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
-        mp02d009id1.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
-        mp02d010id2.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
-        mp02d012id3.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
+        mp02d001id1.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
+        mp02d002id2.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
+        mp02d004id3.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
+        mp02d005id1.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
+        mp02d006id1.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
+        mp02d008id3.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
+        mp02d009id1.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
+        mp02d010id2.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
+        mp02d012id3.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
 
     }
 
@@ -214,13 +214,21 @@ public class SectionDActivity extends Activity {
         } else {
             mp02d001.setError(null);
         }
-        if (Integer.parseInt(mp02d001.getText().toString()) < 1) {
+        if (!mp02d001.getText().toString().contains(".")) {
+            Toast.makeText(this, "" + getString(R.string.mp02d001), Toast.LENGTH_SHORT).show();
+            mp02d001.setError("Decimal value is Required!");
+            return false;
+        } else {
+            mp02d001.setError(null);
+        }
+        if (Double.parseDouble(mp02d001.getText().toString()) < 1) {
             Toast.makeText(this, "Invalid:" + getString(R.string.mp02d001), Toast.LENGTH_SHORT).show();
             mp02d001.setError("Invalid: Greater then 0");
             return false;
         } else {
             mp02d001.setError(null);
         }
+
 
         TextView mp02d001id1_txt = (TextView) mp02d001id1.getSelectedView();
         if (mp02d001id1.getSelectedItemId() == 0) {
@@ -240,13 +248,21 @@ public class SectionDActivity extends Activity {
         } else {
             mp02d002.setError(null);
         }
-        if (Integer.parseInt(mp02d002.getText().toString()) < 1) {
+        if (!mp02d002.getText().toString().contains(".")) {
+            Toast.makeText(this, "" + getString(R.string.mp02d002), Toast.LENGTH_SHORT).show();
+            mp02d002.setError("Decimal value is Required!");
+            return false;
+        } else {
+            mp02d002.setError(null);
+        }
+        if (Double.parseDouble(mp02d002.getText().toString()) < 1) {
             Toast.makeText(this, "Invalid:" + getString(R.string.mp02d002), Toast.LENGTH_SHORT).show();
             mp02d002.setError("Invalid: Greater then 0");
             return false;
         } else {
             mp02d002.setError(null);
         }
+
 
         TextView mp02d002id2_txt = (TextView) mp02d002id2.getSelectedView();
         if (mp02d002id2.getSelectedItemPosition() == 0) {
@@ -258,41 +274,50 @@ public class SectionDActivity extends Activity {
         }
 
 //        3
-        if (mp02d003.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "" + getString(R.string.mp02d003), Toast.LENGTH_SHORT).show();
-            mp02d00302.setError("This data is Required!");
-            return false;
-        } else {
-            mp02d00302.setError(null);
-        }
+
+//        if (mp02d003.getCheckedRadioButtonId() == -1) {
+//            Toast.makeText(this, "" + getString(R.string.mp02d003), Toast.LENGTH_SHORT).show();
+//            mp02d00302.setError("This data is Required!");
+//            return false;
+//        } else {
+//            mp02d00302.setError(null);
+//        }
 
 //        Skip
-        if (mp02d00301.isChecked()) {
+//        if (mp02d00301.isChecked()) {
 //            4
-            if (mp02d004.getText().toString().isEmpty()) {
-                Toast.makeText(this, "" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
-                mp02d004.setError("This data is Required!");
-                return false;
-            } else {
-                mp02d004.setError(null);
-            }
-            if (Integer.parseInt(mp02d004.getText().toString()) < 1) {
-                Toast.makeText(this, "Invalid:" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
-                mp02d004.setError("Invalid: Greater then 0");
-                return false;
-            } else {
-                mp02d004.setError(null);
-            }
-
-            TextView mp02d004id3_txt = (TextView) mp02d004id3.getSelectedView();
-            if (mp02d004id3.getSelectedItemPosition() == 0) {
-                Toast.makeText(this, "" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
-                mp02d004id3_txt.setText("This data is Required!");
-                return false;
-            } else {
-                mp02d004id3_txt.setText(null);
-            }
+        if (mp02d004.getText().toString().isEmpty()) {
+            Toast.makeText(this, "" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
+            mp02d004.setError("This data is Required!");
+            return false;
+        } else {
+            mp02d004.setError(null);
         }
+        if (!mp02d004.getText().toString().contains(".")) {
+            Toast.makeText(this, "" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
+            mp02d004.setError("Decimal value is Required!");
+            return false;
+        } else {
+            mp02d004.setError(null);
+        }
+        if (Double.parseDouble(mp02d004.getText().toString()) < 1) {
+            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
+            mp02d004.setError("Invalid: Greater then 0");
+            return false;
+        } else {
+            mp02d004.setError(null);
+        }
+
+
+        TextView mp02d004id3_txt = (TextView) mp02d004id3.getSelectedView();
+        if (mp02d004id3.getSelectedItemPosition() == 0) {
+            Toast.makeText(this, "" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
+            mp02d004id3_txt.setText("This data is Required!");
+            return false;
+        } else {
+            mp02d004id3_txt.setText(null);
+        }
+//        }
 
 //        5
         if (mp02d005.getText().toString().isEmpty()) {
@@ -302,13 +327,21 @@ public class SectionDActivity extends Activity {
         } else {
             mp02d005.setError(null);
         }
-        if (Integer.parseInt(mp02d005.getText().toString()) < 1) {
+        if (!mp02d005.getText().toString().contains(".")) {
+            Toast.makeText(this, "" + getString(R.string.mp02d005), Toast.LENGTH_SHORT).show();
+            mp02d005.setError("Decimal value is Required!");
+            return false;
+        } else {
+            mp02d005.setError(null);
+        }
+        if (Double.parseDouble(mp02d005.getText().toString()) < 1) {
             Toast.makeText(this, "Invalid:" + getString(R.string.mp02d005), Toast.LENGTH_SHORT).show();
             mp02d005.setError("Invalid: Greater then 0");
             return false;
         } else {
             mp02d005.setError(null);
         }
+
 
         TextView mp02d005id1_txt = (TextView) mp02d005id1.getSelectedView();
         if (mp02d005id1.getSelectedItemPosition() == 0) {
@@ -327,13 +360,21 @@ public class SectionDActivity extends Activity {
         } else {
             mp02d006.setError(null);
         }
-        if (Integer.parseInt(mp02d006.getText().toString()) < 1) {
+        if (!mp02d006.getText().toString().contains(".")) {
+            Toast.makeText(this, "" + getString(R.string.mp02d006), Toast.LENGTH_SHORT).show();
+            mp02d006.setError("Decimal value is Required!");
+            return false;
+        } else {
+            mp02d006.setError(null);
+        }
+        if (Double.parseDouble(mp02d006.getText().toString()) < 1) {
             Toast.makeText(this, "Invalid:" + getString(R.string.mp02d006), Toast.LENGTH_SHORT).show();
             mp02d006.setError("Invalid: Greater then 0");
             return false;
         } else {
             mp02d006.setError(null);
         }
+
 
         TextView mp02d006id1_txt = (TextView) mp02d006id1.getSelectedView();
         if (mp02d006id1.getSelectedItemPosition() == 0) {
@@ -345,41 +386,49 @@ public class SectionDActivity extends Activity {
         }
 
 //        7
-        if (mp02d007.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "" + getString(R.string.mp02d007), Toast.LENGTH_SHORT).show();
-            mp02d00702.setError("This data is Required!");
-            return false;
-        } else {
-            mp02d00702.setError(null);
-        }
+//        if (mp02d007.getCheckedRadioButtonId() == -1) {
+//            Toast.makeText(this, "" + getString(R.string.mp02d007), Toast.LENGTH_SHORT).show();
+//            mp02d00702.setError("This data is Required!");
+//            return false;
+//        } else {
+//            mp02d00702.setError(null);
+//        }
 
 //        Skip
-        if (mp02d00701.isChecked()) {
+//        if (mp02d00701.isChecked()) {
 //            8
-            if (mp02d008.getText().toString().isEmpty()) {
-                Toast.makeText(this, "" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
-                mp02d008.setError("This data is Required!");
-                return false;
-            } else {
-                mp02d008.setError(null);
-            }
-            if (Integer.parseInt(mp02d008.getText().toString()) < 1) {
-                Toast.makeText(this, "Invalid:" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
-                mp02d008.setError("Invalid: Greater then 0");
-                return false;
-            } else {
-                mp02d008.setError(null);
-            }
-
-            TextView mp02d008id3_txt = (TextView) mp02d008id3.getSelectedView();
-            if (mp02d008id3.getSelectedItemPosition() == 0) {
-                Toast.makeText(this, "" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
-                mp02d008id3_txt.setText("This data is Required!");
-                return false;
-            } else {
-                mp02d008id3_txt.setText(null);
-            }
+        if (mp02d008.getText().toString().isEmpty()) {
+            Toast.makeText(this, "" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
+            mp02d008.setError("This data is Required!");
+            return false;
+        } else {
+            mp02d008.setError(null);
         }
+        if (!mp02d008.getText().toString().contains(".")) {
+            Toast.makeText(this, "" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
+            mp02d008.setError("Decimal value is Required!");
+            return false;
+        } else {
+            mp02d008.setError(null);
+        }
+        if (Double.parseDouble(mp02d008.getText().toString()) < 1) {
+            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
+            mp02d008.setError("Invalid: Greater then 0");
+            return false;
+        } else {
+            mp02d008.setError(null);
+        }
+
+
+        TextView mp02d008id3_txt = (TextView) mp02d008id3.getSelectedView();
+        if (mp02d008id3.getSelectedItemPosition() == 0) {
+            Toast.makeText(this, "" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
+            mp02d008id3_txt.setText("This data is Required!");
+            return false;
+        } else {
+            mp02d008id3_txt.setText(null);
+        }
+//        }
 
 //        9
         if (mp02d009.getText().toString().isEmpty()) {
@@ -389,13 +438,21 @@ public class SectionDActivity extends Activity {
         } else {
             mp02d009.setError(null);
         }
-        if (Integer.parseInt(mp02d009.getText().toString()) < 1) {
+        if (!mp02d009.getText().toString().contains(".")) {
+            Toast.makeText(this, "" + getString(R.string.mp02d009), Toast.LENGTH_SHORT).show();
+            mp02d009.setError("Decimal value is Required!");
+            return false;
+        } else {
+            mp02d009.setError(null);
+        }
+        if (Double.parseDouble(mp02d009.getText().toString()) < 1) {
             Toast.makeText(this, "Invalid:" + getString(R.string.mp02d009), Toast.LENGTH_SHORT).show();
             mp02d009.setError("Invalid: Greater then 0");
             return false;
         } else {
             mp02d009.setError(null);
         }
+
 
         TextView mp02d009id1_txt = (TextView) mp02d009id1.getSelectedView();
         if (mp02d009id1.getSelectedItemPosition() == 0) {
@@ -414,13 +471,21 @@ public class SectionDActivity extends Activity {
         } else {
             mp02d010.setError(null);
         }
-        if (Integer.parseInt(mp02d010.getText().toString()) < 1) {
+        if (!mp02d010.getText().toString().contains(".")) {
+            Toast.makeText(this, "" + getString(R.string.mp02d010), Toast.LENGTH_SHORT).show();
+            mp02d010.setError("Decimal value is Required!");
+            return false;
+        } else {
+            mp02d010.setError(null);
+        }
+        if (Double.parseDouble(mp02d010.getText().toString()) < 1) {
             Toast.makeText(this, "Invalid:" + getString(R.string.mp02d010), Toast.LENGTH_SHORT).show();
             mp02d010.setError("Invalid: Greater then 0");
             return false;
         } else {
             mp02d010.setError(null);
         }
+
 
         TextView mp02d010id2_txt = (TextView) mp02d010id2.getSelectedView();
         if (mp02d010id2.getSelectedItemPosition() == 0) {
@@ -432,41 +497,48 @@ public class SectionDActivity extends Activity {
         }
 
 //        11
-        if (mp02d011.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "" + getString(R.string.mp02d011), Toast.LENGTH_SHORT).show();
-            mp02d01102.setError("This data is Required!");
-            return false;
-        } else {
-            mp02d01102.setError(null);
-        }
+//        if (mp02d011.getCheckedRadioButtonId() == -1) {
+//            Toast.makeText(this, "" + getString(R.string.mp02d011), Toast.LENGTH_SHORT).show();
+//            mp02d01102.setError("This data is Required!");
+//            return false;
+//        } else {
+//            mp02d01102.setError(null);
+//        }
 
 //        Skip
-        if (mp02d01101.isChecked()) {
+//        if (mp02d01101.isChecked()) {
 //            12
-            if (mp02d012.getText().toString().isEmpty()) {
-                Toast.makeText(this, "" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
-                mp02d012.setError("This data is Required!");
-                return false;
-            } else {
-                mp02d012.setError(null);
-            }
-            if (Integer.parseInt(mp02d012.getText().toString()) < 1) {
-                Toast.makeText(this, "Invalid:" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
-                mp02d012.setError("Invalid: Greater then 0");
-                return false;
-            } else {
-                mp02d012.setError(null);
-            }
-
-            TextView mp02d012id3_txt = (TextView) mp02d012id3.getSelectedView();
-            if (mp02d012id3.getSelectedItemPosition() == 0) {
-                Toast.makeText(this, "" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
-                mp02d012id3_txt.setText("This data is Required!");
-                return false;
-            } else {
-                mp02d012id3_txt.setText(null);
-            }
+        if (mp02d012.getText().toString().isEmpty()) {
+            Toast.makeText(this, "" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
+            mp02d012.setError("This data is Required!");
+            return false;
+        } else {
+            mp02d012.setError(null);
         }
+        if (!mp02d012.getText().toString().contains(".")) {
+            Toast.makeText(this, "" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
+            mp02d012.setError("Decimal value is Required!");
+            return false;
+        } else {
+            mp02d012.setError(null);
+        }
+        if (Double.parseDouble(mp02d012.getText().toString()) < 1) {
+            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
+            mp02d012.setError("Invalid: Greater then 0");
+            return false;
+        } else {
+            mp02d012.setError(null);
+        }
+
+        TextView mp02d012id3_txt = (TextView) mp02d012id3.getSelectedView();
+        if (mp02d012id3.getSelectedItemPosition() == 0) {
+            Toast.makeText(this, "" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
+            mp02d012id3_txt.setText("This data is Required!");
+            return false;
+        } else {
+            mp02d012id3_txt.setText(null);
+        }
+//        }
 
 
         return true;
@@ -483,7 +555,7 @@ public class SectionDActivity extends Activity {
         sD.put("mp02d002", mp02d002.getText().toString());
         sD.put("mp02d002id2", mp02d002id2.getSelectedItem().toString());
 
-        sD.put("mp02d003", mp02d00301.isChecked() ? "1" : mp02d00302.isChecked() ? "2" : "0");
+//        sD.put("mp02d003", mp02d00301.isChecked() ? "1" : mp02d00302.isChecked() ? "2" : "0");
 
         sD.put("mp02d004", mp02d004.getText().toString());
         sD.put("mp02d004id3", mp02d004id3.getSelectedItem().toString());
@@ -494,7 +566,7 @@ public class SectionDActivity extends Activity {
         sD.put("mp02d006", mp02d006.getText().toString());
         sD.put("mp02d006id1", mp02d006id1.getSelectedItem().toString());
 
-        sD.put("mp02d007", mp02d00701.isChecked() ? "1" : mp02d00702.isChecked() ? "2" : "0");
+//        sD.put("mp02d007", mp02d00701.isChecked() ? "1" : mp02d00702.isChecked() ? "2" : "0");
 
         sD.put("mp02d008", mp02d008.getText().toString());
         sD.put("mp02d008id3", mp02d008id3.getSelectedItem().toString());
@@ -505,7 +577,7 @@ public class SectionDActivity extends Activity {
         sD.put("mp02d010", mp02d010.getText().toString());
         sD.put("mp02d010id1", mp02d010id2.getSelectedItem().toString());
 
-        sD.put("mp02d011", mp02d01101.isChecked() ? "1" : mp02d01102.isChecked() ? "2" : "0");
+//        sD.put("mp02d011", mp02d01101.isChecked() ? "1" : mp02d01102.isChecked() ? "2" : "0");
 
         sD.put("mp02d012", mp02d012.getText().toString());
         sD.put("mp02d012id3", mp02d012id3.getSelectedItem().toString());
