@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
@@ -63,6 +64,10 @@ public class AppMain extends Application {
 //    For participant
     public static ArrayList<EligibleParticipants> Eparticipant;
     public static String currentParticipantName = "";
+
+//    Login Members Array
+
+    public static String[] loginMem;
 
     @Override
     public void onCreate() {

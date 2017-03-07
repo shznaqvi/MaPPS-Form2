@@ -54,13 +54,11 @@
                 android:inputType="number"
                 android:maxLength="2" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/mp02d001id1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mp02dsubM1"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02dsubM1" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -80,13 +78,11 @@
                 android:inputType="number"
                 android:maxLength="2" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/mp02d002id2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mp02dsubM2"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02dsubM2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -140,13 +136,11 @@
                     android:inputType="number"
                     android:maxLength="2" />
 
-                <EditText
+                <Spinner
                     android:id="@+id/mp02d004id3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/mp02dsubM3"
-                    android:inputType="number"
-                    android:maxLength="2" />
+                    android:hint="@string/mp02dsubM3" />
 
             </LinearLayout>
 
@@ -168,13 +162,11 @@
                 android:inputType="number"
                 android:maxLength="2" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/mp02d005id1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mp02dsubM1"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02dsubM1" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -194,13 +186,11 @@
                 android:inputType="number"
                 android:maxLength="2" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/mp02d006id1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mp02dsubM2"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02dsubM2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -254,13 +244,11 @@
                     android:inputType="number"
                     android:maxLength="2" />
 
-                <EditText
+                <Spinner
                     android:id="@+id/mp02d008id3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/mp02dsubM3"
-                    android:inputType="number"
-                    android:maxLength="2" />
+                    android:hint="@string/mp02dsubM3" />
 
             </LinearLayout>
 
@@ -282,13 +270,11 @@
                 android:inputType="number"
                 android:maxLength="2" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/mp02d009id1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mp02dsubM1"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02dsubM1" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -308,13 +294,11 @@
                 android:inputType="number"
                 android:maxLength="2" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/mp02d010id2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mp02dsubM2"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02dsubM2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -368,13 +352,11 @@
                     android:inputType="number"
                     android:maxLength="2" />
 
-                <EditText
+                <Spinner
                     android:id="@+id/mp02d012id3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/mp02dsubM3"
-                    android:inputType="number"
-                    android:maxLength="2" />
+                    android:hint="@string/mp02dsubM3" />
 
             </LinearLayout>
 

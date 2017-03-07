@@ -112,6 +112,11 @@ public class MainActivity extends Activity {
         startActivity(iA);
     }
 
+    public void openD(View v) {
+        Intent iD = new Intent(this, SectionDActivity.class);
+        startActivity(iD);
+    }
+
 
     public void openDB(View v) {
         Intent dbmanager = new Intent(getApplicationContext(), AndroidDatabaseManager.class);

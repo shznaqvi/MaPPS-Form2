@@ -2,8 +2,10 @@ package edu.aku.hassannaqvi.mapps_form2;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -11,11 +13,15 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,11 +38,11 @@ public class SectionDActivity extends Activity {
     @BindView(R.id.mp02d001)
     EditText mp02d001;
     @BindView(R.id.mp02d001id1)
-    EditText mp02d001id1;
+    Spinner mp02d001id1;
     @BindView(R.id.mp02d002)
     EditText mp02d002;
     @BindView(R.id.mp02d002id2)
-    EditText mp02d002id2;
+    Spinner mp02d002id2;
     @BindView(R.id.mp02d003)
     RadioGroup mp02d003;
     @BindView(R.id.mp02d00301)
@@ -46,15 +52,15 @@ public class SectionDActivity extends Activity {
     @BindView(R.id.mp02d004)
     EditText mp02d004;
     @BindView(R.id.mp02d004id3)
-    EditText mp02d004id3;
+    Spinner mp02d004id3;
     @BindView(R.id.mp02d005)
     EditText mp02d005;
     @BindView(R.id.mp02d005id1)
-    EditText mp02d005id1;
+    Spinner mp02d005id1;
     @BindView(R.id.mp02d006)
     EditText mp02d006;
     @BindView(R.id.mp02d006id1)
-    EditText mp02d006id1;
+    Spinner mp02d006id1;
     @BindView(R.id.mp02d007)
     RadioGroup mp02d007;
     @BindView(R.id.mp02d00701)
@@ -64,15 +70,15 @@ public class SectionDActivity extends Activity {
     @BindView(R.id.mp02d008)
     EditText mp02d008;
     @BindView(R.id.mp02d008id3)
-    EditText mp02d008id3;
+    Spinner mp02d008id3;
     @BindView(R.id.mp02d009)
     EditText mp02d009;
     @BindView(R.id.mp02d009id1)
-    EditText mp02d009id1;
+    Spinner mp02d009id1;
     @BindView(R.id.mp02d010)
     EditText mp02d010;
     @BindView(R.id.mp02d010id2)
-    EditText mp02d010id2;
+    Spinner mp02d010id2;
     @BindView(R.id.mp02d011)
     RadioGroup mp02d011;
     @BindView(R.id.mp02d01101)
@@ -82,7 +88,7 @@ public class SectionDActivity extends Activity {
     @BindView(R.id.mp02d012)
     EditText mp02d012;
     @BindView(R.id.mp02d012id3)
-    EditText mp02d012id3;
+    Spinner mp02d012id3;
 
     @BindView(R.id.fldGrpmp02d004)
     LinearLayout fldGrpmp02d004;
@@ -105,7 +111,7 @@ public class SectionDActivity extends Activity {
                 if (b) {
                     fldGrpmp02d004.setVisibility(View.GONE);
                     mp02d004.setText(null);
-                    mp02d004id3.setText(null);
+                    mp02d004id3.setSelection(0);
                 } else {
                     fldGrpmp02d004.setVisibility(View.VISIBLE);
                 }
@@ -118,7 +124,7 @@ public class SectionDActivity extends Activity {
                 if (b) {
                     fldGrpmp02d008.setVisibility(View.GONE);
                     mp02d008.setText(null);
-                    mp02d008id3.setText(null);
+                    mp02d008id3.setSelection(0);
                 } else {
                     fldGrpmp02d008.setVisibility(View.VISIBLE);
                 }
@@ -131,12 +137,24 @@ public class SectionDActivity extends Activity {
                 if (b) {
                     fldGrpmp02d012.setVisibility(View.GONE);
                     mp02d012.setText(null);
-                    mp02d012id3.setText(null);
+                    mp02d012id3.setSelection(0);
                 } else {
                     fldGrpmp02d012.setVisibility(View.VISIBLE);
                 }
             }
         });
+
+
+        mp02d001id1.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
+        mp02d002id2.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
+        mp02d004id3.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
+        mp02d005id1.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
+        mp02d006id1.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
+        mp02d008id3.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
+        mp02d009id1.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
+        mp02d010id2.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
+        mp02d012id3.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
+
     }
 
     @OnClick(R.id.btn_End)
@@ -195,19 +213,14 @@ public class SectionDActivity extends Activity {
             mp02d001.setError(null);
         }
 
-        if (mp02d001id1.getText().toString().isEmpty()) {
+        TextView mp02d001id1_txt = (TextView) mp02d001id1.getSelectedView();
+        if (mp02d001id1.getSelectedItemId() == 0) {
             Toast.makeText(this, "" + getString(R.string.mp02d001), Toast.LENGTH_SHORT).show();
-            mp02d001id1.setError("This data is Required!");
+            mp02d001id1_txt.setTextColor(Color.RED);
+            mp02d001id1_txt.setText("This data is Required!");
             return false;
         } else {
-            mp02d001id1.setError(null);
-        }
-        if (Integer.parseInt(mp02d001id1.getText().toString()) < 1) {
-            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d001), Toast.LENGTH_SHORT).show();
-            mp02d001id1.setError("Invalid: Greater then 0");
-            return false;
-        } else {
-            mp02d001id1.setError(null);
+            mp02d001id1_txt.setText(null);
         }
 
 //        2
@@ -226,19 +239,13 @@ public class SectionDActivity extends Activity {
             mp02d002.setError(null);
         }
 
-        if (mp02d002id2.getText().toString().isEmpty()) {
+        TextView mp02d002id2_txt = (TextView) mp02d002id2.getSelectedView();
+        if (mp02d002id2.getSelectedItemPosition() == 0) {
             Toast.makeText(this, "" + getString(R.string.mp02d002), Toast.LENGTH_SHORT).show();
-            mp02d002id2.setError("This data is Required!");
+            mp02d002id2_txt.setText("This data is Required!");
             return false;
         } else {
-            mp02d002id2.setError(null);
-        }
-        if (Integer.parseInt(mp02d002id2.getText().toString()) < 1) {
-            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d002), Toast.LENGTH_SHORT).show();
-            mp02d002id2.setError("Invalid: Greater then 0");
-            return false;
-        } else {
-            mp02d002id2.setError(null);
+            mp02d002id2_txt.setText(null);
         }
 
 //        3
@@ -268,19 +275,13 @@ public class SectionDActivity extends Activity {
                 mp02d004.setError(null);
             }
 
-            if (mp02d004id3.getText().toString().isEmpty()) {
+            TextView mp02d004id3_txt = (TextView) mp02d004id3.getSelectedView();
+            if (mp02d004id3.getSelectedItemPosition() == 0) {
                 Toast.makeText(this, "" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
-                mp02d004id3.setError("This data is Required!");
+                mp02d004id3_txt.setText("This data is Required!");
                 return false;
             } else {
-                mp02d004id3.setError(null);
-            }
-            if (Integer.parseInt(mp02d004id3.getText().toString()) < 1) {
-                Toast.makeText(this, "Invalid:" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
-                mp02d004id3.setError("Invalid: Greater then 0");
-                return false;
-            } else {
-                mp02d004id3.setError(null);
+                mp02d004id3_txt.setText(null);
             }
         }
 
@@ -300,19 +301,13 @@ public class SectionDActivity extends Activity {
             mp02d005.setError(null);
         }
 
-        if (mp02d005id1.getText().toString().isEmpty()) {
+        TextView mp02d005id1_txt = (TextView) mp02d005id1.getSelectedView();
+        if (mp02d005id1.getSelectedItemPosition() == 0) {
             Toast.makeText(this, "" + getString(R.string.mp02d005), Toast.LENGTH_SHORT).show();
-            mp02d005id1.setError("This data is Required!");
+            mp02d005id1_txt.setText("This data is Required!");
             return false;
         } else {
-            mp02d005id1.setError(null);
-        }
-        if (Integer.parseInt(mp02d005id1.getText().toString()) < 1) {
-            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d005), Toast.LENGTH_SHORT).show();
-            mp02d005id1.setError("Invalid: Greater then 0");
-            return false;
-        } else {
-            mp02d005id1.setError(null);
+            mp02d005id1_txt.setText(null);
         }
 
 //        6
@@ -331,19 +326,13 @@ public class SectionDActivity extends Activity {
             mp02d006.setError(null);
         }
 
-        if (mp02d006id1.getText().toString().isEmpty()) {
+        TextView mp02d006id1_txt = (TextView) mp02d006id1.getSelectedView();
+        if (mp02d006id1.getSelectedItemPosition() == 0) {
             Toast.makeText(this, "" + getString(R.string.mp02d006), Toast.LENGTH_SHORT).show();
-            mp02d006id1.setError("This data is Required!");
+            mp02d006id1_txt.setText("This data is Required!");
             return false;
         } else {
-            mp02d006id1.setError(null);
-        }
-        if (Integer.parseInt(mp02d006id1.getText().toString()) < 1) {
-            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d006), Toast.LENGTH_SHORT).show();
-            mp02d006id1.setError("Invalid: Greater then 0");
-            return false;
-        } else {
-            mp02d006id1.setError(null);
+            mp02d006id1_txt.setText(null);
         }
 
 //        7
@@ -373,19 +362,13 @@ public class SectionDActivity extends Activity {
                 mp02d008.setError(null);
             }
 
-            if (mp02d008id3.getText().toString().isEmpty()) {
+            TextView mp02d008id3_txt = (TextView) mp02d008id3.getSelectedView();
+            if (mp02d008id3.getSelectedItemPosition() == 0) {
                 Toast.makeText(this, "" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
-                mp02d008id3.setError("This data is Required!");
+                mp02d008id3_txt.setText("This data is Required!");
                 return false;
             } else {
-                mp02d008id3.setError(null);
-            }
-            if (Integer.parseInt(mp02d008id3.getText().toString()) < 1) {
-                Toast.makeText(this, "Invalid:" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
-                mp02d008id3.setError("Invalid: Greater then 0");
-                return false;
-            } else {
-                mp02d008id3.setError(null);
+                mp02d008id3_txt.setText(null);
             }
         }
 
@@ -405,19 +388,13 @@ public class SectionDActivity extends Activity {
             mp02d009.setError(null);
         }
 
-        if (mp02d009id1.getText().toString().isEmpty()) {
+        TextView mp02d009id1_txt = (TextView) mp02d009id1.getSelectedView();
+        if (mp02d009id1.getSelectedItemPosition() == 0) {
             Toast.makeText(this, "" + getString(R.string.mp02d009), Toast.LENGTH_SHORT).show();
-            mp02d009id1.setError("This data is Required!");
+            mp02d009id1_txt.setText("This data is Required!");
             return false;
         } else {
-            mp02d009id1.setError(null);
-        }
-        if (Integer.parseInt(mp02d009id1.getText().toString()) < 1) {
-            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d009), Toast.LENGTH_SHORT).show();
-            mp02d009id1.setError("Invalid: Greater then 0");
-            return false;
-        } else {
-            mp02d009id1.setError(null);
+            mp02d009id1_txt.setText(null);
         }
 
 //        10
@@ -436,19 +413,13 @@ public class SectionDActivity extends Activity {
             mp02d010.setError(null);
         }
 
-        if (mp02d010id2.getText().toString().isEmpty()) {
+        TextView mp02d010id2_txt = (TextView) mp02d010id2.getSelectedView();
+        if (mp02d010id2.getSelectedItemPosition() == 0) {
             Toast.makeText(this, "" + getString(R.string.mp02d010), Toast.LENGTH_SHORT).show();
-            mp02d010id2.setError("This data is Required!");
+            mp02d010id2_txt.setText("This data is Required!");
             return false;
         } else {
-            mp02d010id2.setError(null);
-        }
-        if (Integer.parseInt(mp02d010id2.getText().toString()) < 1) {
-            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d010), Toast.LENGTH_SHORT).show();
-            mp02d010id2.setError("Invalid: Greater then 0");
-            return false;
-        } else {
-            mp02d010id2.setError(null);
+            mp02d010id2_txt.setText(null);
         }
 
 //        11
@@ -478,19 +449,13 @@ public class SectionDActivity extends Activity {
                 mp02d012.setError(null);
             }
 
-            if (mp02d012id3.getText().toString().isEmpty()) {
+            TextView mp02d012id3_txt = (TextView) mp02d012id3.getSelectedView();
+            if (mp02d012id3.getSelectedItemPosition() == 0) {
                 Toast.makeText(this, "" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
-                mp02d012id3.setError("This data is Required!");
+                mp02d012id3_txt.setText("This data is Required!");
                 return false;
             } else {
-                mp02d012id3.setError(null);
-            }
-            if (Integer.parseInt(mp02d012id3.getText().toString()) < 1) {
-                Toast.makeText(this, "Invalid:" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
-                mp02d012id3.setError("Invalid: Greater then 0");
-                return false;
-            } else {
-                mp02d012id3.setError(null);
+                mp02d012id3_txt.setText(null);
             }
         }
 
@@ -504,37 +469,37 @@ public class SectionDActivity extends Activity {
         JSONObject sD = new JSONObject();
 
         sD.put("mp02d001", mp02d001.getText().toString());
-        sD.put("mp02d001id1", mp02d001id1.getText().toString());
+        sD.put("mp02d001id1", mp02d001id1.getSelectedItem().toString());
 
         sD.put("mp02d002", mp02d002.getText().toString());
-        sD.put("mp02d002id2", mp02d002id2.getText().toString());
+        sD.put("mp02d002id2", mp02d002id2.getSelectedItem().toString());
 
         sD.put("mp02d003", mp02d00301.isChecked() ? "1" : mp02d00302.isChecked() ? "2" : "0");
 
         sD.put("mp02d004", mp02d004.getText().toString());
-        sD.put("mp02d004id3", mp02d004id3.getText().toString());
+        sD.put("mp02d004id3", mp02d004id3.getSelectedItem().toString());
 
         sD.put("mp02d005", mp02d005.getText().toString());
-        sD.put("mp02d005id1", mp02d005id1.getText().toString());
+        sD.put("mp02d005id1", mp02d005id1.getSelectedItem().toString());
 
         sD.put("mp02d006", mp02d006.getText().toString());
-        sD.put("mp02d006id1", mp02d006id1.getText().toString());
+        sD.put("mp02d006id1", mp02d006id1.getSelectedItem().toString());
 
         sD.put("mp02d007", mp02d00701.isChecked() ? "1" : mp02d00702.isChecked() ? "2" : "0");
 
         sD.put("mp02d008", mp02d008.getText().toString());
-        sD.put("mp02d008id3", mp02d008id3.getText().toString());
+        sD.put("mp02d008id3", mp02d008id3.getSelectedItem().toString());
 
         sD.put("mp02d009", mp02d009.getText().toString());
-        sD.put("mp02d009id1", mp02d009id1.getText().toString());
+        sD.put("mp02d009id1", mp02d009id1.getSelectedItem().toString());
 
         sD.put("mp02d010", mp02d010.getText().toString());
-        sD.put("mp02d010id1", mp02d010id2.getText().toString());
+        sD.put("mp02d010id1", mp02d010id2.getSelectedItem().toString());
 
         sD.put("mp02d011", mp02d01101.isChecked() ? "1" : mp02d01102.isChecked() ? "2" : "0");
 
         sD.put("mp02d012", mp02d012.getText().toString());
-        sD.put("mp02d012id3", mp02d012id3.getText().toString());
+        sD.put("mp02d012id3", mp02d012id3.getSelectedItem().toString());
 
         //MPApp.fc.setROW_Sd(String.valueOf(sd));
 
