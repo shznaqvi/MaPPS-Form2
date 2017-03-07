@@ -554,6 +554,124 @@ public class SectionCFActivity extends Activity {
             }
         });
 
+        mp02cf01999.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mp02cf01901.setEnabled(false);
+                    mp02cf01901.setChecked(false);
+                    mp02cf01902.setEnabled(false);
+                    mp02cf01902.setChecked(false);
+                    mp02cf01903.setEnabled(false);
+                    mp02cf01903.setChecked(false);
+                    mp02cf01904.setEnabled(false);
+                    mp02cf01904.setChecked(false);
+                    mp02cf01905.setEnabled(false);
+                    mp02cf01905.setChecked(false);
+                    mp02cf01906.setEnabled(false);
+                    mp02cf01906.setChecked(false);
+                    mp02cf01907.setEnabled(false);
+                    mp02cf01907.setChecked(false);
+                    mp02cf01908.setEnabled(false);
+                    mp02cf01908.setChecked(false);
+                    mp02cf01909.setEnabled(false);
+                    mp02cf01909.setChecked(false);
+                    mp02cf01910.setEnabled(false);
+                    mp02cf01910.setChecked(false);
+                    mp02cf01911.setEnabled(false);
+                    mp02cf01911.setChecked(false);
+                    mp02cf01912.setEnabled(false);
+                    mp02cf01912.setChecked(false);
+                    mp02cf01913.setEnabled(false);
+                    mp02cf01913.setChecked(false);
+                    mp02cf01914.setEnabled(false);
+                    mp02cf01914.setChecked(false);
+                    mp02cf01915.setEnabled(false);
+                    mp02cf01915.setChecked(false);
+                    mp02cf01988.setEnabled(false);
+                    mp02cf01988.setChecked(false);
+                    mp02cf01988x.setText(null);
+                } else {
+                    mp02cf01901.setEnabled(true);
+                    mp02cf01902.setEnabled(true);
+                    mp02cf01903.setEnabled(true);
+                    mp02cf01904.setEnabled(true);
+                    mp02cf01905.setEnabled(true);
+                    mp02cf01906.setEnabled(true);
+                    mp02cf01907.setEnabled(true);
+                    mp02cf01908.setEnabled(true);
+                    mp02cf01909.setEnabled(true);
+                    mp02cf01910.setEnabled(true);
+                    mp02cf01911.setEnabled(true);
+                    mp02cf01912.setEnabled(true);
+                    mp02cf01913.setEnabled(true);
+                    mp02cf01914.setEnabled(true);
+                    mp02cf01915.setEnabled(true);
+                    mp02cf01988.setEnabled(true);
+
+                }
+            }
+        });
+
+        mp02cf01915.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mp02cf01901.setEnabled(false);
+                    mp02cf01901.setChecked(false);
+                    mp02cf01902.setEnabled(false);
+                    mp02cf01902.setChecked(false);
+                    mp02cf01903.setEnabled(false);
+                    mp02cf01903.setChecked(false);
+                    mp02cf01904.setEnabled(false);
+                    mp02cf01904.setChecked(false);
+                    mp02cf01905.setEnabled(false);
+                    mp02cf01905.setChecked(false);
+                    mp02cf01906.setEnabled(false);
+                    mp02cf01906.setChecked(false);
+                    mp02cf01907.setEnabled(false);
+                    mp02cf01907.setChecked(false);
+                    mp02cf01908.setEnabled(false);
+                    mp02cf01908.setChecked(false);
+                    mp02cf01909.setEnabled(false);
+                    mp02cf01909.setChecked(false);
+                    mp02cf01910.setEnabled(false);
+                    mp02cf01910.setChecked(false);
+                    mp02cf01911.setEnabled(false);
+                    mp02cf01911.setChecked(false);
+                    mp02cf01912.setEnabled(false);
+                    mp02cf01912.setChecked(false);
+                    mp02cf01913.setEnabled(false);
+                    mp02cf01913.setChecked(false);
+                    mp02cf01914.setEnabled(false);
+                    mp02cf01914.setChecked(false);
+                    mp02cf01999.setEnabled(false);
+                    mp02cf01999.setChecked(false);
+                    mp02cf01988.setEnabled(false);
+                    mp02cf01988.setChecked(false);
+                    mp02cf01988x.setText(null);
+                } else {
+                    mp02cf01901.setEnabled(true);
+                    mp02cf01902.setEnabled(true);
+                    mp02cf01903.setEnabled(true);
+                    mp02cf01904.setEnabled(true);
+                    mp02cf01905.setEnabled(true);
+                    mp02cf01906.setEnabled(true);
+                    mp02cf01907.setEnabled(true);
+                    mp02cf01908.setEnabled(true);
+                    mp02cf01909.setEnabled(true);
+                    mp02cf01910.setEnabled(true);
+                    mp02cf01911.setEnabled(true);
+                    mp02cf01912.setEnabled(true);
+                    mp02cf01913.setEnabled(true);
+                    mp02cf01914.setEnabled(true);
+                    mp02cf01999.setEnabled(true);
+                    mp02cf01988.setEnabled(true);
+
+                }
+            }
+        });
+
 
 
     }
@@ -777,7 +895,7 @@ public class SectionCFActivity extends Activity {
                     mp02cf006.setError(null);
                 }
 
-                // ====================== Q 7 ===================
+/*                // ====================== Q 7 ===================
                 if ((mp02cf007.getText().toString().isEmpty()) || Integer.parseInt(mp02cf007.getText().toString()) < 0) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf007), Toast.LENGTH_LONG).show();
                     mp02cf007.setError("This data is Required!");    // Set Error on last radio button
@@ -808,7 +926,7 @@ public class SectionCFActivity extends Activity {
                     return false;
                 } else {
                     mp02cf009.setError(null);
-                }
+                }*/
 
                 // ====================== Q 10 ===================
                 if ((mp02cf010.getText().toString().isEmpty())) {
@@ -821,7 +939,7 @@ public class SectionCFActivity extends Activity {
                     mp02cf010.setError(null);
                 }
 
-                // ====================== Q 11 ===================
+/*                // ====================== Q 11 ===================
                 if ((mp02cf011.getText().toString().isEmpty()) || Integer.parseInt(mp02cf011.getText().toString()) < 0) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf011), Toast.LENGTH_LONG).show();
                     mp02cf011.setError("This data is Required!");    // Set Error on last radio button
@@ -851,7 +969,7 @@ public class SectionCFActivity extends Activity {
                     return false;
                 } else {
                     mp02cf013.setError(null);
-                }
+                }*/
 
                 if (Integer.parseInt(mp02cf006.getText().toString()) < 1 && Integer.parseInt(mp02cf010.getText().toString()) < 1) {
                     Toast.makeText(this, "Invalid: " + getString(R.string.mp02cf006), Toast.LENGTH_LONG).show();
@@ -864,17 +982,54 @@ public class SectionCFActivity extends Activity {
                 }
 
                 if (Integer.parseInt(mp02cf006.getText().toString()) > 0) {
-                    if (Integer.parseInt(mp02cf007.getText().toString().isEmpty() ? "0" : mp02cf007.getText().toString()) < 1) {
+                    if ((Integer.parseInt(mp02cf007.getText().toString().isEmpty() ? "0" : mp02cf007.getText().toString()) < 1)
+                            && (Integer.parseInt(mp02cf008.getText().toString().isEmpty() ? "0" : mp02cf008.getText().toString()) < 1)
+                            && (Integer.parseInt(mp02cf009.getText().toString().isEmpty() ? "0" : mp02cf009.getText().toString()) < 1)) {
                         Toast.makeText(this, "Invalid: " + getString(R.string.mp02cf007), Toast.LENGTH_LONG).show();
                         mp02cf007.setError("Invalid : Can not be zero");    // Set Error on last radio button
 
-                        Log.i(TAG, "mp02cf006: Can not be Zero");
+                        Log.i(TAG, "mp02cf007: Can not be Zero");
                         return false;
                     } else {
-                        mp02cf006.setError(null);
+                        mp02cf007.setError(null);
                     }
 
+                }
 
+                if (Integer.parseInt(mp02cf010.getText().toString()) > 0) {
+                    if ((Integer.parseInt(mp02cf011.getText().toString().isEmpty() ? "0" : mp02cf011.getText().toString()) < 1)
+                            && (Integer.parseInt(mp02cf012.getText().toString().isEmpty() ? "0" : mp02cf012.getText().toString()) < 1)
+                            && (Integer.parseInt(mp02cf013.getText().toString().isEmpty() ? "0" : mp02cf013.getText().toString()) < 1)) {
+                        Toast.makeText(this, "Invalid: " + getString(R.string.mp02cf011), Toast.LENGTH_LONG).show();
+                        mp02cf011.setError("Invalid : Can not be zero");    // Set Error on last radio button
+
+                        Log.i(TAG, "mp02cf011: Can not be Zero");
+                        return false;
+                    } else {
+                        mp02cf011.setError(null);
+                    }
+                }
+
+                if (Integer.parseInt(mp02cf006.getText().toString()) > 0) {
+                    if ((Integer.parseInt(mp02cf007.getText().toString()) + Integer.parseInt(mp02cf008.getText().toString())
+                            + Integer.parseInt(mp02cf009.getText().toString())) != Integer.parseInt(mp02cf006.getText().toString())) {
+                        Toast.makeText(this, "Invalid: " + getString(R.string.mp02cf006), Toast.LENGTH_LONG).show();
+                        mp02cf006.setError("Invalid : Check again");    // Set Error on last radio button
+
+                        Log.i(TAG, "mp02cf006: Check Again");
+                        return false;
+                    }
+                }
+
+                if (Integer.parseInt(mp02cf010.getText().toString()) > 0) {
+                    if ((Integer.parseInt(mp02cf011.getText().toString()) + Integer.parseInt(mp02cf012.getText().toString())
+                            + Integer.parseInt(mp02cf013.getText().toString())) != Integer.parseInt(mp02cf010.getText().toString())) {
+                        Toast.makeText(this, "Invalid: " + getString(R.string.mp02cf010), Toast.LENGTH_LONG).show();
+                        mp02cf010.setError("Invalid : Check again");    // Set Error on last radio button
+
+                        Log.i(TAG, "mp02cf010: Check Again");
+                        return false;
+                    }
                 }
 
 
@@ -989,60 +1144,6 @@ public class SectionCFActivity extends Activity {
                     mp02cf01988.setError(null);
                 }
 
-                if (mp02cf01999.isChecked()) {
-                    mp02cf01901.setEnabled(false);
-                    mp02cf01901.setChecked(false);
-                    mp02cf01902.setEnabled(false);
-                    mp02cf01902.setChecked(false);
-                    mp02cf01903.setEnabled(false);
-                    mp02cf01903.setChecked(false);
-                    mp02cf01904.setEnabled(false);
-                    mp02cf01904.setChecked(false);
-                    mp02cf01905.setEnabled(false);
-                    mp02cf01905.setChecked(false);
-                    mp02cf01906.setEnabled(false);
-                    mp02cf01906.setChecked(false);
-                    mp02cf01907.setEnabled(false);
-                    mp02cf01907.setChecked(false);
-                    mp02cf01908.setEnabled(false);
-                    mp02cf01908.setChecked(false);
-                    mp02cf01909.setEnabled(false);
-                    mp02cf01909.setChecked(false);
-                    mp02cf01910.setEnabled(false);
-                    mp02cf01910.setChecked(false);
-                    mp02cf01911.setEnabled(false);
-                    mp02cf01911.setChecked(false);
-                    mp02cf01912.setEnabled(false);
-                    mp02cf01912.setChecked(false);
-                    mp02cf01913.setEnabled(false);
-                    mp02cf01913.setChecked(false);
-                    mp02cf01914.setEnabled(false);
-                    mp02cf01914.setChecked(false);
-                    mp02cf01915.setEnabled(false);
-                    mp02cf01915.setChecked(false);
-                    mp02cf01988.setEnabled(false);
-                    mp02cf01988.setChecked(false);
-                    mp02cf01988x.setText(null);
-                } else {
-                    mp02cf01901.setEnabled(true);
-                    mp02cf01902.setEnabled(true);
-                    mp02cf01903.setEnabled(true);
-                    mp02cf01904.setEnabled(true);
-                    mp02cf01905.setEnabled(true);
-                    mp02cf01906.setEnabled(true);
-                    mp02cf01907.setEnabled(true);
-                    mp02cf01908.setEnabled(true);
-                    mp02cf01909.setEnabled(true);
-                    mp02cf01910.setEnabled(true);
-                    mp02cf01911.setEnabled(true);
-                    mp02cf01912.setEnabled(true);
-                    mp02cf01913.setEnabled(true);
-                    mp02cf01914.setEnabled(true);
-                    mp02cf01915.setEnabled(true);
-                    mp02cf01988.setEnabled(true);
-
-
-                }
                 // ====================== Q 19 Others ===================
                 if (mp02cf01988.isChecked() && mp02cf01988x.getText().toString().isEmpty()) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf019) + " - " + getString(R.string.other), Toast.LENGTH_LONG).show();

@@ -89,9 +89,10 @@ public class SectionEActivity extends Activity {
         } else {
             mp02e001.setError(null);
         }
-        if (Integer.parseInt(mp02e001.getText().toString()) < 1) {
-            Toast.makeText(this, "Invalid:" + getString(R.string.mp02e001), Toast.LENGTH_SHORT).show();
-            mp02e001.setError("Invalid: Greater then 0");
+        if ((Float.parseFloat(mp02e001.getText().toString().isEmpty() ? "0" : mp02e001.getText().toString()) < 8)
+                || Float.parseFloat(mp02e001.getText().toString()) > 15.5) {
+            Toast.makeText(this, "Range:" + getString(R.string.mp02e001), Toast.LENGTH_SHORT).show();
+            mp02e001.setError("Range: 8.0 to 15.5 ");
             return false;
         } else {
             mp02e001.setError(null);
