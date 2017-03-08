@@ -69,7 +69,9 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/mp02e001"
                 android:inputType="numberDecimal"
-                android:maxLength="4" />
+                android:maxLength="4"
+
+                />
 
 
             <TextView

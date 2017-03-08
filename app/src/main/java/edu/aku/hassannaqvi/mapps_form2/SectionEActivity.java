@@ -14,6 +14,8 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -41,6 +43,16 @@ public class SectionEActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_e);
         ButterKnife.bind(this);
+
+        DecimalFormat df = new DecimalFormat("##.#");
+
+        mp02e001.setText(df.format(mp02e001.getText().toString()));
+
+
+
+
+
+
 
     }
 

@@ -369,7 +369,7 @@ public class SectionCHCActivity extends Activity {
         }
 
 //        Skip
-        if (mp02chc00101.isChecked()){
+        if (mp02chc01001.isChecked()) {
 
 //            11
             if (!(mp02chc01101.isChecked() || mp02chc01102.isChecked() || mp02chc01103.isChecked() || mp02chc01104.isChecked()
