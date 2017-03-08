@@ -798,6 +798,15 @@ public class SectionCBActivity extends Activity {
             } else {
                 mp02cb002.setError(null);
             }
+
+            if (currentAge != (Integer.parseInt(mp02cb002.getText().toString()))) {
+                Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb002), Toast.LENGTH_LONG).show();
+                mp02cb00101.setError("Age mismatch with year of birth... Check Again");
+                Log.i(TAG, "mp02cb00101: Age mismatch with year of birth... Check Again");
+                return false;
+            } else {
+                mp02cb00101.setError(null);
+            }
             //==================== Q3 =====================
             if (mp02cb003.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb003), Toast.LENGTH_LONG).show();
