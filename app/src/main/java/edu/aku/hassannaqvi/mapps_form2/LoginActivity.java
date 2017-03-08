@@ -105,7 +105,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
 //        Initialize Login Members string
         AppMain.loginMem = new String[3];
-        AppMain.loginMem[0] = "";    //default value
+        AppMain.loginMem[0] = "...";    //default value
 
         try {
             long installedOn = this

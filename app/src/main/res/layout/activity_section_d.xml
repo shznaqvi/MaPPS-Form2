@@ -50,10 +50,9 @@
                 android:id="@+id/mp02d001"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="cm"
-                android:digits="0123456789."
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02d001"
+                android:inputType="numberDecimal"
+                android:maxLength="5" />
 
             <Spinner
                 android:id="@+id/mp02d001id1"
@@ -75,10 +74,10 @@
                 android:id="@+id/mp02d002"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="cm"
-                android:digits="0123456789."
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02d002"
+                
+                android:inputType="numberDecimal"
+                android:maxLength="5" />
 
             <Spinner
                 android:id="@+id/mp02d002id2"
@@ -135,10 +134,9 @@
                     android:id="@+id/mp02d004"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="cm"
-                    android:digits="0123456789."
-                    android:inputType="number"
-                    android:maxLength="2" />
+                    android:hint="@string/mp02d004"
+                    android:inputType="numberDecimal"
+                    android:maxLength="5" />
 
                 <Spinner
                     android:id="@+id/mp02d004id3"
@@ -162,10 +160,10 @@
                 android:id="@+id/mp02d005"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="kg"
-                android:digits="0123456789."
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02d005"
+                
+                android:inputType="numberDecimal"
+                android:maxLength="5" />
 
             <Spinner
                 android:id="@+id/mp02d005id1"
@@ -187,10 +185,9 @@
                 android:id="@+id/mp02d006"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="kg"
-                android:digits="0123456789."
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02d006"
+                android:inputType="numberDecimal"
+                android:maxLength="5" />
 
             <Spinner
                 android:id="@+id/mp02d006id1"
@@ -247,10 +244,9 @@
                     android:id="@+id/mp02d008"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="kg"
-                    android:digits="0123456789."
-                    android:inputType="number"
-                    android:maxLength="2" />
+                    android:hint="@string/mp02d008"
+                    android:inputType="numberDecimal"
+                    android:maxLength="5" />
 
                 <Spinner
                     android:id="@+id/mp02d008id3"
@@ -274,10 +270,9 @@
                 android:id="@+id/mp02d009"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="kg"
-                android:digits="0123456789."
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02d009"
+                android:inputType="numberDecimal"
+                android:maxLength="4" />
 
             <Spinner
                 android:id="@+id/mp02d009id1"
@@ -299,10 +294,9 @@
                 android:id="@+id/mp02d010"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="cm"
-                android:digits="0123456789."
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02d010"
+                android:inputType="numberDecimal"
+                android:maxLength="4" />
 
             <Spinner
                 android:id="@+id/mp02d010id2"
@@ -359,10 +353,9 @@
                     android:id="@+id/mp02d012"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="cm"
-                    android:digits="0123456789."
-                    android:inputType="number"
-                    android:maxLength="2" />
+                    android:hint="@string/mp02d012"
+                    android:inputType="numberDecimal"
+                    android:maxLength="4" />
 
                 <Spinner
                     android:id="@+id/mp02d012id3"

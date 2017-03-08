@@ -96,6 +96,9 @@ public class SectionDActivity extends Activity {
     @BindView(R.id.fldGrpmp02d012)
     LinearLayout fldGrpmp02d012;
 
+    //    Skip Questions Variables
+    boolean flag_q4 = false, flag_q8 = false, flag_q12 = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -213,31 +216,38 @@ public class SectionDActivity extends Activity {
             return false;
         } else {
             mp02d001.setError(null);
+            if (!mp02d001.getText().toString().contains(".")) {
+                Toast.makeText(this, "" + getString(R.string.mp02d001), Toast.LENGTH_SHORT).show();
+                mp02d001.setError("Decimal value is Required!");
+                return false;
+            } else {
+                mp02d001.setError(null);
+                if (Double.parseDouble(mp02d001.getText().toString()) < 1) {
+                    Toast.makeText(this, "Invalid:" + getString(R.string.mp02d001), Toast.LENGTH_SHORT).show();
+                    mp02d001.setError("Invalid: Greater then 0");
+                    return false;
+                } else {
+                    mp02d001.setError(null);
+                    if (Double.parseDouble(mp02d001.getText().toString()) < 50 || Double.parseDouble(mp02d001.getText().toString()) > 200) {
+                        Toast.makeText(this, "Invalid:" + getString(R.string.mp02d001), Toast.LENGTH_SHORT).show();
+                        mp02d001.setError("Invalid: Range 50-200");
+                        return false;
+                    } else {
+                        mp02d001.setError(null);
+                    }
+                }
+            }
         }
-        if (!mp02d001.getText().toString().contains(".")) {
-            Toast.makeText(this, "" + getString(R.string.mp02d001), Toast.LENGTH_SHORT).show();
-            mp02d001.setError("Decimal value is Required!");
-            return false;
-        } else {
-            mp02d001.setError(null);
-        }
-        if (Double.parseDouble(mp02d001.getText().toString()) < 1) {
-            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d001), Toast.LENGTH_SHORT).show();
-            mp02d001.setError("Invalid: Greater then 0");
-            return false;
-        } else {
-            mp02d001.setError(null);
-        }
-
 
         TextView mp02d001id1_txt = (TextView) mp02d001id1.getSelectedView();
         if (mp02d001id1.getSelectedItemId() == 0) {
             Toast.makeText(this, "" + getString(R.string.mp02d001), Toast.LENGTH_SHORT).show();
             mp02d001id1_txt.setTextColor(Color.RED);
             mp02d001id1_txt.setText("This data is Required!");
+            mp02d001id1_txt.setError("This data is Required!");
             return false;
         } else {
-            mp02d001id1_txt.setText(null);
+            mp02d001id1_txt.setError(null);
         }
 
 //        2
@@ -247,77 +257,118 @@ public class SectionDActivity extends Activity {
             return false;
         } else {
             mp02d002.setError(null);
+            if (!mp02d002.getText().toString().contains(".")) {
+                Toast.makeText(this, "" + getString(R.string.mp02d002), Toast.LENGTH_SHORT).show();
+                mp02d002.setError("Decimal value is Required!");
+                return false;
+            } else {
+                mp02d002.setError(null);
+                if (Double.parseDouble(mp02d002.getText().toString()) < 1) {
+                    Toast.makeText(this, "Invalid:" + getString(R.string.mp02d002), Toast.LENGTH_SHORT).show();
+                    mp02d002.setError("Invalid: Greater then 0");
+                    return false;
+                } else {
+                    mp02d002.setError(null);
+                    if (Double.parseDouble(mp02d002.getText().toString()) < 50 || Double.parseDouble(mp02d002.getText().toString()) > 200) {
+                        Toast.makeText(this, "Invalid:" + getString(R.string.mp02d002), Toast.LENGTH_SHORT).show();
+                        mp02d002.setError("Invalid: Range 50-200");
+                        return false;
+                    } else {
+                        mp02d002.setError(null);
+                    }
+                }
+            }
         }
-        if (!mp02d002.getText().toString().contains(".")) {
-            Toast.makeText(this, "" + getString(R.string.mp02d002), Toast.LENGTH_SHORT).show();
-            mp02d002.setError("Decimal value is Required!");
-            return false;
-        } else {
-            mp02d002.setError(null);
-        }
-        if (Double.parseDouble(mp02d002.getText().toString()) < 1) {
-            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d002), Toast.LENGTH_SHORT).show();
-            mp02d002.setError("Invalid: Greater then 0");
-            return false;
-        } else {
-            mp02d002.setError(null);
-        }
-
 
         TextView mp02d002id2_txt = (TextView) mp02d002id2.getSelectedView();
         if (mp02d002id2.getSelectedItemPosition() == 0) {
             Toast.makeText(this, "" + getString(R.string.mp02d002), Toast.LENGTH_SHORT).show();
+            mp02d002id2_txt.setTextColor(Color.RED);
             mp02d002id2_txt.setText("This data is Required!");
+            mp02d002id2_txt.setError("This data is Required!");
             return false;
         } else {
-            mp02d002id2_txt.setText(null);
+            mp02d002id2_txt.setError(null);
         }
 
-//        3
-
-//        if (mp02d003.getCheckedRadioButtonId() == -1) {
-//            Toast.makeText(this, "" + getString(R.string.mp02d003), Toast.LENGTH_SHORT).show();
-//            mp02d00302.setError("This data is Required!");
-//            return false;
-//        } else {
-//            mp02d00302.setError(null);
-//        }
+        if (mp02d001id1.getSelectedItem().toString().contains(mp02d002id2.getSelectedItem().toString())) {
+            Toast.makeText(this, " صارفين ساڳئي " + getString(R.string.mp02d001), Toast.LENGTH_SHORT).show();
+            mp02d001id1_txt.setError("Users Same");
+            mp02d002id2_txt.setError("Users Same");
+            return false;
+        } else {
+            mp02d001id1_txt.setError(null);
+            mp02d002id2_txt.setError(null);
+        }
 
 //        Skip
-//        if (mp02d00301.isChecked()) {
+
+//        Question 4 Checking
+
+        double q4 = Double.parseDouble(mp02d001.getText().toString()) - Double.parseDouble(mp02d002.getText().toString());
+
+        if (Math.signum(q4) == -1) {
+            q4 = q4 * -1;
+        }
+
+        if (!flag_q4) {
+            if (q4 > 1) {
+                flag_q4 = true;
+
+                fldGrpmp02d004.setVisibility(View.VISIBLE);
+                mp02d001.setEnabled(false);
+                mp02d002.setEnabled(false);
+
+                mp02d001id1.setEnabled(false);
+                mp02d002id2.setEnabled(false);
+
+                Toast.makeText(this, "Difference in Measurement", Toast.LENGTH_SHORT).show();
+
+                return false;
+            }
+        }
+
 //            4
-        if (mp02d004.getText().toString().isEmpty()) {
-            Toast.makeText(this, "" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
-            mp02d004.setError("This data is Required!");
-            return false;
-        } else {
-            mp02d004.setError(null);
-        }
-        if (!mp02d004.getText().toString().contains(".")) {
-            Toast.makeText(this, "" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
-            mp02d004.setError("Decimal value is Required!");
-            return false;
-        } else {
-            mp02d004.setError(null);
-        }
-        if (Double.parseDouble(mp02d004.getText().toString()) < 1) {
-            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
-            mp02d004.setError("Invalid: Greater then 0");
-            return false;
-        } else {
-            mp02d004.setError(null);
-        }
+        if (flag_q4) {
+            if (mp02d004.getText().toString().isEmpty()) {
+                Toast.makeText(this, "" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
+                mp02d004.setError("This data is Required!");
+                return false;
+            } else {
+                mp02d004.setError(null);
+                if (!mp02d004.getText().toString().contains(".")) {
+                    Toast.makeText(this, "" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
+                    mp02d004.setError("Decimal value is Required!");
+                    return false;
+                } else {
+                    mp02d004.setError(null);
+                    if (Double.parseDouble(mp02d004.getText().toString()) < 1) {
+                        Toast.makeText(this, "Invalid:" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
+                        mp02d004.setError("Invalid: Greater then 0");
+                        return false;
+                    } else {
+                        mp02d004.setError(null);
+                        if (Double.parseDouble(mp02d004.getText().toString()) < 50 || Double.parseDouble(mp02d004.getText().toString()) > 200) {
+                            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
+                            mp02d004.setError("Invalid: Range 50-200");
+                            return false;
+                        } else {
+                            mp02d004.setError(null);
+                        }
+                    }
+                }
+            }
 
-
-        TextView mp02d004id3_txt = (TextView) mp02d004id3.getSelectedView();
-        if (mp02d004id3.getSelectedItemPosition() == 0) {
-            Toast.makeText(this, "" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
-            mp02d004id3_txt.setText("This data is Required!");
-            return false;
-        } else {
-            mp02d004id3_txt.setText(null);
+            TextView mp02d004id3_txt = (TextView) mp02d004id3.getSelectedView();
+            if (mp02d004id3.getSelectedItemPosition() == 0) {
+                Toast.makeText(this, "" + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
+                mp02d004id3_txt.setError("This data is Required!");
+                mp02d004id3_txt.setText("This data is Required!");
+                return false;
+            } else {
+                mp02d004id3_txt.setError(null);
+            }
         }
-//        }
 
 //        5
         if (mp02d005.getText().toString().isEmpty()) {
@@ -326,30 +377,37 @@ public class SectionDActivity extends Activity {
             return false;
         } else {
             mp02d005.setError(null);
+            if (!mp02d005.getText().toString().contains(".")) {
+                Toast.makeText(this, "" + getString(R.string.mp02d005), Toast.LENGTH_SHORT).show();
+                mp02d005.setError("Decimal value is Required!");
+                return false;
+            } else {
+                mp02d005.setError(null);
+                if (Double.parseDouble(mp02d005.getText().toString()) < 1) {
+                    Toast.makeText(this, "Invalid:" + getString(R.string.mp02d005), Toast.LENGTH_SHORT).show();
+                    mp02d005.setError("Invalid: Greater then 0");
+                    return false;
+                } else {
+                    mp02d005.setError(null);
+                    if (Double.parseDouble(mp02d005.getText().toString()) < 5 || Double.parseDouble(mp02d005.getText().toString()) > 170) {
+                        Toast.makeText(this, "Invalid:" + getString(R.string.mp02d005), Toast.LENGTH_SHORT).show();
+                        mp02d005.setError("Invalid: Range 5-170");
+                        return false;
+                    } else {
+                        mp02d005.setError(null);
+                    }
+                }
+            }
         }
-        if (!mp02d005.getText().toString().contains(".")) {
-            Toast.makeText(this, "" + getString(R.string.mp02d005), Toast.LENGTH_SHORT).show();
-            mp02d005.setError("Decimal value is Required!");
-            return false;
-        } else {
-            mp02d005.setError(null);
-        }
-        if (Double.parseDouble(mp02d005.getText().toString()) < 1) {
-            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d005), Toast.LENGTH_SHORT).show();
-            mp02d005.setError("Invalid: Greater then 0");
-            return false;
-        } else {
-            mp02d005.setError(null);
-        }
-
 
         TextView mp02d005id1_txt = (TextView) mp02d005id1.getSelectedView();
         if (mp02d005id1.getSelectedItemPosition() == 0) {
             Toast.makeText(this, "" + getString(R.string.mp02d005), Toast.LENGTH_SHORT).show();
+            mp02d005id1_txt.setError("This data is Required!");
             mp02d005id1_txt.setText("This data is Required!");
             return false;
         } else {
-            mp02d005id1_txt.setText(null);
+            mp02d005id1_txt.setError(null);
         }
 
 //        6
@@ -359,76 +417,119 @@ public class SectionDActivity extends Activity {
             return false;
         } else {
             mp02d006.setError(null);
+            if (!mp02d006.getText().toString().contains(".")) {
+                Toast.makeText(this, "" + getString(R.string.mp02d006), Toast.LENGTH_SHORT).show();
+                mp02d006.setError("Decimal value is Required!");
+                return false;
+            } else {
+                mp02d006.setError(null);
+                if (Double.parseDouble(mp02d006.getText().toString()) < 1) {
+                    Toast.makeText(this, "Invalid:" + getString(R.string.mp02d006), Toast.LENGTH_SHORT).show();
+                    mp02d006.setError("Invalid: Greater then 0");
+                    return false;
+                } else {
+                    mp02d006.setError(null);
+                    if (Double.parseDouble(mp02d006.getText().toString()) < 5 || Double.parseDouble(mp02d006.getText().toString()) > 170) {
+                        Toast.makeText(this, "Invalid:" + getString(R.string.mp02d006), Toast.LENGTH_SHORT).show();
+                        mp02d006.setError("Invalid: Range 5-170");
+                        return false;
+                    } else {
+                        mp02d006.setError(null);
+                    }
+                }
+            }
         }
-        if (!mp02d006.getText().toString().contains(".")) {
-            Toast.makeText(this, "" + getString(R.string.mp02d006), Toast.LENGTH_SHORT).show();
-            mp02d006.setError("Decimal value is Required!");
-            return false;
-        } else {
-            mp02d006.setError(null);
-        }
-        if (Double.parseDouble(mp02d006.getText().toString()) < 1) {
-            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d006), Toast.LENGTH_SHORT).show();
-            mp02d006.setError("Invalid: Greater then 0");
-            return false;
-        } else {
-            mp02d006.setError(null);
-        }
-
 
         TextView mp02d006id1_txt = (TextView) mp02d006id1.getSelectedView();
         if (mp02d006id1.getSelectedItemPosition() == 0) {
             Toast.makeText(this, "" + getString(R.string.mp02d006), Toast.LENGTH_SHORT).show();
+            mp02d006id1_txt.setError("This data is Required!");
             mp02d006id1_txt.setText("This data is Required!");
             return false;
         } else {
-            mp02d006id1_txt.setText(null);
+            mp02d006id1_txt.setError(null);
         }
-
-//        7
-//        if (mp02d007.getCheckedRadioButtonId() == -1) {
-//            Toast.makeText(this, "" + getString(R.string.mp02d007), Toast.LENGTH_SHORT).show();
-//            mp02d00702.setError("This data is Required!");
-//            return false;
-//        } else {
-//            mp02d00702.setError(null);
-//        }
+        if (mp02d005id1.getSelectedItem().toString().contains(mp02d006id1.getSelectedItem().toString())) {
+            Toast.makeText(this, " صارفين ساڳئي " + getString(R.string.mp02d005), Toast.LENGTH_SHORT).show();
+            mp02d006id1_txt.setError("Users Same");
+            mp02d005id1_txt.setError("Users Same");
+            return false;
+        } else {
+            mp02d006id1_txt.setError(null);
+            mp02d005id1_txt.setError(null);
+        }
 
 //        Skip
-//        if (mp02d00701.isChecked()) {
+
+        //        Question 8 Checking
+
+        double q8 = Double.parseDouble(mp02d005.getText().toString()) - Double.parseDouble(mp02d006.getText().toString());
+
+        if (Math.signum(q8) == -1) {
+            q8 = q8 * -1;
+        }
+
+        if (!flag_q8) {
+            if (q8 > 0.5) {
+                flag_q8 = true;
+
+                fldGrpmp02d008.setVisibility(View.VISIBLE);
+                mp02d005.setEnabled(false);
+                mp02d006.setEnabled(false);
+
+                mp02d005id1.setEnabled(false);
+                mp02d006id1.setEnabled(false);
+
+                Toast.makeText(this, "Difference in Measurement", Toast.LENGTH_SHORT).show();
+
+                return false;
+            }
+        }
+
+        if (flag_q8) {
+
 //            8
-        if (mp02d008.getText().toString().isEmpty()) {
-            Toast.makeText(this, "" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
-            mp02d008.setError("This data is Required!");
-            return false;
-        } else {
-            mp02d008.setError(null);
-        }
-        if (!mp02d008.getText().toString().contains(".")) {
-            Toast.makeText(this, "" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
-            mp02d008.setError("Decimal value is Required!");
-            return false;
-        } else {
-            mp02d008.setError(null);
-        }
-        if (Double.parseDouble(mp02d008.getText().toString()) < 1) {
-            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
-            mp02d008.setError("Invalid: Greater then 0");
-            return false;
-        } else {
-            mp02d008.setError(null);
-        }
 
+            if (mp02d008.getText().toString().isEmpty()) {
+                Toast.makeText(this, "" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
+                mp02d008.setError("This data is Required!");
+                return false;
+            } else {
+                mp02d008.setError(null);
+                if (!mp02d008.getText().toString().contains(".")) {
+                    Toast.makeText(this, "" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
+                    mp02d008.setError("Decimal value is Required!");
+                    return false;
+                } else {
+                    mp02d008.setError(null);
+                    if (Double.parseDouble(mp02d008.getText().toString()) < 1) {
+                        Toast.makeText(this, "Invalid:" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
+                        mp02d008.setError("Invalid: Greater then 0");
+                        return false;
+                    } else {
+                        mp02d008.setError(null);
+                        if (Double.parseDouble(mp02d008.getText().toString()) < 5 || Double.parseDouble(mp02d008.getText().toString()) > 170) {
+                            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
+                            mp02d008.setError("Invalid: Range 5-170");
+                            return false;
+                        } else {
+                            mp02d008.setError(null);
+                        }
+                    }
+                }
+            }
 
-        TextView mp02d008id3_txt = (TextView) mp02d008id3.getSelectedView();
-        if (mp02d008id3.getSelectedItemPosition() == 0) {
-            Toast.makeText(this, "" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
-            mp02d008id3_txt.setText("This data is Required!");
-            return false;
-        } else {
-            mp02d008id3_txt.setText(null);
+            TextView mp02d008id3_txt = (TextView) mp02d008id3.getSelectedView();
+            if (mp02d008id3.getSelectedItemPosition() == 0) {
+                Toast.makeText(this, "" + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
+                mp02d008id3_txt.setError("This data is Required!");
+                mp02d008id3_txt.setText("This data is Required!");
+                return false;
+            } else {
+                mp02d008id3_txt.setError(null);
+            }
+
         }
-//        }
 
 //        9
         if (mp02d009.getText().toString().isEmpty()) {
@@ -437,30 +538,37 @@ public class SectionDActivity extends Activity {
             return false;
         } else {
             mp02d009.setError(null);
+            if (!mp02d009.getText().toString().contains(".")) {
+                Toast.makeText(this, "" + getString(R.string.mp02d009), Toast.LENGTH_SHORT).show();
+                mp02d009.setError("Decimal value is Required!");
+                return false;
+            } else {
+                mp02d009.setError(null);
+                if (Double.parseDouble(mp02d009.getText().toString()) < 1) {
+                    Toast.makeText(this, "Invalid:" + getString(R.string.mp02d009), Toast.LENGTH_SHORT).show();
+                    mp02d009.setError("Invalid: Greater then 0");
+                    return false;
+                } else {
+                    mp02d009.setError(null);
+                    if (Double.parseDouble(mp02d009.getText().toString()) < 8 || Double.parseDouble(mp02d009.getText().toString()) > 99.9) {
+                        Toast.makeText(this, "Invalid:" + getString(R.string.mp02d009), Toast.LENGTH_SHORT).show();
+                        mp02d009.setError("Invalid: Range 8-99.9");
+                        return false;
+                    } else {
+                        mp02d009.setError(null);
+                    }
+                }
+            }
         }
-        if (!mp02d009.getText().toString().contains(".")) {
-            Toast.makeText(this, "" + getString(R.string.mp02d009), Toast.LENGTH_SHORT).show();
-            mp02d009.setError("Decimal value is Required!");
-            return false;
-        } else {
-            mp02d009.setError(null);
-        }
-        if (Double.parseDouble(mp02d009.getText().toString()) < 1) {
-            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d009), Toast.LENGTH_SHORT).show();
-            mp02d009.setError("Invalid: Greater then 0");
-            return false;
-        } else {
-            mp02d009.setError(null);
-        }
-
 
         TextView mp02d009id1_txt = (TextView) mp02d009id1.getSelectedView();
         if (mp02d009id1.getSelectedItemPosition() == 0) {
             Toast.makeText(this, "" + getString(R.string.mp02d009), Toast.LENGTH_SHORT).show();
+            mp02d009id1_txt.setError("This data is Required!");
             mp02d009id1_txt.setText("This data is Required!");
             return false;
         } else {
-            mp02d009id1_txt.setText(null);
+            mp02d009id1_txt.setError(null);
         }
 
 //        10
@@ -470,76 +578,115 @@ public class SectionDActivity extends Activity {
             return false;
         } else {
             mp02d010.setError(null);
+            if (!mp02d010.getText().toString().contains(".")) {
+                Toast.makeText(this, "" + getString(R.string.mp02d010), Toast.LENGTH_SHORT).show();
+                mp02d010.setError("Decimal value is Required!");
+                return false;
+            } else {
+                mp02d010.setError(null);
+                if (Double.parseDouble(mp02d010.getText().toString()) < 1) {
+                    Toast.makeText(this, "Invalid:" + getString(R.string.mp02d010), Toast.LENGTH_SHORT).show();
+                    mp02d010.setError("Invalid: Greater then 0");
+                    return false;
+                } else {
+                    mp02d010.setError(null);
+                    if (Double.parseDouble(mp02d010.getText().toString()) < 8 || Double.parseDouble(mp02d010.getText().toString()) > 99.9) {
+                        Toast.makeText(this, "Invalid:" + getString(R.string.mp02d010), Toast.LENGTH_SHORT).show();
+                        mp02d010.setError("Invalid: Range 8-99.9");
+                        return false;
+                    } else {
+                        mp02d010.setError(null);
+                    }
+                }
+            }
         }
-        if (!mp02d010.getText().toString().contains(".")) {
-            Toast.makeText(this, "" + getString(R.string.mp02d010), Toast.LENGTH_SHORT).show();
-            mp02d010.setError("Decimal value is Required!");
-            return false;
-        } else {
-            mp02d010.setError(null);
-        }
-        if (Double.parseDouble(mp02d010.getText().toString()) < 1) {
-            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d010), Toast.LENGTH_SHORT).show();
-            mp02d010.setError("Invalid: Greater then 0");
-            return false;
-        } else {
-            mp02d010.setError(null);
-        }
-
 
         TextView mp02d010id2_txt = (TextView) mp02d010id2.getSelectedView();
         if (mp02d010id2.getSelectedItemPosition() == 0) {
             Toast.makeText(this, "" + getString(R.string.mp02d010), Toast.LENGTH_SHORT).show();
+            mp02d010id2_txt.setError("This data is Required!");
             mp02d010id2_txt.setText("This data is Required!");
             return false;
         } else {
-            mp02d010id2_txt.setText(null);
+            mp02d010id2_txt.setError(null);
         }
-
-//        11
-//        if (mp02d011.getCheckedRadioButtonId() == -1) {
-//            Toast.makeText(this, "" + getString(R.string.mp02d011), Toast.LENGTH_SHORT).show();
-//            mp02d01102.setError("This data is Required!");
-//            return false;
-//        } else {
-//            mp02d01102.setError(null);
-//        }
+        if (mp02d009id1.getSelectedItem().toString().contains(mp02d010id2.getSelectedItem().toString())) {
+            Toast.makeText(this, " صارفين ساڳئي " + getString(R.string.mp02d009), Toast.LENGTH_SHORT).show();
+            mp02d009id1_txt.setError("Users Same");
+            mp02d010id2_txt.setError("Users Same");
+            return false;
+        } else {
+            mp02d009id1_txt.setError(null);
+            mp02d010id2_txt.setError(null);
+        }
 
 //        Skip
-//        if (mp02d01101.isChecked()) {
+        //        Question 12 Checking
+
+        double q12 = Double.parseDouble(mp02d009.getText().toString()) - Double.parseDouble(mp02d010.getText().toString());
+
+        if (Math.signum(q12) == -1) {
+            q12 = q12 * -1;
+        }
+
+        if (!flag_q12) {
+            if (q12 > 0.5) {
+                flag_q12 = true;
+
+                fldGrpmp02d012.setVisibility(View.VISIBLE);
+                mp02d009.setEnabled(false);
+                mp02d010.setEnabled(false);
+
+                mp02d009id1.setEnabled(false);
+                mp02d010id2.setEnabled(false);
+
+                Toast.makeText(this, "Difference in Measurement", Toast.LENGTH_SHORT).show();
+
+                return false;
+            }
+        }
+
+        if (flag_q12) {
 //            12
-        if (mp02d012.getText().toString().isEmpty()) {
-            Toast.makeText(this, "" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
-            mp02d012.setError("This data is Required!");
-            return false;
-        } else {
-            mp02d012.setError(null);
-        }
-        if (!mp02d012.getText().toString().contains(".")) {
-            Toast.makeText(this, "" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
-            mp02d012.setError("Decimal value is Required!");
-            return false;
-        } else {
-            mp02d012.setError(null);
-        }
-        if (Double.parseDouble(mp02d012.getText().toString()) < 1) {
-            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
-            mp02d012.setError("Invalid: Greater then 0");
-            return false;
-        } else {
-            mp02d012.setError(null);
-        }
+            if (mp02d012.getText().toString().isEmpty()) {
+                Toast.makeText(this, "" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
+                mp02d012.setError("This data is Required!");
+                return false;
+            } else {
+                mp02d012.setError(null);
+                if (!mp02d012.getText().toString().contains(".")) {
+                    Toast.makeText(this, "" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
+                    mp02d012.setError("Decimal value is Required!");
+                    return false;
+                } else {
+                    mp02d012.setError(null);
+                    if (Double.parseDouble(mp02d012.getText().toString()) < 1) {
+                        Toast.makeText(this, "Invalid:" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
+                        mp02d012.setError("Invalid: Greater then 0");
+                        return false;
+                    } else {
+                        mp02d012.setError(null);
+                        if (Double.parseDouble(mp02d012.getText().toString()) < 8 || Double.parseDouble(mp02d012.getText().toString()) > 99.9) {
+                            Toast.makeText(this, "Invalid:" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
+                            mp02d012.setError("Invalid: Range 8-99.9");
+                            return false;
+                        } else {
+                            mp02d012.setError(null);
+                        }
+                    }
+                }
+            }
 
-        TextView mp02d012id3_txt = (TextView) mp02d012id3.getSelectedView();
-        if (mp02d012id3.getSelectedItemPosition() == 0) {
-            Toast.makeText(this, "" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
-            mp02d012id3_txt.setText("This data is Required!");
-            return false;
-        } else {
-            mp02d012id3_txt.setText(null);
+            TextView mp02d012id3_txt = (TextView) mp02d012id3.getSelectedView();
+            if (mp02d012id3.getSelectedItemPosition() == 0) {
+                Toast.makeText(this, "" + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
+                mp02d012id3_txt.setError("This data is Required!");
+                mp02d012id3_txt.setText("This data is Required!");
+                return false;
+            } else {
+                mp02d012id3_txt.setError(null);
+            }
         }
-//        }
-
 
         return true;
     }
@@ -555,7 +702,7 @@ public class SectionDActivity extends Activity {
         sD.put("mp02d002", mp02d002.getText().toString());
         sD.put("mp02d002id2", mp02d002id2.getSelectedItem().toString());
 
-//        sD.put("mp02d003", mp02d00301.isChecked() ? "1" : mp02d00302.isChecked() ? "2" : "0");
+        sD.put("mp02d003", flag_q4 ? "1" : "2");
 
         sD.put("mp02d004", mp02d004.getText().toString());
         sD.put("mp02d004id3", mp02d004id3.getSelectedItem().toString());
@@ -566,7 +713,7 @@ public class SectionDActivity extends Activity {
         sD.put("mp02d006", mp02d006.getText().toString());
         sD.put("mp02d006id1", mp02d006id1.getSelectedItem().toString());
 
-//        sD.put("mp02d007", mp02d00701.isChecked() ? "1" : mp02d00702.isChecked() ? "2" : "0");
+        sD.put("mp02d007", flag_q8 ? "1" : "2");
 
         sD.put("mp02d008", mp02d008.getText().toString());
         sD.put("mp02d008id3", mp02d008id3.getSelectedItem().toString());
@@ -577,7 +724,7 @@ public class SectionDActivity extends Activity {
         sD.put("mp02d010", mp02d010.getText().toString());
         sD.put("mp02d010id1", mp02d010id2.getSelectedItem().toString());
 
-//        sD.put("mp02d011", mp02d01101.isChecked() ? "1" : mp02d01102.isChecked() ? "2" : "0");
+        sD.put("mp02d011", flag_q12 ? "1" : "2");
 
         sD.put("mp02d012", mp02d012.getText().toString());
         sD.put("mp02d012id3", mp02d012id3.getSelectedItem().toString());
