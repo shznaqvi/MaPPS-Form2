@@ -242,27 +242,27 @@ public class SectionAActivity extends Activity {
 
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
 
-        Intent secba = new Intent(this, ParticipantListActivity.class);
-        startActivity(secba);
+//        Intent secba = new Intent(this, ParticipantListActivity.class);
+//        startActivity(secba);
 
-//        if (ValidateForm()) {
-//            try {
-//                SaveDraft();
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-//            if (UpdateDB()) {
-//                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
-//
-//                finish();
-//                Intent secba = new Intent(this, SectionBAActivity.class);
-//                secba.putExtra("data", Econtract.size());
-//                startActivity(secba);
-//
-//            } else {
-//                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-//            }
-//        }
+        if (ValidateForm()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
+                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+
+                finish();
+                Intent secba = new Intent(this, SectionBAActivity.class);
+                secba.putExtra("data", Econtract.size());
+                startActivity(secba);
+
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private boolean UpdateDB() {
