@@ -29,7 +29,7 @@ import butterknife.OnClick;
 
 public class SectionDActivity extends Activity {
 
-    private static final String TAG = SectionCBActivity.class.getSimpleName();
+    private static final String TAG = SectionDActivity.class.getSimpleName();
 
     @BindView(R.id.activity_section_d)
     RelativeLayout activitySectionD;
