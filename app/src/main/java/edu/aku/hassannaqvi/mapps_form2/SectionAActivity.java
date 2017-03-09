@@ -35,6 +35,8 @@ import butterknife.OnClick;
 
 public class SectionAActivity extends Activity {
 
+    private static final String TAG = SectionAActivity.class.getSimpleName();
+
     @BindView(R.id.activity_section_a)
     RelativeLayout activitySectionA;
     @BindView(R.id.scrollView01)
@@ -301,8 +303,10 @@ public class SectionAActivity extends Activity {
         //======================= Q 1 ===============
 
         if (mp02a001.getText().toString().isEmpty()) {
-            Toast.makeText(this, "" + getString(R.string.mp02a001), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mp02a001), Toast.LENGTH_SHORT).show();
             mp02a001.setError("This data is Required!");
+
+            Log.i(TAG, "mp02a001: This Data is Required!");
             return false;
         } else {
             mp02a001.setError(null);
@@ -311,8 +315,10 @@ public class SectionAActivity extends Activity {
         //======================= Q 2 ===============
 
         if (mp02a002.getText().toString().isEmpty()) {
-            Toast.makeText(this, "" + getString(R.string.mp02a002), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mp02a002), Toast.LENGTH_SHORT).show();
             mp02a002.setError("This data is Required!");
+
+            Log.i(TAG, "mp02a002: This Data is Required!");
             return false;
         } else {
             mp02a002.setError(null);
@@ -321,8 +327,10 @@ public class SectionAActivity extends Activity {
         //======================= Q 3 ===============
 
         if (mp02a003.getText().toString().isEmpty()) {
-            Toast.makeText(this, "" + getString(R.string.mp02a003), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mp02a003), Toast.LENGTH_SHORT).show();
             mp02a003.setError("This data is Required!");
+
+            Log.i(TAG, "mp02a003: This Data is Required!");
             return false;
         } else {
             mp02a003.setError(null);
@@ -332,8 +340,10 @@ public class SectionAActivity extends Activity {
             //======================= Q 7 ===============
 
             if (mp02a007.getText().toString().isEmpty()) {
-                Toast.makeText(this, "" + getString(R.string.mp02a007), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mp02a007), Toast.LENGTH_SHORT).show();
                 mp02a007.setError("This data is Required!");
+
+                Log.i(TAG, "mp02a007: This Data is Required!");
                 return false;
             } else {
                 mp02a007.setError(null);
@@ -342,8 +352,10 @@ public class SectionAActivity extends Activity {
             //======================= Q 8 ===============
 
             if (mp02a008.getText().toString().isEmpty()) {
-                Toast.makeText(this, "" + getString(R.string.mp02a008), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mp02a008), Toast.LENGTH_SHORT).show();
                 mp02a008.setError("This data is Required!");
+
+                Log.i(TAG, "mp02a008: This Data is Required!");
                 return false;
             } else {
                 mp02a008.setError(null);
@@ -353,8 +365,10 @@ public class SectionAActivity extends Activity {
             //======================= Q 13 ===============
 
             if (mp02a013.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "" + getString(R.string.mp02a013), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mp02a013), Toast.LENGTH_SHORT).show();
                 mp02a01302.setError("This data is Required!");
+
+                Log.i(TAG, "mp02a013: This Data is Required!");
                 return false;
             } else {
                 mp02a01302.setError(null);

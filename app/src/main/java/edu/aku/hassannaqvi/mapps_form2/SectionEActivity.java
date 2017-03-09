@@ -23,6 +23,7 @@ public class SectionEActivity extends Activity {
 
 
     private static final String TAG = SectionEActivity.class.getSimpleName();
+
     @BindView(R.id.activity_section_e)
     RelativeLayout activitySectionE;
     @BindView(R.id.scrollView01)

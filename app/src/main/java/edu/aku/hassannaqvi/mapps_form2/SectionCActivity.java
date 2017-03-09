@@ -1,9 +1,7 @@
 package edu.aku.hassannaqvi.mapps_form2;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -16,6 +14,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class SectionCActivity extends Activity {
+
+    private static final String TAG = SectionCActivity.class.getSimpleName();
 
     @BindView(R.id.activity_section_c)
     RelativeLayout activitySectionC;

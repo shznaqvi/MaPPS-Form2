@@ -19,6 +19,8 @@ import butterknife.OnClick;
 
 public class SectionCHAActivity extends Activity {
 
+    private static final String TAG = SectionCHAActivity.class.getSimpleName();
+
     @BindView(R.id.activity_section_cha)
     RelativeLayout activitySectionCha;
     @BindView(R.id.scrollView01)

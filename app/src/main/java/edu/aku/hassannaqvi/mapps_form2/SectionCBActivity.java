@@ -3,6 +3,8 @@ package edu.aku.hassannaqvi.mapps_form2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -284,6 +286,9 @@ public class SectionCBActivity extends Activity {
     @BindView(R.id.fldGrpmp02cbbutton)
     LinearLayout fldGrpmp02cbbutton;
 
+    Calendar now = Calendar.getInstance();
+    int year = now.get(Calendar.YEAR);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -552,6 +557,34 @@ public class SectionCBActivity extends Activity {
             }
         });
 
+        mp02cb002.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                int currentAge = year - (Integer.parseInt(mp02cb00101.getText().toString().isEmpty() ? "0" : mp02cb00101.getText().toString()));
+                int enteredAge = Integer.parseInt(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString());
+
+                if (currentAge == enteredAge || currentAge + 1 == enteredAge || currentAge - 1 == enteredAge) {
+
+                    mp02cb002.setError(null);
+                } else {
+
+                    mp02cb002.setError("Check Age again!");
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
 
     }
 
@@ -719,13 +752,10 @@ public class SectionCBActivity extends Activity {
                 mp02cb00102.setError(null);
             }
 
-            Calendar now = Calendar.getInstance();
-
-            int year = now.get(Calendar.YEAR);
 
             int currentAge = year - (Integer.parseInt(mp02cb00101.getText().toString()));
 
-            if (currentAge < 15 || currentAge > 24) {
+            if (currentAge < 15 || currentAge > 23) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb001), Toast.LENGTH_LONG).show();
                 mp02cb00101.setError("Age Limit is from 15 to 24 Years");
                 Log.i(TAG, "mp02cb00101: Age Limit is from 15 to 24 Years");
@@ -755,7 +785,7 @@ public class SectionCBActivity extends Activity {
 
             }
 
-            if (((Integer.parseInt(mp02cb002.getText().toString()) < 14)) || (Integer.parseInt(mp02cb002.getText().toString()) > 24)) {
+            if (((Integer.parseInt(mp02cb002.getText().toString()) < 14)) || (Integer.parseInt(mp02cb002.getText().toString()) > 23)) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb002), Toast.LENGTH_LONG).show();
                 mp02cb002.setError("Age Limit is from 14 to 24 Years");
                 Log.i(TAG, "mp02cb002: Age Limit is from 14 to 24 Years");
@@ -764,14 +794,14 @@ public class SectionCBActivity extends Activity {
                 mp02cb002.setError(null);
             }
 
-            if (currentAge != (Integer.parseInt(mp02cb002.getText().toString()))) {
+            /*if (currentAge != (Integer.parseInt(mp02cb002.getText().toString()))) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb002), Toast.LENGTH_LONG).show();
                 mp02cb00101.setError("Age mismatch with year of birth... Check Again");
                 Log.i(TAG, "mp02cb00101: Age mismatch with year of birth... Check Again");
                 return false;
             } else {
                 mp02cb00101.setError(null);
-            }
+            }*/
             //==================== Q3 =====================
             if (mp02cb003.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb003), Toast.LENGTH_LONG).show();

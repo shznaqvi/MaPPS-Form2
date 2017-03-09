@@ -982,7 +982,8 @@ public class SectionCFActivity extends Activity {
                     mp02cf013.setError(null);
                 }*/
 
-                if (Integer.parseInt(mp02cf006.getText().toString()) < 1 && Integer.parseInt(mp02cf010.getText().toString()) < 1) {
+                if (Integer.parseInt(mp02cf006.getText().toString().isEmpty() ? "0" : mp02cf006.getText().toString()) < 1
+                        && Integer.parseInt(mp02cf010.getText().toString().isEmpty() ? "0" : mp02cf010.getText().toString()) < 1) {
                     Toast.makeText(this, "Invalid: " + getString(R.string.mp02cf006), Toast.LENGTH_LONG).show();
                     mp02cf006.setError("Invalid : Can not be zero");    // Set Error on last radio button
 
@@ -992,7 +993,7 @@ public class SectionCFActivity extends Activity {
                     mp02cf006.setError(null);
                 }
 
-                if (Integer.parseInt(mp02cf006.getText().toString()) > 0) {
+                if (Integer.parseInt(mp02cf006.getText().toString().isEmpty() ? "0" : mp02cf006.getText().toString()) > 0) {
                     if ((Integer.parseInt(mp02cf007.getText().toString().isEmpty() ? "0" : mp02cf007.getText().toString()) < 1)
                             && (Integer.parseInt(mp02cf008.getText().toString().isEmpty() ? "0" : mp02cf008.getText().toString()) < 1)
                             && (Integer.parseInt(mp02cf009.getText().toString().isEmpty() ? "0" : mp02cf009.getText().toString()) < 1)) {
@@ -1007,7 +1008,7 @@ public class SectionCFActivity extends Activity {
 
                 }
 
-                if (Integer.parseInt(mp02cf010.getText().toString()) > 0) {
+                if (Integer.parseInt(mp02cf010.getText().toString().isEmpty() ? "0" : mp02cf010.getText().toString()) > 0) {
                     if ((Integer.parseInt(mp02cf011.getText().toString().isEmpty() ? "0" : mp02cf011.getText().toString()) < 1)
                             && (Integer.parseInt(mp02cf012.getText().toString().isEmpty() ? "0" : mp02cf012.getText().toString()) < 1)
                             && (Integer.parseInt(mp02cf013.getText().toString().isEmpty() ? "0" : mp02cf013.getText().toString()) < 1)) {
@@ -1021,9 +1022,11 @@ public class SectionCFActivity extends Activity {
                     }
                 }
 
-                if (Integer.parseInt(mp02cf006.getText().toString()) > 0) {
-                    if ((Integer.parseInt(mp02cf007.getText().toString()) + Integer.parseInt(mp02cf008.getText().toString())
-                            + Integer.parseInt(mp02cf009.getText().toString())) != Integer.parseInt(mp02cf006.getText().toString())) {
+                if (Integer.parseInt(mp02cf006.getText().toString().isEmpty() ? "0" : mp02cf006.getText().toString()) > 0) {
+                    if ((Integer.parseInt(mp02cf007.getText().toString().isEmpty() ? "0" : mp02cf007.getText().toString())
+                            + Integer.parseInt(mp02cf008.getText().toString().isEmpty() ? "0" : mp02cf008.getText().toString())
+                            + Integer.parseInt(mp02cf009.getText().toString().isEmpty() ? "0" : mp02cf009.getText().toString()))
+                            != Integer.parseInt(mp02cf006.getText().toString().isEmpty() ? "0" : mp02cf006.getText().toString())) {
                         Toast.makeText(this, "Invalid: " + getString(R.string.mp02cf006), Toast.LENGTH_LONG).show();
                         mp02cf006.setError("Invalid : Check again");    // Set Error on last radio button
 
@@ -1032,9 +1035,11 @@ public class SectionCFActivity extends Activity {
                     }
                 }
 
-                if (Integer.parseInt(mp02cf010.getText().toString()) > 0) {
-                    if ((Integer.parseInt(mp02cf011.getText().toString()) + Integer.parseInt(mp02cf012.getText().toString())
-                            + Integer.parseInt(mp02cf013.getText().toString())) != Integer.parseInt(mp02cf010.getText().toString())) {
+                if (Integer.parseInt(mp02cf010.getText().toString().isEmpty() ? "0" : mp02cf010.getText().toString()) > 0) {
+                    if ((Integer.parseInt(mp02cf011.getText().toString().isEmpty() ? "0" : mp02cf011.getText().toString())
+                            + Integer.parseInt(mp02cf012.getText().toString().isEmpty() ? "0" : mp02cf012.getText().toString())
+                            + Integer.parseInt(mp02cf013.getText().toString().isEmpty() ? "0" : mp02cf013.getText().toString()))
+                            != Integer.parseInt(mp02cf010.getText().toString().isEmpty() ? "0" : mp02cf010.getText().toString())) {
                         Toast.makeText(this, "Invalid: " + getString(R.string.mp02cf010), Toast.LENGTH_LONG).show();
                         mp02cf010.setError("Invalid : Check again");    // Set Error on last radio button
 

@@ -24,6 +24,8 @@ import butterknife.OnClick;
 
 public class SectionCHCActivity extends Activity {
 
+    private static final String TAG = SectionCHCActivity.class.getSimpleName();
+
     @BindView(R.id.activity_section_chc)
     RelativeLayout activitySectionChc;
     @BindView(R.id.scrollView01)
@@ -277,6 +279,8 @@ public class SectionCHCActivity extends Activity {
         if (mp02chc001.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "" + getString(R.string.mp02chc001), Toast.LENGTH_SHORT).show();
             mp02chc00102.setError("This data is Required!");
+
+
             return false;
         } else {
             mp02chc00102.setError(null);
