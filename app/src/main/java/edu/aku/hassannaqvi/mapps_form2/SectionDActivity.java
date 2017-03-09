@@ -7,11 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -29,7 +26,7 @@ import butterknife.OnClick;
 
 public class SectionDActivity extends Activity {
 
-    private static final String TAG = SectionCBActivity.class.getSimpleName();
+    private static final String TAG = SectionDActivity.class.getSimpleName();
 
     @BindView(R.id.activity_section_d)
     RelativeLayout activitySectionD;
@@ -250,7 +247,6 @@ public class SectionDActivity extends Activity {
         if (mp02d001id1.getSelectedItemId() == 0) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02d001), Toast.LENGTH_SHORT).show();
             mp02d001id1_txt.setTextColor(Color.RED);
-            mp02d001id1_txt.setText("This data is Required!");
             mp02d001id1_txt.setError("This data is Required!");
             Log.i(TAG, "mp02d001id1: This data is Required!");
             return false;

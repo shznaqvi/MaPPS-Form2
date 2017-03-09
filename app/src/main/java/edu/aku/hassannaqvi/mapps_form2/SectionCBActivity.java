@@ -3,8 +3,6 @@ package edu.aku.hassannaqvi.mapps_form2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -540,40 +538,6 @@ public class SectionCBActivity extends Activity {
             }
         });
 
-        mp02cb006.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try {
-                    if (Integer.parseInt(mp02cb006.getText().toString()) == 0) {
-                        mp02cb00702.setEnabled(false);
-                        mp02cb00703.setEnabled(false);
-                        mp02cb00704.setEnabled(false);
-                        mp02cb00705.setEnabled(false);
-                        mp02cb00706.setEnabled(false);
-                    } else {
-                        mp02cb00702.setEnabled(true);
-                        mp02cb00703.setEnabled(true);
-                        mp02cb00704.setEnabled(true);
-                        mp02cb00705.setEnabled(true);
-                        mp02cb00706.setEnabled(true);
-                    }
-
-                } catch (NumberFormatException nfe) {
-                }
-
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
 
         mp02cb00101.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -587,6 +551,7 @@ public class SectionCBActivity extends Activity {
                 }
             }
         });
+
 
     }
 
