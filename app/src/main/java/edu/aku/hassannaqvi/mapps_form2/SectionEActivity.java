@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.mapps_form2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -14,14 +15,14 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.DecimalFormat;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class SectionEActivity extends Activity {
 
+
+    private static final String TAG = SectionEActivity.class.getSimpleName();
     @BindView(R.id.activity_section_e)
     RelativeLayout activitySectionE;
     @BindView(R.id.scrollView01)
@@ -44,9 +45,9 @@ public class SectionEActivity extends Activity {
         setContentView(R.layout.activity_section_e);
         ButterKnife.bind(this);
 
-        DecimalFormat df = new DecimalFormat("##.#");
+        //DecimalFormat df = new DecimalFormat("##.#");
 
-        mp02e001.setText(df.format(mp02e001.getText().toString()));
+        //mp02e001.setText(df.format(mp02e001.getText().toString()));
 
 
 
@@ -105,25 +106,45 @@ public class SectionEActivity extends Activity {
 
 //        1
         if (mp02e001.getText().toString().isEmpty()) {
-            Toast.makeText(this, "" + getString(R.string.mp02e001), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mp02e001), Toast.LENGTH_SHORT).show();
             mp02e001.setError("This data is Required!");
+
+            Log.i(TAG, "mp02e001: This Data is Required!");
+
+
             return false;
         } else {
             mp02e001.setError(null);
         }
-        if ((Float.parseFloat(mp02e001.getText().toString().isEmpty() ? "0" : mp02e001.getText().toString()) < 8)
-                || Float.parseFloat(mp02e001.getText().toString()) > 15.5) {
+        if ((Double.parseDouble(mp02e001.getText().toString().isEmpty() ? "0" : mp02e001.getText().toString()) < 8)
+                || Double.parseDouble(mp02e001.getText().toString()) > 15.5) {
             Toast.makeText(this, "Range:" + getString(R.string.mp02e001), Toast.LENGTH_SHORT).show();
             mp02e001.setError("Range: 8.0 to 15.5 ");
+
+            Log.i(TAG, "mp02e001: Range: 8.0 to 15.5!");
             return false;
         } else {
             mp02e001.setError(null);
         }
 
+        if (!mp02e001.getText().toString().contains(".")) {
+            Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02d002), Toast.LENGTH_SHORT).show();
+            mp02e001.setError("Invalid: Decimal value is Required!");
+            Log.i(TAG, "mp02e001: Invalid Decimal value is Required!");
+            return false;
+        } else {
+            mp02e001.setError(null);
+        }
+
+
+
+
 //        2
         if (mp02e002.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "" + getString(R.string.mp02e002), Toast.LENGTH_SHORT).show();
             mp02e00202.setError("This data is Required!");
+
+            Log.i(TAG, "mp02e002: This Data is Required!");
             return false;
         } else {
             mp02e00202.setError(null);
