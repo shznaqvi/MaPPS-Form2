@@ -134,6 +134,7 @@ public class SectionEActivity extends Activity {
             return false;
         } else {
             mp02e001.setError(null);
+        }
 
 
 
