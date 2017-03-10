@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.mapps_form2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -339,14 +340,18 @@ public class SectionCEActivity extends Activity {
         )) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02ce001), Toast.LENGTH_LONG).show();
             mp02ce00188.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "mp02ce001: This data is Required!");
             return false;
         } else {
             mp02ce00188.setError(null);
         }
 
         if (mp02ce00188.isChecked() && mp02ce00188x.getText().toString().isEmpty()) {
-            Toast.makeText(this, "" + getString(R.string.mp02ce001), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ce001), Toast.LENGTH_SHORT).show();
             mp02ce00188x.setError("This data is Required!");
+
+            Log.i(TAG, "mp02ce00188x: This data is Required!");
             return false;
         } else {
             mp02ce00388x.setError(null);
@@ -358,14 +363,18 @@ public class SectionCEActivity extends Activity {
         )) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02ce002), Toast.LENGTH_LONG).show();
             mp02ce00288.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "mp02ce002: This data is Required!");
             return false;
         } else {
             mp02ce00288.setError(null);
         }
 
         if (mp02ce00288.isChecked() && mp02ce00288x.getText().toString().isEmpty()) {
-            Toast.makeText(this, "" + getString(R.string.mp02ce002), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ce002), Toast.LENGTH_SHORT).show();
             mp02ce00288x.setError("This data is Required!");
+
+            Log.i(TAG, "mp02ce00288x: This data is Required!");
             return false;
         } else {
             mp02ce00288x.setError(null);
@@ -377,14 +386,18 @@ public class SectionCEActivity extends Activity {
         )) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02ce003), Toast.LENGTH_LONG).show();
             mp02ce00388.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "mp02ce003: This data is Required!");
             return false;
         } else {
             mp02ce00388.setError(null);
         }
 
         if (mp02ce00388.isChecked() && mp02ce00388x.getText().toString().isEmpty()) {
-            Toast.makeText(this, "" + getString(R.string.mp02ce003), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ce003), Toast.LENGTH_SHORT).show();
             mp02ce00388x.setError("This data is Required!");
+
+            Log.i(TAG, "mp02ce00388x: This data is Required!");
             return false;
         } else {
             mp02ce00388x.setError(null);
@@ -396,14 +409,18 @@ public class SectionCEActivity extends Activity {
         )) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02ce004), Toast.LENGTH_LONG).show();
             mp02ce00488.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "mp02ce004: This data is Required!");
             return false;
         } else {
             mp02ce00488.setError(null);
         }
 
         if (mp02ce00488.isChecked() && mp02ce00488x.getText().toString().isEmpty()) {
-            Toast.makeText(this, "" + getString(R.string.mp02ce004), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ce004), Toast.LENGTH_SHORT).show();
             mp02ce00488x.setError("This data is Required!");
+
+            Log.i(TAG, "mp02ce00488x: This data is Required!");
             return false;
         } else {
             mp02ce00488x.setError(null);
@@ -415,14 +432,18 @@ public class SectionCEActivity extends Activity {
         )) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02ce005), Toast.LENGTH_LONG).show();
             mp02ce00588.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "mp02ce005: This data is Required!");
             return false;
         } else {
             mp02ce00588.setError(null);
         }
 
         if (mp02ce00588.isChecked() && mp02ce00588x.getText().toString().isEmpty()) {
-            Toast.makeText(this, "" + getString(R.string.mp02ce005), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ce005), Toast.LENGTH_SHORT).show();
             mp02ce00588x.setError("This data is Required!");
+
+            Log.i(TAG, "mp02ce00588x: This data is Required!");
             return false;
         } else {
             mp02ce00588x.setError(null);
@@ -434,14 +455,18 @@ public class SectionCEActivity extends Activity {
         )) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02ce006), Toast.LENGTH_LONG).show();
             mp02ce00688.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "mp02ce006: This data is Required!");
             return false;
         } else {
             mp02ce00688.setError(null);
         }
 
         if (mp02ce00688.isChecked() && mp02ce00688x.getText().toString().isEmpty()) {
-            Toast.makeText(this, "" + getString(R.string.mp02ce006), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ce006), Toast.LENGTH_SHORT).show();
             mp02ce00688x.setError("This data is Required!");
+
+            Log.i(TAG, "mp02ce00688x: This data is Required!");
             return false;
         } else {
             mp02ce00688x.setError(null);

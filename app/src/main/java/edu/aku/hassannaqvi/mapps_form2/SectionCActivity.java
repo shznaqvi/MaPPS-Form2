@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.mapps_form2;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -69,6 +70,8 @@ public class SectionCActivity extends Activity {
         if (mp02c002.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "" + getString(R.string.mp02a013), Toast.LENGTH_SHORT).show();
             mp02c00206.setError("This data is Required!");
+
+            Log.i(TAG, "mp02c002: This data is Required!");
             return false;
         } else {
             mp02c00206.setError(null);
