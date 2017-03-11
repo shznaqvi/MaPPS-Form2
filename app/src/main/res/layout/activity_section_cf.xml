@@ -37,6 +37,20 @@
                 android:layout_height="2dp"
                 android:background="@color/colorPrimary" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/dullWhile"
+                android:text="@string/mp02cfsub"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorPrimary" />
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -235,7 +249,14 @@
                         android:inputType="number"
                         android:maxLength="1" />
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/fldGrpmp02cf006"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -291,6 +312,8 @@
                         android:inputType="number"
                         android:maxLength="1" />
 
+                    </LinearLayout>
+
 
                     <TextView
                         android:layout_width="match_parent"
@@ -311,7 +334,12 @@
                         android:inputType="number"
                         android:maxLength="1" />
 
-
+                    <LinearLayout
+                        android:id="@+id/fldGrpmp02cf010"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -370,6 +398,8 @@
                         android:hint="@string/mp02cf013"
                         android:inputType="number"
                         android:maxLength="1" />
+
+                    </LinearLayout>
 
 
                     <TextView

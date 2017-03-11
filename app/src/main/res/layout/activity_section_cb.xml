@@ -150,7 +150,7 @@
                     android:layout_weight="2"
                     android:hint="@string/month"
                     android:inputType="number"
-                    android:maxLength="1" />
+                    android:maxLength="2" />
 
             </LinearLayout>
 
@@ -276,7 +276,7 @@
                     android:id="@+id/mp02cb00404"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/mp02cb00304" />
+                    android:text="@string/mp02cb00404" />
 
                 <RadioButton
                     android:id="@+id/mp02cb00488"

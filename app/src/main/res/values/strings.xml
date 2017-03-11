@@ -383,11 +383,11 @@
     <string name="mp02cc00406"> روزانو </string>
     <string name="mp02cc00407"> اسين نيرن تيار نه ڪندا آهيون </string>
     <string name="mp02cc005"> توهان پنهنجي ماءُ پيءُ/يا مڙس سان ڪيترا دفعا گڏ منجهند جي ماني کائيندا آهيو؟ </string>
-    <string name="mp02cc00501"> ڪڏهن به نه 1 </string>
-    <string name="mp02cc00502"> هفتي ۾ هڪ دفعي کان گهٽ 2 </string>
-    <string name="mp02cc00503"> هفتي ۾ هڪ يا 2 دفعا 3 </string>
-    <string name="mp02cc00504"> هفتي ۾ 3 يا 4 دفعا 4 </string>
-    <string name="mp02cc00505"> هفتي ۾ 5 يا 6 دفعا 5 </string>
+    <string name="mp02cc00501"> ڪڏهن به نه  </string>
+    <string name="mp02cc00502"> هفتي ۾ هڪ دفعي کان گهٽ </string>
+    <string name="mp02cc00503"> هفتي ۾ هڪ يا 2 دفعا </string>
+    <string name="mp02cc00504"> هفتي ۾ 3 يا 4 دفعا </string>
+    <string name="mp02cc00505"> هفتي ۾ 5 يا 6 دفعا </string>
     <string name="mp02cc00506"> روزانو </string>
     <string name="mpVeryEasy"> تمام آسان </string>
     <string name="mpEasy"> آسان </string>
@@ -455,7 +455,9 @@
     <string name="mp02ce004"> توھان جي گھر ۾ توهان جو علاج ڪرائڻ جو فيصلو عام طور تي ڪير ڪندو آهي؟ </string>
     <string name="mp02ce005"> گهر جي روز مره ضرورت جون شيون خريد ڪرڻ جو فيصلو عام طور تي ڪير ڪندو آهي؟ </string>
     <string name="mp02ce006"> جيڪو توهان گهر ۾ پئسو ڪمائي آڻيندا آهيو ان کي استعمال ڪرڻ جو فيصلو عام طور تي ڪير ڪندو آهي؟ </string>
-
+    <string name="mp02cfsub"> وڏي آواز ۾ پڙهو ؛ هاڻي آئون توهان کان توهان جي صحت بابت سوال ڪندس </string>
+    <string name="mp02cgsub"> وڏي آواز ۾ پڙهو ؛ هاڻي آئون توهان کان ماضي ۾ استعمال ٿيل خوراڪ بابت سوال ڪندس. (هتي خوراڪ جو مطلب طاقت واري خوراڪ آهي) </string>
+    <string name="mp02esub"> آخر ۾ اسين توهان جي رت ۾ فولاد جو مقدار معلوم ڪنداسون. </string>
     <string name="mp02cf001"> توهان پنهنجي صحت ڪيئن محسوس ڪري رهيا آهيو؟ </string>
     <string name="mp02cf00101"> تمام بهترين </string>
     <string name="mp02cf00102"> سٺو </string>
@@ -464,18 +466,19 @@
     <string name="mp02cf002"> توهان جي عمر ڪيتري هئي جڏهن توهانکي پهريون دفعو ماهواري آئي هئي؟ </string>
     <string name="mp02cf002sub"> جيڪڏهن هن کي اڃا تائين ماهواري ناهي آئي ته 00 لکو. </string>
     <string name="mp02cf003"> ڇا توهان شادي شده آهيو؟ </string>
-    <string name="mp02cf004"> توهان جي عمر ڪيتري هئي جڏهن توهان پهريون دفعو پنهنجي مڙس سسان همبستري ڪئي هئي؟ </string>
+    <string name="mp02cf004"> توهان جي عمر ڪيتري هئي جڏهن توهان پهريون دفعو پنهنجي مڙس سان همبستري ڪئي هئي؟ </string>
     <string name="mp02cf004sub00"> جيڪڏهن هن همبستري ناهي ڪئي ته 00 لکو. </string>
     <string name="mp02cf004sub99"> جيڪڏهن جواب نٿي ڏئي ته 99 لکو </string>
     <string name="mp02cf005"> ڇا توهان ڪڏهن به حمل /پيٽ سان ٿيا آهيو؟ </string>
-    <string name="mp02cf006"> توهان  گھڻن حملن دوران جاڙا ٻار ڄڻيا آهن  ؟</string>
-    <string name="mp02cf007"> جاڙن ٻارن  وارن حملن مان گھڻا زنده ٻار هئا ؟</string>
-    <string name="mp02cf008">جاڙن ٻار ن وارن حملن مان گھڻا مئل ٻار ڄڻيا ؟</string>
-    <string name="mp02cf009">جاڙن ٻارن وارن حملن مان گھڻا ضايع حمل ٿيا؟</string>
-    <string name="mp02cf010">توهان گھڻن حملن دوران هڪ ٻار ڄڻيو آهي ؟</string>
-    <string name="mp02cf011">هڪڙي ٻار واري حملن مان  گھڻا  زنده  ٻار ڄڻيا؟</string>
-    <string name="mp02cf012">هڪڙي ٻار واري حملن مان گھڻا مئل ٻار ڄڻيا ؟</string>
-    <string name="mp02cf013">هڪڙي ٻار واري حمل مان گھڻا ضايع حمل ٿيا؟</string>
+    <string name="mp02cf006">توهان گھڻن حملن دوران هڪ ٻار ڄڻيو آهي ؟</string>
+    <string name="mp02cf007">هڪڙي ٻار واري حملن مان  گھڻا  زنده  ٻار ڄڻيا؟</string>
+    <string name="mp02cf008">هڪڙي ٻار واري حملن مان گھڻا مئل ٻار ڄڻيا ؟</string>
+    <string name="mp02cf009">هڪڙي ٻار واري حمل مان گھڻا ضايع حمل ٿيا؟</string>
+    <string name="mp02cf010"> توهان  گھڻن حملن دوران جاڙا ٻار ڄڻيا آهن  ؟</string>
+    <string name="mp02cf011"> جاڙن ٻارن  وارن حملن مان گھڻا زنده ٻار هئا ؟</string>
+    <string name="mp02cf012">جاڙن ٻار ن وارن حملن مان گھڻا مئل ٻار ڄڻيا ؟</string>
+    <string name="mp02cf013">جاڙن ٻارن وارن حملن مان گھڻا ضايع حمل ٿيا؟</string>
+
     <string name="mp02cf014"> پهرين حمل جي دوران توهان جي عمر ڪيتري هئي؟ </string>
     <string name="mp02cf014sub"> ته 99 لکوجيڪڏهن ڪابه خبر ناهي </string>
     <string name="mp02cf015"> توهان آخري حمل دوران ڪل ڪيترا ڀيرا پنهنجي حمل جو بنيادي معائنو ڪرايو هيو؟ </string>
@@ -696,7 +699,7 @@
     <string name="mp02chc00904"> جواب ڏيڻ کان انڪارڪيو </string>
     <string name="mp02chc010"> 15 سالن جي عمر کان پوء توهان جي مڙس کان علاوه ٻي ڪنهن توهان کي ماريو( ٿپرون يا مڪون هنيون) ؟ يا ٻيو ڪو جسماني نقصان پهچايو؟ </string>
     <string name="mp02chc01001"> جواب ڏين کان انڪار ڪيو </string>
-    <string name="mp02chc011"> ڪنهن توهان کي اهڙي قسم جي تڪليف ڏني؟ </string>
+    <string name="mp02chc011"> ڪنهن توهان کي اهڙي قسم جي تڪليف ڏني؟ (هڪ کان وڌيڪ جواب اچي سگهن ٿا.) </string>
     <string name="mp02chc01101"> ماءُ </string>
     <string name="mp02chc01102"> سوتيلي ماء </string>
     <string name="mp02chc01103"> پيء </string>

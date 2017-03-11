@@ -50,17 +50,15 @@
                 android:id="@+id/mp02d001"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="cm"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02d001"
+                android:inputType="numberDecimal"
+                android:maxLength="5" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/mp02d001id1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mp02dsubM1"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02dsubM1" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -76,51 +74,51 @@
                 android:id="@+id/mp02d002"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="cm"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02d002"
+                
+                android:inputType="numberDecimal"
+                android:maxLength="5" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/mp02d002id2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mp02dsubM2"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02dsubM2" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/mp02d003"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="16dp"-->
+                <!--android:background="@color/colorPrimary"-->
+                <!--android:padding="2dp"-->
+                <!--android:text="@string/mp02d003"-->
+                <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+                <!--android:textColor="@android:color/white" />-->
 
-            <RadioGroup
-                android:id="@+id/mp02d003"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <!--<RadioGroup-->
+                <!--android:id="@+id/mp02d003"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
 
-                <RadioButton
-                    android:id="@+id/mp02d00301"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/yes" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/mp02d00301"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/yes" />-->
 
-                <RadioButton
-                    android:id="@+id/mp02d00302"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no" />
-            </RadioGroup>
+                <!--<RadioButton-->
+                    <!--android:id="@+id/mp02d00302"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/no" />-->
+            <!--</RadioGroup>-->
 
             <LinearLayout
                 android:id="@+id/fldGrpmp02d004"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -136,17 +134,15 @@
                     android:id="@+id/mp02d004"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="cm"
-                    android:inputType="number"
-                    android:maxLength="2" />
+                    android:hint="@string/mp02d004"
+                    android:inputType="numberDecimal"
+                    android:maxLength="5" />
 
-                <EditText
+                <Spinner
                     android:id="@+id/mp02d004id3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/mp02dsubM3"
-                    android:inputType="number"
-                    android:maxLength="2" />
+                    android:hint="@string/mp02dsubM3" />
 
             </LinearLayout>
 
@@ -164,17 +160,16 @@
                 android:id="@+id/mp02d005"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="kg"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02d005"
+                
+                android:inputType="numberDecimal"
+                android:maxLength="5" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/mp02d005id1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mp02dsubM1"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02dsubM1" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -190,51 +185,50 @@
                 android:id="@+id/mp02d006"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="kg"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02d006"
+                android:inputType="numberDecimal"
+                android:maxLength="5" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/mp02d006id1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mp02dsubM2"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02dsubM2" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/mp02d007"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="16dp"-->
+                <!--android:background="@color/colorPrimary"-->
+                <!--android:padding="2dp"-->
+                <!--android:text="@string/mp02d007"-->
+                <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+                <!--android:textColor="@android:color/white" />-->
 
-            <RadioGroup
-                android:id="@+id/mp02d007"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <!--<RadioGroup-->
+                <!--android:id="@+id/mp02d007"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
 
-                <RadioButton
-                    android:id="@+id/mp02d00701"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/yes" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/mp02d00701"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/yes" />-->
 
-                <RadioButton
-                    android:id="@+id/mp02d00702"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no" />
-            </RadioGroup>
+                <!--<RadioButton-->
+                    <!--android:id="@+id/mp02d00702"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/no" />-->
+            <!--</RadioGroup>-->
 
             <LinearLayout
                 android:id="@+id/fldGrpmp02d008"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -250,17 +244,15 @@
                     android:id="@+id/mp02d008"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="kg"
-                    android:inputType="number"
-                    android:maxLength="2" />
+                    android:hint="@string/mp02d008"
+                    android:inputType="numberDecimal"
+                    android:maxLength="5" />
 
-                <EditText
+                <Spinner
                     android:id="@+id/mp02d008id3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/mp02dsubM3"
-                    android:inputType="number"
-                    android:maxLength="2" />
+                    android:hint="@string/mp02dsubM3" />
 
             </LinearLayout>
 
@@ -278,17 +270,15 @@
                 android:id="@+id/mp02d009"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="kg"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02d009"
+                android:inputType="numberDecimal"
+                android:maxLength="4" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/mp02d009id1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mp02dsubM1"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02dsubM1" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -304,51 +294,50 @@
                 android:id="@+id/mp02d010"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="cm"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02d010"
+                android:inputType="numberDecimal"
+                android:maxLength="4" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/mp02d010id2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mp02dsubM2"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:hint="@string/mp02dsubM2" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/mp02d011"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="16dp"-->
+                <!--android:background="@color/colorPrimary"-->
+                <!--android:padding="2dp"-->
+                <!--android:text="@string/mp02d011"-->
+                <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+                <!--android:textColor="@android:color/white" />-->
 
-            <RadioGroup
-                android:id="@+id/mp02d011"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <!--<RadioGroup-->
+                <!--android:id="@+id/mp02d011"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
 
-                <RadioButton
-                    android:id="@+id/mp02d01101"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/yes" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/mp02d01101"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/yes" />-->
 
-                <RadioButton
-                    android:id="@+id/mp02d01102"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no" />
-            </RadioGroup>
+                <!--<RadioButton-->
+                    <!--android:id="@+id/mp02d01102"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/no" />-->
+            <!--</RadioGroup>-->
 
             <LinearLayout
                 android:id="@+id/fldGrpmp02d012"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -364,17 +353,15 @@
                     android:id="@+id/mp02d012"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="cm"
-                    android:inputType="number"
-                    android:maxLength="2" />
+                    android:hint="@string/mp02d012"
+                    android:inputType="numberDecimal"
+                    android:maxLength="4" />
 
-                <EditText
+                <Spinner
                     android:id="@+id/mp02d012id3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/mp02dsubM3"
-                    android:inputType="number"
-                    android:maxLength="2" />
+                    android:hint="@string/mp02dsubM3" />
 
             </LinearLayout>
 

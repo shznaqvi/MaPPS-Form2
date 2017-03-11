@@ -19,6 +19,8 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -284,6 +286,9 @@ public class SectionCBActivity extends Activity {
     @BindView(R.id.fldGrpmp02cbbutton)
     LinearLayout fldGrpmp02cbbutton;
 
+    Calendar now = Calendar.getInstance();
+    int year = now.get(Calendar.YEAR);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -538,7 +543,21 @@ public class SectionCBActivity extends Activity {
             }
         });
 
-        mp02cb006.addTextChangedListener(new TextWatcher() {
+
+        mp02cb00101.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (b) {
+                    if (mp02cb00101.length() < 4 || mp02cb00101.length() > 4) {
+                        mp02cb00101.setError("Year Length is 4");
+                    } else {
+                        mp02cb00101.setError(null);
+                    }
+                }
+            }
+        });
+
+        mp02cb002.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -546,24 +565,17 @@ public class SectionCBActivity extends Activity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try {
-                    if (Integer.parseInt(mp02cb006.getText().toString()) == 0) {
-                        mp02cb00702.setEnabled(false);
-                        mp02cb00703.setEnabled(false);
-                        mp02cb00704.setEnabled(false);
-                        mp02cb00705.setEnabled(false);
-                        mp02cb00706.setEnabled(false);
-                    } else {
-                        mp02cb00702.setEnabled(true);
-                        mp02cb00703.setEnabled(true);
-                        mp02cb00704.setEnabled(true);
-                        mp02cb00705.setEnabled(true);
-                        mp02cb00706.setEnabled(true);
-                    }
 
-                } catch (NumberFormatException nfe) {
+                int currentAge = year - (Integer.parseInt(mp02cb00101.getText().toString().isEmpty() ? "0" : mp02cb00101.getText().toString()));
+                int enteredAge = Integer.parseInt(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString());
+
+                if (currentAge == enteredAge || currentAge + 1 == enteredAge || currentAge - 1 == enteredAge) {
+
+                    mp02cb002.setError(null);
+                } else {
+
+                    mp02cb002.setError("Check Age again!");
                 }
-
 
             }
 
@@ -723,21 +735,30 @@ public class SectionCBActivity extends Activity {
 
         if (mp02ca00101.isChecked() || mp02ca00201.isChecked()) {
             //================== Q 1 ==================
-            if (mp02cb00101.getText().toString().isEmpty() && mp02ca00102.getText().toString().isEmpty()) {
+            if (mp02cb00101.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb001), Toast.LENGTH_LONG).show();
                 mp02cb00101.setError("This data is Required!");
-                mp02cb00102.setError("This data is Required!"); // Set Error on last radio button
                 Log.i(TAG, "mp02cb001: This data is Required!");
                 return false;
             } else {
                 mp02cb00101.setError(null);
+            }
+            if (mp02cb00102.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb001), Toast.LENGTH_LONG).show();
+                mp02cb00102.setError("This data is Required!"); // Set Error on last radio button
+                Log.i(TAG, "mp02cb001: This data is Required!");
+                return false;
+            } else {
                 mp02cb00102.setError(null);
             }
 
-            if ((Integer.parseInt(mp02cb00101.getText().toString()) < 13) || (Integer.parseInt(mp02cb00102.getText().toString()) > 23)) {
+
+            int currentAge = year - (Integer.parseInt(mp02cb00101.getText().toString()));
+
+            if (currentAge < 15 || currentAge > 23) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb001), Toast.LENGTH_LONG).show();
-                mp02cb00101.setError("Age Limit is from 13 to 23 Years");
-                Log.i(TAG, "mp02cb00101: Age Limit is from 13 to 23 Years");
+                mp02cb00101.setError("Age Limit is from 15 to 24 Years");
+                Log.i(TAG, "mp02cb00101: Age Limit is from 15 to 24 Years");
                 return false;
             } else {
                 mp02cb00101.setError(null);
@@ -764,14 +785,23 @@ public class SectionCBActivity extends Activity {
 
             }
 
-            if ((Integer.parseInt(mp02cb002.getText().toString()) < 13) || (Integer.parseInt(mp02cb002.getText().toString()) > 23)) {
+            if (((Integer.parseInt(mp02cb002.getText().toString()) < 14)) || (Integer.parseInt(mp02cb002.getText().toString()) > 23)) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb002), Toast.LENGTH_LONG).show();
-                mp02cb002.setError("Age Limit is from 13 to 23 Years");
-                Log.i(TAG, "mp02cb002: Age Limit is from 13 to 23 Years");
+                mp02cb002.setError("Age Limit is from 14 to 24 Years");
+                Log.i(TAG, "mp02cb002: Age Limit is from 14 to 24 Years");
                 return false;
             } else {
                 mp02cb002.setError(null);
             }
+
+            /*if (currentAge != (Integer.parseInt(mp02cb002.getText().toString()))) {
+                Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb002), Toast.LENGTH_LONG).show();
+                mp02cb00101.setError("Age mismatch with year of birth... Check Again");
+                Log.i(TAG, "mp02cb00101: Age mismatch with year of birth... Check Again");
+                return false;
+            } else {
+                mp02cb00101.setError(null);
+            }*/
             //==================== Q3 =====================
             if (mp02cb003.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb003), Toast.LENGTH_LONG).show();
@@ -824,18 +854,29 @@ public class SectionCBActivity extends Activity {
             } else {
                 mp02cb00502.setError(null);
             }
-            // ================ Q6==============
-            if (mp02cb00501.isChecked() && mp02cb006.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb006), Toast.LENGTH_LONG).show();
-                mp02cb006.setError("This data is Required!");    // Set Error on last radio button
 
-                Log.i(TAG, "mp02cb006: This data is Required!");
-                return false;
-            } else {
-                mp02cb006.setError(null);
-            }
-            //==================== Q7 ========================
             if (mp02cb00501.isChecked()) {
+                // ================ Q6==============
+                if (mp02cb006.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb006), Toast.LENGTH_LONG).show();
+                    mp02cb006.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cb006: This data is Required!");
+                    return false;
+                } else {
+                    mp02cb006.setError(null);
+                }
+
+                if ((Integer.parseInt(mp02cb006.getText().toString()) < 1) || (Integer.parseInt(mp02cb006.getText().toString()) > 16)) {
+                    Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb006), Toast.LENGTH_LONG).show();
+                    mp02cb006.setError("Range is 1-16");
+                    Log.i(TAG, "mp02cb006: Range is 1-16");
+                    return false;
+                } else {
+                    mp02cb006.setError(null);
+                }
+
+                //==================== Q7 ========================
                 if (mp02cb007.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb007), Toast.LENGTH_LONG).show();
                     mp02cb00706.setError("This data is Required!");    // Set Error on last radio button
@@ -845,8 +886,6 @@ public class SectionCBActivity extends Activity {
                 } else {
                     mp02cb00706.setError(null);
                 }
-
-
             }
 
             // ================== Q8====================
@@ -903,6 +942,15 @@ public class SectionCBActivity extends Activity {
                     mp02cb010.setError(null);
                 }
 
+                if (Integer.parseInt(mp02cb010.getText().toString()) < 14) {
+                    Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb010), Toast.LENGTH_LONG).show();
+                    mp02cb010.setError("Age Not less then 14");
+                    Log.i(TAG, "mp02cb010: Age Not less then 14");
+                    return false;
+                } else {
+                    mp02cb010.setError(null);
+                }
+
                 if (mp02cb011.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb011), Toast.LENGTH_LONG).show();
                     mp02cb01102.setError("This data is Required!");    // Set Error on last radio button
@@ -923,17 +971,15 @@ public class SectionCBActivity extends Activity {
                         mp02cb012.setError(null);
                     }
 
+                    if (mp02cb013.getCheckedRadioButtonId() == -1) {
+                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb013), Toast.LENGTH_LONG).show();
+                        mp02cb01306.setError("This data is Required!");    // Set Error on last radio button
 
-                }
-
-                if (mp02cb013.getCheckedRadioButtonId() == -1) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb013), Toast.LENGTH_LONG).show();
-                    mp02cb01306.setError("This data is Required!");    // Set Error on last radio button
-
-                    Log.i(TAG, "mp02cb013: This data is Required!");
-                    return false;
-                } else {
-                    mp02cb01306.setError(null);
+                        Log.i(TAG, "mp02cb013: This data is Required!");
+                        return false;
+                    } else {
+                        mp02cb01306.setError(null);
+                    }
                 }
 
                 if (mp02cb014.getCheckedRadioButtonId() == -1) {
@@ -1093,10 +1139,10 @@ public class SectionCBActivity extends Activity {
                     mp02cb021.setError(null);
                 }
 
-                if ((Integer.parseInt(mp02cb021.getText().toString()) < 13) || (Integer.parseInt(mp02cb021.getText().toString()) > 23)) {
+                if ((Integer.parseInt(mp02cb021.getText().toString()) < 15) || (Integer.parseInt(mp02cb021.getText().toString()) > 99)) {
                     Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb021), Toast.LENGTH_LONG).show();
-                    mp02cb021.setError("Age Limit is from 13 to 23 Years");
-                    Log.i(TAG, "mp02cb021: Age Limit is from 13 to 23 Years");
+                    mp02cb021.setError("Age Limit is from 15 to 99 Years");
+                    Log.i(TAG, "mp02cb021: Age Limit is from 15 to 99 Years");
                     return false;
                 } else {
                     mp02cb021.setError(null);
@@ -1112,10 +1158,10 @@ public class SectionCBActivity extends Activity {
                     mp02cb022.setError(null);
                 }
 
-                if ((Integer.parseInt(mp02cb022.getText().toString()) < 13) || (Integer.parseInt(mp02cb022.getText().toString()) > 23)) {
+                if ((Integer.parseInt(mp02cb022.getText().toString()) < 15) || (Integer.parseInt(mp02cb022.getText().toString()) > 99)) {
                     Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb022), Toast.LENGTH_LONG).show();
-                    mp02cb022.setError("Age Limit is from 13 to 23 Years");
-                    Log.i(TAG, "mp02cb022: Age Limit is from 13 to 23 Years");
+                    mp02cb022.setError("Age Limit is from 15 to 99 Years");
+                    Log.i(TAG, "mp02cb022: Age Limit is from 15 to 99 Years");
                     return false;
                 } else {
                     mp02cb022.setError(null);
