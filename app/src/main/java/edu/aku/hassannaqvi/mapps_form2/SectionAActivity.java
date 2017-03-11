@@ -268,16 +268,24 @@ public class SectionAActivity extends Activity {
     }
 
     private boolean UpdateDB() {
-/*        MP02DBHelper db = new MP02DBHelper(this);
+        Long rowId;
+        DatabaseHelper db = new DatabaseHelper(this);
 
-        int updcount = db.updateSA();
+        rowId = null;
+        rowId = db.addForm(AppMain.fc);
 
-        if (updcount == 1) {
+        AppMain.fc.setID(rowId);
+
+        if (rowId != null) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+            AppMain.fc.setUID(
+                    (AppMain.fc.getDeviceID() + AppMain.fc.getID()));
+            Toast.makeText(this, "Current Form No: " + AppMain.fc.getUID(), Toast.LENGTH_SHORT).show();
             return true;
         } else {
-            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();*/
-        return true;
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 
     private void SaveDraft() throws JSONException {

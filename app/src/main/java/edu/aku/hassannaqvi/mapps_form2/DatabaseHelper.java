@@ -436,43 +436,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void updateBA(String id) {
+    public int updateBA() {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        // New value for one column
+// New value for one column
         ContentValues values = new ContentValues();
-        values.put(FormColumns.COLUMN_SBA, true);
+        values.put(FormColumns.COLUMN_SBA, AppMain.fc.getsBA());
+        values.put(FormColumns.COLUMN_UID, AppMain.fc.getUID());
 
-        // Which row to update, based on the title
-        String where = FormColumns._ID + " LIKE ?";
-        String[] whereArgs = {id};
 
-        int count = db.update(
-                FormColumns.TABLE_NAME,
+// Which row to update, based on the ID
+        String selection = FormColumns._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
+
+        int count = db.update(FormColumns.TABLE_NAME,
                 values,
-                where,
-                whereArgs);
-        db.close();
+                selection,
+                selectionArgs);
+        return count;
     }
 
-    public void updateBB(String id) {
+    public int updateBB() {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        // New value for one column
+// New value for one column
         ContentValues values = new ContentValues();
-        values.put(FormColumns.COLUMN_SBB, true);
+        values.put(FormColumns.COLUMN_SBB, AppMain.fc.getsBB());
+        values.put(FormColumns.COLUMN_UID, AppMain.fc.getUID());
 
-        // Which row to update, based on the title
-        String where = FormColumns._ID + " LIKE ?";
-        String[] whereArgs = {id};
 
-        int count = db.update(
-                FormColumns.TABLE_NAME,
+// Which row to update, based on the ID
+        String selection = FormColumns._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
+
+        int count = db.update(FormColumns.TABLE_NAME,
                 values,
-                where,
-                whereArgs);
-        db.close();
+                selection,
+                selectionArgs);
+        return count;
     }
+
 
     public Collection<ClustersContract> getAllClusters() {
         SQLiteDatabase db = this.getReadableDatabase();
