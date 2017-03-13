@@ -17,6 +17,7 @@ public class ParticipantsContract {
     private Long _ID;
     private String UID = "";
     private String UUID = ""; // UID of main form (fc)
+    private String LUID = ""; // UID of main form (fc)
     private String formDate = ""; // Date of main form (fc)
     private String interviewer01 = ""; // Interviewer 01 from main form
     private String interviewer02 = ""; // Interviewer 02 from main form
@@ -82,6 +83,14 @@ public class ParticipantsContract {
 
     public void setUUID(String UUID) {
         this.UUID = UUID;
+    }
+
+    public String getLUID() {
+        return LUID;
+    }
+
+    public void setLUID(String LUID) {
+        this.LUID = LUID;
     }
 
     public String getFormDate() {
@@ -274,6 +283,7 @@ public class ParticipantsContract {
         this._ID = jsonObject.getLong(ParticipantColumns.COLUMN__ID);
         this.UID = jsonObject.getString(ParticipantColumns.COLUMN_UID);
         this.UUID = jsonObject.getString(ParticipantColumns.COLUMN_UUID);
+        this.LUID = jsonObject.getString(ParticipantColumns.COLUMN_LUID);
         this.formDate = jsonObject.getString(ParticipantColumns.COLUMN_FORMDATE);
         this.interviewer01 = jsonObject.getString(ParticipantColumns.COLUMN_INTERVIEWER01);
         this.interviewer02 = jsonObject.getString(ParticipantColumns.COLUMN_INTERVIEWER02);
@@ -308,6 +318,7 @@ public class ParticipantsContract {
         this._ID = cursor.getLong(cursor.getColumnIndex(ParticipantColumns.COLUMN__ID));
         this.UID = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_UID));
         this.UUID = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_UUID));
+        this.LUID = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_LUID));
         this.formDate = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_FORMDATE));
         this.interviewer01 = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_INTERVIEWER01));
         this.interviewer02 = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_INTERVIEWER02));
@@ -347,6 +358,7 @@ public class ParticipantsContract {
         json.put(ParticipantColumns.COLUMN__ID, this._ID == null ? JSONObject.NULL : this._ID);
         json.put(ParticipantColumns.COLUMN_UID, this.UID == null ? JSONObject.NULL : this.UID);
         json.put(ParticipantColumns.COLUMN_UUID, this.UUID == null ? JSONObject.NULL : this.UUID);
+        json.put(ParticipantColumns.COLUMN_LUID, this.LUID == null ? JSONObject.NULL : this.LUID);
         json.put(ParticipantColumns.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
         json.put(ParticipantColumns.COLUMN_INTERVIEWER01, this.interviewer01 == null ? JSONObject.NULL : this.interviewer01);
         json.put(ParticipantColumns.COLUMN_INTERVIEWER02, this.interviewer02 == null ? JSONObject.NULL : this.interviewer02);
@@ -386,6 +398,7 @@ public class ParticipantsContract {
         public static final String COLUMN__ID = "_id";
         public static final String COLUMN_UID = "uid";
         public static final String COLUMN_UUID = "uuid";
+        public static final String COLUMN_LUID = "luid";
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_INTERVIEWER01 = "interviewer01";
         public static final String COLUMN_INTERVIEWER02 = "interviewer02";
