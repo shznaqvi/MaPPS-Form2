@@ -37,6 +37,12 @@ public class FormsContract {
     public FormsContract() {
     }
 
+    public FormsContract(String formDate, String household, String istatus) {
+        this.formDate = formDate;
+        this.household = household;
+        this.istatus = istatus;
+    }
+
     public String getProjectName() {
         return projectName;
     }
@@ -291,7 +297,7 @@ public class FormsContract {
         public static final String COLUMN_PROJECTNAME = "projectname";
         public static final String COLUMN_SURVEYTYPE = "surveytype";
         public static final String COLUMN__ID = "_id";
-        public static final String COLUMN_UID = "uid";
+        public static final String COLUMN_UID = "l_uid";
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_INTERVIEWER01 = "interviewer01";
         public static final String COLUMN_INTERVIEWER02 = "interviewer02";

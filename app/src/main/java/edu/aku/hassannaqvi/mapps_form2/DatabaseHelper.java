@@ -16,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import edu.aku.hassannaqvi.mapps_form2.EligiblesContract.singleWoman;
 import edu.aku.hassannaqvi.mapps_form2.FormsContract.FormColumns;
@@ -476,6 +477,186 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
+    public int updateCC() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(ParticipantColumns.COLUMN_SCC, AppMain.pc.getsCC());
+        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
+
+
+// Which row to update, based on the ID
+        String selection = ParticipantColumns._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
+
+        int count = db.update(ParticipantColumns.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+    public int updateCD() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(ParticipantColumns.COLUMN_SCD, AppMain.pc.getsCD());
+        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
+
+
+// Which row to update, based on the ID
+        String selection = ParticipantColumns._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
+
+        int count = db.update(ParticipantColumns.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+    public int updateCE() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(ParticipantColumns.COLUMN_SCE, AppMain.pc.getsCE());
+        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
+
+
+// Which row to update, based on the ID
+        String selection = ParticipantColumns._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
+
+        int count = db.update(ParticipantColumns.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+    public int updateCF() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(ParticipantColumns.COLUMN_SCF, AppMain.pc.getsCF());
+        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
+
+
+// Which row to update, based on the ID
+        String selection = ParticipantColumns._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
+
+        int count = db.update(ParticipantColumns.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+    public int updateCG() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(ParticipantColumns.COLUMN_SCG, AppMain.pc.getsCG());
+        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
+
+
+// Which row to update, based on the ID
+        String selection = ParticipantColumns._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
+
+        int count = db.update(ParticipantColumns.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+    public int updateCHA() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(ParticipantColumns.COLUMN_SCHA, AppMain.pc.getsCHA());
+        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
+
+
+// Which row to update, based on the ID
+        String selection = ParticipantColumns._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
+
+        int count = db.update(ParticipantColumns.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+    public int updateCHB() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(ParticipantColumns.COLUMN_SCHB, AppMain.pc.getsCHB());
+        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
+
+
+// Which row to update, based on the ID
+        String selection = ParticipantColumns._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
+
+        int count = db.update(ParticipantColumns.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+    public int updateCHC() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(ParticipantColumns.COLUMN_SCHBC, AppMain.pc.getsCHBC());
+        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
+
+
+// Which row to update, based on the ID
+        String selection = ParticipantColumns._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
+
+        int count = db.update(ParticipantColumns.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+    public int updateE() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(ParticipantColumns.COLUMN_SCE, AppMain.pc.getsCE());
+        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
+
+
+// Which row to update, based on the ID
+        String selection = ParticipantColumns._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
+
+        int count = db.update(ParticipantColumns.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
 
     public Collection<ClustersContract> getAllClusters() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -778,6 +959,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
 
+
+        // return contact list
+        return formList;
+    }
+
+    public List<FormsContract> getFormsByCluster(String psu) {
+        List<FormsContract> formList = new ArrayList<FormsContract>();
+        // Select All Unsynced Query
+        String selectQuery = "SELECT * FROM " + FormColumns.TABLE_NAME + " WHERE " + FormColumns.COLUMN_CLUSTERCODE + "='" + psu + "' ORDER BY " + FormColumns._ID + " desc";
+        //String selectQuery = "SELECT  * FROM " + singleForm.TABLE_NAME;
+        Log.d(TAG, selectQuery);
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                FormsContract form = new FormsContract();
+                form.setFormDate(cursor.getString(cursor.getColumnIndex(FormColumns.COLUMN_FORMDATE)));
+                form.setIstatus(cursor.getString(cursor.getColumnIndex(FormColumns.COLUMN_ISTATUS)));
+                form.setHousehold(cursor.getString(cursor.getColumnIndex(FormColumns.COLUMN_HOUSEHOLD)));
+
+                // Adding contact to list
+                formList.add(form);
+            } while (cursor.moveToNext());
+        }
 
         // return contact list
         return formList;

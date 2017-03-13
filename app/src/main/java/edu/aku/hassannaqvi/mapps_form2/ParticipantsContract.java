@@ -384,7 +384,7 @@ public class ParticipantsContract {
         public static final String COLUMN_PROJECTNAME = "projectname";
         public static final String COLUMN_SURVEYTYPE = "surveytype";
         public static final String COLUMN__ID = "_id";
-        public static final String COLUMN_UID = "uid";
+        public static final String COLUMN_UID = "l_uid";
         public static final String COLUMN_UUID = "uuid";
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_INTERVIEWER01 = "interviewer01";

@@ -728,16 +728,17 @@ public class SectionCFActivity extends Activity {
     }
 
     private boolean UpdateDB() {
-/*        MP03DBHelper db = new MP03DBHelper(this);
+        DatabaseHelper db = new DatabaseHelper(this);
 
-        int updcount = db.updateSA();
+        int updcount = db.updateCF();
 
         if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
             return true;
         } else {
-            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();*/
-        return true;
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 
 

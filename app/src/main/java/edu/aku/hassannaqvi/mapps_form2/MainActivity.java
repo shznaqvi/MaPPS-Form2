@@ -98,7 +98,7 @@ public class MainActivity extends Activity {
     }
 
     public void openForm(View v) {
-        Intent oF = new Intent(MainActivity.this, SectionCBActivity.class);
+        Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
         startActivity(oF);
     }
 
@@ -123,12 +123,20 @@ public class MainActivity extends Activity {
         startActivity(dbmanager);
     }
 
-    /*public void CheckCluster(View v) {
-        Intent cluster_list = new Intent(getApplicationContext(), FormsList.class);
-        cluster_list.putExtra("areaCode", areaCode.getText().toString());
-        startActivity(cluster_list);
+    public void CheckCluster(View v) {
+        if (!areaCode.getText().toString().isEmpty()) {
 
-    }*/
+            areaCode.setError(null);
+
+            Intent Clist = new Intent(this, FormsList.class);
+            Clist.putExtra("areaCode", areaCode.getText().toString());
+            startActivity(Clist);
+        } else {
+            Toast.makeText(this, "Error(Empty): Data Required", Toast.LENGTH_SHORT).show();
+            areaCode.setError("Error(Empty): Data Required");
+        }
+    }
+
     public void syncServer(View view) {
 
         String formsUrl = AppMain._HOST_URL + "virband/api/forms.php";

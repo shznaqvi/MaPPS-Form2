@@ -55,6 +55,7 @@ public class AppMain extends Application {
     public static String interviewerCode;
     public static String child_name = "TEST";
     public static FormsContract fc;
+    public static ParticipantsContract pc;
     public static String userName = "0000";
     public static String areaCode;
     public static String curCluster;

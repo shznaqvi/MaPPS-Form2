@@ -79,7 +79,10 @@
         <activity
             android:name=".SectionEActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        <activity android:name=".EndingActivity" />
+        <activity android:name=".EndingActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name=".FormsList"
+            android:windowSoftInputMode="adjustResize|stateHidden"/>
         <activity
             android:name=".AndroidDatabaseManager"
             android:screenOrientation="portrait" />

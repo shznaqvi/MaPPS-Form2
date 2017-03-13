@@ -1157,7 +1157,7 @@ public class SectionBAActivity extends Activity {
                 : mp02ba02088.isChecked() ? "88" : "0");
         sBA.put("mp02ba02088x", mp02ba02088x.getText().toString());
 
-        //MPApp.fc.setROW_SBA(String.valueOf(sBA));
+        AppMain.fc.setsBA(String.valueOf(sBA));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
