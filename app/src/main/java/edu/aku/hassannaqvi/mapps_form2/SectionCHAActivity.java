@@ -322,18 +322,15 @@ public class SectionCHAActivity extends Activity {
     private boolean UpdateDB() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-//        int updcount = db.updateSHA();
-//
-//        if (updcount == 1) {
-//            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
-//            return true;
-//        } else {
-//            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
-//            return false;
-//        }
+        int updcount = db.updateCHA();
 
-        return true;
-
+        if (updcount == 1) {
+            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 
     private void SaveDraft() throws JSONException {
@@ -362,7 +359,7 @@ public class SectionCHAActivity extends Activity {
         sCHA.put("mp02cha010", mp02cha01001.isChecked() ? "1" : mp02cha01002.isChecked() ? "2" : mp02cha01003.isChecked() ? "3"
                 : mp02cha01004.isChecked() ? "4" : mp02cha01005.isChecked() ? "5" : "0");
 
-        //MPApp.fc.setROW_SCHA(String.valueOf(sCHA));
+        AppMain.pc.setsCHA(String.valueOf(sCHA));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

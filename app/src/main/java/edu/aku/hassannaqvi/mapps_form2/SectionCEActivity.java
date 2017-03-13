@@ -310,7 +310,7 @@ public class SectionCEActivity extends Activity {
         sCE.put("mp02ce00606", mp02ce00606.isChecked() ? "6" : "0");
         sCE.put("mp02ce00688", mp02ce00688.isChecked() ? "88" : "0");
 
-        //MPApp.fc.setROW_SCE(String.valueOf(sCE));
+        AppMain.pc.setsCE(String.valueOf(sCE));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
@@ -318,17 +318,15 @@ public class SectionCEActivity extends Activity {
     private boolean UpdateDB() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-//        int updcount = db.updateSCE();
-//
-//        if (updcount == 1) {
-//            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
-//            return true;
-//        } else {
-//            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
-//            return false;
-//        }
+        int updcount = db.updateCE();
 
-        return true;
+        if (updcount == 1) {
+            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
 
     }
 

@@ -6,14 +6,14 @@ package edu.aku.hassannaqvi.mapps_form2;
 
 public class EligibleParticipants {
 
-    String uid,wname;
+    String l_uid,wname;
 
-    public String getUid() {
-        return uid;
+    public String getL_uid() {
+        return l_uid;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setL_uid(String l_uid) {
+        this.l_uid = l_uid;
     }
 
     public String getWname() {
@@ -24,8 +24,8 @@ public class EligibleParticipants {
         this.wname = wname;
     }
 
-    public EligibleParticipants(String uid, String wname) {
-        this.uid = uid;
+    public EligibleParticipants(String l_uid, String wname) {
+        this.l_uid = l_uid;
         this.wname = wname;
     }
 }

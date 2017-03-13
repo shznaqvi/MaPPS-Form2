@@ -10,7 +10,7 @@ import org.json.JSONObject;
  * Created by hassan.naqvi on 12/2/2016.
  */
 public class EligiblesContract {
-    private static final String TAG = "Womens_CONTRACT";
+    private static final String TAG = "ELEGIBLES_CONTRACT";
 
     private Long _ID;
 
@@ -21,10 +21,6 @@ public class EligiblesContract {
     private String lhwCode; // Cluster
     private String houseHold;  // Structure
     private String women_name;
-
-    public EligiblesContract() {
-    }
-
 
     public EligiblesContract Sync(JSONObject jsonObject) throws JSONException {
         this.LUID = jsonObject.getString(singleWoman.COLUMN_NAME_LUID);
@@ -110,7 +106,7 @@ public class EligiblesContract {
         public static final String TABLE_NAME = "eligibles";
 
         public static final String _ID = "id";
-        public static final String COLUMN_NAME_LUID = "uid";
+        public static final String COLUMN_NAME_LUID = "l_uid";
         public static final String COLUMN_NAME_SUBAREACODE = "clustercode";
         public static final String COLUMN_NAME_LHWCODE = "lhwcode";
         public static final String COLUMN_NAME_HOUSEHOLD = "hhno";

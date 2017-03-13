@@ -728,16 +728,17 @@ public class SectionCFActivity extends Activity {
     }
 
     private boolean UpdateDB() {
-/*        MP03DBHelper db = new MP03DBHelper(this);
+        DatabaseHelper db = new DatabaseHelper(this);
 
-        int updcount = db.updateSA();
+        int updcount = db.updateCF();
 
         if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
             return true;
         } else {
-            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();*/
-        return true;
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 
 
@@ -806,7 +807,7 @@ public class SectionCFActivity extends Activity {
                 : mp02cf02607.isChecked() ? "7" : mp02cf02608.isChecked() ? "8" : mp02cf02688.isChecked() ? "88" : "0");
         scf.put("mp02cf02688x", mp02cf02688x.getText().toString());
 
-        //MPApp.fc.setROW_Sbb(String.valueOf(scf));
+        AppMain.pc.setsCF(String.valueOf(scf));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 

@@ -240,7 +240,7 @@ public class SectionCDActivity extends Activity {
         sCD.put("mp02cd010", mp02cd01001.isChecked() ? "1" : mp02cd01002.isChecked() ? "2" : mp02cd01003.isChecked() ? "3"
                 : mp02cd01004.isChecked() ? "4" : mp02cd01005.isChecked() ? "5" : "0");
 
-        //MPApp.fc.setROW_SCD(String.valueOf(sCD));
+        AppMain.pc.setsCD(String.valueOf(sCD));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
@@ -248,17 +248,15 @@ public class SectionCDActivity extends Activity {
     private boolean UpdateDB() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-//        int updcount = db.updateSCD();
-//
-//        if (updcount == 1) {
-//            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
-//            return true;
-//        } else {
-//            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
-//            return false;
-//        }
+        int updcount = db.updateCD();
 
-        return true;
+        if (updcount == 1) {
+            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
 
     }
 

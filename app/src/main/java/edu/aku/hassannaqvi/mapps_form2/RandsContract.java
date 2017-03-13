@@ -100,7 +100,7 @@ public class RandsContract {
 
         public static final String TABLE_NAME = "Randomisation";
         public static final String _ID = "id";
-        public static final String COLUMN_NAME_UID = "uid";
+        public static final String COLUMN_NAME_UID = "l_uid";
         public static final String COLUMN_NAME_SUBAREACODE = "subareacode";
         public static final String COLUMN_NAME_HOUSEHOLD = "household";
         public static final String COLUMN_NAME_CHILD_NAME = "child_name";

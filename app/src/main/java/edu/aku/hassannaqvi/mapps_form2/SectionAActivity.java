@@ -281,6 +281,10 @@ public class SectionAActivity extends Activity {
             AppMain.fc.setUID(
                     (AppMain.fc.getDeviceID() + AppMain.fc.getID()));
             Toast.makeText(this, "Current Form No: " + AppMain.fc.getUID(), Toast.LENGTH_SHORT).show();
+
+            // Update UID of Last Inserted Form
+            db.updateFormsUID();
+
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
@@ -291,8 +295,9 @@ public class SectionAActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        JSONObject sa = new JSONObject();
+        AppMain.fc = new FormsContract();
 
+        JSONObject sa = new JSONObject();
 
         sa.put("mp02a001", mp02a001.getText().toString());
         sa.put("mp02a002", mp02a002.getText().toString());
@@ -300,7 +305,7 @@ public class SectionAActivity extends Activity {
         sa.put("mp02a008", mp02a008.getText().toString());
         sa.put("mp02a13", mp02a01301.isChecked() ? "1" : mp02a01302.isChecked() ? "2" : "0");
 
-        //MPApp.fc.setROW_Sa(String.valueOf(sa));
+        AppMain.fc.setsA(String.valueOf(sa));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
