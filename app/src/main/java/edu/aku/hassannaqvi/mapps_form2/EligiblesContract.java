@@ -106,7 +106,7 @@ public class EligiblesContract {
         public static final String TABLE_NAME = "eligibles";
 
         public static final String _ID = "id";
-        public static final String COLUMN_NAME_LUID = "l_uid";
+        public static final String COLUMN_NAME_LUID = "uid";
         public static final String COLUMN_NAME_SUBAREACODE = "clustercode";
         public static final String COLUMN_NAME_LHWCODE = "lhwcode";
         public static final String COLUMN_NAME_HOUSEHOLD = "hhno";
