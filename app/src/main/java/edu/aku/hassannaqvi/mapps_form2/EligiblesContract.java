@@ -22,10 +22,6 @@ public class EligiblesContract {
     private String houseHold;  // Structure
     private String women_name;
 
-    public EligiblesContract() {
-    }
-
-
     public EligiblesContract Sync(JSONObject jsonObject) throws JSONException {
         this.LUID = jsonObject.getString(singleWoman.COLUMN_NAME_LUID);
         this.subAreaCode = jsonObject.getString(singleWoman.COLUMN_NAME_SUBAREACODE);

@@ -635,17 +635,15 @@ public class SectionCBActivity extends Activity {
     }
 
     private boolean UpdateDB() {
-        DatabaseHelper db = new DatabaseHelper(this);
+/*        MP02DBHelper db = new MP02DBHelper(this);
 
-//        int updcount = db.updateCB();
-//
-//        if (updcount == 1) {
-//            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
-//            return true;
-//        } else {
-//            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
-//            return false;
-//        }
+        int updcount = db.updateSCB();
+
+        if (updcount == 1) {
+            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();*/
         return true;
     }
 
@@ -706,7 +704,7 @@ public class SectionCBActivity extends Activity {
         scb.put("mp02cb026", mp02cb02601.isChecked() ? "1" : mp02cb02602.isChecked() ? "2" : "0");
 
 
-//        AppMain.fc.setsCB(String.valueOf(scb));
+        //MPApp.fc.setROW_Scb(String.valueOf(scb));
 
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();

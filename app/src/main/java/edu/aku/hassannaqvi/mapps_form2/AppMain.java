@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
@@ -59,16 +58,14 @@ public class AppMain extends Application {
     public static String userName = "0000";
     public static String areaCode;
     public static String curCluster;
-    protected LocationManager locationManager;
-    Location location;
-
 //    For participant
     public static ArrayList<EligibleParticipants> Eparticipant;
     public static String currentParticipantName = "";
+    public static String[] loginMem;
+    protected LocationManager locationManager;
 
 //    Login Members Array
-
-    public static String[] loginMem;
+Location location;
 
     @Override
     public void onCreate() {
