@@ -648,6 +648,9 @@ public class SectionCBActivity extends Activity {
             AppMain.pc.setUID(
                     (AppMain.pc.getDeviceID() + AppMain.pc.getID()));
             Toast.makeText(this, "Current Form No: " + AppMain.pc.getUID(), Toast.LENGTH_SHORT).show();
+
+            db.updateParticipantsUID();
+
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();

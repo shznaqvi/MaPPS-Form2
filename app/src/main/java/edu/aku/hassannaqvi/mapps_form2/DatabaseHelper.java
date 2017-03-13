@@ -479,7 +479,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(FormColumns.COLUMN_SBA, AppMain.fc.getsBA());
-        values.put(FormColumns.COLUMN_UID, AppMain.fc.getUID());
+//        values.put(FormColumns.COLUMN_UID, AppMain.fc.getUID());
 
 
 // Which row to update, based on the ID
@@ -499,7 +499,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(FormColumns.COLUMN_SBB, AppMain.fc.getsBB());
-        values.put(FormColumns.COLUMN_UID, AppMain.fc.getUID());
+//        values.put(FormColumns.COLUMN_UID, AppMain.fc.getUID());
 
 
 // Which row to update, based on the ID
@@ -519,7 +519,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(ParticipantColumns.COLUMN_SCC, AppMain.pc.getsCC());
-        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
+//        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
 
 
 // Which row to update, based on the ID
@@ -539,7 +539,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(ParticipantColumns.COLUMN_SCD, AppMain.pc.getsCD());
-        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
+//        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
 
 
 // Which row to update, based on the ID
@@ -559,7 +559,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(ParticipantColumns.COLUMN_SCE, AppMain.pc.getsCE());
-        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
+//        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
 
 
 // Which row to update, based on the ID
@@ -579,7 +579,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(ParticipantColumns.COLUMN_SCF, AppMain.pc.getsCF());
-        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
+//        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
 
 
 // Which row to update, based on the ID
@@ -599,7 +599,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(ParticipantColumns.COLUMN_SCG, AppMain.pc.getsCG());
-        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
+//        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
 
 
 // Which row to update, based on the ID
@@ -619,7 +619,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(ParticipantColumns.COLUMN_SCHA, AppMain.pc.getsCHA());
-        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
+//        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
 
 
 // Which row to update, based on the ID
@@ -639,7 +639,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(ParticipantColumns.COLUMN_SCHB, AppMain.pc.getsCHB());
-        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
+//        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
 
 
 // Which row to update, based on the ID
@@ -659,7 +659,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(ParticipantColumns.COLUMN_SCHBC, AppMain.pc.getsCHBC());
-        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
+//        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
 
 
 // Which row to update, based on the ID
@@ -679,7 +679,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(ParticipantColumns.COLUMN_SCE, AppMain.pc.getsCE());
-        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
+//        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
 
 
 // Which row to update, based on the ID
@@ -699,7 +699,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(ParticipantColumns.COLUMN_SCD, AppMain.pc.getsCD());
-        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
+//        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
 
 
 // Which row to update, based on the ID
