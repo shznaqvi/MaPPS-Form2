@@ -11,6 +11,7 @@ import org.json.JSONObject;
  */
 
 public class ParticipantsContract {
+    private static final String TAG = "PARTICIPANTS_CONTRACT";
 
     private String projectName = "MaPPS Study";
     private String surveyType = "Form 02: Enrolment and Baseline Assessment";

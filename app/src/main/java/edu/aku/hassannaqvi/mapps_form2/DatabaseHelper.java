@@ -350,6 +350,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
+    public void updateFormsUID() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(FormColumns.COLUMN_UID, AppMain.fc.getUID());
+
+// Which row to update, based on the title
+        String where = FormColumns._ID + " = ?";
+        String[] whereArgs = {AppMain.fc.getID().toString()};
+
+        int count = db.update(
+                FormColumns.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
     public void updateSyncedForms(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -415,6 +433,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values);
         db.close();
         return newRowId;
+    }
+
+    public void updateParticipantsUID() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
+
+// Which row to update, based on the title
+        String where = ParticipantColumns._ID + " = ?";
+        String[] whereArgs = {AppMain.pc.getID().toString()};
+
+        int count = db.update(
+                ParticipantColumns.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
     }
 
     public void updatesSyncedParticipants(String id) {

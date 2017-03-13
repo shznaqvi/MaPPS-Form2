@@ -10,7 +10,7 @@ import org.json.JSONObject;
  * Created by hassan.naqvi on 12/2/2016.
  */
 public class EligiblesContract {
-    private static final String TAG = "Womens_CONTRACT";
+    private static final String TAG = "ELEGIBLES_CONTRACT";
 
     private Long _ID;
 
