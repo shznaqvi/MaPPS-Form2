@@ -779,7 +779,7 @@ public class SectionDActivity extends Activity {
         sD.put("mp02d012", mp02d012.getText().toString());
         sD.put("mp02d012id3", mp02d012id3.getSelectedItem().toString());
 
-        //MPApp.fc.setROW_Sd(String.valueOf(sd));
+        AppMain.pc.setsD(String.valueOf(sD));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 

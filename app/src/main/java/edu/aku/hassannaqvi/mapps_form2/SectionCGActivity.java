@@ -824,7 +824,7 @@ public class SectionCGActivity extends Activity {
                 : mp02cg01604.isChecked() ? "4" : mp02cg01688.isChecked() ? "88" : "0");
         sCG.put("mp02cg016", mp02cg01688x.getText().toString());
 
-        //MPApp.fc.setROW_SCG(String.valueOf(sCG));
+        AppMain.pc.setsCG(String.valueOf(sCG));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

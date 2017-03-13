@@ -495,7 +495,7 @@ public class SectionCHCActivity extends Activity {
 
         sCHC.put("mp02chc012", mp02chc01201.isChecked() ? "1" : mp02chc01202.isChecked() ? "2" : mp02chc01203.isChecked() ? "3" : "0");
 
-        //MPApp.fc.setROW_SCHC(String.valueOf(sCHC));
+        AppMain.pc.setsCHBC(String.valueOf(sCHC));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

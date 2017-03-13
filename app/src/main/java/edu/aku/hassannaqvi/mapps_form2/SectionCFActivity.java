@@ -807,7 +807,7 @@ public class SectionCFActivity extends Activity {
                 : mp02cf02607.isChecked() ? "7" : mp02cf02608.isChecked() ? "8" : mp02cf02688.isChecked() ? "88" : "0");
         scf.put("mp02cf02688x", mp02cf02688x.getText().toString());
 
-        //MPApp.fc.setROW_Sbb(String.valueOf(scf));
+        AppMain.pc.setsCF(String.valueOf(scf));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
