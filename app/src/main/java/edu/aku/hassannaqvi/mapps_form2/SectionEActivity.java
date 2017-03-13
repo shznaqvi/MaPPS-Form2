@@ -163,7 +163,7 @@ public class SectionEActivity extends Activity {
 
         sE.put("mp02e002", mp02e00201.isChecked() ? "1" : mp02e00202.isChecked() ? "2" : "0");
 
-        //MPApp.fc.setROW_SE(String.valueOf(se));
+        AppMain.pc.setsE(String.valueOf(sE));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

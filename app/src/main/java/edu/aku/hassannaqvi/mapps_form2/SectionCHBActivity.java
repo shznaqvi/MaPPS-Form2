@@ -614,7 +614,7 @@ public class SectionCHBActivity extends Activity {
         sCHB.put("mp02chb021", mp02chb02101.isChecked() ? "1" : mp02chb02102.isChecked() ? "2" : mp02chb02103.isChecked() ? "3"
                 : mp02chb02104.isChecked() ? "4" : "0");
 
-        //MPApp.fc.setROW_SCHB(String.valueOf(sCHB));
+        AppMain.pc.setsCHB(String.valueOf(sCHB));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

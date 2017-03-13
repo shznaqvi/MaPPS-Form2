@@ -359,7 +359,7 @@ public class SectionCHAActivity extends Activity {
         sCHA.put("mp02cha010", mp02cha01001.isChecked() ? "1" : mp02cha01002.isChecked() ? "2" : mp02cha01003.isChecked() ? "3"
                 : mp02cha01004.isChecked() ? "4" : mp02cha01005.isChecked() ? "5" : "0");
 
-        //MPApp.fc.setROW_SCHA(String.valueOf(sCHA));
+        AppMain.pc.setsCHA(String.valueOf(sCHA));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

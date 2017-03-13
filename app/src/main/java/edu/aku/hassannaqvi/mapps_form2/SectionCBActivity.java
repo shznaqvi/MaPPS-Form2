@@ -635,16 +635,24 @@ public class SectionCBActivity extends Activity {
     }
 
     private boolean UpdateDB() {
-/*        MP02DBHelper db = new MP02DBHelper(this);
+        Long rowId;
+        DatabaseHelper db = new DatabaseHelper(this);
 
-        int updcount = db.updateSCB();
+        rowId = null;
+        rowId = db.addParticipants(AppMain.pc);
 
-        if (updcount == 1) {
+        AppMain.pc.setID(rowId);
+
+        if (rowId != null) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+            AppMain.pc.setUID(
+                    (AppMain.pc.getDeviceID() + AppMain.pc.getID()));
+            Toast.makeText(this, "Current Form No: " + AppMain.pc.getUID(), Toast.LENGTH_SHORT).show();
             return true;
         } else {
-            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();*/
-        return true;
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 
     private void SaveDraft() throws JSONException {
@@ -704,7 +712,7 @@ public class SectionCBActivity extends Activity {
         scb.put("mp02cb026", mp02cb02601.isChecked() ? "1" : mp02cb02602.isChecked() ? "2" : "0");
 
 
-        //MPApp.fc.setROW_Scb(String.valueOf(scb));
+        AppMain.pc.setsCB(String.valueOf(scb));
 
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();

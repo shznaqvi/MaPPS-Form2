@@ -310,7 +310,7 @@ public class SectionCEActivity extends Activity {
         sCE.put("mp02ce00606", mp02ce00606.isChecked() ? "6" : "0");
         sCE.put("mp02ce00688", mp02ce00688.isChecked() ? "88" : "0");
 
-        //MPApp.fc.setROW_SCE(String.valueOf(sCE));
+        AppMain.pc.setsCE(String.valueOf(sCE));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
