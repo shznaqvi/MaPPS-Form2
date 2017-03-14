@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -268,6 +269,7 @@ public class SectionAActivity extends Activity {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
         }
+
     }
 
     private boolean UpdateDB() {
@@ -319,14 +321,12 @@ public class SectionAActivity extends Activity {
     public void setGPS() {
         SharedPreferences GPSPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
 
-        String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(GPSPref.getString("Time", "0"))).toString();
-
-
-        try {
+//        String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(GPSPref.getString("Time", "0"))).toString();
+//        try {
             String lat = GPSPref.getString("Latitude", "0");
             String lang = GPSPref.getString("Longitude", "0");
             String acc = GPSPref.getString("Accuracy", "0");
-            String dt = GPSPref.getString("date", "0");
+            String dt = GPSPref.getString("Time", "0");
 
             if (lat == "0" && lang == "0") {
                 Toast.makeText(this, "Could not obtained GPS points", Toast.LENGTH_SHORT).show();
@@ -334,15 +334,24 @@ public class SectionAActivity extends Activity {
                 Toast.makeText(this, "GPS set", Toast.LENGTH_SHORT).show();
             }
 
+//            AppMain.fc.setGpsLat(GPSPref.getString("Latitude", "0"));
+//            AppMain.fc.setGpsLng(GPSPref.getString("Longitude", "0"));
+//            AppMain.fc.setGpsAcc(GPSPref.getString("Accuracy", "0"));
+//            AppMain.fc.setGpsTime(GPSPref.getString(date, "0"));
+            // CONVERTING GPS TIMESTAMP TO DATETIME FORMAT
+            String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(GPSPref.getString("Time", "0"))).toString();
 
             AppMain.fc.setGpsLat(GPSPref.getString("Latitude", "0"));
             AppMain.fc.setGpsLng(GPSPref.getString("Longitude", "0"));
             AppMain.fc.setGpsAcc(GPSPref.getString("Accuracy", "0"));
-            AppMain.fc.setGpsTime(GPSPref.getString(date, "0"));
+            AppMain.fc.setGpsTime(GPSPref.getString(date, "0")); // Timestamp is converted to date above
 
-        } catch (Exception e) {
+            Toast.makeText(this, "GPS set", Toast.LENGTH_SHORT).show();
 
-        }
+//        } catch (Exception e) {
+//            Log.e(TAG, "setGPS: "+e.getMessage() );
+//        }
+
     }
 
     public boolean ValidateForm() {

@@ -8,10 +8,13 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
@@ -70,7 +73,10 @@ Location location;
     @Override
     public void onCreate() {
         super.onCreate();
+
         TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/JameelNooriNastaleeq.ttf"); // font from assets: "assets/fonts/Roboto-Regular.ttf
+
+        Toast.makeText(getApplicationContext(),"This is",Toast.LENGTH_LONG).show();
 
         deviceId = Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID);
@@ -112,7 +118,6 @@ Location location;
     protected boolean isBetterLocation(Location location, Location currentBestLocation) {
         if (currentBestLocation == null) {
             // A new location is always better than no location
-            Toast.makeText(this, "New Location", Toast.LENGTH_SHORT).show();
             return true;
         }
 
@@ -125,11 +130,9 @@ Location location;
         // If it's been more than two minutes since the current location, use the new location
         // because the user has likely moved
         if (isSignificantlyNewer) {
-            Toast.makeText(this, "Significantly New Location", Toast.LENGTH_SHORT).show();
             return true;
             // If the new location is more than two minutes older, it must be worse
         } else if (isSignificantlyOlder) {
-            Toast.makeText(this, "Significantly Older Location", Toast.LENGTH_SHORT).show();
             return false;
         }
 
@@ -145,13 +148,10 @@ Location location;
 
         // Determine location quality using a combination of timeliness and accuracy
         if (isMoreAccurate) {
-            Toast.makeText(this, "More Accurate Location", Toast.LENGTH_SHORT).show();
             return true;
         } else if (isNewer && !isLessAccurate) {
-            Toast.makeText(this, "Newer Less Accurate Location", Toast.LENGTH_SHORT).show();
             return true;
         } else if (isNewer && !isSignificantlyLessAccurate && isFromSameProvider) {
-            Toast.makeText(this, "Newer Significantly Less Accurate Location", Toast.LENGTH_SHORT).show();
             return true;
         }
         return false;
@@ -174,22 +174,35 @@ Location location;
             SharedPreferences sharedPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
 
-            Location savedlocation = new Location("sharedPref");
+            Location bestLocation = new Location("storedProvider");
+            bestLocation.setAccuracy(Float.parseFloat(sharedPref.getString("Accuracy", "0")));
+            bestLocation.setTime(Long.parseLong(sharedPref.getString("Time", "0")));
+            bestLocation.setLatitude(Float.parseFloat(sharedPref.getString("Latitude", "0")));
+            bestLocation.setLongitude(Float.parseFloat(sharedPref.getString("Longitude", "0")));
 
-            savedlocation.setLongitude(Double.parseDouble(sharedPref.getString("Longitude", "00")));
-            savedlocation.setLatitude(Double.parseDouble(sharedPref.getString("Latitude", "00")));
-            savedlocation.setAccuracy(Float.parseFloat(sharedPref.getString("Accuracy", "00")));
-            savedlocation.setTime(Long.parseLong(sharedPref.getString("Time", "00")));
-
-
-            if (isBetterLocation(location, savedlocation)) {
+            if (isBetterLocation(location, bestLocation)) {
                 editor.putString("Longitude", String.valueOf(location.getLongitude()));
                 editor.putString("Latitude", String.valueOf(location.getLatitude()));
                 editor.putString("Accuracy", String.valueOf(location.getAccuracy()));
                 editor.putString("Time", String.valueOf(location.getTime()));
+                String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(String.valueOf(location.getTime()))).toString();
+                Toast.makeText(getApplicationContext(),
+                        "GPS Commit! LAT: " + String.valueOf(location.getLongitude()) +
+                                " LNG: " + String.valueOf(location.getLatitude()) +
+                                " Accuracy: " + String.valueOf(location.getAccuracy()) +
+                                " Time: " + date,
+                        Toast.LENGTH_SHORT).show();
 
                 editor.apply();
             }
+
+
+
+            Map<String, ?> allEntries = sharedPref.getAll();
+            for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
+                Log.d("Map", entry.getKey() + ": " + entry.getValue().toString());
+            }
+
         }
 
         public void onStatusChanged(String s, int i, Bundle b) {
