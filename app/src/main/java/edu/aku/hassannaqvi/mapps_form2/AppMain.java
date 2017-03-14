@@ -61,22 +61,22 @@ public class AppMain extends Application {
     public static String userName = "0000";
     public static String areaCode;
     public static String curCluster;
-//    For participant
+    //    For participant
     public static ArrayList<EligibleParticipants> Eparticipant;
     public static String currentParticipantName = "";
     public static String[] loginMem;
     protected LocationManager locationManager;
 
-//    Login Members Array
-Location location;
+    //    Login Members Array
+    Location location;
+
+    private static final String TAG = AppMain.class.getSimpleName();
 
     @Override
     public void onCreate() {
         super.onCreate();
 
         TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/JameelNooriNastaleeq.ttf"); // font from assets: "assets/fonts/Roboto-Regular.ttf
-
-        Toast.makeText(getApplicationContext(),"This is",Toast.LENGTH_LONG).show();
 
         deviceId = Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID);
@@ -174,35 +174,38 @@ Location location;
             SharedPreferences sharedPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
 
-            Location bestLocation = new Location("storedProvider");
-            bestLocation.setAccuracy(Float.parseFloat(sharedPref.getString("Accuracy", "0")));
-            bestLocation.setTime(Long.parseLong(sharedPref.getString("Time", "0")));
-            bestLocation.setLatitude(Float.parseFloat(sharedPref.getString("Latitude", "0")));
-            bestLocation.setLongitude(Float.parseFloat(sharedPref.getString("Longitude", "0")));
+            String dt = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(sharedPref.getString("Time", "0"))).toString();
 
-            if (isBetterLocation(location, bestLocation)) {
-                editor.putString("Longitude", String.valueOf(location.getLongitude()));
-                editor.putString("Latitude", String.valueOf(location.getLatitude()));
-                editor.putString("Accuracy", String.valueOf(location.getAccuracy()));
-                editor.putString("Time", String.valueOf(location.getTime()));
-                String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(String.valueOf(location.getTime()))).toString();
-                Toast.makeText(getApplicationContext(),
-                        "GPS Commit! LAT: " + String.valueOf(location.getLongitude()) +
-                                " LNG: " + String.valueOf(location.getLatitude()) +
-                                " Accuracy: " + String.valueOf(location.getAccuracy()) +
-                                " Time: " + date,
-                        Toast.LENGTH_SHORT).show();
+                Location bestLocation = new Location("storedProvider");
+                bestLocation.setAccuracy(Float.parseFloat(sharedPref.getString("Accuracy", "0")));
+                bestLocation.setTime(Long.parseLong(sharedPref.getString(dt, "0")));
+//                bestLocation.setTime(Long.parseLong(dt));
+                bestLocation.setLatitude(Float.parseFloat(sharedPref.getString("Latitude", "0")));
+                bestLocation.setLongitude(Float.parseFloat(sharedPref.getString("Longitude", "0")));
 
-                editor.apply();
-            }
+                if (isBetterLocation(location, bestLocation)) {
+                    editor.putString("Longitude", String.valueOf(location.getLongitude()));
+                    editor.putString("Latitude", String.valueOf(location.getLatitude()));
+                    editor.putString("Accuracy", String.valueOf(location.getAccuracy()));
+                    editor.putString("Time", String.valueOf(location.getTime()));
+//                    editor.putString("Time", DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(String.valueOf(location.getTime()))).toString());
+
+//                String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(String.valueOf(location.getTime()))).toString();
+//                Toast.makeText(getApplicationContext(),
+//                        "GPS Commit! LAT: " + String.valueOf(location.getLongitude()) +
+//                                " LNG: " + String.valueOf(location.getLatitude()) +
+//                                " Accuracy: " + String.valueOf(location.getAccuracy()) +
+//                                " Time: " + date,
+//                        Toast.LENGTH_SHORT).show();
+
+                    editor.apply();
+                }
 
 
-
-            Map<String, ?> allEntries = sharedPref.getAll();
-            for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
-                Log.d("Map", entry.getKey() + ": " + entry.getValue().toString());
-            }
-
+                Map<String, ?> allEntries = sharedPref.getAll();
+                for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
+                    Log.d("Map", entry.getKey() + ": " + entry.getValue().toString());
+                }
         }
 
         public void onStatusChanged(String s, int i, Bundle b) {
