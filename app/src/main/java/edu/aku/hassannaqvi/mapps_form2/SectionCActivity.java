@@ -49,6 +49,22 @@ public class SectionCActivity extends Activity {
 
         mp02c001.setText(AppMain.currentParticipantName);
 
+        Boolean check = getIntent().getExtras().getBoolean("complete");
+
+        if (check) {
+            mp02c00201.setEnabled(true);
+            mp02c00202.setEnabled(false);
+            mp02c00203.setEnabled(false);
+            mp02c00204.setEnabled(false);
+            mp02c00205.setEnabled(false);
+        } else {
+            mp02c00201.setEnabled(false);
+            mp02c00202.setEnabled(true);
+            mp02c00203.setEnabled(true);
+            mp02c00204.setEnabled(true);
+            mp02c00205.setEnabled(true);
+        }
+
     }
 
     @OnClick(R.id.btn_End)
@@ -80,4 +96,8 @@ public class SectionCActivity extends Activity {
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+    }
 }
