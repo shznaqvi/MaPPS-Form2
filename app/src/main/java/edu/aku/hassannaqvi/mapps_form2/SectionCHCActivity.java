@@ -241,7 +241,7 @@ public class SectionCHCActivity extends Activity {
 //            if (UpdateDB()) {
 
                 Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-                Intent endSec = new Intent(this, EndingActivity.class);
+                Intent endSec = new Intent(this, SectionCActivity.class);
                 endSec.putExtra("complete", false);
                 startActivity(endSec);
 //            } else {
