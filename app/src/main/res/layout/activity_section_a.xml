@@ -143,6 +143,23 @@
                 android:textColor="@android:color/white"
                 android:visibility="gone" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"
+                android:padding="2dp"
+                android:text="@string/mp02a006"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+            <EditText
+                android:id="@+id/mp02a006"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mp02a006"
+                android:inputType="textCapWords" />
+
 
             <LinearLayout
                 android:id="@+id/fldGrpmp02a007"

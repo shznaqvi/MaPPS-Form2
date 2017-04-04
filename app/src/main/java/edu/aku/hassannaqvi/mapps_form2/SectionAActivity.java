@@ -29,6 +29,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,6 +54,8 @@ public class SectionAActivity extends Activity {
     EditText mp02a002;
     @BindView(R.id.mp02a003)
     EditText mp02a003;
+    @BindView(R.id.mp02a006)
+    EditText mp02a006;
     @BindView(R.id.mp02a007)
     EditText mp02a007;
     @BindView(R.id.mp02a008)
@@ -302,6 +305,16 @@ public class SectionAActivity extends Activity {
 
         AppMain.fc = new FormsContract();
 
+        AppMain.fc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm",new Date())).toString());
+        AppMain.fc.setInterviewer01(AppMain.loginMem[1]);
+        AppMain.fc.setInterviewer02(AppMain.loginMem[2]);
+        AppMain.fc.setClustercode(AppMain.curCluster);
+        AppMain.fc.setHousehold(mp02a003.getText().toString());
+        AppMain.fc.setIstatus("2");
+        AppMain.fc.setDeviceID(AppMain.deviceId);
+        AppMain.fc.setVillageacode(mp02a006.getText().toString());
+
+
         JSONObject sa = new JSONObject();
 
         sa.put("mp02a001", mp02a001.getText().toString());
@@ -322,7 +335,8 @@ public class SectionAActivity extends Activity {
         SharedPreferences GPSPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
 
 //        String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(GPSPref.getString("Time", "0"))).toString();
-//        try {
+
+        try {
             String lat = GPSPref.getString("Latitude", "0");
             String lang = GPSPref.getString("Longitude", "0");
             String acc = GPSPref.getString("Accuracy", "0");
@@ -334,23 +348,19 @@ public class SectionAActivity extends Activity {
                 Toast.makeText(this, "GPS set", Toast.LENGTH_SHORT).show();
             }
 
-//            AppMain.fc.setGpsLat(GPSPref.getString("Latitude", "0"));
-//            AppMain.fc.setGpsLng(GPSPref.getString("Longitude", "0"));
-//            AppMain.fc.setGpsAcc(GPSPref.getString("Accuracy", "0"));
-//            AppMain.fc.setGpsTime(GPSPref.getString(date, "0"));
-            // CONVERTING GPS TIMESTAMP TO DATETIME FORMAT
             String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(GPSPref.getString("Time", "0"))).toString();
 
             AppMain.fc.setGpsLat(GPSPref.getString("Latitude", "0"));
             AppMain.fc.setGpsLng(GPSPref.getString("Longitude", "0"));
             AppMain.fc.setGpsAcc(GPSPref.getString("Accuracy", "0"));
-            AppMain.fc.setGpsTime(GPSPref.getString(date, "0")); // Timestamp is converted to date above
+//            AppMain.fc.setGpsTime(GPSPref.getString(date, "0")); // Timestamp is converted to date above
+            AppMain.fc.setGpsTime(date); // Timestamp is converted to date above
 
             Toast.makeText(this, "GPS set", Toast.LENGTH_SHORT).show();
 
-//        } catch (Exception e) {
-//            Log.e(TAG, "setGPS: "+e.getMessage() );
-//        }
+        } catch (Exception e) {
+            Log.e(TAG, "setGPS: " + e.getMessage());
+        }
 
     }
 
