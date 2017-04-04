@@ -65,6 +65,9 @@ public class AppMain extends Application {
     public static ArrayList<EligibleParticipants> Eparticipant;
     public static String currentParticipantName = "";
     public static String[] loginMem;
+    public static long installedOn;
+    public static int versionCode;
+    public static String versionName;
     protected LocationManager locationManager;
 
 //    Login Members Array

@@ -108,19 +108,19 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         AppMain.loginMem[0] = "...";    //default value
 
         try {
-            long installedOn = this
+            AppMain.installedOn = this
                     .getPackageManager()
                     .getPackageInfo("edu.aku.hassannaqvi.mapps_form2", 0)
                     .lastUpdateTime;
-            Integer versionCode = this
+            AppMain.versionCode = this
                     .getPackageManager()
                     .getPackageInfo("edu.aku.hassannaqvi.mapps_form2", 0)
                     .versionCode;
-            String versionName = this
+            AppMain.versionName = this
                     .getPackageManager()
                     .getPackageInfo("edu.aku.hassannaqvi.mapps_form2", 0)
                     .versionName;
-            txtinstalldate.setText("Ver. " + versionName + "." + String.valueOf(versionCode) + " \r\n( Last Updated: " + new SimpleDateFormat("dd MMM. yyyy").format(new Date(installedOn)) + " )");
+            txtinstalldate.setText("Ver. " + AppMain.versionName + "." + String.valueOf(AppMain.versionCode) + " \r\n( Last Updated: " + new SimpleDateFormat("dd MMM. yyyy").format(new Date(AppMain.installedOn)) + " )");
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
