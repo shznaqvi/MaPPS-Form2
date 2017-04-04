@@ -29,8 +29,6 @@
     <string name="seccf"> ويم جي دوران صحت جي جانچ </string>
     <string name="seccg"> اضافي خوراڪ جو پرکڻ </string>
 
-    <string name="mp02ch"> ذهني صحت </string>
-
     <!-- Strings that are fixed for all apps -->
     <string name="title_activity_splashscreen">SplashscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
@@ -611,6 +609,8 @@
     <string name="mp02cg01603"> ڪمزوري جي ڪري </string>
     <string name="mp02cg01604"> گھر جي ڀاتي يا دوست جي تجويز تي </string>
 
+    <string name="mp02ch"> ذهني صحت </string>
+    <string name="mp02chsub"> وڏي آوز ۾ پڙهو ؛ بس هي آخري سوال آهن جنهن ۾ توهان کان پڇيو ويندو توهان مختلف شين جي باري ۾ ڇا ٿا محسوس ڪريو </string>
     <string name="mp02cha"> ذهني دٻاءُ جو درجو </string>
     <string name="mp02chasub"> هيٺ ڌنل بيانن کي توهان ڪيئن محسوس ڪريو ٿا؟ </string>
     <string name="mp02chasubnever"> ڪڏهن به نه </string>

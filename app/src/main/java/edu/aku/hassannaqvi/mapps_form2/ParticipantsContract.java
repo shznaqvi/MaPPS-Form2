@@ -40,6 +40,7 @@ public class ParticipantsContract {
     private String gpsTime = "";
     private String gpsAcc = "";
     private String deviceID = "";
+    private String app_version = AppMain.versionName + "." + AppMain.versionCode;
     private String synced = "";
     private String synced_date = "";
 
@@ -278,6 +279,14 @@ public class ParticipantsContract {
         this.synced_date = synced_date;
     }
 
+    public String getApp_version() {
+        return app_version;
+    }
+
+    public void setApp_version(String app_version) {
+        this.app_version = app_version;
+    }
+
     public ParticipantsContract Sync(JSONObject jsonObject) throws JSONException {
         this.projectName = jsonObject.getString(ParticipantColumns.COLUMN_PROJECTNAME);
         this.surveyType = jsonObject.getString(ParticipantColumns.COLUMN_SURVEYTYPE);
@@ -306,6 +315,7 @@ public class ParticipantsContract {
         this.gpsTime = jsonObject.getString(ParticipantColumns.COLUMN_GPSTIME);
         this.gpsAcc = jsonObject.getString(ParticipantColumns.COLUMN_GPSACC);
         this.deviceID = jsonObject.getString(ParticipantColumns.COLUMN_DEVICEID);
+        this.app_version = jsonObject.getString(ParticipantColumns.COLUMN_APP_VERSION);
         this.synced = jsonObject.getString(ParticipantColumns.COLUMN_SYNCED);
         this.synced_date = jsonObject.getString(ParticipantColumns.COLUMN_SYNCED_DATE);
 
@@ -341,6 +351,7 @@ public class ParticipantsContract {
         this.gpsTime = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_GPSTIME));
         this.gpsAcc = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_GPSACC));
         this.deviceID = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_DEVICEID));
+        this.app_version = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_APP_VERSION));
         this.synced = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SYNCED));
         this.synced_date = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SYNCED_DATE));
 
@@ -381,6 +392,7 @@ public class ParticipantsContract {
         json.put(ParticipantColumns.COLUMN_GPSTIME, this.gpsTime == null ? JSONObject.NULL : this.gpsTime);
         json.put(ParticipantColumns.COLUMN_GPSACC, this.gpsAcc == null ? JSONObject.NULL : this.gpsAcc);
         json.put(ParticipantColumns.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
+        json.put(ParticipantColumns.COLUMN_APP_VERSION, this.app_version == null ? JSONObject.NULL : this.app_version);
         json.put(ParticipantColumns.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
         json.put(ParticipantColumns.COLUMN_SYNCED_DATE, this.synced_date == null ? JSONObject.NULL : this.synced_date);
 
@@ -420,6 +432,7 @@ public class ParticipantsContract {
         public static final String COLUMN_GPSLNG = "gpslng";
         public static final String COLUMN_GPSTIME = "gpstime";
         public static final String COLUMN_GPSACC = "gpsacc";
+        public static final String COLUMN_APP_VERSION = "app_version";
         public static final String COLUMN_DEVICEID = "deviceid";
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "synced_date";

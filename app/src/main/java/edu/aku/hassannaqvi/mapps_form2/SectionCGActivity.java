@@ -205,18 +205,18 @@ public class SectionCGActivity extends Activity {
         setContentView(R.layout.activity_section_cg);
         ButterKnife.bind(this);
 
-        mp02cg00102.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mp02cg00101.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b){
+                    fldGrpmp02cg002.setVisibility(View.VISIBLE);
+                }else {
                     fldGrpmp02cg002.setVisibility(View.GONE);
                     mp02cg002.clearCheck();
                     mp02cg00301.setText(null);
                     mp02cg00302.setText(null);
                     mp02cg004.clearCheck();
                     mp02cg00488x.setText(null);
-                }else {
-                    fldGrpmp02cg002.setVisibility(View.VISIBLE);
                 }
             }
         });

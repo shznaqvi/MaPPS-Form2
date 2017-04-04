@@ -846,7 +846,7 @@ public class SectionBAActivity extends Activity {
         }
 
 //        Skip
-        //if (!mp02ba00905.isChecked()) {
+        if (!mp02ba00905.isChecked()) {
 //        24
             if (mp02ba010.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ba010), Toast.LENGTH_SHORT).show();
@@ -880,7 +880,7 @@ public class SectionBAActivity extends Activity {
                     mp02ba011.setError(null);
                 }
             }
-        //}
+        }
 
 //        26
         if (mp02ba012.getCheckedRadioButtonId() == -1) {

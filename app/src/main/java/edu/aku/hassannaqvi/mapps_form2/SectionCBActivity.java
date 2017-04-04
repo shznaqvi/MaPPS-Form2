@@ -747,7 +747,7 @@ public class SectionCBActivity extends Activity {
 
         // =========================== Section CB =====================
 
-        if (mp02ca00101.isChecked() || mp02ca00201.isChecked()) {
+        if (mp02ca00101.isChecked() && mp02ca00201.isChecked()) {
             //================== Q 1 ==================
             if (mp02cb00101.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb001), Toast.LENGTH_LONG).show();
@@ -985,6 +985,15 @@ public class SectionCBActivity extends Activity {
                         mp02cb012.setError(null);
                     }
 
+                    if (((Integer.parseInt(mp02cb012.getText().toString()) < 1)) || (Integer.parseInt(mp02cb012.getText().toString()) > 16)) {
+                        Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb012), Toast.LENGTH_LONG).show();
+                        mp02cb012.setError("Age Limit is from 14 to 24 Years");
+                        Log.i(TAG, "mp02cb012: Age Limit is from 14 to 24 Years");
+                        return false;
+                    } else {
+                        mp02cb012.setError(null);
+                    }
+
                     if (mp02cb013.getCheckedRadioButtonId() == -1) {
                         Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb013), Toast.LENGTH_LONG).show();
                         mp02cb01306.setError("This data is Required!");    // Set Error on last radio button
@@ -1047,10 +1056,10 @@ public class SectionCBActivity extends Activity {
                         mp02cb017.setError(null);
                     }
 
-                    if ((Integer.parseInt(mp02cb017.getText().toString()) < 1) || (Integer.parseInt(mp02cb017.getText().toString()) > 4)) {
+                    if ((Integer.parseInt(mp02cb017.getText().toString()) < 2) || (Integer.parseInt(mp02cb017.getText().toString()) > 4)) {
                         Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb017), Toast.LENGTH_LONG).show();
-                        mp02cb017.setError("Range is 1 to 4");    // Set Error on last radio button
-                        Log.i(TAG, "mp02cb0017: Range is 1 to 4");
+                        mp02cb017.setError("Range is 2 to 4");    // Set Error on last radio button
+                        Log.i(TAG, "mp02cb0017: Range is 2 to 4");
 
                     } else {
                         mp02cb017.setError(null);

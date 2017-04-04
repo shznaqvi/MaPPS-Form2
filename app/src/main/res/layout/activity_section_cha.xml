@@ -22,6 +22,33 @@
 
 
             <TextView
+                android:id="@+id/app_header1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorAccent"
+                android:gravity="center"
+                android:text="@string/mp02ch"
+                android:textSize="30sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorPrimary" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="#efefef"
+                android:padding="2dp"
+                android:text="@string/mp02chsub"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/app_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

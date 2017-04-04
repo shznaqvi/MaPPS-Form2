@@ -58,7 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             FormColumns.COLUMN_GPSTIME + " TEXT," +
             FormColumns.COLUMN_GPSACC + " TEXT," +
             FormColumns.COLUMN_DEVICEID + " TEXT," +
-            FormColumns.COLUMN_APP_VERSIOM + " TEXT," +
+            FormColumns.COLUMN_APP_VERSION + " TEXT," +
             FormColumns.COLUMN_SYNCED + " TEXT," +
             FormColumns.COLUMN_SYNCED_DATE + " TEXT"
             + " );";
@@ -90,7 +90,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + ParticipantColumns.COLUMN_GPSTIME + " TEXT,"
             + ParticipantColumns.COLUMN_GPSACC + " TEXT,"
             + ParticipantColumns.COLUMN_DEVICEID + " TEXT,"
-            + ParticipantColumns.COLUMN_DEVICEID + " TEXT,"
+            + ParticipantColumns.COLUMN_APP_VERSION + " TEXT,"
             + ParticipantColumns.COLUMN_SYNCED + " TEXT,"
             + ParticipantColumns.COLUMN_SYNCED_DATE + " TEXT"
             + " );";
@@ -334,7 +334,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormColumns.COLUMN_GPSTIME, fc.getGpsTime());
         values.put(FormColumns.COLUMN_GPSACC, fc.getGpsAcc());
         values.put(FormColumns.COLUMN_DEVICEID, fc.getDeviceID());
-        
+//        values.put(FormColumns.COLUMN_APP_VERSION, fc.getApp_version());
+
         /* * * * * NO NEED TO USE THESE IN 'INSERT' * * * * */
         /*
         values.put(FormColumns.COLUMN_SYNCED, fc.getSynced());
@@ -423,6 +424,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(ParticipantColumns.COLUMN_GPSTIME, pc.getGpsTime());
         values.put(ParticipantColumns.COLUMN_GPSACC, pc.getGpsAcc());
         values.put(ParticipantColumns.COLUMN_DEVICEID, pc.getDeviceID());
+//        values.put(ParticipantColumns.COLUMN_APP_VERSION, pc.getApp_version());
         values.put(ParticipantColumns.COLUMN_SYNCED, pc.getSynced());
         values.put(ParticipantColumns.COLUMN_SYNCED_DATE, pc.getSynced_date());
 

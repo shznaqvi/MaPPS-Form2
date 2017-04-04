@@ -232,7 +232,7 @@ public class FormsContract {
         this.gpsTime = jsonObject.getString(FormColumns.COLUMN_GPSTIME);
         this.gpsAcc = jsonObject.getString(FormColumns.COLUMN_GPSACC);
         this.deviceID = jsonObject.getString(FormColumns.COLUMN_DEVICEID);
-        this.app_version = jsonObject.getString(FormColumns.COLUMN_APP_VERSIOM);
+        this.app_version = jsonObject.getString(FormColumns.COLUMN_APP_VERSION);
         this.synced = jsonObject.getString(FormColumns.COLUMN_SYNCED);
         this.synced_date = jsonObject.getString(FormColumns.COLUMN_SYNCED_DATE);
 
@@ -260,7 +260,7 @@ public class FormsContract {
         this.gpsTime = cursor.getString(cursor.getColumnIndex(FormColumns.COLUMN_GPSTIME));
         this.gpsAcc = cursor.getString(cursor.getColumnIndex(FormColumns.COLUMN_GPSACC));
         this.deviceID = cursor.getString(cursor.getColumnIndex(FormColumns.COLUMN_DEVICEID));
-        this.app_version = cursor.getString(cursor.getColumnIndex(FormColumns.COLUMN_APP_VERSIOM));
+        this.app_version = cursor.getString(cursor.getColumnIndex(FormColumns.COLUMN_APP_VERSION));
         this.synced = cursor.getString(cursor.getColumnIndex(FormColumns.COLUMN_SYNCED));
         this.synced_date = cursor.getString(cursor.getColumnIndex(FormColumns.COLUMN_SYNCED_DATE));
 
@@ -292,7 +292,7 @@ public class FormsContract {
         json.put(FormColumns.COLUMN_GPSTIME, this.gpsTime == null ? JSONObject.NULL : this.gpsTime);
         json.put(FormColumns.COLUMN_GPSACC, this.gpsAcc == null ? JSONObject.NULL : this.gpsAcc);
         json.put(FormColumns.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
-        json.put(FormColumns.COLUMN_APP_VERSIOM, this.app_version == null ? JSONObject.NULL : this.app_version);
+        json.put(FormColumns.COLUMN_APP_VERSION, this.app_version == null ? JSONObject.NULL : this.app_version);
         json.put(FormColumns.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
         json.put(FormColumns.COLUMN_SYNCED_DATE, this.synced_date == null ? JSONObject.NULL : this.synced_date);
 
@@ -325,7 +325,7 @@ public class FormsContract {
         public static final String COLUMN_GPSTIME = "gpstime";
         public static final String COLUMN_GPSACC = "gpsacc";
         public static final String COLUMN_DEVICEID = "deviceid";
-        public static final String COLUMN_APP_VERSIOM = "app_version";
+        public static final String COLUMN_APP_VERSION = "app_version";
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "synced_date";
 
