@@ -57,6 +57,7 @@ public class EndingActivity extends Activity {
     void onBtnEndClick() {
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (ValidateForm()) {
+            finish();
             Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
             Intent endSec = new Intent(this, MainActivity.class);
             endSec.putExtra("complete", false);
