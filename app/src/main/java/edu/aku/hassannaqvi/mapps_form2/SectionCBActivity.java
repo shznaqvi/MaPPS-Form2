@@ -548,10 +548,12 @@ public class SectionCBActivity extends Activity {
             @Override
             public void onFocusChange(View view, boolean b) {
                 if (b) {
-                    if (mp02cb00101.length() < 4 || mp02cb00101.length() > 4) {
-                        mp02cb00101.setError("Year Length is 4");
-                    } else {
-                        mp02cb00101.setError(null);
+                    if (!mp02cb00101.getText().toString().isEmpty()) {
+                        if (mp02cb00101.length() < 4 || mp02cb00101.length() > 4) {
+                            mp02cb00101.setError("Year Length is 4");
+                        } else {
+                            mp02cb00101.setError(null);
+                        }
                     }
                 }
             }
@@ -566,15 +568,17 @@ public class SectionCBActivity extends Activity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                int currentAge = year - (Integer.parseInt(mp02cb00101.getText().toString().isEmpty() ? "0" : mp02cb00101.getText().toString()));
-                int enteredAge = Integer.parseInt(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString());
+                if (!mp02cb00101.getText().toString().isEmpty()) {
+                    int currentAge = year - (Integer.parseInt(mp02cb00101.getText().toString().isEmpty() ? "0" : mp02cb00101.getText().toString()));
+                    int enteredAge = Integer.parseInt(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString());
 
-                if (currentAge == enteredAge || currentAge + 1 == enteredAge || currentAge - 1 == enteredAge) {
+                    if (currentAge == enteredAge || currentAge + 1 == enteredAge || currentAge - 1 == enteredAge) {
 
-                    mp02cb002.setError(null);
-                } else {
+                        mp02cb002.setError(null);
+                    } else {
 
-                    mp02cb002.setError("Check Age again!");
+                        mp02cb002.setError("Check Age again!");
+                    }
                 }
 
             }

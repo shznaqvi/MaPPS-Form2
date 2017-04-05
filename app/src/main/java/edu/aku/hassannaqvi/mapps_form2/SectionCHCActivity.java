@@ -239,7 +239,7 @@ public class SectionCHCActivity extends Activity {
 //                e.printStackTrace();
 //            }
 //            if (UpdateDB()) {
-
+        finish();
                 Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
                 Intent endSec = new Intent(this, SectionCActivity.class);
                 endSec.putExtra("complete", false);
