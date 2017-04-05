@@ -52,6 +52,9 @@ public class SectionCActivity extends Activity {
         Boolean check = getIntent().getExtras().getBoolean("complete");
 
         if (check) {
+
+            AppMain.endFlag = true;
+
             mp02c00201.setEnabled(true);
             mp02c00202.setEnabled(false);
             mp02c00203.setEnabled(false);

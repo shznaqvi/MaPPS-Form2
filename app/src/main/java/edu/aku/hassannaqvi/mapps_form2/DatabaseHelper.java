@@ -909,6 +909,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormColumns.COLUMN_GPSACC,
                 FormColumns.COLUMN_APP_VERSION,
                 FormColumns.COLUMN_DEVICEID,
+                FormColumns.COLUMN_APP_VERSION,
                 FormColumns.COLUMN_SYNCED,
                 FormColumns.COLUMN_SYNCED_DATE,
         };

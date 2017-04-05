@@ -37,7 +37,7 @@ public class EndingActivity extends Activity {
 
         Boolean check = getIntent().getExtras().getBoolean("complete");
 
-        if (check) {
+        if (check || AppMain.endFlag) {
             mp02a01401.setEnabled(true);
             mp02a01402.setEnabled(false);
             mp02a01403.setEnabled(false);
@@ -57,6 +57,9 @@ public class EndingActivity extends Activity {
     void onBtnEndClick() {
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (ValidateForm()) {
+
+            AppMain.endFlag = false;
+
             finish();
             Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
             Intent endSec = new Intent(this, MainActivity.class);
