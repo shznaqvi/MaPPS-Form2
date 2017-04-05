@@ -139,16 +139,13 @@ public class MainActivity extends Activity {
 
     public void syncServer(View view) {
 
-        String formsUrl = AppMain._HOST_URL + "virband/api/forms.php";
-        String imsUrl = AppMain._HOST_URL + "virband/api/ims.php";
-
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
             Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
-            new SyncForms(this).execute(formsUrl);
+            new SyncForms(this).execute();
 
             /*Toast.makeText(getApplicationContext(), "Syncing IMs", Toast.LENGTH_SHORT).show();
             new SyncIMs(this).execute(imsUrl);*/
