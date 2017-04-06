@@ -19,6 +19,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Collection;
 
+import edu.aku.hassannaqvi.mapps_form2.ParticipantsContract.ParticipantColumns;
+
 /**
  * Created by hassan.naqvi on 7/26/2016.
  */
@@ -55,7 +57,9 @@ public class SyncParticipants extends AsyncTask<Void, Void, String> {
 
         String line = "No Response";
         try {
-            return downloadUrl(AppMain._HOST_URL);
+            String url = AppMain._HOST_URL + "/" + ParticipantColumns._URL;
+            Log.d(TAG, "doInBackground: URL " + url);
+            return downloadUrl(url);
         } catch (IOException e) {
             return "Unable to upload data. Server may be down.";
         }

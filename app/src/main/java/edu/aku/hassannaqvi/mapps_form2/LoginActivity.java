@@ -194,7 +194,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                    ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorPrimary));
+                    //((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorPrimary));
                     AppMain.curCluster = cluster.get(spUC.getSelectedItem().toString());
 
                     Log.d("Selected Cluster", AppMain.curCluster);

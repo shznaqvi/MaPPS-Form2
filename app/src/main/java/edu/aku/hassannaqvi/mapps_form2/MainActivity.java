@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -21,6 +22,8 @@ import butterknife.ButterKnife;
 
 
 public class MainActivity extends Activity {
+
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
     @BindView(R.id.adminsec)
@@ -138,11 +141,12 @@ public class MainActivity extends Activity {
     }
 
     public void syncServer(View view) {
-
+        Log.e(TAG, "syncServer: 1");
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        Log.e(TAG, "syncServer: 2");
         if (networkInfo != null && networkInfo.isConnected()) {
             Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
             new SyncForms(this).execute();

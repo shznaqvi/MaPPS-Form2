@@ -11,7 +11,6 @@ import android.provider.Settings;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -22,7 +21,8 @@ import java.util.Map;
 
 public class AppMain extends Application {
 
-    public static final String _IP = "43.245.131.159"; // Test PHP server
+    //public static final String _IP = "43.245.131.159"; // Test PHP server
+    public static final String _IP = "10.1.79.42"; // Matiyari server
     public static final Integer _PORT = 8080; // Port - with colon (:)
 
     public static final String _PROJECT_FOLDER = "mapps/form2/api/";
@@ -50,9 +50,9 @@ public class AppMain extends Application {
     public static final long MILLISECONDS_IN_DAY = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY;
     private static final long DAYS_IN_YEAR = 365;
     public static final long MILLISECONDS_IN_YEAR = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_YEAR;
+    private static final String TAG = AppMain.class.getSimpleName();
     public static int NoMembers = 7;
     public static String deviceId;
-
     public static Boolean admin = false;
     public static String interviewerCode;
     public static String child_name = "TEST";
@@ -68,14 +68,10 @@ public class AppMain extends Application {
     public static long installedOn;
     public static int versionCode;
     public static String versionName;
-    protected LocationManager locationManager;
-
     public static boolean endFlag = false;
-
+    protected LocationManager locationManager;
     //    Login Members Array
     Location location;
-
-    private static final String TAG = AppMain.class.getSimpleName();
 
     @Override
     public void onCreate() {
