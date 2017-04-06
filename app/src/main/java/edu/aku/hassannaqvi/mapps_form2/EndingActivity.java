@@ -8,6 +8,8 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import org.json.JSONException;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -57,14 +59,20 @@ public class EndingActivity extends Activity {
     void onBtnEndClick() {
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (ValidateForm()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
+                AppMain.endFlag = false;
 
-            AppMain.endFlag = false;
-
-            finish();
-            Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
-            Intent endSec = new Intent(this, MainActivity.class);
-            endSec.putExtra("complete", false);
-            startActivity(endSec);
+                finish();
+                Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
+                Intent endSec = new Intent(this, MainActivity.class);
+                endSec.putExtra("complete", false);
+                startActivity(endSec);
+            }
         }
     }
 
@@ -81,5 +89,28 @@ public class EndingActivity extends Activity {
         return true;
     }
 
+    private void SaveDraft() throws JSONException {
+        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
+
+
+        AppMain.fc.setIstatus(mp02a01401.isChecked() ? "1" : mp02a01402.isChecked() ? "2" : mp02a01403.isChecked() ? "3" : mp02a01404.isChecked() ? "4" : mp02a01405.isChecked() ? "5" : "0");
+
+        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+    }
+
+    private boolean UpdateDB() {
+        DatabaseHelper db = new DatabaseHelper(this);
+
+        int updcount = db.updateEnding();
+
+        if (updcount == 1) {
+            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+    }
 
 }

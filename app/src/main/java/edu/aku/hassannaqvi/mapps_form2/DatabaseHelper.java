@@ -74,7 +74,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + ParticipantColumns.COLUMN_INTERVIEWER01 + " TEXT,"
             + ParticipantColumns.COLUMN_INTERVIEWER02 + " TEXT,"
             + ParticipantColumns.COLUMN_ISTATUS + " TEXT,"
-            + ParticipantColumns.COLUMN_SCA + " TEXT,"
             + ParticipantColumns.COLUMN_SCB + " TEXT,"
             + ParticipantColumns.COLUMN_SCC + " TEXT,"
             + ParticipantColumns.COLUMN_SCD + " TEXT,"
@@ -443,7 +442,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(ParticipantColumns.COLUMN_INTERVIEWER01, pc.getInterviewer01());
         values.put(ParticipantColumns.COLUMN_INTERVIEWER02, pc.getInterviewer02());
         values.put(ParticipantColumns.COLUMN_ISTATUS, pc.getIstatus());
-        values.put(ParticipantColumns.COLUMN_SCA, pc.getsCA());
         values.put(ParticipantColumns.COLUMN_SCB, pc.getsCB());
         values.put(ParticipantColumns.COLUMN_SCC, pc.getsCC());
         values.put(ParticipantColumns.COLUMN_SCD, pc.getsCD());
@@ -714,7 +712,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(ParticipantColumns.COLUMN_SCE, AppMain.pc.getsCE());
+        values.put(ParticipantColumns.COLUMN_SE, AppMain.pc.getsE());
 //        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
 
 
@@ -734,7 +732,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(ParticipantColumns.COLUMN_SCD, AppMain.pc.getsCD());
+        values.put(ParticipantColumns.COLUMN_SD, AppMain.pc.getsD());
 //        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
 
 
@@ -746,6 +744,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values,
                 selection,
                 selectionArgs);
+        return count;
+    }
+
+    public int updateEnding() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(FormColumns.COLUMN_ISTATUS, AppMain.fc.getIstatus());
+
+// Which row to update, based on the ID
+        String selection = " _ID = " + AppMain.fc.getID();
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
+
+        int count = db.update(FormColumns.TABLE_NAME,
+                values,
+                selection,
+                null);
+        return count;
+    }
+
+    public int updateParticipantEnding() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(ParticipantColumns.COLUMN_ISTATUS, AppMain.pc.getIstatus());
+
+// Which row to update, based on the ID
+        String selection = " _ID = " + AppMain.pc.getID();
+        String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
+
+        int count = db.update(ParticipantColumns.TABLE_NAME,
+                values,
+                selection,
+                null);
         return count;
     }
 
@@ -1015,7 +1049,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ParticipantColumns.COLUMN_INTERVIEWER01,
                 ParticipantColumns.COLUMN_INTERVIEWER02,
                 ParticipantColumns.COLUMN_ISTATUS,
-                ParticipantColumns.COLUMN_SCA,
                 ParticipantColumns.COLUMN_SCB,
                 ParticipantColumns.COLUMN_SCC,
                 ParticipantColumns.COLUMN_SCD,
@@ -1085,7 +1118,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ParticipantColumns.COLUMN_INTERVIEWER01,
                 ParticipantColumns.COLUMN_INTERVIEWER02,
                 ParticipantColumns.COLUMN_ISTATUS,
-                ParticipantColumns.COLUMN_SCA,
                 ParticipantColumns.COLUMN_SCB,
                 ParticipantColumns.COLUMN_SCC,
                 ParticipantColumns.COLUMN_SCD,

@@ -406,7 +406,7 @@ public class SectionBBActivity extends Activity {
         sbb.put("mp02bb018", mp02bb01801.isChecked() ? "1" : mp02bb01802.isChecked() ? "2" : mp02bb01803.isChecked() ? "3" : "0");
 
 
-        //MPApp.fc.setROW_Sbb(String.valueOf(sbb));
+        AppMain.fc.setsBB(String.valueOf(sbb));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 

@@ -226,6 +226,18 @@ public class SectionCHCActivity extends Activity {
             }
         });
 
+        mp02chc01188.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    mp02chc01188x.setVisibility(View.VISIBLE);
+                }else {
+                    mp02chc01188x.setVisibility(View.GONE);
+                    mp02chc01188x.setText(null);
+                }
+            }
+        });
+
     }
 
     @OnClick(R.id.btn_End)

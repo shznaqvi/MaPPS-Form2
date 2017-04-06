@@ -134,8 +134,10 @@ public class SectionAActivity extends Activity {
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 if (mp02a01301.isChecked()) {
                     btn_Continue.setVisibility(View.VISIBLE);
+                    btn_End.setVisibility(View.GONE);
                 } else {
                     btn_Continue.setVisibility(View.GONE);
+                    btn_End.setVisibility(View.VISIBLE);
                 }
             }
         });
