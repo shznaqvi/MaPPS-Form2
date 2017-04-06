@@ -69,6 +69,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + ParticipantColumns.COLUMN__ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + ParticipantColumns.COLUMN_UID + " TEXT,"
             + ParticipantColumns.COLUMN_UUID + " TEXT,"
+            + ParticipantColumns.COLUMN_LUID + " TEXT,"
             + ParticipantColumns.COLUMN_FORMDATE + " TEXT,"
             + ParticipantColumns.COLUMN_INTERVIEWER01 + " TEXT,"
             + ParticipantColumns.COLUMN_INTERVIEWER02 + " TEXT,"
@@ -85,10 +86,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + ParticipantColumns.COLUMN_SCHBC + " TEXT,"
             + ParticipantColumns.COLUMN_SD + " TEXT,"
             + ParticipantColumns.COLUMN_SE + " TEXT,"
-            + ParticipantColumns.COLUMN_GPSLAT + " TEXT,"
-            + ParticipantColumns.COLUMN_GPSLNG + " TEXT,"
-            + ParticipantColumns.COLUMN_GPSTIME + " TEXT,"
-            + ParticipantColumns.COLUMN_GPSACC + " TEXT,"
             + ParticipantColumns.COLUMN_DEVICEID + " TEXT,"
             + ParticipantColumns.COLUMN_APP_VERSION + " TEXT,"
             + ParticipantColumns.COLUMN_SYNCED + " TEXT,"
@@ -441,6 +438,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //values.put(ParticipantColumns.COLUMN__ID, pc.getID());
         values.put(ParticipantColumns.COLUMN_UID, pc.getUID());
         values.put(ParticipantColumns.COLUMN_UUID, pc.getUUID());
+        values.put(ParticipantColumns.COLUMN_LUID, pc.getLUID());
         values.put(ParticipantColumns.COLUMN_FORMDATE, pc.getFormDate());
         values.put(ParticipantColumns.COLUMN_INTERVIEWER01, pc.getInterviewer01());
         values.put(ParticipantColumns.COLUMN_INTERVIEWER02, pc.getInterviewer02());
@@ -457,10 +455,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(ParticipantColumns.COLUMN_SCHBC, pc.getsCHBC());
         values.put(ParticipantColumns.COLUMN_SD, pc.getsD());
         values.put(ParticipantColumns.COLUMN_SE, pc.getsE());
-        values.put(ParticipantColumns.COLUMN_GPSLAT, pc.getGpsLat());
-        values.put(ParticipantColumns.COLUMN_GPSLNG, pc.getGpsLng());
-        values.put(ParticipantColumns.COLUMN_GPSTIME, pc.getGpsTime());
-        values.put(ParticipantColumns.COLUMN_GPSACC, pc.getGpsAcc());
         values.put(ParticipantColumns.COLUMN_DEVICEID, pc.getDeviceID());
         values.put(ParticipantColumns.COLUMN_APP_VERSION, pc.getApp_version());
         values.put(ParticipantColumns.COLUMN_SYNCED, pc.getSynced());
@@ -1086,6 +1080,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ParticipantColumns.COLUMN__ID,
                 ParticipantColumns.COLUMN_UID,
                 ParticipantColumns.COLUMN_UUID,
+                ParticipantColumns.COLUMN_LUID,
                 ParticipantColumns.COLUMN_FORMDATE,
                 ParticipantColumns.COLUMN_INTERVIEWER01,
                 ParticipantColumns.COLUMN_INTERVIEWER02,
@@ -1102,10 +1097,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ParticipantColumns.COLUMN_SCHBC,
                 ParticipantColumns.COLUMN_SD,
                 ParticipantColumns.COLUMN_SE,
-                ParticipantColumns.COLUMN_GPSLAT,
-                ParticipantColumns.COLUMN_GPSLNG,
-                ParticipantColumns.COLUMN_GPSTIME,
-                ParticipantColumns.COLUMN_GPSACC,
+                ParticipantColumns.COLUMN_APP_VERSION,
                 ParticipantColumns.COLUMN_DEVICEID,
                 ParticipantColumns.COLUMN_SYNCED,
                 ParticipantColumns.COLUMN_SYNCED_DATE,

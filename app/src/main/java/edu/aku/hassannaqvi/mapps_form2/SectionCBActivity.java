@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -20,6 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -596,13 +598,21 @@ public class SectionCBActivity extends Activity {
     void onBtnEndClick() {
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
 
-        finish();
+        if (ValidateForm()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
+                finish();
 
-        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-        Intent endSec = new Intent(this, SectionCActivity.class);
-        endSec.putExtra("complete", false);
-        startActivity(endSec);
-
+                Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+                Intent endSec = new Intent(this, SectionCActivity.class);
+                endSec.putExtra("complete", false);
+                startActivity(endSec);
+            }
+        }
     }
 
 
@@ -667,6 +677,13 @@ public class SectionCBActivity extends Activity {
 
 
         AppMain.pc =new ParticipantsContract();
+
+        AppMain.pc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm",new Date())).toString());
+        AppMain.pc.setInterviewer01(AppMain.loginMem[1]);
+        AppMain.pc.setInterviewer02(AppMain.loginMem[2]);
+        AppMain.pc.setDeviceID(AppMain.deviceId);
+        AppMain.pc.setUUID(AppMain.fc.getUID());
+        AppMain.pc.setLUID(getIntent().getExtras().getString("l_uid"));
 
         JSONObject scb = new JSONObject();
 

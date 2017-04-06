@@ -114,7 +114,9 @@ public class ParticipantListActivity extends Activity {
 //                Toast.makeText(getApplicationContext(),AppMain.currentParticipantName,Toast.LENGTH_LONG).show();
 //                Toast.makeText(getApplicationContext(),""+position,Toast.LENGTH_LONG).show();
 
-                    startActivity(new Intent(getApplicationContext(), SectionCBActivity.class));
+                    Intent cb = new Intent(getApplicationContext(), SectionCBActivity.class);
+                    cb.putExtra("l_uid",AppMain.Eparticipant.get(position).getL_uid());
+                    startActivity(cb);
                 }
             });
 

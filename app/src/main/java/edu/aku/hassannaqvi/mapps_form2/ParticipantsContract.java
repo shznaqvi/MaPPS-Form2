@@ -310,10 +310,6 @@ public class ParticipantsContract {
         this.sCHBC = jsonObject.getString(ParticipantColumns.COLUMN_SCHBC);
         this.sD = jsonObject.getString(ParticipantColumns.COLUMN_SD);
         this.sE = jsonObject.getString(ParticipantColumns.COLUMN_SE);
-        this.gpsLat = jsonObject.getString(ParticipantColumns.COLUMN_GPSLAT);
-        this.gpsLng = jsonObject.getString(ParticipantColumns.COLUMN_GPSLNG);
-        this.gpsTime = jsonObject.getString(ParticipantColumns.COLUMN_GPSTIME);
-        this.gpsAcc = jsonObject.getString(ParticipantColumns.COLUMN_GPSACC);
         this.deviceID = jsonObject.getString(ParticipantColumns.COLUMN_DEVICEID);
         this.app_version = jsonObject.getString(ParticipantColumns.COLUMN_APP_VERSION);
         this.synced = jsonObject.getString(ParticipantColumns.COLUMN_SYNCED);
@@ -346,10 +342,6 @@ public class ParticipantsContract {
         this.sCHBC = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SCHBC));
         this.sD = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SD));
         this.sE = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SE));
-        this.gpsLat = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_GPSLAT));
-        this.gpsLng = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_GPSLNG));
-        this.gpsTime = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_GPSTIME));
-        this.gpsAcc = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_GPSACC));
         this.deviceID = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_DEVICEID));
         this.app_version = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_APP_VERSION));
         this.synced = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SYNCED));
@@ -409,9 +401,9 @@ public class ParticipantsContract {
         public static final String COLUMN_PROJECTNAME = "projectname";
         public static final String COLUMN_SURVEYTYPE = "surveytype";
         public static final String COLUMN__ID = "_id";
-        public static final String COLUMN_UID = "l_uid";
+        public static final String COLUMN_UID = "uid";
         public static final String COLUMN_UUID = "uuid";
-        public static final String COLUMN_LUID = "luid";
+        public static final String COLUMN_LUID = "l_uid";
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_INTERVIEWER01 = "interviewer01";
         public static final String COLUMN_INTERVIEWER02 = "interviewer02";
