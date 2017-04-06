@@ -334,7 +334,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormColumns.COLUMN_GPSTIME, fc.getGpsTime());
         values.put(FormColumns.COLUMN_GPSACC, fc.getGpsAcc());
         values.put(FormColumns.COLUMN_DEVICEID, fc.getDeviceID());
-//        values.put(FormColumns.COLUMN_APP_VERSION, fc.getApp_version());
+        values.put(FormColumns.COLUMN_APP_VERSION, fc.getApp_version());
 
         /* * * * * NO NEED TO USE THESE IN 'INSERT' * * * * */
         /*
@@ -391,6 +391,44 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void updateForms(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(FormColumns.COLUMN_SYNCED, true);
+        values.put(FormColumns.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = FormColumns._ID + " LIKE ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                FormColumns.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+    public void updateParticipants(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(ParticipantColumns.COLUMN_SYNCED, true);
+        values.put(ParticipantColumns.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = ParticipantColumns._ID + " LIKE ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                ParticipantColumns.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
     public Long addParticipants(ParticipantsContract pc) {
 
         // Gets the data repository in write mode
@@ -424,7 +462,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(ParticipantColumns.COLUMN_GPSTIME, pc.getGpsTime());
         values.put(ParticipantColumns.COLUMN_GPSACC, pc.getGpsAcc());
         values.put(ParticipantColumns.COLUMN_DEVICEID, pc.getDeviceID());
-//        values.put(ParticipantColumns.COLUMN_APP_VERSION, pc.getApp_version());
+        values.put(ParticipantColumns.COLUMN_APP_VERSION, pc.getApp_version());
         values.put(ParticipantColumns.COLUMN_SYNCED, pc.getSynced());
         values.put(ParticipantColumns.COLUMN_SYNCED_DATE, pc.getSynced_date());
 
@@ -869,11 +907,74 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormColumns.COLUMN_GPSLNG,
                 FormColumns.COLUMN_GPSTIME,
                 FormColumns.COLUMN_GPSACC,
+                FormColumns.COLUMN_APP_VERSION,
                 FormColumns.COLUMN_DEVICEID,
+                FormColumns.COLUMN_APP_VERSION,
                 FormColumns.COLUMN_SYNCED,
                 FormColumns.COLUMN_SYNCED_DATE,
         };
         String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                FormColumns._ID + " ASC";
+
+        Collection<FormsContract> allFC = new ArrayList<FormsContract>();
+        try {
+            c = db.query(
+                    FormColumns.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                FormsContract fc = new FormsContract();
+                allFC.add(fc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allFC;
+    }
+
+    public Collection<FormsContract> getUnsyncedForms() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                FormColumns.COLUMN_PROJECTNAME,
+                FormColumns.COLUMN_SURVEYTYPE,
+                FormColumns.COLUMN__ID,
+                FormColumns.COLUMN_UID,
+                FormColumns.COLUMN_FORMDATE,
+                FormColumns.COLUMN_INTERVIEWER01,
+                FormColumns.COLUMN_INTERVIEWER02,
+                FormColumns.COLUMN_CLUSTERCODE,
+                FormColumns.COLUMN_VILLAGEACODE,
+                FormColumns.COLUMN_HOUSEHOLD,
+                FormColumns.COLUMN_ISTATUS,
+                FormColumns.COLUMN_SA,
+                FormColumns.COLUMN_SBA,
+                FormColumns.COLUMN_SBB,
+                FormColumns.COLUMN_GPSLAT,
+                FormColumns.COLUMN_GPSLNG,
+                FormColumns.COLUMN_GPSTIME,
+                FormColumns.COLUMN_GPSACC,
+                FormColumns.COLUMN_APP_VERSION,
+                FormColumns.COLUMN_DEVICEID,
+                FormColumns.COLUMN_SYNCED,
+                FormColumns.COLUMN_SYNCED_DATE,
+        };
+        String whereClause = FormColumns.COLUMN_SYNCED + " is null OR " + FormColumns.COLUMN_SYNCED + " = ''";
         String[] whereArgs = null;
         String groupBy = null;
         String having = null;
@@ -936,6 +1037,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ParticipantColumns.COLUMN_GPSLNG,
                 ParticipantColumns.COLUMN_GPSTIME,
                 ParticipantColumns.COLUMN_GPSACC,
+                ParticipantColumns.COLUMN_APP_VERSION,
                 ParticipantColumns.COLUMN_DEVICEID,
                 ParticipantColumns.COLUMN_SYNCED,
                 ParticipantColumns.COLUMN_SYNCED_DATE,
@@ -975,6 +1077,72 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allPC;
     }
 
+    public Collection<ParticipantsContract> getUnsyncedParticipants() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                ParticipantColumns.COLUMN_PROJECTNAME,
+                ParticipantColumns.COLUMN_SURVEYTYPE,
+                ParticipantColumns.COLUMN__ID,
+                ParticipantColumns.COLUMN_UID,
+                ParticipantColumns.COLUMN_UUID,
+                ParticipantColumns.COLUMN_FORMDATE,
+                ParticipantColumns.COLUMN_INTERVIEWER01,
+                ParticipantColumns.COLUMN_INTERVIEWER02,
+                ParticipantColumns.COLUMN_ISTATUS,
+                ParticipantColumns.COLUMN_SCA,
+                ParticipantColumns.COLUMN_SCB,
+                ParticipantColumns.COLUMN_SCC,
+                ParticipantColumns.COLUMN_SCD,
+                ParticipantColumns.COLUMN_SCE,
+                ParticipantColumns.COLUMN_SCF,
+                ParticipantColumns.COLUMN_SCG,
+                ParticipantColumns.COLUMN_SCHA,
+                ParticipantColumns.COLUMN_SCHB,
+                ParticipantColumns.COLUMN_SCHBC,
+                ParticipantColumns.COLUMN_SD,
+                ParticipantColumns.COLUMN_SE,
+                ParticipantColumns.COLUMN_GPSLAT,
+                ParticipantColumns.COLUMN_GPSLNG,
+                ParticipantColumns.COLUMN_GPSTIME,
+                ParticipantColumns.COLUMN_GPSACC,
+                ParticipantColumns.COLUMN_DEVICEID,
+                ParticipantColumns.COLUMN_SYNCED,
+                ParticipantColumns.COLUMN_SYNCED_DATE,
+        };
+        String whereClause = ParticipantColumns.COLUMN_SYNCED + " is null OR " + ParticipantColumns.COLUMN_SYNCED + " = ''";
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                ParticipantColumns._ID + " ASC";
+
+        Collection<ParticipantsContract> allFC = new ArrayList<ParticipantsContract>();
+        try {
+            c = db.query(
+                    ParticipantColumns.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                ParticipantsContract fc = new ParticipantsContract();
+                allFC.add(fc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allFC;
+    }
 
     public Collection<FormsContract> getTodayForms() {
 

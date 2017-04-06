@@ -70,6 +70,8 @@ public class AppMain extends Application {
     public static String versionName;
     protected LocationManager locationManager;
 
+    public static boolean endFlag = false;
+
     //    Login Members Array
     Location location;
 

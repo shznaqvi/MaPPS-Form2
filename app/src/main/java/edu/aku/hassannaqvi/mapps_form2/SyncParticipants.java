@@ -22,13 +22,13 @@ import java.util.Collection;
 /**
  * Created by hassan.naqvi on 7/26/2016.
  */
-public class SyncForms extends AsyncTask<Void, Void, String> {
+public class SyncParticipants extends AsyncTask<Void, Void, String> {
 
     private static final String TAG = "SyncForms";
     private Context mContext;
     private ProgressDialog pd;
 
-    public SyncForms(Context context) {
+    public SyncParticipants(Context context) {
         mContext = context;
     }
 
@@ -44,7 +44,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         pd = new ProgressDialog(mContext);
-        pd.setTitle("Please wait... Processing Forms");
+        pd.setTitle("Please wait... Processing Participants");
         pd.show();
 
     }
@@ -73,21 +73,21 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
             for (int i = 0; i < json.length(); i++) {
                 JSONObject jsonObject = new JSONObject(json.getString(i));
                 if (jsonObject.getString("status").equals("1")) {
-                    db.updateForms(jsonObject.getString("id"));
+                    db.updateParticipants(jsonObject.getString("id"));
                     sSynced++;
                 }
             }
-            Toast.makeText(mContext, sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, sSynced + " Participants synced." + String.valueOf(json.length() - sSynced) + " Errors.", Toast.LENGTH_SHORT).show();
 
-            pd.setMessage(sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors.");
-            pd.setTitle("Done uploading Forms data");
+            pd.setMessage(sSynced + " Participants synced." + String.valueOf(json.length() - sSynced) + " Errors.");
+            pd.setTitle("Done uploading Participants data");
             pd.show();
         } catch (JSONException e) {
             e.printStackTrace();
             Toast.makeText(mContext, "Failed Sync " + result, Toast.LENGTH_SHORT).show();
 
             pd.setMessage(result);
-            pd.setTitle("Forms's Sync Failed");
+            pd.setTitle("Participants's Sync Failed");
             pd.show();
 
 
@@ -101,9 +101,9 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
         // web page content.
         //int len = 500;
         DatabaseHelper db = new DatabaseHelper(mContext);
-        Collection<FormsContract> forms = db.getUnsyncedForms();
-        Log.d(TAG, String.valueOf(forms.size()));
-        if (forms.size() > 0) {
+        Collection<ParticipantsContract> participants = db.getUnsyncedParticipants();
+        Log.d(TAG, String.valueOf(participants.size()));
+        if (participants.size() > 0) {
             try {
                 URL url = new URL(myurl);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -121,7 +121,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
                 try {
                     DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
 
-                    for (FormsContract fc : forms) {
+                    for (ParticipantsContract fc : participants) {
 
                         jsonSync.put(fc.toJSONObject());
 

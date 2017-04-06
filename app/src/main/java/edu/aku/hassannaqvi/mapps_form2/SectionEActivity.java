@@ -93,6 +93,7 @@ public class SectionEActivity extends Activity {
 
                 finish();
                 Intent end = new Intent(this, SectionCActivity.class);
+                end.putExtra("complete", true);
                 startActivity(end);
 
             } else {

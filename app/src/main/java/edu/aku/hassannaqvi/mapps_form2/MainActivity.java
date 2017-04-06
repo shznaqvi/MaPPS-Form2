@@ -147,8 +147,8 @@ public class MainActivity extends Activity {
             Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
             new SyncForms(this).execute();
 
-            /*Toast.makeText(getApplicationContext(), "Syncing IMs", Toast.LENGTH_SHORT).show();
-            new SyncIMs(this).execute(imsUrl);*/
+            Toast.makeText(getApplicationContext(), "Syncing Participants", Toast.LENGTH_SHORT).show();
+            new SyncParticipants(this).execute();
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = syncPref.edit();
