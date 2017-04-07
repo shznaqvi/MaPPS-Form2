@@ -23,6 +23,8 @@ public class ParticipantsContract {
     private String interviewer01 = ""; // Interviewer 01 from main form
     private String interviewer02 = ""; // Interviewer 02 from main form
     private String istatus = ""; // Interview Status
+
+
     private String sCB = "";
     private String sCC = "";
     private String sCD = "";
@@ -31,7 +33,7 @@ public class ParticipantsContract {
     private String sCG = "";
     private String sCHA = "";
     private String sCHB = "";
-    private String sCHBC = "";
+    private String sCHC = "";
     private String sD = "";
     private String sE = "";
     private String gpsLat = "";
@@ -190,12 +192,12 @@ public class ParticipantsContract {
         this.sCHB = sCHB;
     }
 
-    public String getsCHBC() {
-        return sCHBC;
+    public String getsCHC() {
+        return sCHC;
     }
 
-    public void setsCHBC(String sCHBC) {
-        this.sCHBC = sCHBC;
+    public void setsCHC(String sCHC) {
+        this.sCHC = sCHC;
     }
 
     public String getsD() {
@@ -265,7 +267,7 @@ public class ParticipantsContract {
         this.sCG = jsonObject.getString(ParticipantColumns.COLUMN_SCG);
         this.sCHA = jsonObject.getString(ParticipantColumns.COLUMN_SCHA);
         this.sCHB = jsonObject.getString(ParticipantColumns.COLUMN_SCHB);
-        this.sCHBC = jsonObject.getString(ParticipantColumns.COLUMN_SCHBC);
+        this.sCHC = jsonObject.getString(ParticipantColumns.COLUMN_SCHC);
         this.sD = jsonObject.getString(ParticipantColumns.COLUMN_SD);
         this.sE = jsonObject.getString(ParticipantColumns.COLUMN_SE);
         this.deviceID = jsonObject.getString(ParticipantColumns.COLUMN_DEVICEID);
@@ -296,7 +298,7 @@ public class ParticipantsContract {
         this.sCG = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SCG));
         this.sCHA = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SCHA));
         this.sCHB = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SCHB));
-        this.sCHBC = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SCHBC));
+        this.sCHC = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SCHC));
         this.sD = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SD));
         this.sE = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SE));
         this.deviceID = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_DEVICEID));
@@ -332,7 +334,7 @@ public class ParticipantsContract {
         json.put(ParticipantColumns.COLUMN_SCG, this.sCG == null ? JSONObject.NULL : this.sCG);
         json.put(ParticipantColumns.COLUMN_SCHA, this.sCHA == null ? JSONObject.NULL : this.sCHA);
         json.put(ParticipantColumns.COLUMN_SCHB, this.sCHB == null ? JSONObject.NULL : this.sCHB);
-        json.put(ParticipantColumns.COLUMN_SCHBC, this.sCHBC == null ? JSONObject.NULL : this.sCHBC);
+        json.put(ParticipantColumns.COLUMN_SCHC, this.sCHC == null ? JSONObject.NULL : this.sCHC);
         json.put(ParticipantColumns.COLUMN_SD, this.sD == null ? JSONObject.NULL : this.sD);
         json.put(ParticipantColumns.COLUMN_SE, this.sE == null ? JSONObject.NULL : this.sE);
         json.put(ParticipantColumns.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
@@ -372,7 +374,7 @@ public class ParticipantsContract {
         public static final String COLUMN_SCG = "scg";
         public static final String COLUMN_SCHA = "scha";
         public static final String COLUMN_SCHB = "schb";
-        public static final String COLUMN_SCHBC = "schbc";
+        public static final String COLUMN_SCHC = "schc";
         public static final String COLUMN_SD = "sd";
         public static final String COLUMN_SE = "se";
         public static final String COLUMN_GPSLAT = "gpslat";

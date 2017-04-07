@@ -82,7 +82,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + ParticipantColumns.COLUMN_SCG + " TEXT,"
             + ParticipantColumns.COLUMN_SCHA + " TEXT,"
             + ParticipantColumns.COLUMN_SCHB + " TEXT,"
-            + ParticipantColumns.COLUMN_SCHBC + " TEXT,"
+            + ParticipantColumns.COLUMN_SCHC + " TEXT,"
             + ParticipantColumns.COLUMN_SD + " TEXT,"
             + ParticipantColumns.COLUMN_SE + " TEXT,"
             + ParticipantColumns.COLUMN_DEVICEID + " TEXT,"
@@ -450,7 +450,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(ParticipantColumns.COLUMN_SCG, pc.getsCG());
         values.put(ParticipantColumns.COLUMN_SCHA, pc.getsCHA());
         values.put(ParticipantColumns.COLUMN_SCHB, pc.getsCHB());
-        values.put(ParticipantColumns.COLUMN_SCHBC, pc.getsCHBC());
+        values.put(ParticipantColumns.COLUMN_SCHC, pc.getsCHC());
         values.put(ParticipantColumns.COLUMN_SD, pc.getsD());
         values.put(ParticipantColumns.COLUMN_SE, pc.getsE());
         values.put(ParticipantColumns.COLUMN_DEVICEID, pc.getDeviceID());
@@ -692,7 +692,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(ParticipantColumns.COLUMN_SCHBC, AppMain.pc.getsCHBC());
+        values.put(ParticipantColumns.COLUMN_SCHC, AppMain.pc.getsCHC());
 //        values.put(ParticipantColumns.COLUMN_UID, AppMain.pc.getUID());
 
 
@@ -1057,7 +1057,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ParticipantColumns.COLUMN_SCG,
                 ParticipantColumns.COLUMN_SCHA,
                 ParticipantColumns.COLUMN_SCHB,
-                ParticipantColumns.COLUMN_SCHBC,
+                ParticipantColumns.COLUMN_SCHC,
                 ParticipantColumns.COLUMN_SD,
                 ParticipantColumns.COLUMN_SE,
                 ParticipantColumns.COLUMN_GPSLAT,
@@ -1126,7 +1126,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ParticipantColumns.COLUMN_SCG,
                 ParticipantColumns.COLUMN_SCHA,
                 ParticipantColumns.COLUMN_SCHB,
-                ParticipantColumns.COLUMN_SCHBC,
+                ParticipantColumns.COLUMN_SCHC,
                 ParticipantColumns.COLUMN_SD,
                 ParticipantColumns.COLUMN_SE,
                 ParticipantColumns.COLUMN_APP_VERSION,

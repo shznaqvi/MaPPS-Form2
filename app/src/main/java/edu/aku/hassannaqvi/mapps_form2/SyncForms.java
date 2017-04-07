@@ -63,7 +63,6 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
         } catch (IOException e) {
             return "Unable to upload data. Server may be down.";
         }
-
     }
 
     @Override
@@ -93,10 +92,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
             pd.setMessage(result);
             pd.setTitle("Forms's Sync Failed");
             pd.show();
-
-
         }
-
     }
 
     private String downloadUrl(String myurl) throws IOException {
