@@ -23,6 +23,7 @@ public class FormsContract {
     private String villageacode = ""; // Sub-Area Code
     private String household = ""; // Household number
     private String istatus = ""; // Interview Status
+    private String lhwCode = ""; // lhwcode
     private String sA = "";
     private String sBA = "";
     private String sBB = "";
@@ -212,6 +213,14 @@ public class FormsContract {
         this.synced_date = synced_date;
     }
 
+    public String getLhwCode() {
+        return lhwCode;
+    }
+
+    public void setLhwCode(String lhwCode) {
+        this.lhwCode = lhwCode;
+    }
+
     public FormsContract Sync(JSONObject jsonObject) throws JSONException {
         this.projectName = jsonObject.getString(FormColumns.COLUMN_PROJECTNAME);
         this.surveyType = jsonObject.getString(FormColumns.COLUMN_SURVEYTYPE);
@@ -223,6 +232,7 @@ public class FormsContract {
         this.clustercode = jsonObject.getString(FormColumns.COLUMN_CLUSTERCODE);
         this.villageacode = jsonObject.getString(FormColumns.COLUMN_VILLAGEACODE);
         this.household = jsonObject.getString(FormColumns.COLUMN_HOUSEHOLD);
+        this.lhwCode = jsonObject.getString(FormColumns.COLUMN_LHWCODE);
         this.istatus = jsonObject.getString(FormColumns.COLUMN_ISTATUS);
         this.sA = jsonObject.getString(FormColumns.COLUMN_SA);
         this.sBA = jsonObject.getString(FormColumns.COLUMN_SBA);
@@ -251,6 +261,7 @@ public class FormsContract {
         this.clustercode = cursor.getString(cursor.getColumnIndex(FormColumns.COLUMN_CLUSTERCODE));
         this.villageacode = cursor.getString(cursor.getColumnIndex(FormColumns.COLUMN_VILLAGEACODE));
         this.household = cursor.getString(cursor.getColumnIndex(FormColumns.COLUMN_HOUSEHOLD));
+        this.lhwCode = cursor.getString(cursor.getColumnIndex(FormColumns.COLUMN_LHWCODE));
         this.istatus = cursor.getString(cursor.getColumnIndex(FormColumns.COLUMN_ISTATUS));
         this.sA = cursor.getString(cursor.getColumnIndex(FormColumns.COLUMN_SA));
         this.sBA = cursor.getString(cursor.getColumnIndex(FormColumns.COLUMN_SBA));
@@ -283,10 +294,11 @@ public class FormsContract {
         json.put(FormColumns.COLUMN_CLUSTERCODE, this.clustercode == null ? JSONObject.NULL : this.clustercode);
         json.put(FormColumns.COLUMN_VILLAGEACODE, this.villageacode == null ? JSONObject.NULL : this.villageacode);
         json.put(FormColumns.COLUMN_HOUSEHOLD, this.household == null ? JSONObject.NULL : this.household);
+        json.put(FormColumns.COLUMN_LHWCODE, this.lhwCode == null ? JSONObject.NULL : this.lhwCode);
         json.put(FormColumns.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
-        json.put(FormColumns.COLUMN_SA, this.sA == null ? JSONObject.NULL : this.sA);
-        json.put(FormColumns.COLUMN_SBA, this.sBA == null ? JSONObject.NULL : this.sBA);
-        json.put(FormColumns.COLUMN_SBB, this.sBB == null ? JSONObject.NULL : this.sBB);
+        json.put(FormColumns.COLUMN_SA, this.sA == null ? JSONObject.NULL : new JSONObject(this.sA));
+        json.put(FormColumns.COLUMN_SBA, this.sBA == null ? JSONObject.NULL : new JSONObject(this.sBA));
+        json.put(FormColumns.COLUMN_SBB, this.sBB == null ? JSONObject.NULL : new JSONObject(this.sBB));
         json.put(FormColumns.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
         json.put(FormColumns.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
         json.put(FormColumns.COLUMN_GPSTIME, this.gpsTime == null ? JSONObject.NULL : this.gpsTime);
@@ -316,6 +328,7 @@ public class FormsContract {
         public static final String COLUMN_CLUSTERCODE = "clustercode";
         public static final String COLUMN_VILLAGEACODE = "villageacode";
         public static final String COLUMN_HOUSEHOLD = "household";
+        public static final String COLUMN_LHWCODE = "lhwcode";
         public static final String COLUMN_ISTATUS = "istatus";
         public static final String COLUMN_SA = "sa";
         public static final String COLUMN_SBA = "sba";
@@ -328,7 +341,5 @@ public class FormsContract {
         public static final String COLUMN_APP_VERSION = "app_version";
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "synced_date";
-
-
     }
 }

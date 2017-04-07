@@ -23,7 +23,9 @@ public class ParticipantsContract {
     private String interviewer01 = ""; // Interviewer 01 from main form
     private String interviewer02 = ""; // Interviewer 02 from main form
     private String istatus = ""; // Interview Status
-
+    private String clustercode = "0000"; // Area Code
+    private String household = ""; // Household number
+    private String lhwCode = ""; // lhwcode
 
     private String sCB = "";
     private String sCC = "";
@@ -248,6 +250,30 @@ public class ParticipantsContract {
         this.app_version = app_version;
     }
 
+    public String getClustercode() {
+        return clustercode;
+    }
+
+    public void setClustercode(String clustercode) {
+        this.clustercode = clustercode;
+    }
+
+    public String getHousehold() {
+        return household;
+    }
+
+    public void setHousehold(String household) {
+        this.household = household;
+    }
+
+    public String getLhwCode() {
+        return lhwCode;
+    }
+
+    public void setLhwCode(String lhwCode) {
+        this.lhwCode = lhwCode;
+    }
+
     public ParticipantsContract Sync(JSONObject jsonObject) throws JSONException {
         this.projectName = jsonObject.getString(ParticipantColumns.COLUMN_PROJECTNAME);
         this.surveyType = jsonObject.getString(ParticipantColumns.COLUMN_SURVEYTYPE);
@@ -259,6 +285,9 @@ public class ParticipantsContract {
         this.interviewer01 = jsonObject.getString(ParticipantColumns.COLUMN_INTERVIEWER01);
         this.interviewer02 = jsonObject.getString(ParticipantColumns.COLUMN_INTERVIEWER02);
         this.istatus = jsonObject.getString(ParticipantColumns.COLUMN_ISTATUS);
+        this.clustercode = jsonObject.getString(ParticipantColumns.COLUMN_CLUSTERCODE);
+        this.household = jsonObject.getString(ParticipantColumns.COLUMN_HOUSEHOLD);
+        this.lhwCode = jsonObject.getString(ParticipantColumns.COLUMN_LHWCODE);
         this.sCB = jsonObject.getString(ParticipantColumns.COLUMN_SCB);
         this.sCC = jsonObject.getString(ParticipantColumns.COLUMN_SCC);
         this.sCD = jsonObject.getString(ParticipantColumns.COLUMN_SCD);
@@ -289,6 +318,9 @@ public class ParticipantsContract {
         this.formDate = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_FORMDATE));
         this.interviewer01 = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_INTERVIEWER01));
         this.interviewer02 = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_INTERVIEWER02));
+        this.clustercode = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_CLUSTERCODE));
+        this.household = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_HOUSEHOLD));
+        this.lhwCode = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_LHWCODE));
         this.istatus = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_ISTATUS));
         this.sCB = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SCB));
         this.sCC = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SCC));
@@ -325,18 +357,21 @@ public class ParticipantsContract {
         json.put(ParticipantColumns.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
         json.put(ParticipantColumns.COLUMN_INTERVIEWER01, this.interviewer01 == null ? JSONObject.NULL : this.interviewer01);
         json.put(ParticipantColumns.COLUMN_INTERVIEWER02, this.interviewer02 == null ? JSONObject.NULL : this.interviewer02);
+        json.put(ParticipantColumns.COLUMN_CLUSTERCODE, this.clustercode == null ? JSONObject.NULL : this.clustercode);
+        json.put(ParticipantColumns.COLUMN_HOUSEHOLD, this.household == null ? JSONObject.NULL : this.household);
+        json.put(ParticipantColumns.COLUMN_LHWCODE, this.lhwCode == null ? JSONObject.NULL : this.lhwCode);
         json.put(ParticipantColumns.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
-        json.put(ParticipantColumns.COLUMN_SCB, this.sCB == null ? JSONObject.NULL : this.sCB);
-        json.put(ParticipantColumns.COLUMN_SCC, this.sCC == null ? JSONObject.NULL : this.sCC);
-        json.put(ParticipantColumns.COLUMN_SCD, this.sCD == null ? JSONObject.NULL : this.sCD);
-        json.put(ParticipantColumns.COLUMN_SCE, this.sCE == null ? JSONObject.NULL : this.sCE);
-        json.put(ParticipantColumns.COLUMN_SCF, this.sCF == null ? JSONObject.NULL : this.sCF);
-        json.put(ParticipantColumns.COLUMN_SCG, this.sCG == null ? JSONObject.NULL : this.sCG);
-        json.put(ParticipantColumns.COLUMN_SCHA, this.sCHA == null ? JSONObject.NULL : this.sCHA);
-        json.put(ParticipantColumns.COLUMN_SCHB, this.sCHB == null ? JSONObject.NULL : this.sCHB);
-        json.put(ParticipantColumns.COLUMN_SCHC, this.sCHC == null ? JSONObject.NULL : this.sCHC);
-        json.put(ParticipantColumns.COLUMN_SD, this.sD == null ? JSONObject.NULL : this.sD);
-        json.put(ParticipantColumns.COLUMN_SE, this.sE == null ? JSONObject.NULL : this.sE);
+        json.put(ParticipantColumns.COLUMN_SCB, this.sCB == null ? JSONObject.NULL : new JSONObject(this.sCB));
+        json.put(ParticipantColumns.COLUMN_SCC, this.sCC == null ? JSONObject.NULL : new JSONObject(this.sCC));
+        json.put(ParticipantColumns.COLUMN_SCD, this.sCD == null ? JSONObject.NULL : new JSONObject(this.sCD));
+        json.put(ParticipantColumns.COLUMN_SCE, this.sCE == null ? JSONObject.NULL : new JSONObject(this.sCE));
+        json.put(ParticipantColumns.COLUMN_SCF, this.sCF == null ? JSONObject.NULL : new JSONObject(this.sCF));
+        json.put(ParticipantColumns.COLUMN_SCG, this.sCG == null ? JSONObject.NULL : new JSONObject(this.sCG));
+        json.put(ParticipantColumns.COLUMN_SCHA, this.sCHA == null ? JSONObject.NULL : new JSONObject(this.sCHA));
+        json.put(ParticipantColumns.COLUMN_SCHB, this.sCHB == null ? JSONObject.NULL : new JSONObject(this.sCHB));
+        json.put(ParticipantColumns.COLUMN_SCHC, this.sCHC == null ? JSONObject.NULL : new JSONObject(this.sCHC));
+        json.put(ParticipantColumns.COLUMN_SD, this.sD == null ? JSONObject.NULL : new JSONObject(this.sD));
+        json.put(ParticipantColumns.COLUMN_SE, this.sE == null ? JSONObject.NULL : new JSONObject(this.sE));
         json.put(ParticipantColumns.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
         json.put(ParticipantColumns.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
         json.put(ParticipantColumns.COLUMN_GPSTIME, this.gpsTime == null ? JSONObject.NULL : this.gpsTime);
@@ -365,6 +400,9 @@ public class ParticipantsContract {
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_INTERVIEWER01 = "interviewer01";
         public static final String COLUMN_INTERVIEWER02 = "interviewer02";
+        public static final String COLUMN_CLUSTERCODE = "clustercode";
+        public static final String COLUMN_HOUSEHOLD = "household";
+        public static final String COLUMN_LHWCODE = "lhwcode";
         public static final String COLUMN_ISTATUS = "istatus";
         public static final String COLUMN_SCB = "scb";
         public static final String COLUMN_SCC = "scc";

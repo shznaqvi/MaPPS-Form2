@@ -49,6 +49,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             FormColumns.COLUMN_CLUSTERCODE + " TEXT," +
             FormColumns.COLUMN_VILLAGEACODE + " TEXT," +
             FormColumns.COLUMN_HOUSEHOLD + " TEXT," +
+            FormColumns.COLUMN_LHWCODE + " TEXT," +
             FormColumns.COLUMN_ISTATUS + " TEXT," +
             FormColumns.COLUMN_SA + " TEXT," +
             FormColumns.COLUMN_SBA + " TEXT," +
@@ -73,6 +74,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + ParticipantColumns.COLUMN_FORMDATE + " TEXT,"
             + ParticipantColumns.COLUMN_INTERVIEWER01 + " TEXT,"
             + ParticipantColumns.COLUMN_INTERVIEWER02 + " TEXT,"
+            + ParticipantColumns.COLUMN_CLUSTERCODE + " TEXT,"
+            + ParticipantColumns.COLUMN_HOUSEHOLD + " TEXT,"
+            + ParticipantColumns.COLUMN_LHWCODE + " TEXT,"
             + ParticipantColumns.COLUMN_ISTATUS + " TEXT,"
             + ParticipantColumns.COLUMN_SCB + " TEXT,"
             + ParticipantColumns.COLUMN_SCC + " TEXT,"
@@ -323,6 +327,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormColumns.COLUMN_CLUSTERCODE, fc.getClustercode());
         values.put(FormColumns.COLUMN_VILLAGEACODE, fc.getVillageacode());
         values.put(FormColumns.COLUMN_HOUSEHOLD, fc.getHousehold());
+        values.put(FormColumns.COLUMN_LHWCODE, fc.getLhwCode());
         values.put(FormColumns.COLUMN_ISTATUS, fc.getIstatus());
         values.put(FormColumns.COLUMN_SA, fc.getsA());
         values.put(FormColumns.COLUMN_GPSLAT, fc.getGpsLat());
@@ -441,6 +446,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(ParticipantColumns.COLUMN_FORMDATE, pc.getFormDate());
         values.put(ParticipantColumns.COLUMN_INTERVIEWER01, pc.getInterviewer01());
         values.put(ParticipantColumns.COLUMN_INTERVIEWER02, pc.getInterviewer02());
+        values.put(ParticipantColumns.COLUMN_CLUSTERCODE, pc.getClustercode());
+        values.put(ParticipantColumns.COLUMN_HOUSEHOLD, pc.getHousehold());
+        values.put(ParticipantColumns.COLUMN_LHWCODE, pc.getLhwCode());
         values.put(ParticipantColumns.COLUMN_ISTATUS, pc.getIstatus());
         values.put(ParticipantColumns.COLUMN_SCB, pc.getsCB());
         values.put(ParticipantColumns.COLUMN_SCC, pc.getsCC());
@@ -989,6 +997,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormColumns.COLUMN_CLUSTERCODE,
                 FormColumns.COLUMN_VILLAGEACODE,
                 FormColumns.COLUMN_HOUSEHOLD,
+                FormColumns.COLUMN_LHWCODE,
                 FormColumns.COLUMN_ISTATUS,
                 FormColumns.COLUMN_SA,
                 FormColumns.COLUMN_SBA,
@@ -1117,6 +1126,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ParticipantColumns.COLUMN_FORMDATE,
                 ParticipantColumns.COLUMN_INTERVIEWER01,
                 ParticipantColumns.COLUMN_INTERVIEWER02,
+                ParticipantColumns.COLUMN_CLUSTERCODE,
+                ParticipantColumns.COLUMN_HOUSEHOLD,
+                ParticipantColumns.COLUMN_LHWCODE,
                 ParticipantColumns.COLUMN_ISTATUS,
                 ParticipantColumns.COLUMN_SCB,
                 ParticipantColumns.COLUMN_SCC,

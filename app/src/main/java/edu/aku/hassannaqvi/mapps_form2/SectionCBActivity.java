@@ -685,6 +685,10 @@ public class SectionCBActivity extends Activity {
         AppMain.pc.setUUID(AppMain.fc.getUID());
         AppMain.pc.setLUID(getIntent().getExtras().getString("l_uid"));
 
+        AppMain.pc.setHousehold(AppMain.fc.getHousehold());
+        AppMain.pc.setClustercode(AppMain.fc.getClustercode());
+        AppMain.pc.setLhwCode(AppMain.fc.getLhwCode());
+
         JSONObject scb = new JSONObject();
 
         scb.put("mp02ca001", mp02ca00101.isChecked() ? "1" : mp02ca00102.isChecked() ? "2" : "0");

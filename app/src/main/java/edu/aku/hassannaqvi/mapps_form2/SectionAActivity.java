@@ -317,6 +317,8 @@ public class SectionAActivity extends Activity {
         AppMain.fc.setDeviceID(AppMain.deviceId);
         AppMain.fc.setVillageacode(mp02a006.getText().toString());
 
+        AppMain.fc.setLhwCode(LHWs.get(mp02aLHWs.getSelectedItem().toString()));
+
 
         JSONObject sa = new JSONObject();
 
