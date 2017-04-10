@@ -79,6 +79,6 @@ public class ClustersContract {
         public static final String COLUMN_CLUSTERCODE = "clustercode";
         public static final String COLUMN_CLUSTERNAME = "clustername";
 
-        public static final String _URI = "/getclusters.php";
+        public static final String _URI = "getclusters.php";
     }
 }

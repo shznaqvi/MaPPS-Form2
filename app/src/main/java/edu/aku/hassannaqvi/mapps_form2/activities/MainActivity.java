@@ -21,9 +21,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import edu.aku.hassannaqvi.mapps_form2.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.mapps_form2.AppMain;
-import edu.aku.hassannaqvi.mapps_form2.otherclasses.FormsList;
 import edu.aku.hassannaqvi.mapps_form2.R;
-import edu.aku.hassannaqvi.mapps_form2.syncclasses.SyncEligibles;
+import edu.aku.hassannaqvi.mapps_form2.getclasses.GetEligibles;
+import edu.aku.hassannaqvi.mapps_form2.otherclasses.FormsList;
 import edu.aku.hassannaqvi.mapps_form2.syncclasses.SyncForms;
 import edu.aku.hassannaqvi.mapps_form2.syncclasses.SyncParticipants;
 
@@ -184,8 +184,8 @@ public class MainActivity extends Activity {
         if (networkInfo != null && networkInfo.isConnected()) {
 
             // Sync Randomization
-            Toast.makeText(getApplicationContext(), "Syncing Eligibleomization", Toast.LENGTH_SHORT).show();
-            new SyncEligibles(this).execute();
+            Toast.makeText(getApplicationContext(), "Getting Eligibleomization", Toast.LENGTH_SHORT).show();
+            new GetEligibles(this).execute();
 
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
