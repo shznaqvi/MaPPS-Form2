@@ -60,7 +60,7 @@ public class SyncParticipants extends AsyncTask<Void, Void, String> {
 
         String line = "No Response";
         try {
-            String url = AppMain._HOST_URL + "/" + ParticipantColumns._URL;
+            String url = AppMain._HOST_URL + ParticipantColumns._URL;
             Log.d(TAG, "doInBackground: URL " + url);
             return downloadUrl(url);
         } catch (IOException e) {

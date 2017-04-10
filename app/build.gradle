@@ -19,6 +19,7 @@ android {
             applicationId "edu.aku.hassannaqvi.mapps_form2"
             minSdkVersion 22
             targetSdkVersion 22
+
             versionCode code
             versionName "1.2b"
             testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

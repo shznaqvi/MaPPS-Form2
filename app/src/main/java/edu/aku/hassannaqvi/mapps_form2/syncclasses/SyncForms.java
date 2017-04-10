@@ -60,7 +60,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
 
         String line = "No Response";
         try {
-            String url = AppMain._HOST_URL + "/" + FormColumns._URL;
+            String url = AppMain._HOST_URL + FormColumns._URL;
             Log.d(TAG, "doInBackground: URL " + url);
             return downloadUrl(url);
         } catch (IOException e) {
@@ -104,7 +104,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
         // web page content.
         //int len = 500;
         DatabaseHelper db = new DatabaseHelper(mContext);
-        Collection<FormsContract> forms = db.getUnsyncedForms();
+        Collection<FormsContract> forms = db.getAllForms();
         Log.d(TAG, String.valueOf(forms.size()));
         if (forms.size() > 0) {
             try {
