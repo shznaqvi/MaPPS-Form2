@@ -18,9 +18,15 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import edu.aku.hassannaqvi.mapps_form2.EligiblesContract.singleWoman;
-import edu.aku.hassannaqvi.mapps_form2.FormsContract.FormColumns;
-import edu.aku.hassannaqvi.mapps_form2.ParticipantsContract.ParticipantColumns;
+import edu.aku.hassannaqvi.mapps_form2.contracts.ClustersContract;
+import edu.aku.hassannaqvi.mapps_form2.contracts.EligiblesContract;
+import edu.aku.hassannaqvi.mapps_form2.contracts.EligiblesContract.singleWoman;
+import edu.aku.hassannaqvi.mapps_form2.contracts.FormsContract;
+import edu.aku.hassannaqvi.mapps_form2.contracts.FormsContract.FormColumns;
+import edu.aku.hassannaqvi.mapps_form2.contracts.LHWsContract;
+import edu.aku.hassannaqvi.mapps_form2.contracts.ParticipantsContract;
+import edu.aku.hassannaqvi.mapps_form2.contracts.ParticipantsContract.ParticipantColumns;
+import edu.aku.hassannaqvi.mapps_form2.contracts.UsersContract;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
