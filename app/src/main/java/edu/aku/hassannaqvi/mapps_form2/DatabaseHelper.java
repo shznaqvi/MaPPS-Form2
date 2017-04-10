@@ -942,6 +942,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormColumns.COLUMN_VILLAGEACODE,
                 FormColumns.COLUMN_HOUSEHOLD,
                 FormColumns.COLUMN_ISTATUS,
+                FormColumns.COLUMN_LHWCODE,
                 FormColumns.COLUMN_SA,
                 FormColumns.COLUMN_SBA,
                 FormColumns.COLUMN_SBB,
