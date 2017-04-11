@@ -61,8 +61,8 @@ public class SectionDActivity extends Activity {
     Spinner mp02d005id1;
     @BindView(R.id.mp02d006)
     EditText mp02d006;
-    @BindView(R.id.mp02d006id1)
-    Spinner mp02d006id1;
+    @BindView(R.id.mp02d006id2)
+    Spinner mp02d006id2;
     //    @BindView(R.id.mp02d007)
 //    RadioGroup mp02d007;
 //    @BindView(R.id.mp02d00701)
@@ -154,7 +154,7 @@ public class SectionDActivity extends Activity {
         mp02d002id2.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
         mp02d004id3.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
         mp02d005id1.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
-        mp02d006id1.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
+        mp02d006id2.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
         mp02d008id3.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
         mp02d009id1.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
         mp02d010id2.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Arrays.asList(AppMain.loginMem)));
@@ -468,24 +468,24 @@ public class SectionDActivity extends Activity {
             }
         }
 
-        TextView mp02d006id1_txt = (TextView) mp02d006id1.getSelectedView();
-        if (mp02d006id1.getSelectedItemPosition() == 0) {
+        TextView mp02d006id2_txt = (TextView) mp02d006id2.getSelectedView();
+        if (mp02d006id2.getSelectedItemPosition() == 0) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02d006), Toast.LENGTH_SHORT).show();
-            mp02d006id1_txt.setError("This data is Required!");
-            mp02d006id1_txt.setText("This data is Required!");
+            mp02d006id2_txt.setError("This data is Required!");
+            mp02d006id2_txt.setText("This data is Required!");
             Log.i(TAG, "mp02d006id1: This data is Required!");
             return false;
         } else {
-            mp02d006id1_txt.setError(null);
+            mp02d006id2_txt.setError(null);
         }
-        if (mp02d005id1.getSelectedItem().toString().contains(mp02d006id1.getSelectedItem().toString())) {
+        if (mp02d005id1.getSelectedItem().toString().contains(mp02d006id2.getSelectedItem().toString())) {
             Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02d005), Toast.LENGTH_SHORT).show();
-            mp02d006id1_txt.setError("Users Same");
+            mp02d006id2_txt.setError("Users Same");
             mp02d005id1_txt.setError("Users Same");
             Log.i(TAG, "mp02d005id1: Users Same");
             return false;
         } else {
-            mp02d006id1_txt.setError(null);
+            mp02d006id2_txt.setError(null);
             mp02d005id1_txt.setError(null);
         }
 
@@ -508,7 +508,7 @@ public class SectionDActivity extends Activity {
                 mp02d006.setEnabled(false);
 
                 mp02d005id1.setEnabled(false);
-                mp02d006id1.setEnabled(false);
+                mp02d006id2.setEnabled(false);
 
                 Toast.makeText(this, "ERROR(invalid): Difference in Measurement", Toast.LENGTH_SHORT).show();
                 Log.i(TAG, "mp02d005 & mp02d006: Difference in Measurement");
@@ -764,7 +764,7 @@ public class SectionDActivity extends Activity {
         sD.put("mp02d005id1", mp02d005id1.getSelectedItem().toString());
 
         sD.put("mp02d006", mp02d006.getText().toString());
-        sD.put("mp02d006id1", mp02d006id1.getSelectedItem().toString());
+        sD.put("mp02d006id2", mp02d006id2.getSelectedItem().toString());
 
         sD.put("mp02d007", flag_q8 ? "1" : "2");
 
@@ -775,7 +775,7 @@ public class SectionDActivity extends Activity {
         sD.put("mp02d009id1", mp02d009id1.getSelectedItem().toString());
 
         sD.put("mp02d010", mp02d010.getText().toString());
-        sD.put("mp02d010id1", mp02d010id2.getSelectedItem().toString());
+        sD.put("mp02d010id2", mp02d010id2.getSelectedItem().toString());
 
         sD.put("mp02d011", flag_q12 ? "1" : "2");
 

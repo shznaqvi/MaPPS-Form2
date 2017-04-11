@@ -107,6 +107,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             singleWoman.COLUMN_NAME_SUBAREACODE + " TEXT," +
             singleWoman.COLUMN_NAME_LHWCODE + " TEXT," +
             singleWoman.COLUMN_NAME_HOUSEHOLD + " TEXT," +
+            singleWoman.COLUMN_SYNCED + " TEXT,"
+            + singleWoman.COLUMN_SYNCED_DATE + " TEXT," +
             singleWoman.COLUMN_NAME_WOMEN_NAME + " TEXT" +
             " );";
     private static final String SQL_CREATE_LHWS = "CREATE TABLE "
@@ -405,6 +407,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(FormColumns.COLUMN_SYNCED, true);
         values.put(FormColumns.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = FormColumns._ID + " LIKE ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                FormColumns.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+    public void updateEligibles(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(singleWoman.COLUMN_SYNCED, true);
+        values.put(singleWoman.COLUMN_SYNCED_DATE, new Date().toString());
 
 // Which row to update, based on the title
         String where = FormColumns._ID + " LIKE ?";
@@ -927,6 +948,98 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allEC;
     }
 
+    public Collection<EligiblesContract> getAllEligibles() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                singleWoman._ID,
+                singleWoman.COLUMN_NAME_LUID,
+                singleWoman.COLUMN_NAME_SUBAREACODE,
+                singleWoman.COLUMN_NAME_LHWCODE,
+                singleWoman.COLUMN_NAME_HOUSEHOLD,
+                singleWoman.COLUMN_NAME_WOMEN_NAME
+        };
+
+        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                singleWoman._ID + " ASC";
+
+        Collection<EligiblesContract> allEC = new ArrayList<>();
+        try {
+            c = db.query(
+                    singleWoman.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                EligiblesContract ec = new EligiblesContract();
+                allEC.add(ec.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allEC;
+    }
+
+    public Collection<EligiblesContract> getUnsyncedEligibles() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                singleWoman._ID,
+                singleWoman.COLUMN_NAME_LUID,
+                singleWoman.COLUMN_NAME_SUBAREACODE,
+                singleWoman.COLUMN_NAME_LHWCODE,
+                singleWoman.COLUMN_NAME_HOUSEHOLD,
+                singleWoman.COLUMN_NAME_WOMEN_NAME
+        };
+
+        String whereClause = singleWoman.COLUMN_SYNCED + " is null OR " + singleWoman.COLUMN_SYNCED + " = ''";
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                singleWoman._ID + " ASC";
+
+        Collection<EligiblesContract> allEC = new ArrayList<>();
+        try {
+            c = db.query(
+                    singleWoman.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                EligiblesContract ec = new EligiblesContract();
+                allEC.add(ec.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allEC;
+    }
+
     public Collection<FormsContract> getAllForms() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
@@ -941,6 +1054,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormColumns.COLUMN_CLUSTERCODE,
                 FormColumns.COLUMN_VILLAGEACODE,
                 FormColumns.COLUMN_HOUSEHOLD,
+                FormColumns.COLUMN_LHWCODE,
                 FormColumns.COLUMN_ISTATUS,
                 FormColumns.COLUMN_LHWCODE,
                 FormColumns.COLUMN_SA,

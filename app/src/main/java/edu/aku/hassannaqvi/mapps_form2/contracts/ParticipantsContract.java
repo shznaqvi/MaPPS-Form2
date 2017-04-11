@@ -390,7 +390,7 @@ public class ParticipantsContract {
     public static abstract class ParticipantColumns implements BaseColumns {
 
         public static final String TABLE_NAME = "participants";
-        public static final String _URL = "participants";
+        public static final String _URL = "participants.php";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
 
         public static final String COLUMN_PROJECTNAME = "projectname";

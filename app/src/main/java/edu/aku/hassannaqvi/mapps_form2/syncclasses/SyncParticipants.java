@@ -29,7 +29,7 @@ import edu.aku.hassannaqvi.mapps_form2.contracts.ParticipantsContract.Participan
  */
 public class SyncParticipants extends AsyncTask<Void, Void, String> {
 
-    private static final String TAG = "SyncForms";
+    private static final String TAG = "SyncParticipants";
     private Context mContext;
     private ProgressDialog pd;
 

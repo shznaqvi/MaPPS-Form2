@@ -112,6 +112,9 @@ public class EligiblesContract {
         public static final String COLUMN_NAME_HOUSEHOLD = "hhno";
         public static final String COLUMN_NAME_WOMEN_NAME = "epname";
 
+        public static final String COLUMN_SYNCED = "synced";
+        public static final String COLUMN_SYNCED_DATE = "synced_date";
+        public static final String _URIGET = "geteligibles.php";
     }
 
 }

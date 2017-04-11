@@ -14,7 +14,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -22,6 +21,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 import edu.aku.hassannaqvi.mapps_form2.AppMain;
@@ -31,9 +31,9 @@ import edu.aku.hassannaqvi.mapps_form2.contracts.EligiblesContract;
 /**
  * Created by hassan.naqvi on 7/26/2016.
  */
-public class GetEligibles extends AsyncTask<String, Void, String> {
+public class GetEligibles extends AsyncTask<Void, Void, String> {
 
-    private static final String TAG = "SyncEligibles";
+    private static final String TAG = "GetEligibles";
     private Context mContext;
     private ProgressDialog pd;
 
@@ -60,11 +60,11 @@ public class GetEligibles extends AsyncTask<String, Void, String> {
 
 
     @Override
-    protected String doInBackground(String... urls) {
+    protected String doInBackground(Void... params) {
 
         String line = "No Response";
         try {
-            return downloadUrl(AppMain._HOST_URL + EligiblesContract.singleWoman._URI);
+            return downloadUrl(AppMain._HOST_URL + EligiblesContract.singleWoman._URIGET);
         } catch (IOException e) {
             return "Unable to upload data. Server may be down.";
         }
@@ -98,6 +98,8 @@ public class GetEligibles extends AsyncTask<String, Void, String> {
     }
 
     private String downloadUrl(String myurl) throws IOException {
+        String line = "No Response";
+
         InputStream is = null;
         // Only display the first 500 characters of the retrieved
         // web page content.
@@ -142,30 +144,32 @@ public class GetEligibles extends AsyncTask<String, Void, String> {
             wr.flush();
             wr.close();
 
-            InputStream in = new BufferedInputStream(conn.getInputStream());
-            /*String contentAsString = readIt(in, len);
-            return contentAsString;*/
+            int HttpResult = conn.getResponseCode();
+            if (HttpResult == HttpURLConnection.HTTP_OK) {
+                BufferedReader br = new BufferedReader(new InputStreamReader(
+                        conn.getInputStream(), "utf-8"));
+                StringBuffer sb = new StringBuffer();
 
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            result = new StringBuilder();
+                while ((line = br.readLine()) != null) {
+                    sb.append(line + "\n");
+                }
+                br.close();
 
-            String line;
-            while ((line = reader.readLine()) != null) {
-                Log.i(TAG, "Eligible In: " + line);
-                result.append(line);
-                // Makes sure that the InputStream is closed after the app is
-                // finished using it.
+                System.out.println("" + sb.toString());
+                return sb.toString();
+            } else {
+                System.out.println(conn.getResponseMessage());
+                return conn.getResponseMessage();
             }
-        } catch (Exception e) {
+        } catch (MalformedURLException e) {
+
             e.printStackTrace();
+        } catch (IOException e) {
 
-
-        } finally {
-            conn.disconnect();
+            e.printStackTrace();
         }
 
-
-        return result.toString();
+        return line;
     }
 
     public String readIt(InputStream stream, int len) throws IOException {
