@@ -70,6 +70,8 @@ public class EndingActivity extends Activity {
             if (UpdateDB()) {
                 AppMain.endFlag = false;
 
+                AppMain.partiFlag = 0;
+
                 finish();
                 Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
                 Intent endSec = new Intent(this, MainActivity.class);

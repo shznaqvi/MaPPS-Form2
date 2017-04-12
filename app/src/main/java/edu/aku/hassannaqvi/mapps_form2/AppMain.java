@@ -25,8 +25,8 @@ import edu.aku.hassannaqvi.mapps_form2.otherclasses.EligibleParticipants;
 
 public class AppMain extends Application {
 
-    //public static final String _IP = "43.245.131.159"; // Test PHP server
-    public static final String _IP = "10.1.79.42"; // Matiyari server
+    public static final String _IP = "43.245.131.159"; // Test PHP server
+//    public static final String _IP = "10.1.79.42"; // Matiyari server
     public static final Integer _PORT = 8080; // Port - with colon (:)
 
     public static final String _PROJECT_FOLDER = "mapps/form2/api/";
@@ -73,6 +73,7 @@ public class AppMain extends Application {
     public static int versionCode;
     public static String versionName;
     public static boolean endFlag = false;
+    public static int partiFlag = 0;
     protected LocationManager locationManager;
     //    Login Members Array
     Location location;

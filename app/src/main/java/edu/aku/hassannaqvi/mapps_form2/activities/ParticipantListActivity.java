@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -68,10 +69,16 @@ public class ParticipantListActivity extends Activity {
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
         //TODO implement
-        finish();
-        Intent endSec = new Intent(this, EndingActivity.class);
-        endSec.putExtra("complete", false);
-        startActivity(endSec);
+
+        if (AppMain.Eparticipant.size() == AppMain.partiFlag) {
+            finish();
+            Intent endSec = new Intent(this, EndingActivity.class);
+            endSec.putExtra("complete", false);
+            startActivity(endSec);
+        }else {
+            Toast.makeText(getApplicationContext(),"Fill all Participants",Toast.LENGTH_LONG).show();
+        }
+
     }
 
     public class listAdapter extends ArrayAdapter{
