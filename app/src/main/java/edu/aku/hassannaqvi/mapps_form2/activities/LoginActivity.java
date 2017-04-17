@@ -482,7 +482,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                     AppMain.admin = mEmail1.contains("@");
 
                     if ((mEmail2.equals("dmu@aku") && mPassword2.equals("aku?dmu")) || db.Login(mEmail2, mPassword2) ||
-                            (mEmail2.equals("test1234") && mPassword2.equals("test1234")) || (mEmail1.equals("test12345") && mPassword1.equals("test12345"))) {
+                            (mEmail2.equals("test1234") && mPassword2.equals("test1234")) || (mEmail2.equals("test12345") && mPassword2.equals("test12345"))) {
                         AppMain.userName = mEmail2;
                         AppMain.admin = mEmail2.contains("@");
 
