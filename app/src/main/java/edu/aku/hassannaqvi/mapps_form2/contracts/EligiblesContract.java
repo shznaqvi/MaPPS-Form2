@@ -34,6 +34,9 @@ public class EligiblesContract {
 
     public EligiblesContract Hydrate(Cursor cursor) {
         this.LUID = cursor.getString(cursor.getColumnIndex(singleWoman.COLUMN_NAME_LUID));
+        this.subAreaCode = cursor.getString(cursor.getColumnIndex(singleWoman.COLUMN_NAME_SUBAREACODE));
+        this.lhwCode = cursor.getString(cursor.getColumnIndex(singleWoman.COLUMN_NAME_LHWCODE));
+        this.houseHold = cursor.getString(cursor.getColumnIndex(singleWoman.COLUMN_NAME_HOUSEHOLD));
         this.women_name = cursor.getString(cursor.getColumnIndex(singleWoman.COLUMN_NAME_WOMEN_NAME));
         return this;
     }
