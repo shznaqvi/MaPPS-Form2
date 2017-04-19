@@ -909,7 +909,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor c = null;
         String[] columns = {
                 singleWoman.COLUMN_NAME_LUID,
-                singleWoman.COLUMN_NAME_WOMEN_NAME
+                singleWoman.COLUMN_NAME_WOMEN_NAME,
+                singleWoman.COLUMN_NAME_SUBAREACODE,
+                singleWoman.COLUMN_NAME_LHWCODE,
+                singleWoman.COLUMN_NAME_HOUSEHOLD
         };
 
         String whereClause = singleWoman.COLUMN_NAME_SUBAREACODE + " = ? AND " +
