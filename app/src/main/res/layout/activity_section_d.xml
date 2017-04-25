@@ -4,7 +4,7 @@
     android:id="@+id/activity_section_d"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.aku.hassannaqvi.mapps_form2.SectionDActivity">
+    tools:context="edu.aku.hassannaqvi.mapps_form2.activities.SectionDActivity">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/scrollView01"
@@ -190,7 +190,7 @@
                 android:maxLength="5" />
 
             <Spinner
-                android:id="@+id/mp02d006id1"
+                android:id="@+id/mp02d006id2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mp02dsubM2" />

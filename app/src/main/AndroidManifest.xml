@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.aku.hassannaqvi.mapps_form2">
 
+    <uses-sdk
+        android:maxSdkVersion="22"
+        android:minSdkVersion="22"
+        android:targetSdkVersion="22" />
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <!-- Needed only if your app targets Android 5.0 (API level 21) or higher. -->
     <uses-feature android:name="android.hardware.location.gps" />
@@ -15,80 +20,104 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
+        android:name=".AppMain"
         android:allowBackup="true"
         android:icon="@drawable/mapps2_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashscreenActivity">
+        <activity android:name=".activities.SplashscreenActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity android:name=".LoginActivity"
-            android:windowSoftInputMode="adjustResize|stateHidden"/>
-        <activity android:name=".MainActivity"
+        <activity android:name=".activities.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name=".activities.MainActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".SectionAActivity"
+            android:name=".activities.SectionAActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".SectionBBActivity"
+            android:name=".activities.SectionBBActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".SectionBAActivity"
+            android:name=".activities.SectionBAActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".SectionCActivity"
+            android:name=".activities.SectionCActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".SectionCAActivity"
+            android:name=".activities.SectionCAActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".SectionCBActivity"
+            android:name=".activities.SectionCBActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".SectionCCActivity"
+            android:name=".activities.SectionCCActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".SectionCDActivity"
+            android:name=".activities.SectionCDActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".SectionCEActivity"
+            android:name=".activities.SectionCEActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".SectionCFActivity"
+            android:name=".activities.SectionCFActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".SectionCGActivity"
+            android:name=".activities.SectionCGActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".SectionCHAActivity"
+            android:name=".activities.SectionCHAActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".SectionCHBActivity"
+            android:name=".activities.SectionCHBActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".SectionCHCActivity"
+            android:name=".activities.SectionCHCActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".SectionDActivity"
+            android:name=".activities.SectionDActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".SectionEActivity"
+            android:name=".activities.SectionEActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        <activity android:name=".EndingActivity"
-            android:windowSoftInputMode="adjustResize|stateHidden"/>
-        <activity android:name=".FormsList"
-            android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name=".activities.EndingActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name=".otherclasses.FormsList"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".AndroidDatabaseManager"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ParticipantListActivity"
-            android:label="@string/title_activity_participant_list"></activity>
+            android:name=".activities.ParticipantListActivity"
+            android:label="@string/title_activity_participant_list"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

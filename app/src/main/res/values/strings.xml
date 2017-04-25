@@ -29,8 +29,6 @@
     <string name="seccf"> ويم جي دوران صحت جي جانچ </string>
     <string name="seccg"> اضافي خوراڪ جو پرکڻ </string>
 
-    <string name="mp02ch"> ذهني صحت </string>
-
     <!-- Strings that are fixed for all apps -->
     <string name="title_activity_splashscreen">SplashscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
@@ -270,6 +268,7 @@
     <string name="mp02c00204"> ٻندورن کان پوء به ڪير به موجوده نه هو </string>
     <string name="mp02c00205"> لڏي وئي </string>
     <string name="mp02c00206"> پڙهائي يا ٻئي سبب جي ڪري شهر يا ڳوٺ کان ٻاهر رهڻ </string>
+    <string name="mp02c00207"> عورت اڄ گهر ۾ موجود نه آهي </string>
     <string name="mp02ca001"> ڇا زباني رضامندي ورتي وئي آهي ؟ </string>
     <string name="mp02ca002"> ڇا رضامندي لکت ۾ ورتي وئي آهي ؟ </string>
     <string name="mp02cb001"> ڪهڙي مهيني ۽ سال ۾ توهان جي پيدائش ٿي هئي؟ </string>
@@ -611,6 +610,8 @@
     <string name="mp02cg01603"> ڪمزوري جي ڪري </string>
     <string name="mp02cg01604"> گھر جي ڀاتي يا دوست جي تجويز تي </string>
 
+    <string name="mp02ch"> ذهني صحت </string>
+    <string name="mp02chsub"> وڏي آوز ۾ پڙهو ؛ بس هي آخري سوال آهن جنهن ۾ توهان کان پڇيو ويندو توهان مختلف شين جي باري ۾ ڇا ٿا محسوس ڪريو </string>
     <string name="mp02cha"> ذهني دٻاءُ جو درجو </string>
     <string name="mp02chasub"> هيٺ ڌنل بيانن کي توهان ڪيئن محسوس ڪريو ٿا؟ </string>
     <string name="mp02chasubnever"> ڪڏهن به نه </string>
@@ -709,7 +710,7 @@
     <string name="mp02chc01107"> ٻيو ڪو مائيٽ </string>
     <string name="mp02chc01108"> سس </string>
     <string name="mp02chc01109"> سهرو </string>
-    <string name="mp02chc01110"> Other in law </string>
+    <string name="mp02chc01110"> بيا ساهرا </string>
     <string name="mp02chc01111"> استاد </string>
     <string name="mp02chc01112"> مالڪ يا ٻيو ڪو </string>
     <string name="mp02chc01113"> پوليس يا سپاهي </string>

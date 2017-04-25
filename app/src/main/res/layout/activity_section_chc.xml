@@ -4,7 +4,7 @@
     android:id="@+id/activity_section_chc"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.aku.hassannaqvi.mapps_form2.SectionCHCActivity">
+    tools:context="edu.aku.hassannaqvi.mapps_form2.activities.SectionCHCActivity">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/scrollView01"
@@ -537,6 +537,7 @@
 
                 <EditText
                     android:id="@+id/mp02chc01188x"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/other"

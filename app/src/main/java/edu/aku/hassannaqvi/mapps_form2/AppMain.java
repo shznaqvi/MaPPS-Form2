@@ -8,10 +8,16 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Map;
+
+import edu.aku.hassannaqvi.mapps_form2.contracts.FormsContract;
+import edu.aku.hassannaqvi.mapps_form2.contracts.ParticipantsContract;
+import edu.aku.hassannaqvi.mapps_form2.otherclasses.EligibleParticipants;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
@@ -20,6 +26,7 @@ import java.util.ArrayList;
 public class AppMain extends Application {
 
     public static final String _IP = "43.245.131.159"; // Test PHP server
+//    public static final String _IP = "10.1.79.42"; // Matiyari server
     public static final Integer _PORT = 8080; // Port - with colon (:)
 
     public static final String _PROJECT_FOLDER = "mapps/form2/api/";
@@ -47,9 +54,9 @@ public class AppMain extends Application {
     public static final long MILLISECONDS_IN_DAY = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY;
     private static final long DAYS_IN_YEAR = 365;
     public static final long MILLISECONDS_IN_YEAR = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_YEAR;
+    private static final String TAG = AppMain.class.getSimpleName();
     public static int NoMembers = 7;
     public static String deviceId;
-
     public static Boolean admin = false;
     public static String interviewerCode;
     public static String child_name = "TEST";
@@ -58,18 +65,23 @@ public class AppMain extends Application {
     public static String userName = "0000";
     public static String areaCode;
     public static String curCluster;
-//    For participant
+    //    For participant
     public static ArrayList<EligibleParticipants> Eparticipant;
     public static String currentParticipantName = "";
     public static String[] loginMem;
+    public static long installedOn;
+    public static int versionCode;
+    public static String versionName;
+    public static boolean endFlag = false;
+    public static int partiFlag = 0;
     protected LocationManager locationManager;
-
-//    Login Members Array
-Location location;
+    //    Login Members Array
+    Location location;
 
     @Override
     public void onCreate() {
         super.onCreate();
+
         TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/JameelNooriNastaleeq.ttf"); // font from assets: "assets/fonts/Roboto-Regular.ttf
 
         deviceId = Settings.Secure.getString(getApplicationContext().getContentResolver(),
@@ -112,7 +124,6 @@ Location location;
     protected boolean isBetterLocation(Location location, Location currentBestLocation) {
         if (currentBestLocation == null) {
             // A new location is always better than no location
-            Toast.makeText(this, "New Location", Toast.LENGTH_SHORT).show();
             return true;
         }
 
@@ -125,11 +136,9 @@ Location location;
         // If it's been more than two minutes since the current location, use the new location
         // because the user has likely moved
         if (isSignificantlyNewer) {
-            Toast.makeText(this, "Significantly New Location", Toast.LENGTH_SHORT).show();
             return true;
             // If the new location is more than two minutes older, it must be worse
         } else if (isSignificantlyOlder) {
-            Toast.makeText(this, "Significantly Older Location", Toast.LENGTH_SHORT).show();
             return false;
         }
 
@@ -145,13 +154,10 @@ Location location;
 
         // Determine location quality using a combination of timeliness and accuracy
         if (isMoreAccurate) {
-            Toast.makeText(this, "More Accurate Location", Toast.LENGTH_SHORT).show();
             return true;
         } else if (isNewer && !isLessAccurate) {
-            Toast.makeText(this, "Newer Less Accurate Location", Toast.LENGTH_SHORT).show();
             return true;
         } else if (isNewer && !isSignificantlyLessAccurate && isFromSameProvider) {
-            Toast.makeText(this, "Newer Significantly Less Accurate Location", Toast.LENGTH_SHORT).show();
             return true;
         }
         return false;
@@ -174,22 +180,38 @@ Location location;
             SharedPreferences sharedPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
 
-            Location savedlocation = new Location("sharedPref");
+            String dt = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(sharedPref.getString("Time", "0"))).toString();
 
-            savedlocation.setLongitude(Double.parseDouble(sharedPref.getString("Longitude", "00")));
-            savedlocation.setLatitude(Double.parseDouble(sharedPref.getString("Latitude", "00")));
-            savedlocation.setAccuracy(Float.parseFloat(sharedPref.getString("Accuracy", "00")));
-            savedlocation.setTime(Long.parseLong(sharedPref.getString("Time", "00")));
+                Location bestLocation = new Location("storedProvider");
+                bestLocation.setAccuracy(Float.parseFloat(sharedPref.getString("Accuracy", "0")));
+                bestLocation.setTime(Long.parseLong(sharedPref.getString(dt, "0")));
+//                bestLocation.setTime(Long.parseLong(dt));
+                bestLocation.setLatitude(Float.parseFloat(sharedPref.getString("Latitude", "0")));
+                bestLocation.setLongitude(Float.parseFloat(sharedPref.getString("Longitude", "0")));
+
+                if (isBetterLocation(location, bestLocation)) {
+                    editor.putString("Longitude", String.valueOf(location.getLongitude()));
+                    editor.putString("Latitude", String.valueOf(location.getLatitude()));
+                    editor.putString("Accuracy", String.valueOf(location.getAccuracy()));
+                    editor.putString("Time", String.valueOf(location.getTime()));
+//                    editor.putString("Time", DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(String.valueOf(location.getTime()))).toString());
+
+//                String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(String.valueOf(location.getTime()))).toString();
+//                Toast.makeText(getApplicationContext(),
+//                        "GPS Commit! LAT: " + String.valueOf(location.getLongitude()) +
+//                                " LNG: " + String.valueOf(location.getLatitude()) +
+//                                " Accuracy: " + String.valueOf(location.getAccuracy()) +
+//                                " Time: " + date,
+//                        Toast.LENGTH_SHORT).show();
+
+                    editor.apply();
+                }
 
 
-            if (isBetterLocation(location, savedlocation)) {
-                editor.putString("Longitude", String.valueOf(location.getLongitude()));
-                editor.putString("Latitude", String.valueOf(location.getLatitude()));
-                editor.putString("Accuracy", String.valueOf(location.getAccuracy()));
-                editor.putString("Time", String.valueOf(location.getTime()));
-
-                editor.apply();
-            }
+                Map<String, ?> allEntries = sharedPref.getAll();
+                for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
+                    Log.d("Map", entry.getKey() + ": " + entry.getValue().toString());
+                }
         }
 
         public void onStatusChanged(String s, int i, Bundle b) {

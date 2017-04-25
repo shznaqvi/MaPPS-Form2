@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '25.0.0'
+    buildToolsVersion '25.0.2'
     def versionPropsFile = file('version.properties')
 
     if (versionPropsFile.canRead()) {
@@ -19,8 +19,9 @@ android {
             applicationId "edu.aku.hassannaqvi.mapps_form2"
             minSdkVersion 22
             targetSdkVersion 22
+
             versionCode code
-            versionName "1.1"
+            versionName "1.2b"
             testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         }
     } else {
@@ -32,8 +33,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    productFlavors {
-    }
 }
 
 dependencies {
@@ -44,7 +43,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
-
-    compile 'com.android.support:recyclerview-v7:25.1.0'
-    compile 'com.android.support:recyclerview-v7:25.0.0'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
 }
