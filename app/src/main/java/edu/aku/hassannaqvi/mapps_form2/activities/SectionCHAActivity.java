@@ -198,7 +198,7 @@ public class SectionCHAActivity extends Activity {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
-                Intent secchb = new Intent(this, SectionCHBActivity.class);
+                Intent secchb = new Intent(this, SectionCIBActivity.class);
                 startActivity(secchb);
 
             } else {

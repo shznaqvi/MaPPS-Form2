@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.util.Log;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -289,6 +290,12 @@ public class SectionCCActivity extends Activity {
     RadioButton mp02cc02202;
     @BindView(R.id.mp02cc02203)
     RadioButton mp02cc02203;
+    @BindView(R.id.mp02cc02204)
+    RadioButton mp02cc02204;
+    @BindView(R.id.mp02cc02205)
+    RadioButton mp02cc02205;
+    @BindView(R.id.fldGrpmp02cc023)
+    LinearLayout fldGrpmp02cc023;
     @BindView(R.id.mp02cc023)
     RadioGroup mp02cc023;
     @BindView(R.id.mp02cc02301)
@@ -335,8 +342,104 @@ public class SectionCCActivity extends Activity {
     RadioButton mp02cc02604;
     @BindView(R.id.mp02cc02605)
     RadioButton mp02cc02605;
-    @BindView(R.id.fldGrpmp02cc023)
-    LinearLayout fldGrpmp02cc023;
+    @BindView(R.id.mp02cc027)
+    RadioGroup mp02cc027;
+    @BindView(R.id.mp02cc02701)
+    RadioButton mp02cc02701;
+    @BindView(R.id.mp02cc02702)
+    RadioButton mp02cc02702;
+    @BindView(R.id.mp02cc02703)
+    RadioButton mp02cc02703;
+    @BindView(R.id.mp02cc02704)
+    RadioButton mp02cc02704;
+    @BindView(R.id.mp02cc028)
+    RadioGroup mp02cc028;
+    @BindView(R.id.mp02cc02801)
+    RadioButton mp02cc02801;
+    @BindView(R.id.mp02cc02802)
+    RadioButton mp02cc02802;
+    @BindView(R.id.mp02cc02803)
+    RadioButton mp02cc02803;
+    @BindView(R.id.mp02cc029)
+    RadioGroup mp02cc029;
+    @BindView(R.id.mp02cc02901)
+    RadioButton mp02cc02901;
+    @BindView(R.id.mp02cc02902)
+    RadioButton mp02cc02902;
+    @BindView(R.id.mp02cc02903)
+    RadioButton mp02cc02903;
+    @BindView(R.id.mp02cc02904)
+    RadioButton mp02cc02904;
+    @BindView(R.id.mp02cc02905)
+    RadioButton mp02cc02905;
+    @BindView(R.id.mp02cc02906)
+    RadioButton mp02cc02906;
+    @BindView(R.id.mp02cc02907)
+    RadioButton mp02cc02907;
+    @BindView(R.id.mp02cc02908)
+    RadioButton mp02cc02908;
+    @BindView(R.id.mp02cc02988)
+    RadioButton mp02cc02988;
+    @BindView(R.id.mp02cc02988x)
+    EditText mp02cc02988x;
+    @BindView(R.id.mp02cc030)
+    RadioGroup mp02cc030;
+    @BindView(R.id.mp02cc03001)
+    RadioButton mp02cc03001;
+    @BindView(R.id.mp02cc03002)
+    RadioButton mp02cc03002;
+    @BindView(R.id.mp02cc03003)
+    RadioButton mp02cc03003;
+    @BindView(R.id.mp02cc03004)
+    RadioButton mp02cc03004;
+    @BindView(R.id.mp02cc03005)
+    RadioButton mp02cc03005;
+    @BindView(R.id.mp02cc03006)
+    RadioButton mp02cc03006;
+    @BindView(R.id.mp02cc03007)
+    RadioButton mp02cc03007;
+    @BindView(R.id.mp02cc03088)
+    RadioButton mp02cc03088;
+    @BindView(R.id.mp02cc03088x)
+    EditText mp02cc03088x;
+    @BindView(R.id.mp02cc031)
+    RadioGroup mp02cc031;
+    @BindView(R.id.mp02cc03101)
+    RadioButton mp02cc03101;
+    @BindView(R.id.mp02cc03102)
+    RadioButton mp02cc03102;
+    @BindView(R.id.mp02cc03103)
+    RadioButton mp02cc03103;
+    @BindView(R.id.mp02cc03104)
+    RadioButton mp02cc03104;
+    @BindView(R.id.mp02cc03105)
+    RadioButton mp02cc03105;
+    @BindView(R.id.mp02cc03106)
+    RadioButton mp02cc03106;
+    @BindView(R.id.mp02cc03188)
+    RadioButton mp02cc03188;
+    @BindView(R.id.mp02cc03188x)
+    EditText mp02cc03188x;
+    @BindView(R.id.mp02cc032)
+    RadioGroup mp02cc032;
+    @BindView(R.id.mp02cc03201)
+    RadioButton mp02cc03201;
+    @BindView(R.id.mp02cc03202)
+    RadioButton mp02cc03202;
+    @BindView(R.id.mp02cc03203)
+    RadioButton mp02cc03203;
+    @BindView(R.id.mp02cc03204)
+    RadioButton mp02cc03204;
+    @BindView(R.id.mp02cc03205)
+    RadioButton mp02cc03205;
+    @BindView(R.id.mp02cc03206)
+    RadioButton mp02cc03206;
+    @BindView(R.id.mp02cc03288)
+    RadioButton mp02cc03288;
+    @BindView(R.id.mp02cc03288x)
+    EditText mp02cc03288x;
+    @BindView(R.id.fldGrpmp02cc027)
+    LinearLayout fldGrpmp02cc027;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -348,15 +451,68 @@ public class SectionCCActivity extends Activity {
         mp02cc022.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                if (mp02cc02201.isChecked()) {
+                if (mp02cc02201.isChecked() || mp02cc02202.isChecked() || mp02cc02205.isChecked()) {
                     fldGrpmp02cc023.setVisibility(View.VISIBLE);
+                    fldGrpmp02cc027.setVisibility(View.GONE);
+                    mp02cc027.clearCheck();
+                    mp02cc028.clearCheck();
+                    mp02cc029.clearCheck();
+                    mp02cc02988x.setText(null);
                 } else {
                     fldGrpmp02cc023.setVisibility(View.GONE);
-
+                    fldGrpmp02cc027.setVisibility(View.VISIBLE);
                     mp02cc023.clearCheck();
                     mp02cc024.clearCheck();
                     mp02cc025.clearCheck();
                     mp02cc026.clearCheck();
+                }
+            }
+        });
+
+        mp02cc02988.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mp02cc02988x.setVisibility(View.VISIBLE);
+                } else {
+                    mp02cc02988x.setVisibility(View.GONE);
+                    mp02cc02988x.setText(null);
+                }
+            }
+        });
+
+        mp02cc03088.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mp02cc03088x.setVisibility(View.VISIBLE);
+                } else {
+                    mp02cc03088x.setVisibility(View.GONE);
+                    mp02cc03088x.setText(null);
+                }
+            }
+        });
+
+        mp02cc03188.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mp02cc03188x.setVisibility(View.VISIBLE);
+                } else {
+                    mp02cc03188x.setVisibility(View.GONE);
+                    mp02cc03188x.setText(null);
+                }
+            }
+        });
+
+        mp02cc03288.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mp02cc03288x.setVisibility(View.VISIBLE);
+                } else {
+                    mp02cc03288x.setVisibility(View.GONE);
+                    mp02cc03288x.setText(null);
                 }
             }
         });
@@ -495,7 +651,7 @@ public class SectionCCActivity extends Activity {
                 : mp02cc02104.isChecked() ? "4" : mp02cc02105.isChecked() ? "5" : "0");
 
         sCC.put("mp02cc022", mp02cc02201.isChecked() ? "1" : mp02cc02202.isChecked() ? "2" : mp02cc02203.isChecked() ? "3"
-                : "0");
+                : mp02cc02204.isChecked() ? "4" : "0");
 
         sCC.put("mp02cc023", mp02cc02301.isChecked() ? "1" : mp02cc02302.isChecked() ? "2" : mp02cc02303.isChecked() ? "3"
                 : mp02cc02304.isChecked() ? "4" : "0");
@@ -508,6 +664,33 @@ public class SectionCCActivity extends Activity {
 
         sCC.put("mp02cc026", mp02cc02601.isChecked() ? "1" : mp02cc02602.isChecked() ? "2" : mp02cc02603.isChecked() ? "3"
                 : mp02cc02604.isChecked() ? "4" : mp02cc02605.isChecked() ? "5" : "0");
+
+        sCC.put("mp02cc027", mp02cc02701.isChecked() ? "1" : mp02cc02702.isChecked() ? "2" : mp02cc02703.isChecked() ? "3"
+                : mp02cc02704.isChecked() ? "4" : "0");
+
+        sCC.put("mp02cc028", mp02cc02801.isChecked() ? "1" : mp02cc02802.isChecked() ? "2" : mp02cc02803.isChecked() ? "3"
+                : "0");
+
+        sCC.put("mp02cc029", mp02cc02901.isChecked() ? "1" : mp02cc02902.isChecked() ? "2" : mp02cc02903.isChecked() ? "3"
+                : mp02cc02904.isChecked() ? "4" : mp02cc02905.isChecked() ? "5" : mp02cc02906.isChecked() ? "6"
+                : mp02cc02907.isChecked() ? "7" : mp02cc02908.isChecked() ? "8" : mp02cc02988.isChecked() ? "88" : "0");
+        sCC.put("mp02cc02988x", mp02cc02988x.getText().toString());
+
+        sCC.put("mp02cc030", mp02cc03001.isChecked() ? "1" : mp02cc03002.isChecked() ? "2" : mp02cc03003.isChecked() ? "3"
+                : mp02cc03004.isChecked() ? "4" : mp02cc03005.isChecked() ? "5" : mp02cc03006.isChecked() ? "6"
+                : mp02cc03007.isChecked() ? "7" : mp02cc03088.isChecked() ? "88" : "0");
+        sCC.put("mp02cc03088x", mp02cc03088x.getText().toString());
+
+        sCC.put("mp02cc031", mp02cc03101.isChecked() ? "1" : mp02cc03102.isChecked() ? "2" : mp02cc03103.isChecked() ? "3"
+                : mp02cc03104.isChecked() ? "4" : mp02cc03105.isChecked() ? "5" : mp02cc03106.isChecked() ? "6"
+                : mp02cc03188.isChecked() ? "88" : "0");
+        sCC.put("mp02cc03188x", mp02cc03188x.getText().toString());
+
+        sCC.put("mp02cc032", mp02cc03201.isChecked() ? "1" : mp02cc03202.isChecked() ? "2" : mp02cc03203.isChecked() ? "3"
+                : mp02cc03204.isChecked() ? "4" : mp02cc03205.isChecked() ? "5" : mp02cc03206.isChecked() ? "6"
+                : mp02cc03288.isChecked() ? "88" : "0");
+        sCC.put("mp02cc03288x", mp02cc03288x.getText().toString());
+
 
         AppMain.pc.setsCC(String.valueOf(sCC));
 
@@ -796,7 +979,7 @@ public class SectionCCActivity extends Activity {
         }
 
 //        23
-        if (mp02cc02201.isChecked()) {
+        if (mp02cc02201.isChecked() || mp02cc02202.isChecked() || mp02cc02203.isChecked()) {
 
             //        23
             if (mp02cc023.getCheckedRadioButtonId() == -1) {
@@ -842,7 +1025,112 @@ public class SectionCCActivity extends Activity {
             } else {
                 mp02cc02603.setError(null);
             }
+        } else {
+            if (mp02cc027.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cc027), Toast.LENGTH_SHORT).show();
+                mp02cc02704.setError("This data is Required!");
+
+                Log.i(TAG, "mp02cc027: This data is Required!");
+                return false;
+            } else {
+                mp02cc02704.setError(null);
+            }
+
+            if (mp02cc028.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cc028), Toast.LENGTH_SHORT).show();
+                mp02cc02803.setError("This data is Required!");
+
+                Log.i(TAG, "mp02cc028: This data is Required!");
+                return false;
+            } else {
+                mp02cc02803.setError(null);
+            }
+
+            if (mp02cc029.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cc029), Toast.LENGTH_SHORT).show();
+                mp02cc02988.setError("This data is Required!");
+
+                Log.i(TAG, "mp02cc029: This data is Required!");
+                return false;
+            } else {
+                mp02cc02988.setError(null);
+            }
+
+            if (mp02cc02988.isChecked() && mp02cc02988x.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cc029) + " - " + getString(R.string.other), Toast.LENGTH_SHORT).show();
+                mp02cc02988x.setError("This data is Required!");
+
+                Log.i(TAG, "mp02cc02988x: This data is Required!");
+                return false;
+            } else {
+                mp02cc02988x.setError(null);
+            }
+
         }
+
+        if (mp02cc030.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cc030), Toast.LENGTH_SHORT).show();
+            mp02cc03088.setError("This data is Required!");
+
+            Log.i(TAG, "mp02cc030: This data is Required!");
+            return false;
+        } else {
+            mp02cc03088.setError(null);
+        }
+
+        if (mp02cc03088.isChecked() && mp02cc03088x.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cc030) + " - " + getString(R.string.other), Toast.LENGTH_SHORT).show();
+            mp02cc03088x.setError("This data is Required!");
+
+            Log.i(TAG, "mp02cc03088x: This data is Required!");
+            return false;
+        } else {
+            mp02cc03088x.setError(null);
+        }
+
+        if (mp02cc031.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cc031), Toast.LENGTH_SHORT).show();
+            mp02cc03188.setError("This data is Required!");
+
+            Log.i(TAG, "mp02cc031: This data is Required!");
+            return false;
+        } else {
+            mp02cc03188.setError(null);
+        }
+
+        if (mp02cc03188.isChecked() && mp02cc03188x.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cc031) + " - " + getString(R.string.other), Toast.LENGTH_SHORT).show();
+            mp02cc03188x.setError("This data is Required!");
+
+            Log.i(TAG, "mp02cc03188x: This data is Required!");
+            return false;
+        } else {
+            mp02cc03188x.setError(null);
+
+        }
+
+        if (mp02cc032.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cc032), Toast.LENGTH_SHORT).show();
+            mp02cc03288.setError("This data is Required!");
+
+            Log.i(TAG, "mp02cc032: This data is Required!");
+            return false;
+        } else {
+            mp02cc03288.setError(null);
+        }
+
+        if (mp02cc03288.isChecked() && mp02cc03288x.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cc032) + " - " + getString(R.string.other), Toast.LENGTH_SHORT).show();
+            mp02cc03288x.setError("This data is Required!");
+
+            Log.i(TAG, "mp02cc03288x: This data is Required!");
+            return false;
+        } else {
+            mp02cc03288x.setError(null);
+        }
+
+
+
 
         return true;
     }
