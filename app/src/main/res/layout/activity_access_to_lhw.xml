@@ -92,37 +92,37 @@
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/mp02cf00201"
+                    android:id="@+id/mp02cg00201"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cg00201" />
 
                 <RadioButton
-                    android:id="@+id/mp02cf00202"
+                    android:id="@+id/mp02cg00202"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cg00202" />
 
                 <RadioButton
-                    android:id="@+id/mp02cf00203"
+                    android:id="@+id/mp02cg00203"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cg00203" />
 
                 <RadioButton
-                    android:id="@+id/mp02cf00204"
+                    android:id="@+id/mp02cg00204"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cg00204" />
 
                 <RadioButton
-                    android:id="@+id/mp02cf00205"
+                    android:id="@+id/mp02cg00205"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cg00205" />
 
                 <RadioButton
-                    android:id="@+id/mp02cf00288"
+                    android:id="@+id/mp02cg00288"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/other" />
@@ -130,7 +130,7 @@
             </RadioGroup>
 
             <EditText
-                android:id="@+id/mp02cf00288x"
+                android:id="@+id/mp02cg00288x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/other"
@@ -153,31 +153,31 @@
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/mp02cf00301"
+                    android:id="@+id/mp02cg00301"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cg00301" />
 
                 <RadioButton
-                    android:id="@+id/mp02cf00302"
+                    android:id="@+id/mp02cg00302"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cg00302" />
 
                 <RadioButton
-                    android:id="@+id/mp02cf00303"
+                    android:id="@+id/mp02cg00303"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cg00303" />
 
                 <RadioButton
-                    android:id="@+id/mp02cf00304"
+                    android:id="@+id/mp02cg00304"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cg00304" />
 
                 <RadioButton
-                    android:id="@+id/mp02cf00305"
+                    android:id="@+id/mp02cg00305"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cg00305" />
@@ -212,25 +212,25 @@
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/mp02cf00401"
+                    android:id="@+id/mp02cg00401"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cg00401" />
 
                 <RadioButton
-                    android:id="@+id/mp02cf00402"
+                    android:id="@+id/mp02cg00402"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cg00402" />
 
                 <RadioButton
-                    android:id="@+id/mp02cf00403"
+                    android:id="@+id/mp02cg00403"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cg00403" />
 
                 <RadioButton
-                    android:id="@+id/mp02cf00404"
+                    android:id="@+id/mp02cg00404"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cg00404" />
@@ -253,20 +253,26 @@
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/mp02cf00501"
+                    android:id="@+id/mp02cg00501"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/yes" />
 
                 <RadioButton
-                    android:id="@+id/mp02cf00502"
+                    android:id="@+id/mp02cg00502"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/no" />
 
             </RadioGroup>
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/fldGrpmp02cg006"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -282,30 +288,60 @@
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/mp02cf00601"
+                    android:id="@+id/mp02cg00601"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cg00601" />
 
                 <RadioButton
-                    android:id="@+id/mp02cf00602"
+                    android:id="@+id/mp02cg00602"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cg00602" />
 
                 <RadioButton
-                    android:id="@+id/mp02cf00603"
+                    android:id="@+id/mp02cg00603"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cg00603" />
 
                 <RadioButton
-                    android:id="@+id/mp02cf00604"
+                    android:id="@+id/mp02cg00604"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cg00604" />
 
             </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_End"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="endInterview"
+                    android:text="@string/end_interview"
+                    android:textColor="#ff1e1e" />
+
+                <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
+
+                <Button
+                    android:id="@+id/btn_Continue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="startInterview"
+                    android:text="@string/start_interview"
+                    android:textColor="@color/colorPrimary" />
+                <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
+
+            </LinearLayout>
 
 
         </LinearLayout>

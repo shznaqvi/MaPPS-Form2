@@ -1058,7 +1058,7 @@ public class SectionCFActivity extends Activity {
 
                 finish();
 
-                Intent seccg = new Intent(this, SectionCIAActivity.class);
+                Intent seccg = new Intent(this, SectionCHActivity.class);
                 startActivity(seccg);
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
