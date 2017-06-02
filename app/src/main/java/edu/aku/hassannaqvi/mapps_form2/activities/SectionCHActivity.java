@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -21,6 +22,7 @@ import org.json.JSONObject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import edu.aku.hassannaqvi.mapps_form2.AppMain;
 import edu.aku.hassannaqvi.mapps_form2.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form2.R;
 
@@ -56,18 +58,16 @@ public class SectionCHActivity extends Activity {
     EditText mp02ch00301;
     @BindView(R.id.mp02ch00302)
     EditText mp02ch00302;
-    @BindView(R.id.mp02ch004)
-    RadioGroup mp02ch004;
     @BindView(R.id.mp02ch00401)
-    RadioButton mp02ch00401;
+    CheckBox mp02ch00401;
     @BindView(R.id.mp02ch00402)
-    RadioButton mp02ch00402;
+    CheckBox mp02ch00402;
     @BindView(R.id.mp02ch00403)
-    RadioButton mp02ch00403;
+    CheckBox mp02ch00403;
     @BindView(R.id.mp02ch00404)
-    RadioButton mp02ch00404;
+    CheckBox mp02ch00404;
     @BindView(R.id.mp02ch00488)
-    RadioButton mp02ch00488;
+    CheckBox mp02ch00488;
     @BindView(R.id.mp02ch00488x)
     EditText mp02ch00488x;
     @BindView(R.id.mp02ch005)
@@ -134,18 +134,16 @@ public class SectionCHActivity extends Activity {
     EditText mp02ch01101;
     @BindView(R.id.mp02ch01102)
     EditText mp02ch01102;
-    @BindView(R.id.mp02ch012)
-    RadioGroup mp02ch012;
     @BindView(R.id.mp02ch01201)
-    RadioButton mp02ch01201;
+    CheckBox mp02ch01201;
     @BindView(R.id.mp02ch01202)
-    RadioButton mp02ch01202;
+    CheckBox mp02ch01202;
     @BindView(R.id.mp02ch01203)
-    RadioButton mp02ch01203;
+    CheckBox mp02ch01203;
     @BindView(R.id.mp02ch01204)
-    RadioButton mp02ch01204;
+    CheckBox mp02ch01204;
     @BindView(R.id.mp02ch01288)
-    RadioButton mp02ch01288;
+    CheckBox mp02ch01288;
     @BindView(R.id.mp02ch01288x)
     EditText mp02ch01288x;
     @BindView(R.id.mp02ch013)
@@ -217,7 +215,11 @@ public class SectionCHActivity extends Activity {
                     mp02ch002.clearCheck();
                     mp02ch00301.setText(null);
                     mp02ch00302.setText(null);
-                    mp02ch004.clearCheck();
+                    mp02ch00401.setChecked(false);
+                    mp02ch00402.setChecked(false);
+                    mp02ch00403.setChecked(false);
+                    mp02ch00404.setChecked(false);
+                    mp02ch00488.setChecked(false);
                     mp02ch00488x.setText(null);
                 }
             }
@@ -249,7 +251,11 @@ public class SectionCHActivity extends Activity {
                     mp02ch010.clearCheck();
                     mp02ch01101.setText(null);
                     mp02ch01102.setText(null);
-                    mp02ch012.clearCheck();
+                    mp02ch01201.setChecked(false);
+                    mp02ch01202.setChecked(false);
+                    mp02ch01203.setChecked(false);
+                    mp02ch01204.setChecked(false);
+                    mp02ch01288.setChecked(false);
                     mp02ch01288x.setText(null);
                 }
             }
@@ -459,7 +465,8 @@ public class SectionCHActivity extends Activity {
 
 
 //            4
-            if (mp02ch004.getCheckedRadioButtonId() == -1) {
+            if (!(mp02ch00401.isChecked() && mp02ch00402.isChecked() && mp02ch00403.isChecked() && mp02ch00404.isChecked()
+                    && mp02ch00488.isChecked())) {
                 Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ch004), Toast.LENGTH_SHORT).show();
                 mp02ch00488.setError("This data is Required!");
 
@@ -651,7 +658,8 @@ public class SectionCHActivity extends Activity {
 
 
 //            12
-            if (mp02ch012.getCheckedRadioButtonId() == -1) {
+            if (!(mp02ch01201.isChecked() && mp02ch01202.isChecked() && mp02ch01203.isChecked() && mp02ch01204.isChecked()
+                    && mp02ch01288.isChecked())) {
                 Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ch012), Toast.LENGTH_SHORT).show();
                 mp02ch01288.setError("This data is Required!");
 
@@ -784,9 +792,12 @@ public class SectionCHActivity extends Activity {
         sch.put("mp02ch00301", mp02ch00301.getText().toString());
         sch.put("mp02ch00302", mp02ch00302.getText().toString());
 
-        sch.put("mp02ch004", mp02ch00401.isChecked() ? "1" : mp02ch00402.isChecked() ? "2" : mp02ch00403.isChecked() ? "3"
-                : mp02ch00404.isChecked() ? "4" : mp02ch00488.isChecked() ? "88" : "0");
-        sch.put("mp02ch004", mp02ch00488x.getText().toString());
+        sch.put("mp02ch00401", mp02ch00401.isChecked() ? "1" : "0");
+        sch.put("mp02ch00402", mp02ch00401.isChecked() ? "1" : "0");
+        sch.put("mp02ch00403", mp02ch00401.isChecked() ? "1" : "0");
+        sch.put("mp02ch00404", mp02ch00401.isChecked() ? "1" : "0");
+        sch.put("mp02ch00488", mp02ch00401.isChecked() ? "1" : "0");
+        sch.put("mp02ch00488x", mp02ch00488x.getText().toString());
 
         sch.put("mp02ch005", mp02ch00501.isChecked() ? "1" : mp02ch00502.isChecked() ? "2" : mp02ch00503.isChecked() ? "3"
                 : mp02ch00504.isChecked() ? "4" : mp02ch00599.isChecked() ? "99" : "0");
@@ -799,7 +810,7 @@ public class SectionCHActivity extends Activity {
 
         sch.put("mp02ch008", mp02ch00801.isChecked() ? "1" : mp02ch00802.isChecked() ? "2" : mp02ch00803.isChecked() ? "3"
                 : mp02ch00804.isChecked() ? "4" : mp02ch00888.isChecked() ? "88" : "0");
-        sch.put("mp02ch008", mp02ch00888x.getText().toString());
+        sch.put("mp02ch00888x", mp02ch00888x.getText().toString());
 
         sch.put("mp02ch009", mp02ch00901.isChecked() ? "1" : mp02ch00902.isChecked() ? "2" : "0");
 
@@ -809,9 +820,12 @@ public class SectionCHActivity extends Activity {
         sch.put("mp02ch01101", mp02ch01101.getText().toString());
         sch.put("mp02ch01102", mp02ch01102.getText().toString());
 
-        sch.put("mp02ch012", mp02ch01201.isChecked() ? "1" : mp02ch01202.isChecked() ? "2" : mp02ch01203.isChecked() ? "3"
-                : mp02ch01204.isChecked() ? "4" : mp02ch01288.isChecked() ? "88" : "0");
-        sch.put("mp02ch012", mp02ch01288x.getText().toString());
+        sch.put("mp02ch01201", mp02ch01201.isChecked() ? "1" : "0");
+        sch.put("mp02ch01202", mp02ch01202.isChecked() ? "1" : "0");
+        sch.put("mp02ch01203", mp02ch01203.isChecked() ? "1" : "0");
+        sch.put("mp02ch01204", mp02ch01204.isChecked() ? "1" : "0");
+        sch.put("mp02ch01288", mp02ch01288.isChecked() ? "1" : "0");
+        sch.put("mp02ch01288x", mp02ch01288x.getText().toString());
 
         sch.put("mp02ch013", mp02ch01301.isChecked() ? "1" : mp02ch01302.isChecked() ? "2" : mp02ch01303.isChecked() ? "3"
                 : mp02ch01304.isChecked() ? "4" : mp02ch01399.isChecked() ? "99" : "0");
@@ -824,9 +838,9 @@ public class SectionCHActivity extends Activity {
 
         sch.put("mp02ch016", mp02ch01601.isChecked() ? "1" : mp02ch01602.isChecked() ? "2" : mp02ch01603.isChecked() ? "3"
                 : mp02ch01604.isChecked() ? "4" : mp02ch01688.isChecked() ? "88" : "0");
-        sch.put("mp02ch016", mp02ch01688x.getText().toString());
+        sch.put("mp02ch01688x", mp02ch01688x.getText().toString());
 
-        //AppMain.pc.setsCG(String.valueOf(sch));
+        AppMain.pc.setsCG(String.valueOf(sch));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

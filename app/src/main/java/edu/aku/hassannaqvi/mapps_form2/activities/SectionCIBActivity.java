@@ -245,7 +245,7 @@ public class SectionCIBActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_section_chb);
+        setContentView(R.layout.activity_section_cib);
         ButterKnife.bind(this);
 
     }

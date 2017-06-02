@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="16dp"
                 android:background="@color/colorAccent"
                 android:gravity="center"
                 android:text="@string/mp02d"
@@ -102,13 +102,13 @@
 
                 <!--<RadioButton-->
                     <!--android:id="@+id/mp02d00301"-->
-                    <!--android:layout_width="wrap_content"-->
+            <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:text="@string/yes" />-->
 
                 <!--<RadioButton-->
                     <!--android:id="@+id/mp02d00302"-->
-                    <!--android:layout_width="wrap_content"-->
+            <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:text="@string/no" />-->
             <!--</RadioGroup>-->
@@ -212,13 +212,13 @@
 
                 <!--<RadioButton-->
                     <!--android:id="@+id/mp02d00701"-->
-                    <!--android:layout_width="wrap_content"-->
+            <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:text="@string/yes" />-->
 
                 <!--<RadioButton-->
                     <!--android:id="@+id/mp02d00702"-->
-                    <!--android:layout_width="wrap_content"-->
+            <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:text="@string/no" />-->
             <!--</RadioGroup>-->
@@ -321,13 +321,13 @@
 
                 <!--<RadioButton-->
                     <!--android:id="@+id/mp02d01101"-->
-                    <!--android:layout_width="wrap_content"-->
+            <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:text="@string/yes" />-->
 
                 <!--<RadioButton-->
                     <!--android:id="@+id/mp02d01102"-->
-                    <!--android:layout_width="wrap_content"-->
+            <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:text="@string/no" />-->
             <!--</RadioGroup>-->
@@ -386,7 +386,7 @@
 
                 <Button
                     android:id="@+id/btn_Continue"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="startInterview"
                     android:text="@string/start_interview"

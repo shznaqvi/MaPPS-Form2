@@ -57,7 +57,7 @@
     <string name="mp02a003"> خاندا ن نمبر </string>
     <string name="mp02a004"> شرڪت ڪندڙ جي سڃاڻپ </string>
     <string name="mp02a005"> ڪلسٽر جو نالو </string>
-    <string name="mp02a006"> ڳوٺ جو نال </string>
+    <string name="mp02a006"> ڳوٺ جو نالو </string>
     <string name="mp02a007"> مڪمل پتو </string>
     <string name="mp02a008"> رابطي لاء نمبر </string>
     <string name="mp02a009"> پهرين تحقيق ڪندڙ جو نالو ۽ سڃاڻپ </string>
@@ -415,7 +415,7 @@
     <string name="mpDoesNotApply"> لاڳو نه ٿو ٿئي </string>
     <string name="mp02cc006"> جيڪي شيون توها ن کي تنگ يا پرييشان ڪن ٿيون ان باري ۾ پنهنجي پيءُ سان ڳالهائڻ توهان لاء ڪيترو آسان آهي؟ </string>
     <string name="mp02cc007"> جيڪي شيون توها ن کي تنگ يا پريشان ڪن ٿيون ان باري ۾ پنهنجي ماءُ سان ڳالهائڻ توهان لاء ڪيترو آسان آهي؟؟ </string>
-    <string name="mp02cc008"> جيڪي شيون توها ن کي تنگ يا پاريشان ڪن ٿيون ان باري ۾ پنهنجي مڙس سان ڳالهائڻ توهان لاء ڪيترو آسان آهي؟ </string>
+    <string name="mp02cc008"> جيڪي شيون توها ن کي تنگ يا پريشان ڪن ٿيون ان باري ۾ پنهنجي مڙس سان ڳالهائڻ توهان لاء ڪيترو آسان آهي؟ </string>
     <string name="mp02cc009"> جيڪي شيون توها ن کي تنگ يا پريشان ڪن ٿيون ان باري ۾ پنهنجي سسُ سان ڳالهائڻ توهان لاء ڪيترو آسان آهي؟ </string>
     <string name="mp02cc010sub"> هيٺ ڏنل بيانن کي توهان ڪيئن محسوس ڪريو ٿا؟ (پنهنجي خاندان ۾) </string>
     <string name="mpStrAgree"> تمام گهڻو متفق </string>
@@ -479,7 +479,7 @@
     <string name="mp02cc03104"> سسُ </string>
     <string name="mp02cc03105"> ڀاء </string>
     <string name="mp02cc03106"> جواٻ ڏيڻ کان انڪار ڪيو </string>
-    <string name="mp02cc032"> ڇا توهان جي گهر وارن مان ڪنهن پئي چاهيو ته توهان اسڪولنه وڃو ؟ </string>
+    <string name="mp02cc032"> ڇا توهان جي گهر وارن مان ڪنهن پئي چاهيو ته توهان اسڪول نه وڃو ؟ </string>
     <string name="mp02cc03201"> ماء </string>
     <string name="mp02cc03202"> پيء </string>
     <string name="mp02cc03203"> مُڙس </string>
@@ -758,7 +758,7 @@
     <string name="mp02ch014"> آخري حمل جي دوران توهان وٽامن ۽ طاقت جي دوا استعمال ڪيئن ڪئي ؟ (فولاد جي گورين کان علاوه) </string>
     <string name="mp02ch01401"> روزانو </string>
     <string name="mp02ch01402"> هفتي ۾ هڪ ڀيرو </string>
-    <string name="mp02ch01403"> پندران ڏينهن ۾ هڪ دفعو </string>
+    <string name="mp02ch01403"> پندرهن ڏينهن ۾ هڪ دفعو </string>
     <string name="mp02ch01404"> مهيني ۾ </string>
     <string name="mp02ch01405"> ڪڏهن ڪڏهن </string>
     <string name="mp02ch015"> حمل وقت گھڻن ڏينهن لاء توهان ٻي دوا ورتي ؟ (فولاد گورين کان علاوه) </string>
@@ -819,6 +819,7 @@
     <string name="mp02cib020"> گذريل هفتي ۾ مون سواء ڪنهن سبب جي ڊنل پئي محسوس ڪيو. </string>
     <string name="mp02cib021"> گذريل هفتي ۾ مون زندگي کي بي مقصد پئي محسوس ڪيو. </string>
     <string name="mp02cic"> جھڳڙي فساد بابت </string>
+    <string name="mp02cicsub"> وڏي آواز ۾ پڙهو؛ جيڪي زال مڙس پاڻ ۾ تمام خوش هوندا آهن، ڪيترن ئي مسئلن تي هڪٻئي کان ناراض به ٿيندا آهن هڪٻئي کان خفا هوندا آهن، هڪٻئي کان مختلف شين جي توقع رکندا آهن يا ته ڪڏهن خراب رويي، يا ٿڪاوٽ يا ٻي ڪنهن سبب جي ڪري وڙهندا آهن، زال ۽ مڙس وٽ اهڙا ڪئي مختلف حل هوندا آهن جن سان هو پنهنجا مسئلا حل ڪندا آهن ڪجهه اهڙن مسئلن جي لسٽ هيٺ ڏجي ٿي جيڪي اختلافن جي ڪري ٿي سگهن ٿا. مهرباني ڪري ڌيان سان ٻڌو ۽ ٻڌايو ته هيٺ ڏنل ڪهڙو عمل توهان جي مڙس توهان سان گذريل 12 مهينن ۾ ڪيترا دفعا ڪيو آهي. </string>
     <string name="mp02cic001"> ڇا شرڪت ڪندڙ شادي شده آهي؟ </string>
     <string name="mp02cic002sub"> وڏي آواز ۾ پڙهو؛ جيڪي زال مڙس پاڻ ۾ تمام خوش هوندا آهن ، ڪيترن ئي مسئلن تي هڪٻئي کان ناراض به ٿيندا آهن، هڪٻئي کان خفا هوندا آهن، هڪٻئي کان مختلف شين جي توقعه رکندا آهن، يا ته ڪڏهن خراب رويي ، يا ٿڪاوٽ يا ٻي ڪنهن سبب جي ڪري وڙهندا آهن. زال ۽ مڙس وٽ اهڙا ڪئي مختلف حل هوندا آهن جن سان هو پنهنجا مسئلا حل ڪندا آهن.
     ڪجهه اهڙن مسئلن جي لسٽ هيٺ ڏجي ٿي جيڪي اختلافن جي ڪري ٿي سگھن ٿا
@@ -895,28 +896,28 @@
     <string name="mp02d004"> قد جي ماپ لکو </string>
     <string name="mp02d005"> وزن لکو </string>
     <string name="mp02d006"> وزن لکو </string>
-    <string name="mp02d007"> آيوآهي (>.5 kg) ڇا وزن۾ ڪو فرق </string>
+    <string name="mp02d007"> آيوآهي (>.5 kg) ڇا وزن ۾ ڪو فرق </string>
     <string name="mp02d007sub"> If no (differ by 0.5 kg), go to Q211 </string>
     <string name="mp02d008"> وزن لکو </string>
     <string name="mp02d009"> کاٻي ٻانهن يا /ڏوري جي ماپ لکو </string>
     <string name="mp02d010"> کاٻي ٻانهن يا /ڏوري جي ماپ لکو </string>
-    <string name="mp02d011"> ڇا کاٻي ٻانهن يا /ڏوري جيماپ ۾ (cm5(>.فرق آيو آهي. </string>
+    <string name="mp02d011"> ڇا کاٻي ٻانهن يا /ڏوري جي ماپ ۾ (>.5 cm) فرق آيو آهي. </string>
     <string name="mp02d011sub"> If no (differ by 0.5cm), go to Q215 </string>
     <string name="mp02d012"> کاٻي ٻانهن يا /ڏوري جي ماپ لکو </string>
     <string name="mp02e"> غذائيت بابت رت جي چڪاس </string>
     <string name="mp02e001"> هيموگلوبن </string>
     <string name="mp02e002"> ڇا شرڪت ڪندڙ سب اسٽڊي ۾ آهي؟ </string>
     <string name="mp02e002sub"> جيڪڏهن ها ته رت جو نمونو وٺڻ لاء ٽيم کي ٻڌايو. جيڪڏهن نه ته فارم بند ڪريو. </string>
-    <string name="mp02f003"> ڇا توهان يا توهان جي گهر کي روڪ رقم يا ڪنهن ٻي صورت ۾ ڪا مدد ملندي آهي ؟ </string>
-    <string name="mp02f00301"> ماهوار ڪيش </string>
-    <string name="mp02f00302"> ماهوار فوڊ وائوچر </string>
-    <string name="mp02f00303"> بينظير انڪم سپورٽ پروگرام </string>
-    <string name="mp02f00304"> شاگردن لاء وضيفو </string>
-    <string name="mp02f00305"> ڪا به نه </string>
-    <string name="mp02f004"> اها مدد توهان کي ڪنهن جي طرفان ملندي آهي ؟ </string>
-    <string name="mp02f00401"> گورنمينٽ / سرڪار </string>
-    <string name="mp02f00402"> اين جي او </string>
-    <string name="mp02f00403"> اين جي او جو نالو </string>
+    <string name="mp02e003"> ڇا توهان يا توهان جي گهر کي روڪ رقم يا ڪنهن ٻي صورت ۾ ڪا مدد ملندي آهي ؟ </string>
+    <string name="mp02e00301"> ماهوار ڪيش </string>
+    <string name="mp02e00302"> ماهوار فوڊ وائوچر </string>
+    <string name="mp02e00303"> بينظير انڪم سپورٽ پروگرام </string>
+    <string name="mp02e00304"> شاگردن لاء وضيفو </string>
+    <string name="mp02e00305"> ڪا به نه </string>
+    <string name="mp02e004"> اها مدد توهان کي ڪنهن جي طرفان ملندي آهي ؟ </string>
+    <string name="mp02e00401"> گورنمينٽ / سرڪار </string>
+    <string name="mp02e00402"> اين جي او </string>
+    <string name="mp02e00403"> اين جي او جو نالو </string>
     <string name="title_activity_participant_list">ParticipantList</string>
 
 

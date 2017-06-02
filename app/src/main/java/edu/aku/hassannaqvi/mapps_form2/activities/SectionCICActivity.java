@@ -177,7 +177,7 @@ public class SectionCICActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_section_chc);
+        setContentView(R.layout.activity_section_cic);
         ButterKnife.bind(this);
 
         mp02cic00101.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

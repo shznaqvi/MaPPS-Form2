@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="16dp"
                 android:background="@color/colorAccent"
                 android:gravity="center"
                 android:text="@string/mp02cib"
@@ -39,7 +39,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="16dp"
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/mp02cibsub"
@@ -64,25 +64,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib00101"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00102"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00103"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00104"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -105,25 +105,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib00201"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00202"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00203"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00204"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -146,25 +146,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib00301"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00302"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00303"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00304"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -187,25 +187,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib00401"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00402"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00403"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00404"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -228,25 +228,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib00501"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00502"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00503"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00504"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -269,25 +269,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib00601"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00602"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00603"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00604"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -310,25 +310,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib00701"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00702"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00703"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00704"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -351,25 +351,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib00801"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00802"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00803"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00804"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -392,25 +392,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib00901"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00902"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00903"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib00904"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -433,25 +433,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib01001"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01002"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01003"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01004"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -474,25 +474,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib01101"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01102"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01103"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01104"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -515,25 +515,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib01201"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01202"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01203"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01204"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -556,25 +556,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib01301"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01302"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01303"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01304"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -597,25 +597,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib01401"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01402"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01403"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01404"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -638,25 +638,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib01501"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01502"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01503"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01504"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -679,25 +679,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib01601"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01602"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01603"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01604"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -720,25 +720,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib01701"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01702"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01703"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01704"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -761,25 +761,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib01801"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01802"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01803"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01804"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -802,25 +802,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib01901"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01902"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01903"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib01904"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -843,25 +843,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib02001"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib02002"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib02003"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib02004"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -884,25 +884,25 @@
 
                 <RadioButton
                     android:id="@+id/mp02cib02101"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpnotapply" />
 
                 <RadioButton
                     android:id="@+id/mp02cib02102"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpsomedegree" />
 
                 <RadioButton
                     android:id="@+id/mp02cib02103"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpconsiderable" />
 
                 <RadioButton
                     android:id="@+id/mp02cib02104"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpverymuch" />
 
@@ -929,7 +929,7 @@
 
                 <Button
                     android:id="@+id/btn_Continue"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="startInterview"
                     android:text="@string/start_interview"
