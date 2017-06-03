@@ -312,8 +312,11 @@ public class SectionAActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
+        SharedPreferences sharedPref = getSharedPreferences("tagName",MODE_PRIVATE);
+
         AppMain.fc = new FormsContract();
 
+        AppMain.fc.setTagID(sharedPref.getString("tagName",null));
         AppMain.fc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm",new Date())).toString());
         AppMain.fc.setInterviewer01(AppMain.loginMem[1]);
         AppMain.fc.setInterviewer02(AppMain.loginMem[2]);

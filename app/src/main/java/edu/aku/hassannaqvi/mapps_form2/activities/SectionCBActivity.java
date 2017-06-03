@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.mapps_form2.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -703,9 +704,11 @@ public class SectionCBActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
+        SharedPreferences sharedPref = getSharedPreferences("tagName",MODE_PRIVATE);
 
         AppMain.pc =new ParticipantsContract();
 
+        AppMain.pc.setTagID(sharedPref.getString("tagName",null));
         AppMain.pc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm",new Date())).toString());
         AppMain.pc.setInterviewer01(AppMain.loginMem[1]);
         AppMain.pc.setInterviewer02(AppMain.loginMem[2]);
