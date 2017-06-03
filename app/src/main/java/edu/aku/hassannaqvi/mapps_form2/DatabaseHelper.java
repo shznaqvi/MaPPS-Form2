@@ -41,7 +41,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + UsersContract.singleUser._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + UsersContract.singleUser.ROW_USERNAME + " TEXT,"
             + UsersContract.singleUser.ROW_PASSWORD + " TEXT );";
-    private static final String DATABASE_NAME = "mapps_f2.db";
+    public static final String DATABASE_NAME = "mapps_f2.db";
+    public static String DB_NAME = "mapps_f2_copy.db";
     private static final int DATABASE_VERSION = 1;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + FormColumns.TABLE_NAME + "(" +
