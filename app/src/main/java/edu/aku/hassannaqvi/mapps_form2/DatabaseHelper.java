@@ -66,6 +66,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             FormColumns.COLUMN_GPSTIME + " TEXT," +
             FormColumns.COLUMN_GPSACC + " TEXT," +
             FormColumns.COLUMN_DEVICEID + " TEXT," +
+            FormColumns.COLUMN_DEVICETAGID + " TEXT," +
             FormColumns.COLUMN_APP_VERSION + " TEXT," +
             FormColumns.COLUMN_SYNCED + " TEXT," +
             FormColumns.COLUMN_SYNCED_DATE + " TEXT"
@@ -97,6 +98,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + ParticipantColumns.COLUMN_SD + " TEXT,"
             + ParticipantColumns.COLUMN_SE + " TEXT,"
             + ParticipantColumns.COLUMN_DEVICEID + " TEXT,"
+            + ParticipantColumns.COLUMN_DEVICETAGID + " TEXT,"
             + ParticipantColumns.COLUMN_APP_VERSION + " TEXT,"
             + ParticipantColumns.COLUMN_SYNCED + " TEXT,"
             + ParticipantColumns.COLUMN_SYNCED_DATE + " TEXT"
@@ -344,6 +346,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormColumns.COLUMN_GPSTIME, fc.getGpsTime());
         values.put(FormColumns.COLUMN_GPSACC, fc.getGpsAcc());
         values.put(FormColumns.COLUMN_DEVICEID, fc.getDeviceID());
+        values.put(FormColumns.COLUMN_DEVICETAGID, fc.getTagID());
         values.put(FormColumns.COLUMN_APP_VERSION, fc.getApp_version());
 
         /* * * * * NO NEED TO USE THESE IN 'INSERT' * * * * */
@@ -490,6 +493,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(ParticipantColumns.COLUMN_SD, pc.getsD());
         values.put(ParticipantColumns.COLUMN_SE, pc.getsE());
         values.put(ParticipantColumns.COLUMN_DEVICEID, pc.getDeviceID());
+        values.put(ParticipantColumns.COLUMN_DEVICETAGID, pc.getTagID());
         values.put(ParticipantColumns.COLUMN_APP_VERSION, pc.getApp_version());
         values.put(ParticipantColumns.COLUMN_SYNCED, pc.getSynced());
         values.put(ParticipantColumns.COLUMN_SYNCED_DATE, pc.getSynced_date());
@@ -1070,6 +1074,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormColumns.COLUMN_GPSACC,
                 FormColumns.COLUMN_APP_VERSION,
                 FormColumns.COLUMN_DEVICEID,
+                FormColumns.COLUMN_DEVICETAGID,
                 FormColumns.COLUMN_APP_VERSION,
                 FormColumns.COLUMN_SYNCED,
                 FormColumns.COLUMN_SYNCED_DATE,
@@ -1133,6 +1138,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormColumns.COLUMN_GPSACC,
                 FormColumns.COLUMN_APP_VERSION,
                 FormColumns.COLUMN_DEVICEID,
+                FormColumns.COLUMN_DEVICETAGID,
                 FormColumns.COLUMN_SYNCED,
                 FormColumns.COLUMN_SYNCED_DATE,
         };
@@ -1200,6 +1206,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ParticipantColumns.COLUMN_GPSACC,
                 ParticipantColumns.COLUMN_APP_VERSION,
                 ParticipantColumns.COLUMN_DEVICEID,
+                ParticipantColumns.COLUMN_DEVICETAGID,
                 ParticipantColumns.COLUMN_SYNCED,
                 ParticipantColumns.COLUMN_SYNCED_DATE,
 
@@ -1268,6 +1275,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ParticipantColumns.COLUMN_SE,
                 ParticipantColumns.COLUMN_APP_VERSION,
                 ParticipantColumns.COLUMN_DEVICEID,
+                ParticipantColumns.COLUMN_DEVICETAGID,
                 ParticipantColumns.COLUMN_SYNCED,
                 ParticipantColumns.COLUMN_SYNCED_DATE,
         };
