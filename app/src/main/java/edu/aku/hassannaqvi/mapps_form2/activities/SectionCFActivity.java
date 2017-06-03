@@ -475,7 +475,13 @@ public class SectionCFActivity extends Activity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                if (Integer.valueOf(mp02cf003.getText().toString()) == 0) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                if (Integer.valueOf(mp02cf003.getText().toString().isEmpty() ? "0" : mp02cf003.getText().toString()) == 0) {
                     fldGrpmp02cf004.setVisibility(View.GONE);
                     mp02cf004.clearCheck();
                     mp02cf00488x.setText(null);
@@ -500,11 +506,6 @@ public class SectionCFActivity extends Activity {
                 } else {
                     fldGrpmp02cf004.setVisibility(View.VISIBLE);
                 }
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
 
             }
         });

@@ -465,8 +465,8 @@ public class SectionCHActivity extends Activity {
 
 
 //            4
-            if (!(mp02ch00401.isChecked() && mp02ch00402.isChecked() && mp02ch00403.isChecked() && mp02ch00404.isChecked()
-                    && mp02ch00488.isChecked())) {
+            if (!(mp02ch00401.isChecked() || mp02ch00402.isChecked() || mp02ch00403.isChecked() || mp02ch00404.isChecked()
+                    || mp02ch00488.isChecked())) {
                 Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ch004), Toast.LENGTH_SHORT).show();
                 mp02ch00488.setError("This data is Required!");
 
@@ -658,8 +658,8 @@ public class SectionCHActivity extends Activity {
 
 
 //            12
-            if (!(mp02ch01201.isChecked() && mp02ch01202.isChecked() && mp02ch01203.isChecked() && mp02ch01204.isChecked()
-                    && mp02ch01288.isChecked())) {
+            if (!(mp02ch01201.isChecked() || mp02ch01202.isChecked() || mp02ch01203.isChecked() || mp02ch01204.isChecked()
+                    || mp02ch01288.isChecked())) {
                 Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ch012), Toast.LENGTH_SHORT).show();
                 mp02ch01288.setError("This data is Required!");
 

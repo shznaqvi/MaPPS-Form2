@@ -21,7 +21,6 @@ import org.json.JSONObject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import edu.aku.hassannaqvi.mapps_form2.AppMain;
 import edu.aku.hassannaqvi.mapps_form2.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form2.R;
 
@@ -164,23 +163,23 @@ public class AccessToLHWActivity extends Activity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            if (UpdateDB()) {
+            //if (UpdateDB()) {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
                 Intent secc = new Intent(this, SectionCHActivity.class);
                 startActivity(secc);
 
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
+            //} else {
+            //    Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            //}
         }
     }
 
     private boolean UpdateDB() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-        int updcount = db.updateCC();
+        //int updcount = db.updateCC();
 
         /*if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
@@ -212,7 +211,7 @@ public class AccessToLHWActivity extends Activity {
                 : mp02cg00604.isChecked() ? "4" : "0");
 
 
-        AppMain.pc.setsCC(String.valueOf(sCG));
+        //AppMain.pc.setsCC(String.valueOf(sCG));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
