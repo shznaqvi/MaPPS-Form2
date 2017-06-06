@@ -979,7 +979,7 @@ public class SectionCCActivity extends Activity {
         }
 
 //        23
-        if (mp02cc02201.isChecked() || mp02cc02202.isChecked() || mp02cc02203.isChecked()) {
+        if (mp02cc02201.isChecked() || mp02cc02202.isChecked() || mp02cc02205.isChecked()) {
 
             //        23
             if (mp02cc023.getCheckedRadioButtonId() == -1) {
