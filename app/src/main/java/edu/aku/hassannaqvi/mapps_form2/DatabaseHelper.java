@@ -920,7 +920,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while (c.moveToNext()) {
                 LHWsContract cc = new LHWsContract();
                 allCC.add(cc.Hydrate(c));
-                allCC.add(cc.Hydrate(c));
             }
         } finally {
             if (c != null) {
