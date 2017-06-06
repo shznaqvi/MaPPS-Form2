@@ -17,8 +17,8 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import edu.aku.hassannaqvi.mapps_form2.AppMain;
-import edu.aku.hassannaqvi.mapps_form2.contracts.ClustersContract;
 import edu.aku.hassannaqvi.mapps_form2.DatabaseHelper;
+import edu.aku.hassannaqvi.mapps_form2.contracts.ClustersContract;
 
 /**
  * Created by hassan.naqvi on 4/28/2016.
@@ -51,7 +51,7 @@ public class GetClusters extends AsyncTask<String, String, String> {
 
         URL url = null;
         try {
-            url = new URL(AppMain._HOST_URL + ClustersContract.singleCluster._URI);
+            url = new URL(AppMain._HOST_URL + ClustersContract.ClustersTable._URI);
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setReadTimeout(10000 /* milliseconds */);
             urlConnection.setConnectTimeout(15000 /* milliseconds */);

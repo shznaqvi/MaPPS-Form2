@@ -23,17 +23,17 @@ public class ClustersContract {
     }
 
     public ClustersContract Sync(JSONObject jsonObject) throws JSONException {
-        this.clusterCode = jsonObject.getString(singleCluster.COLUMN_CLUSTERCODE);
-        this.clusterName = jsonObject.getString(singleCluster.COLUMN_CLUSTERNAME);
+        this.clusterCode = jsonObject.getString(ClustersTable.COLUMN_CLUSTERCODE);
+        this.clusterName = jsonObject.getString(ClustersTable.COLUMN_CLUSTERNAME);
 
         return this;
 
     }
 
     public ClustersContract Hydrate(Cursor cursor) {
-        this._ID = cursor.getLong(cursor.getColumnIndex(singleCluster._ID));
-        this.clusterCode = cursor.getString(cursor.getColumnIndex(singleCluster.COLUMN_CLUSTERCODE));
-        this.clusterName = cursor.getString(cursor.getColumnIndex(singleCluster.COLUMN_CLUSTERNAME));
+        this._ID = cursor.getLong(cursor.getColumnIndex(ClustersTable._ID));
+        this.clusterCode = cursor.getString(cursor.getColumnIndex(ClustersTable.COLUMN_CLUSTERCODE));
+        this.clusterName = cursor.getString(cursor.getColumnIndex(ClustersTable.COLUMN_CLUSTERNAME));
 
         return this;
     }
@@ -65,14 +65,14 @@ public class ClustersContract {
     public JSONObject toJSONObject() throws JSONException {
 
         JSONObject json = new JSONObject();
-        json.put(singleCluster._ID, this._ID == null ? JSONObject.NULL : this._ID);
-        json.put(singleCluster.COLUMN_CLUSTERCODE, this.clusterCode == null ? JSONObject.NULL : this.clusterCode);
-        json.put(singleCluster.COLUMN_CLUSTERNAME, this.clusterName == null ? JSONObject.NULL : this.clusterName);
+        json.put(ClustersTable._ID, this._ID == null ? JSONObject.NULL : this._ID);
+        json.put(ClustersTable.COLUMN_CLUSTERCODE, this.clusterCode == null ? JSONObject.NULL : this.clusterCode);
+        json.put(ClustersTable.COLUMN_CLUSTERNAME, this.clusterName == null ? JSONObject.NULL : this.clusterName);
         return json;
     }
 
 
-    public static abstract class singleCluster implements BaseColumns {
+    public static abstract class ClustersTable implements BaseColumns {
 
         public static final String TABLE_NAME = "clusters";
         public static final String _ID = "_id";

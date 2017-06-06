@@ -35,9 +35,10 @@ public class ParticipantsContract {
     private String sCE = "";
     private String sCF = "";
     private String sCG = "";
-    private String sCHA = "";
-    private String sCHB = "";
-    private String sCHC = "";
+    private String sCH = "";
+    private String sCIA = "";
+    private String sCIB = "";
+    private String sCIC = "";
     private String sD = "";
     private String sE = "";
     private String gpsLat = "";
@@ -177,32 +178,41 @@ public class ParticipantsContract {
         return sCG;
     }
 
+
     public void setsCG(String sCG) {
         this.sCG = sCG;
     }
 
-    public String getsCHA() {
-        return sCHA;
+    public String getsCH() {
+        return sCH;
     }
 
-    public void setsCHA(String sCHA) {
-        this.sCHA = sCHA;
+    public void setsCH(String sCH) {
+        this.sCH = sCH;
     }
 
-    public String getsCHB() {
-        return sCHB;
+    public String getsCIA() {
+        return sCIA;
     }
 
-    public void setsCHB(String sCHB) {
-        this.sCHB = sCHB;
+    public void setsCIA(String sCIA) {
+        this.sCIA = sCIA;
     }
 
-    public String getsCHC() {
-        return sCHC;
+    public String getsCIB() {
+        return sCIB;
     }
 
-    public void setsCHC(String sCHC) {
-        this.sCHC = sCHC;
+    public void setsCIB(String sCIB) {
+        this.sCIB = sCIB;
+    }
+
+    public String getsCIC() {
+        return sCIC;
+    }
+
+    public void setsCIC(String sCIC) {
+        this.sCIC = sCIC;
     }
 
     public String getsD() {
@@ -286,70 +296,72 @@ public class ParticipantsContract {
     }
 
     public ParticipantsContract Sync(JSONObject jsonObject) throws JSONException {
-        this.projectName = jsonObject.getString(ParticipantColumns.COLUMN_PROJECTNAME);
-        this.surveyType = jsonObject.getString(ParticipantColumns.COLUMN_SURVEYTYPE);
-        this._ID = jsonObject.getLong(ParticipantColumns.COLUMN__ID);
-        this.UID = jsonObject.getString(ParticipantColumns.COLUMN_UID);
-        this.UUID = jsonObject.getString(ParticipantColumns.COLUMN_UUID);
-        this.LUID = jsonObject.getString(ParticipantColumns.COLUMN_LUID);
-        this.formDate = jsonObject.getString(ParticipantColumns.COLUMN_FORMDATE);
-        this.interviewer01 = jsonObject.getString(ParticipantColumns.COLUMN_INTERVIEWER01);
-        this.interviewer02 = jsonObject.getString(ParticipantColumns.COLUMN_INTERVIEWER02);
-        this.istatus = jsonObject.getString(ParticipantColumns.COLUMN_ISTATUS);
-        this.clustercode = jsonObject.getString(ParticipantColumns.COLUMN_CLUSTERCODE);
-        this.household = jsonObject.getString(ParticipantColumns.COLUMN_HOUSEHOLD);
-        this.lhwCode = jsonObject.getString(ParticipantColumns.COLUMN_LHWCODE);
-        this.sCB = jsonObject.getString(ParticipantColumns.COLUMN_SCB);
-        this.sCC = jsonObject.getString(ParticipantColumns.COLUMN_SCC);
-        this.sCD = jsonObject.getString(ParticipantColumns.COLUMN_SCD);
-        this.sCE = jsonObject.getString(ParticipantColumns.COLUMN_SCE);
-        this.sCF = jsonObject.getString(ParticipantColumns.COLUMN_SCF);
-        this.sCG = jsonObject.getString(ParticipantColumns.COLUMN_SCG);
-        this.sCHA = jsonObject.getString(ParticipantColumns.COLUMN_SCHA);
-        this.sCHB = jsonObject.getString(ParticipantColumns.COLUMN_SCHB);
-        this.sCHC = jsonObject.getString(ParticipantColumns.COLUMN_SCHC);
-        this.sD = jsonObject.getString(ParticipantColumns.COLUMN_SD);
-        this.sE = jsonObject.getString(ParticipantColumns.COLUMN_SE);
-        this.deviceID = jsonObject.getString(ParticipantColumns.COLUMN_DEVICEID);
-        this.tagID = jsonObject.getString(ParticipantColumns.COLUMN_DEVICETAGID);
-        this.app_version = jsonObject.getString(ParticipantColumns.COLUMN_APP_VERSION);
-        this.synced = jsonObject.getString(ParticipantColumns.COLUMN_SYNCED);
-        this.synced_date = jsonObject.getString(ParticipantColumns.COLUMN_SYNCED_DATE);
+        this.projectName = jsonObject.getString(ParticipantsTable.COLUMN_PROJECTNAME);
+        this.surveyType = jsonObject.getString(ParticipantsTable.COLUMN_SURVEYTYPE);
+        this._ID = jsonObject.getLong(ParticipantsTable.COLUMN__ID);
+        this.UID = jsonObject.getString(ParticipantsTable.COLUMN_UID);
+        this.UUID = jsonObject.getString(ParticipantsTable.COLUMN_UUID);
+        this.LUID = jsonObject.getString(ParticipantsTable.COLUMN_LUID);
+        this.formDate = jsonObject.getString(ParticipantsTable.COLUMN_FORMDATE);
+        this.interviewer01 = jsonObject.getString(ParticipantsTable.COLUMN_INTERVIEWER01);
+        this.interviewer02 = jsonObject.getString(ParticipantsTable.COLUMN_INTERVIEWER02);
+        this.istatus = jsonObject.getString(ParticipantsTable.COLUMN_ISTATUS);
+        this.clustercode = jsonObject.getString(ParticipantsTable.COLUMN_CLUSTERCODE);
+        this.household = jsonObject.getString(ParticipantsTable.COLUMN_HOUSEHOLD);
+        this.lhwCode = jsonObject.getString(ParticipantsTable.COLUMN_LHWCODE);
+        this.sCB = jsonObject.getString(ParticipantsTable.COLUMN_SCB);
+        this.sCC = jsonObject.getString(ParticipantsTable.COLUMN_SCC);
+        this.sCD = jsonObject.getString(ParticipantsTable.COLUMN_SCD);
+        this.sCE = jsonObject.getString(ParticipantsTable.COLUMN_SCE);
+        this.sCF = jsonObject.getString(ParticipantsTable.COLUMN_SCF);
+        this.sCG = jsonObject.getString(ParticipantsTable.COLUMN_SCG);
+        this.sCH = jsonObject.getString(ParticipantsTable.COLUMN_SCH);
+        this.sCIA = jsonObject.getString(ParticipantsTable.COLUMN_SCIA);
+        this.sCIB = jsonObject.getString(ParticipantsTable.COLUMN_SCIB);
+        this.sCIC = jsonObject.getString(ParticipantsTable.COLUMN_SCIC);
+        this.sD = jsonObject.getString(ParticipantsTable.COLUMN_SD);
+        this.sE = jsonObject.getString(ParticipantsTable.COLUMN_SE);
+        this.deviceID = jsonObject.getString(ParticipantsTable.COLUMN_DEVICEID);
+        this.tagID = jsonObject.getString(ParticipantsTable.COLUMN_DEVICETAGID);
+        this.app_version = jsonObject.getString(ParticipantsTable.COLUMN_APP_VERSION);
+        this.synced = jsonObject.getString(ParticipantsTable.COLUMN_SYNCED);
+        this.synced_date = jsonObject.getString(ParticipantsTable.COLUMN_SYNCED_DATE);
 
         return this;
 
     }
 
     public ParticipantsContract Hydrate(Cursor cursor) {
-        this.projectName = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_PROJECTNAME));
-        this.surveyType = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SURVEYTYPE));
-        this._ID = cursor.getLong(cursor.getColumnIndex(ParticipantColumns.COLUMN__ID));
-        this.UID = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_UID));
-        this.UUID = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_UUID));
-        this.LUID = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_LUID));
-        this.formDate = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_FORMDATE));
-        this.interviewer01 = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_INTERVIEWER01));
-        this.interviewer02 = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_INTERVIEWER02));
-        this.clustercode = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_CLUSTERCODE));
-        this.household = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_HOUSEHOLD));
-        this.lhwCode = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_LHWCODE));
-        this.istatus = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_ISTATUS));
-        this.sCB = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SCB));
-        this.sCC = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SCC));
-        this.sCD = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SCD));
-        this.sCE = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SCE));
-        this.sCF = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SCF));
-        this.sCG = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SCG));
-        this.sCHA = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SCHA));
-        this.sCHB = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SCHB));
-        this.sCHC = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SCHC));
-        this.sD = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SD));
-        this.sE = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SE));
-        this.deviceID = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_DEVICEID));
-        this.tagID = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_DEVICETAGID));
-        this.app_version = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_APP_VERSION));
-        this.synced = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SYNCED));
-        this.synced_date = cursor.getString(cursor.getColumnIndex(ParticipantColumns.COLUMN_SYNCED_DATE));
+        this.projectName = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_PROJECTNAME));
+        this.surveyType = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SURVEYTYPE));
+        this._ID = cursor.getLong(cursor.getColumnIndex(ParticipantsTable.COLUMN__ID));
+        this.UID = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_UID));
+        this.UUID = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_UUID));
+        this.LUID = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_LUID));
+        this.formDate = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_FORMDATE));
+        this.interviewer01 = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_INTERVIEWER01));
+        this.interviewer02 = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_INTERVIEWER02));
+        this.clustercode = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_CLUSTERCODE));
+        this.household = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_HOUSEHOLD));
+        this.lhwCode = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_LHWCODE));
+        this.istatus = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_ISTATUS));
+        this.sCB = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCB));
+        this.sCC = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCC));
+        this.sCD = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCD));
+        this.sCE = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCE));
+        this.sCF = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCF));
+        this.sCG = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCG));
+        this.sCH = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCH));
+        this.sCIA = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCIA));
+        this.sCIB = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCIB));
+        this.sCIC = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCIC));
+        this.sD = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SD));
+        this.sE = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SE));
+        this.deviceID = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_DEVICEID));
+        this.tagID = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_DEVICETAGID));
+        this.app_version = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_APP_VERSION));
+        this.synced = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SYNCED));
+        this.synced_date = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SYNCED_DATE));
 
 
         return this;
@@ -361,45 +373,46 @@ public class ParticipantsContract {
 
         JSONObject json = new JSONObject();
 
-        json.put(ParticipantColumns.COLUMN_PROJECTNAME, this.projectName == null ? JSONObject.NULL : this.projectName);
-        json.put(ParticipantColumns.COLUMN_SURVEYTYPE, this.surveyType == null ? JSONObject.NULL : this.surveyType);
-        json.put(ParticipantColumns.COLUMN__ID, this._ID == null ? JSONObject.NULL : this._ID);
-        json.put(ParticipantColumns.COLUMN_UID, this.UID == null ? JSONObject.NULL : this.UID);
-        json.put(ParticipantColumns.COLUMN_UUID, this.UUID == null ? JSONObject.NULL : this.UUID);
-        json.put(ParticipantColumns.COLUMN_LUID, this.LUID == null ? JSONObject.NULL : this.LUID);
-        json.put(ParticipantColumns.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
-        json.put(ParticipantColumns.COLUMN_INTERVIEWER01, this.interviewer01 == null ? JSONObject.NULL : this.interviewer01);
-        json.put(ParticipantColumns.COLUMN_INTERVIEWER02, this.interviewer02 == null ? JSONObject.NULL : this.interviewer02);
-        json.put(ParticipantColumns.COLUMN_CLUSTERCODE, this.clustercode == null ? JSONObject.NULL : this.clustercode);
-        json.put(ParticipantColumns.COLUMN_HOUSEHOLD, this.household == null ? JSONObject.NULL : this.household);
-        json.put(ParticipantColumns.COLUMN_LHWCODE, this.lhwCode == null ? JSONObject.NULL : this.lhwCode);
-        json.put(ParticipantColumns.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
-        json.put(ParticipantColumns.COLUMN_SCB, this.sCB == null ? JSONObject.NULL : new JSONObject(this.sCB));
-        json.put(ParticipantColumns.COLUMN_SCC, this.sCC == null ? JSONObject.NULL : new JSONObject(this.sCC));
-        json.put(ParticipantColumns.COLUMN_SCD, this.sCD == null ? JSONObject.NULL : new JSONObject(this.sCD));
-        json.put(ParticipantColumns.COLUMN_SCE, this.sCE == null ? JSONObject.NULL : new JSONObject(this.sCE));
-        json.put(ParticipantColumns.COLUMN_SCF, this.sCF == null ? JSONObject.NULL : new JSONObject(this.sCF));
-        json.put(ParticipantColumns.COLUMN_SCG, this.sCG == null ? JSONObject.NULL : new JSONObject(this.sCG));
-        json.put(ParticipantColumns.COLUMN_SCHA, this.sCHA == null ? JSONObject.NULL : new JSONObject(this.sCHA));
-        json.put(ParticipantColumns.COLUMN_SCHB, this.sCHB == null ? JSONObject.NULL : new JSONObject(this.sCHB));
-        json.put(ParticipantColumns.COLUMN_SCHC, this.sCHC == null ? JSONObject.NULL : new JSONObject(this.sCHC));
-        json.put(ParticipantColumns.COLUMN_SD, this.sD == null ? JSONObject.NULL : new JSONObject(this.sD));
-        json.put(ParticipantColumns.COLUMN_SE, this.sE == null ? JSONObject.NULL : new JSONObject(this.sE));
-        json.put(ParticipantColumns.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
-        json.put(ParticipantColumns.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
-        json.put(ParticipantColumns.COLUMN_GPSTIME, this.gpsTime == null ? JSONObject.NULL : this.gpsTime);
-        json.put(ParticipantColumns.COLUMN_GPSACC, this.gpsAcc == null ? JSONObject.NULL : this.gpsAcc);
-        json.put(ParticipantColumns.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
-        json.put(ParticipantColumns.COLUMN_DEVICETAGID, this.tagID == null ? JSONObject.NULL : this.tagID);
-        json.put(ParticipantColumns.COLUMN_APP_VERSION, this.app_version == null ? JSONObject.NULL : this.app_version);
-        json.put(ParticipantColumns.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
-        json.put(ParticipantColumns.COLUMN_SYNCED_DATE, this.synced_date == null ? JSONObject.NULL : this.synced_date);
+        json.put(ParticipantsTable.COLUMN_PROJECTNAME, this.projectName == null ? JSONObject.NULL : this.projectName);
+        json.put(ParticipantsTable.COLUMN_SURVEYTYPE, this.surveyType == null ? JSONObject.NULL : this.surveyType);
+        json.put(ParticipantsTable.COLUMN__ID, this._ID == null ? JSONObject.NULL : this._ID);
+        json.put(ParticipantsTable.COLUMN_UID, this.UID == null ? JSONObject.NULL : this.UID);
+        json.put(ParticipantsTable.COLUMN_UUID, this.UUID == null ? JSONObject.NULL : this.UUID);
+        json.put(ParticipantsTable.COLUMN_LUID, this.LUID == null ? JSONObject.NULL : this.LUID);
+        json.put(ParticipantsTable.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
+        json.put(ParticipantsTable.COLUMN_INTERVIEWER01, this.interviewer01 == null ? JSONObject.NULL : this.interviewer01);
+        json.put(ParticipantsTable.COLUMN_INTERVIEWER02, this.interviewer02 == null ? JSONObject.NULL : this.interviewer02);
+        json.put(ParticipantsTable.COLUMN_CLUSTERCODE, this.clustercode == null ? JSONObject.NULL : this.clustercode);
+        json.put(ParticipantsTable.COLUMN_HOUSEHOLD, this.household == null ? JSONObject.NULL : this.household);
+        json.put(ParticipantsTable.COLUMN_LHWCODE, this.lhwCode == null ? JSONObject.NULL : this.lhwCode);
+        json.put(ParticipantsTable.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
+        json.put(ParticipantsTable.COLUMN_SCB, this.sCB == null ? JSONObject.NULL : new JSONObject(this.sCB));
+        json.put(ParticipantsTable.COLUMN_SCC, this.sCC == null ? JSONObject.NULL : new JSONObject(this.sCC));
+        json.put(ParticipantsTable.COLUMN_SCD, this.sCD == null ? JSONObject.NULL : new JSONObject(this.sCD));
+        json.put(ParticipantsTable.COLUMN_SCE, this.sCE == null ? JSONObject.NULL : new JSONObject(this.sCE));
+        json.put(ParticipantsTable.COLUMN_SCF, this.sCF == null ? JSONObject.NULL : new JSONObject(this.sCF));
+        json.put(ParticipantsTable.COLUMN_SCG, this.sCG == null ? JSONObject.NULL : new JSONObject(this.sCG));
+        json.put(ParticipantsTable.COLUMN_SCH, this.sCH == null ? JSONObject.NULL : new JSONObject(this.sCH));
+        json.put(ParticipantsTable.COLUMN_SCIA, this.sCIA == null ? JSONObject.NULL : new JSONObject(this.sCIA));
+        json.put(ParticipantsTable.COLUMN_SCIB, this.sCIB == null ? JSONObject.NULL : new JSONObject(this.sCIB));
+        json.put(ParticipantsTable.COLUMN_SCIC, this.sCIC == null ? JSONObject.NULL : new JSONObject(this.sCIC));
+        json.put(ParticipantsTable.COLUMN_SD, this.sD == null ? JSONObject.NULL : new JSONObject(this.sD));
+        json.put(ParticipantsTable.COLUMN_SE, this.sE == null ? JSONObject.NULL : new JSONObject(this.sE));
+        json.put(ParticipantsTable.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
+        json.put(ParticipantsTable.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
+        json.put(ParticipantsTable.COLUMN_GPSTIME, this.gpsTime == null ? JSONObject.NULL : this.gpsTime);
+        json.put(ParticipantsTable.COLUMN_GPSACC, this.gpsAcc == null ? JSONObject.NULL : this.gpsAcc);
+        json.put(ParticipantsTable.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
+        json.put(ParticipantsTable.COLUMN_DEVICETAGID, this.tagID == null ? JSONObject.NULL : this.tagID);
+        json.put(ParticipantsTable.COLUMN_APP_VERSION, this.app_version == null ? JSONObject.NULL : this.app_version);
+        json.put(ParticipantsTable.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
+        json.put(ParticipantsTable.COLUMN_SYNCED_DATE, this.synced_date == null ? JSONObject.NULL : this.synced_date);
 
 
         return json;
     }
 
-    public static abstract class ParticipantColumns implements BaseColumns {
+    public static abstract class ParticipantsTable implements BaseColumns {
 
         public static final String TABLE_NAME = "participants";
         public static final String _URL = "participants.php";
@@ -424,9 +437,10 @@ public class ParticipantsContract {
         public static final String COLUMN_SCE = "sce";
         public static final String COLUMN_SCF = "scf";
         public static final String COLUMN_SCG = "scg";
-        public static final String COLUMN_SCHA = "scha";
-        public static final String COLUMN_SCHB = "schb";
-        public static final String COLUMN_SCHC = "schc";
+        public static final String COLUMN_SCH = "sch";
+        public static final String COLUMN_SCIA = "scia";
+        public static final String COLUMN_SCIB = "scib";
+        public static final String COLUMN_SCIC = "scic";
         public static final String COLUMN_SD = "sd";
         public static final String COLUMN_SE = "se";
         public static final String COLUMN_GPSLAT = "gpslat";

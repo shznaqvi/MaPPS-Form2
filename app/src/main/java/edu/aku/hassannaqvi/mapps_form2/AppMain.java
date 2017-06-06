@@ -214,7 +214,12 @@ public class AppMain extends Application {
                 }
         }
 
-        public void onStatusChanged(String s, int i, Bundle b) {
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+
+        }
+
+        public void onStatuSCIAnged(String s, int i, Bundle b) {
             showCurrentLocation();
         }
 

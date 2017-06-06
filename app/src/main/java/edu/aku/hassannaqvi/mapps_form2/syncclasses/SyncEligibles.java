@@ -22,7 +22,6 @@ import java.util.Collection;
 import edu.aku.hassannaqvi.mapps_form2.AppMain;
 import edu.aku.hassannaqvi.mapps_form2.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form2.contracts.EligiblesContract;
-import edu.aku.hassannaqvi.mapps_form2.contracts.EligiblesContract.singleWoman;
 
 /**
  * Created by hassan.naqvi on 7/26/2016.
@@ -60,7 +59,7 @@ public class SyncEligibles extends AsyncTask<Void, Void, String> {
 
         String line = "No Response";
         try {
-            String url = AppMain._HOST_URL + singleWoman._URI;
+            String url = AppMain._HOST_URL + EligiblesContract.EligiblesTable._URI;
             Log.d(TAG, "doInBackground: URL " + url);
             return downloadUrl(url);
         } catch (IOException e) {

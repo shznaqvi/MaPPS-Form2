@@ -23,21 +23,21 @@ public class EligiblesContract {
     private String women_name;
 
     public EligiblesContract Sync(JSONObject jsonObject) throws JSONException {
-        this.LUID = jsonObject.getString(singleWoman.COLUMN_NAME_LUID);
-        this.subAreaCode = jsonObject.getString(singleWoman.COLUMN_NAME_SUBAREACODE);
-        this.lhwCode = jsonObject.getString(singleWoman.COLUMN_NAME_LHWCODE);
-        this.houseHold = jsonObject.getString(singleWoman.COLUMN_NAME_HOUSEHOLD);
-        this.women_name = jsonObject.getString(singleWoman.COLUMN_NAME_WOMEN_NAME);
+        this.LUID = jsonObject.getString(EligiblesTable.COLUMN_NAME_LUID);
+        this.subAreaCode = jsonObject.getString(EligiblesTable.COLUMN_NAME_SUBAREACODE);
+        this.lhwCode = jsonObject.getString(EligiblesTable.COLUMN_NAME_LHWCODE);
+        this.houseHold = jsonObject.getString(EligiblesTable.COLUMN_NAME_HOUSEHOLD);
+        this.women_name = jsonObject.getString(EligiblesTable.COLUMN_NAME_WOMEN_NAME);
         return this;
 
     }
 
     public EligiblesContract Hydrate(Cursor cursor) {
-        this.LUID = cursor.getString(cursor.getColumnIndex(singleWoman.COLUMN_NAME_LUID));
-        this.subAreaCode = cursor.getString(cursor.getColumnIndex(singleWoman.COLUMN_NAME_SUBAREACODE));
-        this.lhwCode = cursor.getString(cursor.getColumnIndex(singleWoman.COLUMN_NAME_LHWCODE));
-        this.houseHold = cursor.getString(cursor.getColumnIndex(singleWoman.COLUMN_NAME_HOUSEHOLD));
-        this.women_name = cursor.getString(cursor.getColumnIndex(singleWoman.COLUMN_NAME_WOMEN_NAME));
+        this.LUID = cursor.getString(cursor.getColumnIndex(EligiblesTable.COLUMN_NAME_LUID));
+        this.subAreaCode = cursor.getString(cursor.getColumnIndex(EligiblesTable.COLUMN_NAME_SUBAREACODE));
+        this.lhwCode = cursor.getString(cursor.getColumnIndex(EligiblesTable.COLUMN_NAME_LHWCODE));
+        this.houseHold = cursor.getString(cursor.getColumnIndex(EligiblesTable.COLUMN_NAME_HOUSEHOLD));
+        this.women_name = cursor.getString(cursor.getColumnIndex(EligiblesTable.COLUMN_NAME_WOMEN_NAME));
         return this;
     }
 
@@ -92,17 +92,17 @@ public class EligiblesContract {
     public JSONObject toJSONObject() throws JSONException {
         JSONObject json = new JSONObject();
 
-        json.put(singleWoman._ID, this._ID);
-        json.put(singleWoman.COLUMN_NAME_LUID, this.LUID);
-        json.put(singleWoman.COLUMN_NAME_SUBAREACODE, this.subAreaCode);
-        json.put(singleWoman.COLUMN_NAME_LHWCODE, this.lhwCode);
-        json.put(singleWoman.COLUMN_NAME_HOUSEHOLD, this.houseHold);
-        json.put(singleWoman.COLUMN_NAME_WOMEN_NAME, this.women_name);
+        json.put(EligiblesTable._ID, this._ID);
+        json.put(EligiblesTable.COLUMN_NAME_LUID, this.LUID);
+        json.put(EligiblesTable.COLUMN_NAME_SUBAREACODE, this.subAreaCode);
+        json.put(EligiblesTable.COLUMN_NAME_LHWCODE, this.lhwCode);
+        json.put(EligiblesTable.COLUMN_NAME_HOUSEHOLD, this.houseHold);
+        json.put(EligiblesTable.COLUMN_NAME_WOMEN_NAME, this.women_name);
 
         return json;
     }
 
-    public static abstract class singleWoman implements BaseColumns {
+    public static abstract class EligiblesTable implements BaseColumns {
 
         public static final String _URI = "eligibles.php";
 

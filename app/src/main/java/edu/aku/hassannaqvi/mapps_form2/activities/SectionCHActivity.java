@@ -793,10 +793,10 @@ public class SectionCHActivity extends Activity {
         sch.put("mp02ch00302", mp02ch00302.getText().toString());
 
         sch.put("mp02ch00401", mp02ch00401.isChecked() ? "1" : "0");
-        sch.put("mp02ch00402", mp02ch00401.isChecked() ? "1" : "0");
-        sch.put("mp02ch00403", mp02ch00401.isChecked() ? "1" : "0");
-        sch.put("mp02ch00404", mp02ch00401.isChecked() ? "1" : "0");
-        sch.put("mp02ch00488", mp02ch00401.isChecked() ? "1" : "0");
+        sch.put("mp02ch00402", mp02ch00401.isChecked() ? "2" : "0");
+        sch.put("mp02ch00403", mp02ch00401.isChecked() ? "3" : "0");
+        sch.put("mp02ch00404", mp02ch00401.isChecked() ? "4" : "0");
+        sch.put("mp02ch00488", mp02ch00401.isChecked() ? "88" : "0");
         sch.put("mp02ch00488x", mp02ch00488x.getText().toString());
 
         sch.put("mp02ch005", mp02ch00501.isChecked() ? "1" : mp02ch00502.isChecked() ? "2" : mp02ch00503.isChecked() ? "3"
@@ -821,10 +821,10 @@ public class SectionCHActivity extends Activity {
         sch.put("mp02ch01102", mp02ch01102.getText().toString());
 
         sch.put("mp02ch01201", mp02ch01201.isChecked() ? "1" : "0");
-        sch.put("mp02ch01202", mp02ch01202.isChecked() ? "1" : "0");
-        sch.put("mp02ch01203", mp02ch01203.isChecked() ? "1" : "0");
-        sch.put("mp02ch01204", mp02ch01204.isChecked() ? "1" : "0");
-        sch.put("mp02ch01288", mp02ch01288.isChecked() ? "1" : "0");
+        sch.put("mp02ch01202", mp02ch01202.isChecked() ? "2" : "0");
+        sch.put("mp02ch01203", mp02ch01203.isChecked() ? "3" : "0");
+        sch.put("mp02ch01204", mp02ch01204.isChecked() ? "4" : "0");
+        sch.put("mp02ch01288", mp02ch01288.isChecked() ? "88" : "0");
         sch.put("mp02ch01288x", mp02ch01288x.getText().toString());
 
         sch.put("mp02ch013", mp02ch01301.isChecked() ? "1" : mp02ch01302.isChecked() ? "2" : mp02ch01303.isChecked() ? "3"
