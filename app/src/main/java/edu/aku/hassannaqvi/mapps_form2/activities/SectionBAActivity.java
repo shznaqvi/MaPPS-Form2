@@ -1102,23 +1102,23 @@ public class SectionBAActivity extends Activity {
 
         // Checkbox
         sBA.put("mp02ba01301", mp02ba01301.isChecked() ? "1" : "0");
-        sBA.put("mp02ba01302", mp02ba01302.isChecked() ? "2" : "0");
-        sBA.put("mp02ba01303", mp02ba01303.isChecked() ? "3" : "0");
-        sBA.put("mp02ba01304", mp02ba01304.isChecked() ? "4" : "0");
-        sBA.put("mp02ba01305", mp02ba01305.isChecked() ? "5" : "0");
-        sBA.put("mp02ba01306", mp02ba01306.isChecked() ? "6" : "0");
-        sBA.put("mp02ba01307", mp02ba01307.isChecked() ? "7" : "0");
-        sBA.put("mp02ba01308", mp02ba01308.isChecked() ? "8" : "0");
-        sBA.put("mp02ba01309", mp02ba01309.isChecked() ? "9" : "0");
-        sBA.put("mp02ba01310", mp02ba01310.isChecked() ? "10" : "0");
-        sBA.put("mp02ba01311", mp02ba01311.isChecked() ? "11" : "0");
-        sBA.put("mp02ba01312", mp02ba01312.isChecked() ? "12" : "0");
-        sBA.put("mp02ba01313", mp02ba01313.isChecked() ? "13" : "0");
-        sBA.put("mp02ba01314", mp02ba01314.isChecked() ? "14" : "0");
-        sBA.put("mp02ba01315", mp02ba01315.isChecked() ? "15" : "0");
-        sBA.put("mp02ba01316", mp02ba01316.isChecked() ? "16" : "0");
-        sBA.put("mp02ba01317", mp02ba01317.isChecked() ? "17" : "0");
-        sBA.put("mp02ba01318", mp02ba01318.isChecked() ? "18" : "0");
+        sBA.put("mp02ba01302", mp02ba01302.isChecked() ? "1" : "0");
+        sBA.put("mp02ba01303", mp02ba01303.isChecked() ? "1" : "0");
+        sBA.put("mp02ba01304", mp02ba01304.isChecked() ? "1" : "0");
+        sBA.put("mp02ba01305", mp02ba01305.isChecked() ? "1" : "0");
+        sBA.put("mp02ba01306", mp02ba01306.isChecked() ? "1" : "0");
+        sBA.put("mp02ba01307", mp02ba01307.isChecked() ? "1" : "0");
+        sBA.put("mp02ba01308", mp02ba01308.isChecked() ? "1" : "0");
+        sBA.put("mp02ba01309", mp02ba01309.isChecked() ? "1" : "0");
+        sBA.put("mp02ba01310", mp02ba01310.isChecked() ? "1" : "0");
+        sBA.put("mp02ba01311", mp02ba01311.isChecked() ? "1" : "0");
+        sBA.put("mp02ba01312", mp02ba01312.isChecked() ? "1" : "0");
+        sBA.put("mp02ba01313", mp02ba01313.isChecked() ? "1" : "0");
+        sBA.put("mp02ba01314", mp02ba01314.isChecked() ? "1" : "0");
+        sBA.put("mp02ba01315", mp02ba01315.isChecked() ? "1" : "0");
+        sBA.put("mp02ba01316", mp02ba01316.isChecked() ? "1" : "0");
+        sBA.put("mp02ba01317", mp02ba01317.isChecked() ? "1" : "0");
+        sBA.put("mp02ba01318", mp02ba01318.isChecked() ? "1" : "0");
 
         sBA.put("mp02ba014", mp02ba01401.isChecked() ? "1" : mp02ba01402.isChecked() ? "2": mp02ba01403.isChecked() ? "3"
                 : mp02ba01404.isChecked() ? "4" : mp02ba01405.isChecked() ? "5" : mp02ba01406.isChecked() ? "6"
