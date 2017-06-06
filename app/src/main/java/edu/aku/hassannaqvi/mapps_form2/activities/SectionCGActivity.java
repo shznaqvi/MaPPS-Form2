@@ -24,9 +24,9 @@ import butterknife.OnClick;
 import edu.aku.hassannaqvi.mapps_form2.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form2.R;
 
-public class AccessToLHWActivity extends Activity {
+public class SectionCGActivity extends Activity {
 
-    private static final String TAG = AccessToLHWActivity.class.getSimpleName();
+    private static final String TAG = SectionCGActivity.class.getSimpleName();
 
     @BindView(R.id.scrollView01)
     ScrollView scrollView01;
