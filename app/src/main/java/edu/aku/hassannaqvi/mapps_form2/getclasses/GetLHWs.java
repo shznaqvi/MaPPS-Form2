@@ -50,7 +50,7 @@ public class GetLHWs extends AsyncTask<String, String, String> {
         StringBuilder result = new StringBuilder();
 
         try {
-            URL url = new URL(AppMain._HOST_URL + LHWsContract.singleLhw._URI);
+            URL url = new URL(AppMain._HOST_URL + LHWsContract.LHWsTable._URI);
             urlConnection = (HttpURLConnection) url.openConnection();
             if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());

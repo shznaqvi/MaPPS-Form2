@@ -64,7 +64,7 @@ public class GetEligibles extends AsyncTask<Void, Void, String> {
 
         String line = "No Response";
         try {
-            return downloadUrl(AppMain._HOST_URL + EligiblesContract.singleWoman._URIGET);
+            return downloadUrl(AppMain._HOST_URL + EligiblesContract.EligiblesTable._URIGET);
         } catch (IOException e) {
             return "Unable to upload data. Server may be down.";
         }
@@ -79,7 +79,7 @@ public class GetEligibles extends AsyncTask<Void, Void, String> {
         try {
             json = new JSONArray(result);
             DatabaseHelper db = new DatabaseHelper(mContext);
-            db.syncEligible(json);
+            db.syncEligibles(json);
             Toast.makeText(mContext, "Successfully Synced " + json.length() + " Eligibles", Toast.LENGTH_SHORT).show();
 
             pd.setMessage(json.length() + " eligibles synced.");

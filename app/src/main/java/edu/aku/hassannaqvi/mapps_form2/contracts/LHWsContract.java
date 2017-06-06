@@ -67,33 +67,33 @@ public class LHWsContract {
     public JSONObject toJSONObject() throws JSONException {
 
         JSONObject json = new JSONObject();
-        json.put(singleLhw._ID, this._ID == null ? JSONObject.NULL : this._ID);
-        json.put(singleLhw.COLUMN_LHWID, this.lhwId == null ? JSONObject.NULL : this.lhwId);
-        json.put(singleLhw.COLUMN_LHWNAME, this.lhwName == null ? JSONObject.NULL : this.lhwName);
-        json.put(singleLhw.COLUMN_CLUSTERNAME, this.clusterName == null ? JSONObject.NULL : this.clusterName);
-        json.put(singleLhw.COLUMN_CLUSTERCODE, this.clusterCode == null ? JSONObject.NULL : this.clusterCode);
+        json.put(LHWsTable._ID, this._ID == null ? JSONObject.NULL : this._ID);
+        json.put(LHWsTable.COLUMN_LHWID, this.lhwId == null ? JSONObject.NULL : this.lhwId);
+        json.put(LHWsTable.COLUMN_LHWNAME, this.lhwName == null ? JSONObject.NULL : this.lhwName);
+        json.put(LHWsTable.COLUMN_CLUSTERNAME, this.clusterName == null ? JSONObject.NULL : this.clusterName);
+        json.put(LHWsTable.COLUMN_CLUSTERCODE, this.clusterCode == null ? JSONObject.NULL : this.clusterCode);
         return json;
     }
 
     public LHWsContract Sync(JSONObject jsonObject) throws JSONException {
-        this.lhwId = jsonObject.getString(singleLhw.COLUMN_LHWID);
-        this.lhwName = jsonObject.getString(singleLhw.COLUMN_LHWNAME);
-        this.clusterName = jsonObject.getString(singleLhw.COLUMN_CLUSTERNAME);
-        this.clusterCode = jsonObject.getString(singleLhw.COLUMN_CLUSTERCODE);
+        this.lhwId = jsonObject.getString(LHWsTable.COLUMN_LHWID);
+        this.lhwName = jsonObject.getString(LHWsTable.COLUMN_LHWNAME);
+        this.clusterName = jsonObject.getString(LHWsTable.COLUMN_CLUSTERNAME);
+        this.clusterCode = jsonObject.getString(LHWsTable.COLUMN_CLUSTERCODE);
 
         return this;
 
     }
 
     public LHWsContract Hydrate(Cursor cursor) {
-        this._ID = cursor.getLong(cursor.getColumnIndex(singleLhw._ID));
-        this.lhwId = cursor.getString(cursor.getColumnIndex(singleLhw.COLUMN_LHWID));
-        this.lhwName = cursor.getString(cursor.getColumnIndex(singleLhw.COLUMN_LHWNAME));
+        this._ID = cursor.getLong(cursor.getColumnIndex(LHWsTable._ID));
+        this.lhwId = cursor.getString(cursor.getColumnIndex(LHWsTable.COLUMN_LHWID));
+        this.lhwName = cursor.getString(cursor.getColumnIndex(LHWsTable.COLUMN_LHWNAME));
         return this;
     }
 
 
-    public static abstract class singleLhw implements BaseColumns {
+    public static abstract class LHWsTable implements BaseColumns {
 
         public static final String TABLE_NAME = "LHWs";
         public static final String _ID = "id";

@@ -537,7 +537,7 @@ public class SectionCIBActivity extends Activity {
     private boolean UpdateDB() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-        int updcount = db.updateCHB();
+        int updcount = db.updateCIB();
 
         if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
@@ -552,72 +552,72 @@ public class SectionCIBActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        JSONObject sCHB = new JSONObject();
+        JSONObject SCIB = new JSONObject();
 
-        sCHB.put("mp02cib001", mp02cib00101.isChecked() ? "1" : mp02cib00102.isChecked() ? "2" : mp02cib00103.isChecked() ? "3"
+        SCIB.put("mp02cib001", mp02cib00101.isChecked() ? "1" : mp02cib00102.isChecked() ? "2" : mp02cib00103.isChecked() ? "3"
                 : mp02cib00104.isChecked() ? "4" : "0");
 
-        sCHB.put("mp02cib002", mp02cib00201.isChecked() ? "1" : mp02cib00202.isChecked() ? "2" : mp02cib00203.isChecked() ? "3"
+        SCIB.put("mp02cib002", mp02cib00201.isChecked() ? "1" : mp02cib00202.isChecked() ? "2" : mp02cib00203.isChecked() ? "3"
                 : mp02cib00204.isChecked() ? "4" : "0");
 
-        sCHB.put("mp02cib003", mp02cib00301.isChecked() ? "1" : mp02cib00302.isChecked() ? "2" : mp02cib00303.isChecked() ? "3"
+        SCIB.put("mp02cib003", mp02cib00301.isChecked() ? "1" : mp02cib00302.isChecked() ? "2" : mp02cib00303.isChecked() ? "3"
                 : mp02cib00304.isChecked() ? "4" : "0");
 
-        sCHB.put("mp02cib004", mp02cib00401.isChecked() ? "1" : mp02cib00402.isChecked() ? "2" : mp02cib00403.isChecked() ? "3"
+        SCIB.put("mp02cib004", mp02cib00401.isChecked() ? "1" : mp02cib00402.isChecked() ? "2" : mp02cib00403.isChecked() ? "3"
                 : mp02cib00404.isChecked() ? "4" : "0");
 
-        sCHB.put("mp02cib005", mp02cib00501.isChecked() ? "1" : mp02cib00502.isChecked() ? "2" : mp02cib00503.isChecked() ? "3"
+        SCIB.put("mp02cib005", mp02cib00501.isChecked() ? "1" : mp02cib00502.isChecked() ? "2" : mp02cib00503.isChecked() ? "3"
                 : mp02cib00504.isChecked() ? "4" : "0");
 
-        sCHB.put("mp02cib006", mp02cib00601.isChecked() ? "1" : mp02cib00602.isChecked() ? "2" : mp02cib00603.isChecked() ? "3"
+        SCIB.put("mp02cib006", mp02cib00601.isChecked() ? "1" : mp02cib00602.isChecked() ? "2" : mp02cib00603.isChecked() ? "3"
                 : mp02cib00604.isChecked() ? "4" : "0");
 
-        sCHB.put("mp02cib007", mp02cib00701.isChecked() ? "1" : mp02cib00702.isChecked() ? "2" : mp02cib00703.isChecked() ? "3"
+        SCIB.put("mp02cib007", mp02cib00701.isChecked() ? "1" : mp02cib00702.isChecked() ? "2" : mp02cib00703.isChecked() ? "3"
                 : mp02cib00704.isChecked() ? "4" : "0");
 
-        sCHB.put("mp02cib008", mp02cib00801.isChecked() ? "1" : mp02cib00802.isChecked() ? "2" : mp02cib00803.isChecked() ? "3"
+        SCIB.put("mp02cib008", mp02cib00801.isChecked() ? "1" : mp02cib00802.isChecked() ? "2" : mp02cib00803.isChecked() ? "3"
                 : mp02cib00804.isChecked() ? "4" : "0");
 
-        sCHB.put("mp02cib009", mp02cib00901.isChecked() ? "1" : mp02cib00902.isChecked() ? "2" : mp02cib00903.isChecked() ? "3"
+        SCIB.put("mp02cib009", mp02cib00901.isChecked() ? "1" : mp02cib00902.isChecked() ? "2" : mp02cib00903.isChecked() ? "3"
                 : mp02cib00904.isChecked() ? "4" : "0");
 
-        sCHB.put("mp02cib010", mp02cib01001.isChecked() ? "1" : mp02cib01002.isChecked() ? "2" : mp02cib01003.isChecked() ? "3"
+        SCIB.put("mp02cib010", mp02cib01001.isChecked() ? "1" : mp02cib01002.isChecked() ? "2" : mp02cib01003.isChecked() ? "3"
                 : mp02cib01004.isChecked() ? "4" : "0");
 
-        sCHB.put("mp02cib011", mp02cib01101.isChecked() ? "1" : mp02cib01102.isChecked() ? "2" : mp02cib01103.isChecked() ? "3"
+        SCIB.put("mp02cib011", mp02cib01101.isChecked() ? "1" : mp02cib01102.isChecked() ? "2" : mp02cib01103.isChecked() ? "3"
                 : mp02cib01104.isChecked() ? "4" : "0");
 
-        sCHB.put("mp02cib012", mp02cib01201.isChecked() ? "1" : mp02cib01202.isChecked() ? "2" : mp02cib01203.isChecked() ? "3"
+        SCIB.put("mp02cib012", mp02cib01201.isChecked() ? "1" : mp02cib01202.isChecked() ? "2" : mp02cib01203.isChecked() ? "3"
                 : mp02cib01204.isChecked() ? "4" : "0");
 
-        sCHB.put("mp02cib013", mp02cib01301.isChecked() ? "1" : mp02cib01302.isChecked() ? "2" : mp02cib01303.isChecked() ? "3"
+        SCIB.put("mp02cib013", mp02cib01301.isChecked() ? "1" : mp02cib01302.isChecked() ? "2" : mp02cib01303.isChecked() ? "3"
                 : mp02cib01304.isChecked() ? "4" : "0");
 
-        sCHB.put("mp02cib014", mp02cib01401.isChecked() ? "1" : mp02cib01402.isChecked() ? "2" : mp02cib01403.isChecked() ? "3"
+        SCIB.put("mp02cib014", mp02cib01401.isChecked() ? "1" : mp02cib01402.isChecked() ? "2" : mp02cib01403.isChecked() ? "3"
                 : mp02cib01404.isChecked() ? "4" : "0");
 
-        sCHB.put("mp02cib015", mp02cib01501.isChecked() ? "1" : mp02cib01502.isChecked() ? "2" : mp02cib01503.isChecked() ? "3"
+        SCIB.put("mp02cib015", mp02cib01501.isChecked() ? "1" : mp02cib01502.isChecked() ? "2" : mp02cib01503.isChecked() ? "3"
                 : mp02cib01504.isChecked() ? "4" : "0");
 
-        sCHB.put("mp02cib016", mp02cib01601.isChecked() ? "1" : mp02cib01602.isChecked() ? "2" : mp02cib01603.isChecked() ? "3"
+        SCIB.put("mp02cib016", mp02cib01601.isChecked() ? "1" : mp02cib01602.isChecked() ? "2" : mp02cib01603.isChecked() ? "3"
                 : mp02cib01604.isChecked() ? "4" : "0");
 
-        sCHB.put("mp02cib017", mp02cib01701.isChecked() ? "1" : mp02cib01702.isChecked() ? "2" : mp02cib01703.isChecked() ? "3"
+        SCIB.put("mp02cib017", mp02cib01701.isChecked() ? "1" : mp02cib01702.isChecked() ? "2" : mp02cib01703.isChecked() ? "3"
                 : mp02cib01704.isChecked() ? "4" : "0");
 
-        sCHB.put("mp02cib018", mp02cib01801.isChecked() ? "1" : mp02cib01802.isChecked() ? "2" : mp02cib01803.isChecked() ? "3"
+        SCIB.put("mp02cib018", mp02cib01801.isChecked() ? "1" : mp02cib01802.isChecked() ? "2" : mp02cib01803.isChecked() ? "3"
                 : mp02cib01804.isChecked() ? "4" : "0");
 
-        sCHB.put("mp02cib019", mp02cib01901.isChecked() ? "1" : mp02cib01902.isChecked() ? "2" : mp02cib01903.isChecked() ? "3"
+        SCIB.put("mp02cib019", mp02cib01901.isChecked() ? "1" : mp02cib01902.isChecked() ? "2" : mp02cib01903.isChecked() ? "3"
                 : mp02cib01904.isChecked() ? "4" : "0");
 
-        sCHB.put("mp02cib020", mp02cib02001.isChecked() ? "1" : mp02cib02002.isChecked() ? "2" : mp02cib02003.isChecked() ? "3"
+        SCIB.put("mp02cib020", mp02cib02001.isChecked() ? "1" : mp02cib02002.isChecked() ? "2" : mp02cib02003.isChecked() ? "3"
                 : mp02cib02004.isChecked() ? "4" : "0");
 
-        sCHB.put("mp02cib021", mp02cib02101.isChecked() ? "1" : mp02cib02102.isChecked() ? "2" : mp02cib02103.isChecked() ? "3"
+        SCIB.put("mp02cib021", mp02cib02101.isChecked() ? "1" : mp02cib02102.isChecked() ? "2" : mp02cib02103.isChecked() ? "3"
                 : mp02cib02104.isChecked() ? "4" : "0");
 
-        AppMain.pc.setsCHB(String.valueOf(sCHB));
+        AppMain.pc.setsCIB(String.valueOf(SCIB));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

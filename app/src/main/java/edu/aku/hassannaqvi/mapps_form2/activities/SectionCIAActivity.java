@@ -325,7 +325,7 @@ public class SectionCIAActivity extends Activity {
     private boolean UpdateDB() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-        int updcount = db.updateCHA();
+        int updcount = db.updateCIA();
 
         if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
@@ -339,30 +339,30 @@ public class SectionCIAActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        JSONObject sCHA = new JSONObject();
+        JSONObject SCIA = new JSONObject();
 
-        sCHA.put("mp02cia001", mp02cia00101.isChecked() ? "1" : mp02cia00102.isChecked() ? "2" : mp02cia00103.isChecked() ? "3"
+        SCIA.put("mp02cia001", mp02cia00101.isChecked() ? "1" : mp02cia00102.isChecked() ? "2" : mp02cia00103.isChecked() ? "3"
                 : mp02cia00104.isChecked() ? "4" : mp02cia00105.isChecked() ? "5" : "0");
-        sCHA.put("mp02cia002", mp02cia00201.isChecked() ? "1" : mp02cia00202.isChecked() ? "2" : mp02cia00203.isChecked() ? "3"
+        SCIA.put("mp02cia002", mp02cia00201.isChecked() ? "1" : mp02cia00202.isChecked() ? "2" : mp02cia00203.isChecked() ? "3"
                 : mp02cia00204.isChecked() ? "4" : mp02cia00205.isChecked() ? "5" : "0");
-        sCHA.put("mp02cia003", mp02cia00301.isChecked() ? "1" : mp02cia00302.isChecked() ? "2" : mp02cia00303.isChecked() ? "3"
+        SCIA.put("mp02cia003", mp02cia00301.isChecked() ? "1" : mp02cia00302.isChecked() ? "2" : mp02cia00303.isChecked() ? "3"
                 : mp02cia00304.isChecked() ? "4" : mp02cia00305.isChecked() ? "5" : "0");
-        sCHA.put("mp02cia004", mp02cia00401.isChecked() ? "1" : mp02cia00402.isChecked() ? "2" : mp02cia00403.isChecked() ? "3"
+        SCIA.put("mp02cia004", mp02cia00401.isChecked() ? "1" : mp02cia00402.isChecked() ? "2" : mp02cia00403.isChecked() ? "3"
                 : mp02cia00404.isChecked() ? "4" : mp02cia00405.isChecked() ? "5" : "0");
-        sCHA.put("mp02cia005", mp02cia00501.isChecked() ? "1" : mp02cia00502.isChecked() ? "2" : mp02cia00503.isChecked() ? "3"
+        SCIA.put("mp02cia005", mp02cia00501.isChecked() ? "1" : mp02cia00502.isChecked() ? "2" : mp02cia00503.isChecked() ? "3"
                 : mp02cia00504.isChecked() ? "4" : mp02cia00505.isChecked() ? "5" : "0");
-        sCHA.put("mp02cia006", mp02cia00601.isChecked() ? "1" : mp02cia00602.isChecked() ? "2" : mp02cia00603.isChecked() ? "3"
+        SCIA.put("mp02cia006", mp02cia00601.isChecked() ? "1" : mp02cia00602.isChecked() ? "2" : mp02cia00603.isChecked() ? "3"
                 : mp02cia00604.isChecked() ? "4" : mp02cia00605.isChecked() ? "5" : "0");
-        sCHA.put("mp02cia007", mp02cia00701.isChecked() ? "1" : mp02cia00702.isChecked() ? "2" : mp02cia00703.isChecked() ? "3"
+        SCIA.put("mp02cia007", mp02cia00701.isChecked() ? "1" : mp02cia00702.isChecked() ? "2" : mp02cia00703.isChecked() ? "3"
                 : mp02cia00704.isChecked() ? "4" : mp02cia00705.isChecked() ? "5" : "0");
-        sCHA.put("mp02cia008", mp02cia00801.isChecked() ? "1" : mp02cia00802.isChecked() ? "2" : mp02cia00803.isChecked() ? "3"
+        SCIA.put("mp02cia008", mp02cia00801.isChecked() ? "1" : mp02cia00802.isChecked() ? "2" : mp02cia00803.isChecked() ? "3"
                 : mp02cia00804.isChecked() ? "4" : mp02cia00805.isChecked() ? "5" : "0");
-        sCHA.put("mp02cia009", mp02cia00901.isChecked() ? "1" : mp02cia00902.isChecked() ? "2" : mp02cia00903.isChecked() ? "3"
+        SCIA.put("mp02cia009", mp02cia00901.isChecked() ? "1" : mp02cia00902.isChecked() ? "2" : mp02cia00903.isChecked() ? "3"
                 : mp02cia00904.isChecked() ? "4" : mp02cia00905.isChecked() ? "5" : "0");
-        sCHA.put("mp02cia010", mp02cia01001.isChecked() ? "1" : mp02cia01002.isChecked() ? "2" : mp02cia01003.isChecked() ? "3"
+        SCIA.put("mp02cia010", mp02cia01001.isChecked() ? "1" : mp02cia01002.isChecked() ? "2" : mp02cia01003.isChecked() ? "3"
                 : mp02cia01004.isChecked() ? "4" : mp02cia01005.isChecked() ? "5" : "0");
 
-        AppMain.pc.setsCHA(String.valueOf(sCHA));
+        AppMain.pc.setsCIA(String.valueOf(SCIA));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

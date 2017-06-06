@@ -14,7 +14,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 
 import edu.aku.hassannaqvi.mapps_form2.AppMain;
 import edu.aku.hassannaqvi.mapps_form2.DatabaseHelper;
@@ -50,7 +49,7 @@ public class GetUsers extends AsyncTask<String, String, String> {
         StringBuilder result = new StringBuilder();
 
         try {
-            URL url = new URL(AppMain._HOST_URL + UsersContract.singleUser._URI);
+            URL url = new URL(AppMain._HOST_URL + UsersContract.UsersTable._URI);
             urlConnection = (HttpURLConnection) url.openConnection();
             if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
@@ -84,13 +83,11 @@ public class GetUsers extends AsyncTask<String, String, String> {
         //json = json.replaceAll("\\[", "").replaceAll("\\]","");
         Log.d(TAG, result);
         if (json.length() > 0) {
-            ArrayList<UsersContract> userArrayList;
             DatabaseHelper db = new DatabaseHelper(mContext);
             try {
-                userArrayList = new ArrayList<UsersContract>();
-                //JSONObject jsonObject = new JSONObject(json);
+
                 JSONArray jsonArray = new JSONArray(json);
-                db.syncUser(jsonArray);
+                db.syncUsers(jsonArray);
                 pd.setMessage("Received: " + jsonArray.length());
                 pd.show();
             } catch (JSONException e) {

@@ -22,7 +22,6 @@ import java.util.Collection;
 import edu.aku.hassannaqvi.mapps_form2.AppMain;
 import edu.aku.hassannaqvi.mapps_form2.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form2.contracts.FormsContract;
-import edu.aku.hassannaqvi.mapps_form2.contracts.FormsContract.FormColumns;
 
 /**
  * Created by hassan.naqvi on 7/26/2016.
@@ -60,7 +59,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
 
         String line = "No Response";
         try {
-            String url = AppMain._HOST_URL + FormColumns._URL;
+            String url = AppMain._HOST_URL + FormsContract.FormsTable._URL;
             Log.d(TAG, "doInBackground: URL " + url);
             return downloadUrl(url);
         } catch (IOException e) {
