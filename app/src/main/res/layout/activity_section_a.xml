@@ -67,6 +67,7 @@
                 android:id="@+id/mp02a002"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="@string/mp02a002"
                 android:inputType="textCapWords" />
 
@@ -154,6 +155,7 @@
                 android:id="@+id/mp02a006"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="@string/mp02a006"
                 android:inputType="textCapWords" />
 
@@ -178,6 +180,7 @@
                     android:id="@+id/mp02a007"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:hint="@string/mp02a007"
                     android:inputType="textCapWords" />
 

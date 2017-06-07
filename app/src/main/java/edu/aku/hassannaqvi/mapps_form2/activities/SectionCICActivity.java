@@ -208,7 +208,6 @@ public class SectionCICActivity extends Activity {
                     fldGrpmp02cic011.setVisibility(View.VISIBLE);
                 }else {
                     fldGrpmp02cic011.setVisibility(View.GONE);
-
                     mp02cic01101.setChecked(false);
                     mp02cic01102.setChecked(false);
                     mp02cic01103.setChecked(false);
@@ -223,8 +222,8 @@ public class SectionCICActivity extends Activity {
                     mp02cic01112.setChecked(false);
                     mp02cic01113.setChecked(false);
                     mp02cic01188.setChecked(false);
-
                     mp02cic01188x.setText(null);
+                    mp02cic012.clearCheck();
                 }
             }
         });

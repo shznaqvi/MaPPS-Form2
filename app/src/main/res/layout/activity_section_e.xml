@@ -164,7 +164,9 @@
                 android:id="@+id/mp02e00388x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="@string/other"
+                android:inputType="textCapWords"
                 android:visibility="gone" />
 
             <LinearLayout
@@ -215,14 +217,18 @@
                     android:id="@+id/mp02e00402x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:hint="@string/mp02e00403"
+                    android:inputType="textCapWords"
                     android:visibility="gone" />
 
                 <EditText
                     android:id="@+id/mp02e00488x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:hint="@string/other"
+                    android:inputType="textCapWords"
                     android:visibility="gone" />
 
             </LinearLayout>

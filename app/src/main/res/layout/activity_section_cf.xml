@@ -152,6 +152,7 @@
                 android:id="@+id/mp02cf00288x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="@string/other"
                 android:inputType="textCapWords"
                 android:visibility="gone" />
@@ -252,6 +253,7 @@
                     android:id="@+id/mp02cf00488x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:hint="@string/other"
                     android:inputType="textCapWords"
                     android:visibility="gone" />
@@ -307,21 +309,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf00506" />
 
-                    <RadioButton
-                        android:id="@+id/mp02cf00588"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/other" />
 
                 </RadioGroup>
-
-                <EditText
-                    android:id="@+id/mp02cf00588x"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/other"
-                    android:inputType="textCapWords"
-                    android:visibility="gone" />
 
 
                 <TextView
@@ -343,7 +332,7 @@
                         android:id="@+id/mp02cf00601"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                    android:text="@string/yes" />
+                        android:text="@string/yes" />
 
                 <RadioButton
                     android:id="@+id/mp02cf00602"
@@ -395,7 +384,7 @@
 
                 <LinearLayout
                     android:id="@+id/fldGrpmp02cf08"
-                android:layout_width="match_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
@@ -480,6 +469,7 @@
                     android:id="@+id/mp02cf00988x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:hint="@string/other"
                     android:inputType="textCapWords"
                     android:visibility="gone" />
@@ -494,65 +484,60 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
 
-                <RadioGroup
-                    android:id="@+id/mp02cf010"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02cf01001"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf01001" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02cf01002"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf01002" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02cf01003"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf01003" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02cf01004"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf01004" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02cf01005"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf01005" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02cf01006"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf01006" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02cf01007"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf01007" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02cf01088"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/other" />
 
-                </RadioGroup>
-
                 <EditText
                     android:id="@+id/mp02cf01088x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:hint="@string/other"
                     android:inputType="textCapWords"
                     android:visibility="gone" />
@@ -622,6 +607,7 @@
                     android:id="@+id/mp02cf01188x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:hint="@string/other"
                     android:inputType="textCapWords"
                     android:visibility="gone" />
@@ -671,54 +657,50 @@
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@android:color/white" />
 
-                    <RadioGroup
-                        android:id="@+id/mp02cf013"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
 
-                        <RadioButton
+                    <CheckBox
                             android:id="@+id/mp02cf01301"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/mp02cf01301" />
 
-                        <RadioButton
+                    <CheckBox
                             android:id="@+id/mp02cf01302"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/mp02cf01302" />
 
-                        <RadioButton
+                    <CheckBox
                             android:id="@+id/mp02cf01303"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/mp02cf01303" />
 
-                        <RadioButton
+                    <CheckBox
                             android:id="@+id/mp02cf01304"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/mp02cf01304" />
 
-                        <RadioButton
+                    <CheckBox
                             android:id="@+id/mp02cf01305"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/mp02cf01305" />
 
 
-                        <RadioButton
+                    <CheckBox
                             android:id="@+id/mp02cf01388"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/other" />
 
-                    </RadioGroup>
 
                     <EditText
                         android:id="@+id/mp02cf01388x"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:hint="@string/other"
                         android:inputType="textCapWords"
                         android:visibility="gone" />
@@ -784,60 +766,56 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
 
-                <RadioGroup
-                    android:id="@+id/mp02cf015"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02cf01501"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf01501" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02cf01502"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf01502" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02cf01503"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf01503" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02cf01504"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf01504" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02cf01505"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf01505" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02cf01506"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf01506" />
 
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02cf01588"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/other" />
 
-                </RadioGroup>
 
                 <EditText
                     android:id="@+id/mp02cf01588x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:hint="@string/other"
                     android:inputType="textCapWords"
                     android:visibility="gone" />
@@ -1232,7 +1210,9 @@
                         android:id="@+id/mp02cf02988x"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:hint="@string/other"
+                        android:inputType="textCapWords"
                         android:visibility="gone" />
 
                     <TextView
@@ -1311,7 +1291,9 @@
                         android:id="@+id/mp02cf03088x"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:hint="@string/other"
+                        android:inputType="textCapWords"
                         android:visibility="gone" />
 
                     <TextView
@@ -1467,7 +1449,9 @@
                         android:id="@+id/mp02cf03288x"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:hint="@string/other"
+                        android:inputType="textCapWords"
                         android:visibility="gone" />
 
                 </LinearLayout>
@@ -1660,7 +1644,9 @@
                         android:id="@+id/mp02cf03688x"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:hint="@string/other"
+                        android:inputType="textCapWords"
                         android:visibility="gone" />
 
                     <TextView
@@ -1739,7 +1725,9 @@
                         android:id="@+id/mp02cf03788x"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:hint="@string/other"
+                        android:inputType="textCapWords"
                         android:visibility="gone" />
 
                 </LinearLayout>
@@ -1868,7 +1856,9 @@
                         android:id="@+id/mp02cf03988x"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:hint="@string/other"
+                        android:inputType="textCapWords"
                         android:visibility="gone" />
 
                 </LinearLayout>

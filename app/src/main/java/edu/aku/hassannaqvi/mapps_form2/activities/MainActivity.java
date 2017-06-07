@@ -20,13 +20,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import edu.aku.hassannaqvi.mapps_form2.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.mapps_form2.AppMain;
+import edu.aku.hassannaqvi.mapps_form2.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form2.R;
+import edu.aku.hassannaqvi.mapps_form2.contracts.FormsContract;
 import edu.aku.hassannaqvi.mapps_form2.getclasses.GetEligibles;
 import edu.aku.hassannaqvi.mapps_form2.otherclasses.FormsList;
 import edu.aku.hassannaqvi.mapps_form2.syncclasses.SyncEligibles;
@@ -45,12 +48,11 @@ public class MainActivity extends Activity {
     TextView recordSummary;
     @BindView(R.id.areaCode)
     EditText areaCode;
-    private String rSumText = "";
-
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
     AlertDialog.Builder builder;
     String m_Text= "";
+    private String rSumText = "";
     private ProgressDialog pd;
     private Boolean exit = false;
 
@@ -96,57 +98,73 @@ public class MainActivity extends Activity {
         }
 
 
-//        if (AppMain.admin) {
-//            adminsec.setVisibility(View.VISIBLE);
-//        } else {
-//            adminsec.setVisibility(View.GONE);
-//        }
+        /*if (AppMain.admin) {
+            adminsec.setVisibility(View.VISIBLE);
+        } else {
+            adminsec.setVisibility(View.GONE);
+        }
+
+*/
+        DatabaseHelper db = new DatabaseHelper(this);
+        Collection<FormsContract> todaysForms = db.getTodayForms();
+        Collection<FormsContract> unsyncedForms = db.getUnsyncedForms();
+
+        rSumText += "TODAY'S RECORDS SUMMARY\r\n";
+
+        rSumText += "=======================\r\n";
+        rSumText += "\r\n";
+        rSumText += "Total Forms Today: " + todaysForms.size() + "\r\n";
+        rSumText += "\r\n";
+        if (todaysForms.size() > 0) {
+            rSumText += "\tFORMS' LIST: \r\n";
+            String iStatus;
+            rSumText += "--------------------------------------------------\r\n";
+            rSumText += "[ MAPPS_ID ] \t[Form Status] \t[Sync Status]----------\r\n";
+            rSumText += "--------------------------------------------------\r\n";
+
+            for (FormsContract fc : todaysForms) {
+
+                switch (fc.getIstatus()) {
+                    case "1":
+                        iStatus = "\tComplete";
+                        break;
+                    case "2":
+                        iStatus = "\tIncomplete";
+                        break;
+                    case "3":
+                        iStatus = "\tRefused";
+                        break;
+                    case "4":
+                        iStatus = "\tRefused";
+                        break;
+                    default:
+                        iStatus = "\t";
+                }
+
+                rSumText += fc.getID();
+
+                rSumText += " " + iStatus + " ";
+
+                rSumText += (fc.getSynced() == null ? "\t\tNot Synced" : "\t\tSynced");
+                rSumText += "\r\n";
+                rSumText += "--------------------------------------------------\r\n";
+            }
+        }
 
 
-//        DatabaseHelper db = new DatabaseHelper(this);
-//        Collection<FormsContract> todaysForms = new ArrayList<>();
-//
-//        todaysForms = db.getTodayForms();
-//
-//        rSumText += "TODAY'S RECORDS SUMMARY\r\n";
-//        rSumText += "=======================";
-//        rSumText += "\r\n\r\n";
-//        rSumText += "Total Forms Today: " + todaysForms.size();
-//        rSumText += "\r\n";
-//        rSumText += "    Forms List: \r\n";
-//        String iStatus = "";
-//        for (FormsContract fc : todaysForms) {
-//
-//            switch (fc.getIstatus()) {
-//                case "1":
-//                    iStatus = "Complete";
-//                    break;
-//                case "2":
-//                    iStatus = "House Locked";
-//                    break;
-//                case "3":
-//                    iStatus = "Refused";
-//                    break;
-//                case "4":
-//                    iStatus = "Refused";
-//                    break;
-//            }
-//
-//            rSumText += fc.getSubareacode() + " " + fc.getHousehold() + " " + iStatus;
-//            rSumText += "\r\n";
-//
-//        }
-//
-//        rSumText += "--------------------------------------------------\r\n";
-//        if (AppMain.admin) {
-//            adminsec.setVisibility(View.VISIBLE);
-//            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
-//            rSumText += "Last Update: " + syncPref.getString("LastUpdate", "Never Updated");
-//            rSumText += "\r\n";
-//            rSumText += "Last Synced(DB): " + syncPref.getString("LastSyncDB", "Never Synced");
-//            rSumText += "\r\n";
-//        }
-//        recordSummary.setText(rSumText);
+        if (AppMain.admin) {
+            adminsec.setVisibility(View.VISIBLE);
+            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
+            rSumText += "Last Data Download: \t" + syncPref.getString("LastDownSyncServer", "Never Updated");
+            rSumText += "\r\n";
+            rSumText += "Last Data Upload: \t" + syncPref.getString("LastUpSyncServer", "Never Synced");
+            rSumText += "\r\n";
+            rSumText += "\r\n";
+            rSumText += "Unsynced Forms: \t" + unsyncedForms.size();
+            rSumText += "\r\n";
+        }
+        Log.d(TAG, "onCreate: " + rSumText);
+        recordSummary.setText(rSumText);
 
 
     }
