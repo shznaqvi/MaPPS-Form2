@@ -219,7 +219,7 @@ public class SectionCGActivity extends Activity {
     public boolean ValidateForm() {
 
 //        1
-        if (mp02cg00101.getText().toString().isEmpty() && mp02cg00102.getText().toString().isEmpty()) {
+        if (mp02cg00101.getText().toString().isEmpty() || mp02cg00102.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cg001), Toast.LENGTH_SHORT).show();
             mp02cg00101.setError("This data is Required!");
 
@@ -240,7 +240,7 @@ public class SectionCGActivity extends Activity {
             mp02cg00101.setError(null);
         }
 
-        if (Integer.valueOf(mp02cg00101.getText().toString()) < 0 || Integer.valueOf(mp02cg00101.getText().toString()) > 11) {
+        if (Integer.valueOf(mp02cg00102.getText().toString()) < 0 || Integer.valueOf(mp02cg00102.getText().toString()) > 11) {
             Toast.makeText(this, "ERROR(invalid)" + getString(R.string.mp02cg001) + " - " + getString(R.string.month), Toast.LENGTH_SHORT).show();
             mp02cg00102.setError("Range is 0 to 11 months");
 
