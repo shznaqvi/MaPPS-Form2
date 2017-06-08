@@ -843,7 +843,7 @@ public class SectionCHActivity extends Activity {
                 : mp02ch01604.isChecked() ? "4" : mp02ch01688.isChecked() ? "88" : "0");
         sch.put("mp02ch01688x", mp02ch01688x.getText().toString());
 
-        AppMain.pc.setsCG(String.valueOf(sch));
+        AppMain.pc.setsCH(String.valueOf(sch));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
