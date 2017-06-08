@@ -542,6 +542,12 @@
                     android:inputType="textCapWords"
                     android:visibility="gone" />
 
+                <LinearLayout
+                    android:id="@+id/fldGrpmp02cf11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
 
                 <TextView
                     android:layout_width="match_parent"
@@ -611,6 +617,8 @@
                     android:hint="@string/other"
                     android:inputType="textCapWords"
                     android:visibility="gone" />
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -1789,68 +1797,62 @@
                         android:textColor="@android:color/white" />
 
 
-                    <RadioGroup
-                        android:id="@+id/mp02cf039"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <RadioButton
+                    <CheckBox
                             android:id="@+id/mp02cf03901"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/mp02cf03901" />
 
-                        <RadioButton
+                    <CheckBox
                             android:id="@+id/mp02cf03902"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/mp02cf03902" />
 
-                        <RadioButton
+                    <CheckBox
                             android:id="@+id/mp02cf03903"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/mp02cf03903" />
 
 
-                        <RadioButton
+                    <CheckBox
                             android:id="@+id/mp02cf03904"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/mp02cf03904" />
 
 
-                        <RadioButton
+                    <CheckBox
                             android:id="@+id/mp02cf03905"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/mp02cf03905" />
 
-                        <RadioButton
+                    <CheckBox
                             android:id="@+id/mp02cf03906"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/mp02cf03906" />
 
-                        <RadioButton
+                    <CheckBox
                             android:id="@+id/mp02cf03907"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/mp02cf03907" />
 
-                        <RadioButton
+                    <CheckBox
                             android:id="@+id/mp02cf03908"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/mp02cf03908" />
 
-                        <RadioButton
+                    <CheckBox
                             android:id="@+id/mp02cf03988"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/other" />
 
-                    </RadioGroup>
 
                     <EditText
                         android:id="@+id/mp02cf03988x"

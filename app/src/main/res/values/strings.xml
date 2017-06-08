@@ -78,7 +78,7 @@
     <string name="mp02ba00202"> ڪرائي جو گهر </string>
     <string name="mp02ba003"> گهر جو فرش ڇا جو ٺهيل آهي؟ </string>
     <string name="mp02ba00301"> قدرتي فرش مٽي وارو </string>
-    <string name="mp02ba00302"> راڳو </string>
+    <string name="mp02ba00302">ڇيڻن وارو راڳو يا ٿلو </string>
     <string name="mp02ba00303"> سادو فرش ڪاٺ جا تخته </string>
     <string name="mp02ba00304"> کجي يا بانس </string>
     <string name="mp02ba00305"> ڪمل فرش يا ڪاٺ پاليش </string>
@@ -129,7 +129,7 @@
     <string name="mp02ba007"> توهان جي گهر ۾ پيئڻ جي پاڻي جو سڀ کاناهم ذريعو ڪهڙو آهي؟ </string>
     <string name="mp02ba00701"> پائپ وارو پاڻي </string>
     <string name="mp02ba00702"> عوامي نلڪو </string>
-    <string name="mp02ba00703"> ٽيوب ويل / جر ویل </string>
+    <string name="mp02ba00703"> ٽيوب ويل / جر  </string>
     <string name="mp02ba00704"> زمين وارو نلڪوهينڊ پمپ </string>
     <string name="mp02ba00705"> اونهو کوهه </string>
     <string name="mp02ba00706"> چشمي جو پاڻي </string>
@@ -456,14 +456,15 @@
     <string name="mp02cc028"> ڇا توهان ڪڏهن پنهنجي گهر وارن کي اعتماد ۾ وٺڻ جي ڪوشش ڪئي ته توهان کي اسڪول لاء اجازت ڏني وڃي ها ؟ </string>
     <string name="mp02cc02803"> جواب ڏيڻ کان انڪار ڪيو </string>
     <string name="mp02cc029"> توهان ڇا ٿا سمجهو ته اُهي ڪهڙا سبب ٿي سگهن ٿا جنهن جي ڪري توهان اسڪول نه وڃي سگهيا ؟ </string>
-    <string name="mp02cc02901"> منهنجي فيملي نه پئي چاهيو ته آء ااسڪول وڃان </string>
+    <string name="mp02cc02901"> منهنجي فيملي نه پئي چاهيو ته آء اسڪول وڃان </string>
     <string name="mp02cc02902"> اسان جي ڳوٺ ۾ ڇوڪريون اسڪول ناهن وينديون </string>
     <string name="mp02cc02903"> ڇوڪرين لاء ڪو ويجهو اسڪول موجود ناهي </string>
     <string name="mp02cc02904"> اسڪول ۾ عورت اُستاد ڪونهن ڪي </string>
     <string name="mp02cc02905"> مڱڻي ي شادي جي ڪري </string>
     <string name="mp02cc02906"> پڙهائي جي خرچن جي ڪري </string>
     <string name="mp02cc02907"> گهر جي ڪمن ڪارين ۾ هٿ ونڊرائڻ جي ڪري </string>
-    <string name="mp02cc02908"> جوٻ ڏيڻ کان انڪار ڪيو </string>
+    <string name="mp02cc02908"> مون خود اسڪول وڃڻ نه پئي چاهيو </string>
+    <string name="mp02cc02909"> جواب ڏيڻ کان انڪار ڪيو </string>
     <string name="mp02cc030"> اهو ڪنهن فيصلو ڪيو هئو ته توهان اسڪول نه وڃو؟ </string>
     <string name="mp02cc03001"> شرڪت ڪندڙ پاڻ </string>
     <string name="mp02cc03002"> ماء </string>
@@ -678,6 +679,7 @@
     <string name="mp02cg001"> ليڊي هيلٿ ورڪر توهان جي گهر آخري دفعو ڪڏهن آئي </string>
     <string name="mp02cg001d"> ڏينهن </string>
     <string name="mp02cg001m"> مهينا </string>
+    <string name="mp02cg00103"> ڪڏهن به نه آئي </string>
     <string name="mp02cg002"> ليڊي هيلٿ ورڪر ڪڏهن ڪڏهن توهان جي گهر ايندي آهي </string>
     <string name="mp02cg00201"> هفتيوار </string>
     <string name="mp02cg00202"> چوڏهن ڏينهن کان پوء </string>

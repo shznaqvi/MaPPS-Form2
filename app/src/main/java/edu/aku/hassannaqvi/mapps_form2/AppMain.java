@@ -74,6 +74,7 @@ public class AppMain extends Application {
     public static String versionName;
     public static boolean endFlag = false;
     public static int partiFlag = 0;
+    public static int unmarried = 0;
     protected LocationManager locationManager;
     //    Login Members Array
     Location location;

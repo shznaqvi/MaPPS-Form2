@@ -36,10 +36,6 @@
                 android:layout_height="2dp"
                 android:background="@color/colorPrimary" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/colorPrimary" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -66,6 +62,18 @@
                 android:hint="@string/month"
                 android:inputType="number"
                 android:maxLength="2" />
+
+            <CheckBox
+                android:id="@+id/mp02cg00103"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mp02cg00103" />
+
+            <LinearLayout
+                android:id="@+id/fldGrpmp02cg002"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
@@ -227,6 +235,8 @@
                     android:text="@string/mp02cg00404" />
 
             </RadioGroup>
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"

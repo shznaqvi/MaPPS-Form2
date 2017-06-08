@@ -774,6 +774,13 @@ public class SectionCBActivity extends Activity {
                 : mp02cb02704.isChecked() ? "4" : "0");
         scb.put("mp02cb028", mp02cb02801.isChecked() ? "1" : mp02cb02802.isChecked() ? "2" : "0");
 
+/*
+        int radioButtonID = mp02cb009.getCheckedRadioButtonId();
+        View radioButton = mp02cb009.findViewById(radioButtonID);
+        int idx = mp02cb009.indexOfChild(radioButton);
+*/
+        AppMain.unmarried = mp02cb009.indexOfChild(findViewById(mp02cb009.getCheckedRadioButtonId()));
+
 
         AppMain.pc.setsCB(String.valueOf(scb));
 
@@ -1179,6 +1186,16 @@ public class SectionCBActivity extends Activity {
                     mp02cb022.setError(null);
                 }
 
+                if (mp02cb023.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb023), Toast.LENGTH_LONG).show();
+                    mp02cb02304.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cb023: This data is Required!");
+                    return false;
+                } else {
+                    mp02cb02304.setError(null);
+                }
+
             } else if (mp02cb00902.isChecked() || mp02cb00903.isChecked() || mp02cb00904.isChecked()) {
                 if (mp02cb018.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb018), Toast.LENGTH_LONG).show();
@@ -1250,17 +1267,19 @@ public class SectionCBActivity extends Activity {
                     mp02cb022.setError(null);
                 }
 
+                if (mp02cb023.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb023), Toast.LENGTH_LONG).show();
+                    mp02cb02304.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cb023: This data is Required!");
+                    return false;
+                } else {
+                    mp02cb02304.setError(null);
+                }
+
             }
 
-            if (mp02cb023.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb023), Toast.LENGTH_LONG).show();
-                mp02cb02304.setError("This data is Required!");    // Set Error on last radio button
 
-                Log.i(TAG, "mp02cb023: This data is Required!");
-                return false;
-            } else {
-                mp02cb02304.setError(null);
-            }
 
             if (mp02cb024.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb024), Toast.LENGTH_LONG).show();
