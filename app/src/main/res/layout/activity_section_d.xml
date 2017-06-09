@@ -4,6 +4,7 @@
     android:id="@+id/activity_section_d"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context="edu.aku.hassannaqvi.mapps_form2.activities.SectionDActivity">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -40,8 +41,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:background="#efefef"
+                android:gravity="center"
+                android:text="Measurer 1"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/mp02d001"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -65,7 +76,66 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
+
+                android:text="@string/mp02d005"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+            <EditText
+                android:id="@+id/mp02d005"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mp02d005"
+                android:inputType="numberDecimal"
+                android:maxLength="5" />
+
+            <Spinner
+                android:id="@+id/mp02d005id1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mp02dsubM1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
+
+                android:text="@string/mp02d009"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+            <EditText
+                android:id="@+id/mp02d009"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mp02d009"
+                android:inputType="numberDecimal"
+                android:maxLength="4" />
+
+            <Spinner
+                android:id="@+id/mp02d009id1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mp02dsubM1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#efefef"
+                android:gravity="center"
+                android:text="Measurer 2"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
+
                 android:text="@string/mp02d002"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -75,7 +145,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mp02d002"
-                
                 android:inputType="numberDecimal"
                 android:maxLength="5" />
 
@@ -113,70 +182,16 @@
                     <!--android:text="@string/no" />-->
             <!--</RadioGroup>-->
 
-            <LinearLayout
-                android:id="@+id/fldGrpmp02d004"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/colorPrimary"
-                    android:padding="2dp"
-                    android:text="@string/mp02d004"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@android:color/white" />
 
-                <EditText
-                    android:id="@+id/mp02d004"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/mp02d004"
-                    android:inputType="numberDecimal"
-                    android:maxLength="5" />
-
-                <Spinner
-                    android:id="@+id/mp02d004id3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/mp02dsubM3" />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/mp02d005"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
 
-            <EditText
-                android:id="@+id/mp02d005"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/mp02d005"
-                
-                android:inputType="numberDecimal"
-                android:maxLength="5" />
 
-            <Spinner
-                android:id="@+id/mp02d005id1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/mp02dsubM1" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/mp02d006"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -223,69 +238,15 @@
                     <!--android:text="@string/no" />-->
             <!--</RadioGroup>-->
 
-            <LinearLayout
-                android:id="@+id/fldGrpmp02d008"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/colorPrimary"
-                    android:padding="2dp"
-                    android:text="@string/mp02d008"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@android:color/white" />
 
-                <EditText
-                    android:id="@+id/mp02d008"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/mp02d008"
-                    android:inputType="numberDecimal"
-                    android:maxLength="5" />
-
-                <Spinner
-                    android:id="@+id/mp02d008id3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/mp02dsubM3" />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/mp02d009"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
 
-            <EditText
-                android:id="@+id/mp02d009"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/mp02d009"
-                android:inputType="numberDecimal"
-                android:maxLength="4" />
-
-            <Spinner
-                android:id="@+id/mp02d009id1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/mp02dsubM1" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/mp02d010"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -333,6 +294,83 @@
             <!--</RadioGroup>-->
 
             <LinearLayout
+                android:id="@+id/fldGrpmp02d004"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="#efefef"
+                    android:gravity="center"
+                    android:text="Measurer 3"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorPrimary"
+
+                    android:text="@string/mp02d004"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
+
+                <EditText
+                    android:id="@+id/mp02d004"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mp02d004"
+                    android:inputType="numberDecimal"
+                    android:maxLength="5" />
+
+                <Spinner
+                    android:id="@+id/mp02d004id3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mp02dsubM3" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fldGrpmp02d008"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorPrimary"
+
+                    android:text="@string/mp02d008"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
+
+                <EditText
+                    android:id="@+id/mp02d008"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mp02d008"
+                    android:inputType="numberDecimal"
+                    android:maxLength="5" />
+
+                <Spinner
+                    android:id="@+id/mp02d008id3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mp02dsubM3" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/fldGrpmp02d012"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -344,7 +382,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
-                    android:padding="2dp"
+
                     android:text="@string/mp02d012"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />

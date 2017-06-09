@@ -150,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:background="#efefef"
-                    android:padding="0dp"
+
                     android:text="Rudimentary/simple floor"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20sp"
@@ -883,7 +883,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="16dp"
                         android:background="@color/colorPrimary"
-                        android:padding="0dp"
+
                         android:text="@string/mp02ba011"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@android:color/white" />
@@ -964,7 +964,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="0dp"
+
                 android:text="@string/mp02ba013"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -1085,7 +1085,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="0dp"
+
                 android:text="@string/mp02ba014"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -1189,7 +1189,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="0dp"
+
                 android:text="@string/mp02ba015"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -1238,7 +1238,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="0dp"
+
                 android:text="@string/mp02ba016"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -1307,7 +1307,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="0dp"
+
                 android:text="@string/mp02ba017"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -1338,7 +1338,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="0dp"
+
                 android:text="@string/mp02ba018"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -1374,7 +1374,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
-                    android:padding="0dp"
+
                     android:text="@string/mp02ba019"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
@@ -1434,7 +1434,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="0dp"
+
                 android:text="@string/mp02ba020"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />

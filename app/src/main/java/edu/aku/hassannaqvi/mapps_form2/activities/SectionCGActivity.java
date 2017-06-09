@@ -280,6 +280,19 @@ public class SectionCGActivity extends Activity {
             } else {
                 mp02cg00102.setError(null);
             }
+
+            if (Integer.valueOf(mp02cg00101.getText().toString().isEmpty() ? "0" : mp02cg00101.getText().toString()) == 0
+                    && Integer.valueOf(mp02cg00102.getText().toString().isEmpty() ? "0" : mp02cg00102.getText().toString()) == 0) {
+                Toast.makeText(this, "ERROR(invalid)" + getString(R.string.mp02cg001) + " - " + getString(R.string.month), Toast.LENGTH_SHORT).show();
+                mp02cg00101.setError("Days and months can not be zero..");
+                mp02cg00102.setError("Days and months can not be zero..");
+
+                Log.i(TAG, "mp02cg00101: Both can not be zero");
+                return false;
+            } else {
+                mp02cg00101.setError(null);
+                mp02cg00102.setError(null);
+            }
         }
 
         if (mp02cg002.getCheckedRadioButtonId() == -1) {

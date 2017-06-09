@@ -109,6 +109,7 @@ public class MainActivity extends Activity {
         Collection<FormsContract> todaysForms = db.getTodayForms();
         Collection<FormsContract> unsyncedForms = db.getUnsyncedForms();
 
+
         rSumText += "TODAY'S RECORDS SUMMARY\r\n";
 
         rSumText += "=======================\r\n";
@@ -119,26 +120,29 @@ public class MainActivity extends Activity {
             rSumText += "\tFORMS' LIST: \r\n";
             String iStatus;
             rSumText += "--------------------------------------------------\r\n";
-            rSumText += "[ MAPPS_ID ] \t[Form Status] \t[Sync Status]----------\r\n";
+            rSumText += "[ FORM_ID ] \t[Form Status] \t[Sync Status]----------\r\n";
             rSumText += "--------------------------------------------------\r\n";
 
             for (FormsContract fc : todaysForms) {
-
-                switch (fc.getIstatus()) {
-                    case "1":
-                        iStatus = "\tComplete";
-                        break;
-                    case "2":
-                        iStatus = "\tIncomplete";
-                        break;
-                    case "3":
-                        iStatus = "\tRefused";
-                        break;
-                    case "4":
-                        iStatus = "\tRefused";
-                        break;
-                    default:
-                        iStatus = "\t";
+                if (fc.getIstatus() != null) {
+                    switch (fc.getIstatus()) {
+                        case "1":
+                            iStatus = "\tComplete";
+                            break;
+                        case "2":
+                            iStatus = "\tIncomplete";
+                            break;
+                        case "3":
+                            iStatus = "\tRefused";
+                            break;
+                        case "4":
+                            iStatus = "\tRefused";
+                            break;
+                        default:
+                            iStatus = "\tN/A";
+                    }
+                } else {
+                    iStatus = "\tN/A";
                 }
 
                 rSumText += fc.getID();
@@ -150,8 +154,6 @@ public class MainActivity extends Activity {
                 rSumText += "--------------------------------------------------\r\n";
             }
         }
-
-
         if (AppMain.admin) {
             adminsec.setVisibility(View.VISIBLE);
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);

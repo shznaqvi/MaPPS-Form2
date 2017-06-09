@@ -451,13 +451,26 @@ public class SectionCHActivity extends Activity {
             }
 
 
-            if ((Integer.parseInt(mp02ch00301.getText().toString()) < 1 || Integer.parseInt(mp02ch00301.getText().toString()) > 11)
-                    && (Integer.parseInt(mp02ch00302.getText().toString()) < 1 || Integer.parseInt(mp02ch00302.getText().toString()) > 29)) {
+            if ((Integer.parseInt(mp02ch00301.getText().toString()) < 0 || Integer.parseInt(mp02ch00301.getText().toString()) > 11)
+                    && (Integer.parseInt(mp02ch00302.getText().toString()) < 0 || Integer.parseInt(mp02ch00302.getText().toString()) > 29)) {
                 Toast.makeText(this, "Invalid:" + getString(R.string.mp02ch003), Toast.LENGTH_SHORT).show();
-                mp02ch00301.setError("Invalid:Month range 1 - 11");
-                mp02ch00302.setError("Invalid:Days range 1 - 29");
+                mp02ch00301.setError("Invalid:Month range 0 - 11");
+                mp02ch00302.setError("Invalid:Days range 2 - 29");
 
-                Log.i(TAG, "mp02ch00301: Invalid: Month range 1-11");
+                Log.i(TAG, "mp02ch00302: Invalid: Month range 0-11");
+                return false;
+            } else {
+                mp02ch00301.setError(null);
+                mp02ch00302.setError(null);
+            }
+
+            if (Integer.valueOf(mp02ch00301.getText().toString().isEmpty() ? "0" : mp02ch00301.getText().toString()) == 0
+                    && Integer.valueOf(mp02ch00302.getText().toString().isEmpty() ? "0" : mp02ch00302.getText().toString()) == 0) {
+                Toast.makeText(this, "ERROR(invalid)" + getString(R.string.mp02ch003) + " - " + getString(R.string.month), Toast.LENGTH_SHORT).show();
+                mp02ch00301.setError("Days and months can not be zero..");
+                mp02ch00302.setError("Days and months can not be zero..");
+
+                Log.i(TAG, "mp02ch003: Both can not be zero");
                 return false;
             } else {
                 mp02ch00301.setError(null);
@@ -548,18 +561,32 @@ public class SectionCHActivity extends Activity {
                 mp02ch00702.setError(null);
             }*/
 
-            if ((Integer.parseInt(mp02ch00701.getText().toString()) < 1 || Integer.parseInt(mp02ch00701.getText().toString()) > 11)
-                    && (Integer.parseInt(mp02ch00702.getText().toString()) < 1 || Integer.parseInt(mp02ch00702.getText().toString()) > 29)) {
+            if ((Integer.parseInt(mp02ch00701.getText().toString()) < 0 || Integer.parseInt(mp02ch00701.getText().toString()) > 11)
+                    && (Integer.parseInt(mp02ch00702.getText().toString()) < 0 || Integer.parseInt(mp02ch00702.getText().toString()) > 29)) {
                 Toast.makeText(this, "Invalid:" + getString(R.string.mp02ch007), Toast.LENGTH_SHORT).show();
-                mp02ch00701.setError("Invalid:Month range 1 - 11");
-                mp02ch00702.setError("Invalid:Days range 1 - 29");
+                mp02ch00701.setError("Invalid:Month range 0 - 11");
+                mp02ch00702.setError("Invalid:Days range 0 - 29");
 
-                Log.i(TAG, "mp02ch00701: Month Range 1 - 11");
+                Log.i(TAG, "mp02ch007: Month Range 0 - 11");
                 return false;
             } else {
                 mp02ch00701.setError(null);
                 mp02ch00702.setError(null);
             }
+
+            if (Integer.valueOf(mp02ch00701.getText().toString().isEmpty() ? "0" : mp02ch00701.getText().toString()) == 0
+                    && Integer.valueOf(mp02ch00702.getText().toString().isEmpty() ? "0" : mp02ch00702.getText().toString()) == 0) {
+                Toast.makeText(this, "ERROR(invalid)" + getString(R.string.mp02ch007) + " - " + getString(R.string.month), Toast.LENGTH_SHORT).show();
+                mp02ch00701.setError("Days and months can not be zero..");
+                mp02ch00702.setError("Days and months can not be zero..");
+
+                Log.i(TAG, "mp02cg00101: Both can not be zero");
+                return false;
+            } else {
+                mp02ch00701.setError(null);
+                mp02ch00702.setError(null);
+            }
+
 
 
 //            8
@@ -645,13 +672,26 @@ public class SectionCHActivity extends Activity {
                 mp02ch01102.setError(null);
             }*/
 
-            if ((Integer.parseInt(mp02ch01101.getText().toString()) < 1 || Integer.parseInt(mp02ch01101.getText().toString()) > 11)
-                    && (Integer.parseInt(mp02ch01102.getText().toString()) < 1 || Integer.parseInt(mp02ch01102.getText().toString()) > 29)) {
+            if ((Integer.parseInt(mp02ch01101.getText().toString()) < 0 || Integer.parseInt(mp02ch01101.getText().toString()) > 11)
+                    && (Integer.parseInt(mp02ch01102.getText().toString()) < 0 || Integer.parseInt(mp02ch01102.getText().toString()) > 29)) {
                 Toast.makeText(this, "Invalid:" + getString(R.string.mp02ch011), Toast.LENGTH_SHORT).show();
-                mp02ch01101.setError("Invalid:Month range 1 - 11");
-                mp02ch01102.setError("Invalid:Days range 1 - 29");
+                mp02ch01101.setError("Invalid:Month range 0 - 11");
+                mp02ch01102.setError("Invalid:Days range 0 - 29");
 
-                Log.i(TAG, "mp02ch01101: Month Range 1 - 11");
+                Log.i(TAG, "mp02ch01101: Month Range 0 - 11");
+                return false;
+            } else {
+                mp02ch01101.setError(null);
+                mp02ch01102.setError(null);
+            }
+
+            if (Integer.valueOf(mp02ch01101.getText().toString().isEmpty() ? "0" : mp02ch01101.getText().toString()) == 0
+                    && Integer.valueOf(mp02ch01102.getText().toString().isEmpty() ? "0" : mp02ch01102.getText().toString()) == 0) {
+                Toast.makeText(this, "ERROR(invalid)" + getString(R.string.mp02ch011) + " - " + getString(R.string.month), Toast.LENGTH_SHORT).show();
+                mp02ch01101.setError("Days and months can not be zero..");
+                mp02ch01102.setError("Days and months can not be zero..");
+
+                Log.i(TAG, "mp02ch011: Both can not be zero");
                 return false;
             } else {
                 mp02ch01101.setError(null);
@@ -742,13 +782,26 @@ public class SectionCHActivity extends Activity {
                 mp02ch01502.setError(null);
             }*/
 
-            if ((Integer.parseInt(mp02ch01501.getText().toString()) < 1 || Integer.parseInt(mp02ch01501.getText().toString()) > 11)
-                    && (Integer.parseInt(mp02ch01502.getText().toString()) < 1 || Integer.parseInt(mp02ch01502.getText().toString()) > 29)) {
+            if ((Integer.parseInt(mp02ch01501.getText().toString()) < 0 || Integer.parseInt(mp02ch01501.getText().toString()) > 11)
+                    && (Integer.parseInt(mp02ch01502.getText().toString()) < 0 || Integer.parseInt(mp02ch01502.getText().toString()) > 29)) {
                 Toast.makeText(this, "Invalid:" + getString(R.string.mp02ch015), Toast.LENGTH_SHORT).show();
-                mp02ch01501.setError("Invalid:Month range 1 - 11");
-                mp02ch01502.setError("Invalid:Days range 1 - 29");
+                mp02ch01501.setError("Invalid:Month range 0 - 11");
+                mp02ch01502.setError("Invalid:Days range 0 - 29");
 
-                Log.i(TAG, "mp02ch01501: Month Range 1 - 11");
+                Log.i(TAG, "mp02ch01501: Month Range 0 - 11");
+                return false;
+            } else {
+                mp02ch01501.setError(null);
+                mp02ch01502.setError(null);
+            }
+
+            if (Integer.valueOf(mp02ch01501.getText().toString().isEmpty() ? "0" : mp02ch01501.getText().toString()) == 0
+                    && Integer.valueOf(mp02ch01502.getText().toString().isEmpty() ? "0" : mp02ch01502.getText().toString()) == 0) {
+                Toast.makeText(this, "ERROR(invalid)" + getString(R.string.mp02ch015) + " - " + getString(R.string.month), Toast.LENGTH_SHORT).show();
+                mp02ch01501.setError("Days and months can not be zero..");
+                mp02ch01502.setError("Days and months can not be zero..");
+
+                Log.i(TAG, "mp02ch015: Both can not be zero");
                 return false;
             } else {
                 mp02ch01501.setError(null);
