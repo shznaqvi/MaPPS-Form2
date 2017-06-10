@@ -102,6 +102,7 @@
                 android:id="@+id/mp02ba00288x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="@string/other"
                 android:visibility="gone" />
 
@@ -149,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:background="#efefef"
-                    android:padding="0dp"
+
                     android:text="Rudimentary/simple floor"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20sp"
@@ -242,6 +243,7 @@
                 android:id="@+id/mp02ba00388x"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="@string/other"
                 android:visibility="gone" />
 
@@ -383,6 +385,7 @@
                 android:id="@+id/mp02ba00488x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="@string/other"
                 android:visibility="gone" />
 
@@ -580,6 +583,7 @@
                 android:id="@+id/mp02ba00588x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="@string/other"
                 android:visibility="gone" />
 
@@ -695,6 +699,7 @@
                 android:id="@+id/mp02ba00788x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="@string/other"
                 android:visibility="gone" />
 
@@ -767,6 +772,7 @@
                 android:id="@+id/mp02ba00888x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="@string/other"
                 android:visibility="gone" />
 
@@ -776,7 +782,6 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-
                 android:text="@string/mp02ba009"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -827,6 +832,7 @@
                 android:id="@+id/mp02ba00988x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="@string/other"
                 android:visibility="gone" />
 
@@ -877,7 +883,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="16dp"
                         android:background="@color/colorPrimary"
-                        android:padding="0dp"
+
                         android:text="@string/mp02ba011"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@android:color/white" />
@@ -947,8 +953,10 @@
                 android:id="@+id/mp02ba01288x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="@string/other"
                 android:visibility="gone" />
+
 
 
             <TextView
@@ -956,7 +964,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="0dp"
+
                 android:text="@string/mp02ba013"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -1077,7 +1085,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="0dp"
+
                 android:text="@string/mp02ba014"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -1172,6 +1180,7 @@
                 android:id="@+id/mp02ba01488x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="@string/other"
                 android:visibility="gone" />
 
@@ -1180,7 +1189,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="0dp"
+
                 android:text="@string/mp02ba015"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -1220,6 +1229,7 @@
                 android:id="@+id/mp02ba01588x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="@string/other"
                 android:visibility="gone" />
 
@@ -1228,7 +1238,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="0dp"
+
                 android:text="@string/mp02ba016"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -1297,7 +1307,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="0dp"
+
                 android:text="@string/mp02ba017"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -1328,7 +1338,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="0dp"
+
                 android:text="@string/mp02ba018"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -1364,7 +1374,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
-                    android:padding="0dp"
+
                     android:text="@string/mp02ba019"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
@@ -1424,7 +1434,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="0dp"
+
                 android:text="@string/mp02ba020"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -1488,6 +1498,7 @@
                 android:id="@+id/mp02ba02088x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="@string/other"
                 android:visibility="gone" />
 

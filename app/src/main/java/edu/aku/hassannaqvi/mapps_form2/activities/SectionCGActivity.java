@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -21,6 +22,7 @@ import org.json.JSONObject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import edu.aku.hassannaqvi.mapps_form2.AppMain;
 import edu.aku.hassannaqvi.mapps_form2.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form2.R;
 
@@ -36,6 +38,8 @@ public class SectionCGActivity extends Activity {
     EditText mp02cg00101;
     @BindView(R.id.mp02cg00102)
     EditText mp02cg00102;
+    @BindView(R.id.mp02cg00103)
+    CheckBox mp02cg00103;
     @BindView(R.id.mp02cg002)
     RadioGroup mp02cg002;
     @BindView(R.id.mp02cg00201)
@@ -96,6 +100,8 @@ public class SectionCGActivity extends Activity {
     RadioButton mp02cg00603;
     @BindView(R.id.mp02cg00604)
     RadioButton mp02cg00604;
+    @BindView(R.id.fldGrpmp02cg002)
+    LinearLayout fldGrpmp02cg002;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,9 +114,31 @@ public class SectionCGActivity extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     mp02cg00288x.setVisibility(View.VISIBLE);
+
                 } else {
                     mp02cg00288x.setVisibility(View.GONE);
                     mp02cg00288x.setText(null);
+                }
+            }
+        });
+
+        mp02cg00103.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mp02cg00101.setVisibility(View.GONE);
+                    mp02cg00101.setText(null);
+                    mp02cg00102.setVisibility(View.GONE);
+                    mp02cg00102.setText(null);
+                    fldGrpmp02cg002.setVisibility(View.GONE);
+                    mp02cg002.clearCheck();
+                    mp02cg00288x.setText(null);
+                    mp02cg003.clearCheck();
+                    mp02cg004.clearCheck();
+                } else {
+                    mp02cg00101.setVisibility(View.VISIBLE);
+                    mp02cg00102.setVisibility(View.VISIBLE);
+                    fldGrpmp02cg002.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -179,15 +207,15 @@ public class SectionCGActivity extends Activity {
     private boolean UpdateDB() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-        //int updcount = db.updateCC();
+        int updcount = db.updateCG();
 
-        /*if (updcount == 1) {
+        if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
             return true;
         } else {
-            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();*/
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
         return false;
-        //}
+        }
 
     }
 
@@ -198,6 +226,7 @@ public class SectionCGActivity extends Activity {
 
         sCG.put("mp02cg00101", mp02cg00101.getText().toString());
         sCG.put("mp02cg00102", mp02cg00102.getText().toString());
+        sCG.put("mp02cg00103", mp02cg00103.isChecked() ? "1" : "0");
         sCG.put("mp02cg002", mp02cg00201.isChecked() ? "1" : mp02cg00202.isChecked() ? "2" : mp02cg00203.isChecked() ? "3"
                 : mp02cg00204.isChecked() ? "4" : mp02cg00205.isChecked() ? "5" : mp02cg00288.isChecked() ? "88" : "0");
         sCG.put("mp02cg00288x", mp02cg00288x.getText().toString());
@@ -211,7 +240,7 @@ public class SectionCGActivity extends Activity {
                 : mp02cg00604.isChecked() ? "4" : "0");
 
 
-        //AppMain.pc.setsCC(String.valueOf(sCG));
+        AppMain.pc.setsCG(String.valueOf(sCG));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
@@ -219,7 +248,7 @@ public class SectionCGActivity extends Activity {
     public boolean ValidateForm() {
 
 //        1
-        if (mp02cg00101.getText().toString().isEmpty() && mp02cg00102.getText().toString().isEmpty()) {
+        if ((mp02cg00101.getText().toString().isEmpty() || mp02cg00102.getText().toString().isEmpty()) && !mp02cg00103.isChecked()) {
             Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cg001), Toast.LENGTH_SHORT).show();
             mp02cg00101.setError("This data is Required!");
 
@@ -229,25 +258,41 @@ public class SectionCGActivity extends Activity {
             mp02cg00101.setError(null);
         }
 
+        if (!mp02cg00103.isChecked()) {
+            if (Integer.valueOf(mp02cg00101.getText().toString().isEmpty() ? "0" : mp02cg00101.getText().toString()) < 0
+                    || Integer.valueOf(mp02cg00101.getText().toString().isEmpty() ? "0" : mp02cg00101.getText().toString()) > 29) {
+                Toast.makeText(this, "ERROR(invalid)" + getString(R.string.mp02cg001) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
+                mp02cg00101.setError("Range is 0 to 29 days");
 
-        if (Integer.valueOf(mp02cg00101.getText().toString()) < 0 || Integer.valueOf(mp02cg00101.getText().toString()) > 29) {
-            Toast.makeText(this, "ERROR(invalid)" + getString(R.string.mp02cg001) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
-            mp02cg00101.setError("Range is 0 to 29 days");
+                Log.i(TAG, "mp02cg00101: Range is 0 to 29 days");
+                return false;
+            } else {
+                mp02cg00101.setError(null);
+            }
 
-            Log.i(TAG, "mp02cg00101: Range is 0 to 29 days");
-            return false;
-        } else {
-            mp02cg00101.setError(null);
-        }
+            if (Integer.valueOf(mp02cg00102.getText().toString().isEmpty() ? "0" : mp02cg00102.getText().toString()) < 0
+                    || Integer.valueOf(mp02cg00102.getText().toString().isEmpty() ? "0" : mp02cg00102.getText().toString()) > 11) {
+                Toast.makeText(this, "ERROR(invalid)" + getString(R.string.mp02cg001) + " - " + getString(R.string.month), Toast.LENGTH_SHORT).show();
+                mp02cg00102.setError("Range is 0 to 11 months");
 
-        if (Integer.valueOf(mp02cg00101.getText().toString()) < 0 || Integer.valueOf(mp02cg00101.getText().toString()) > 11) {
-            Toast.makeText(this, "ERROR(invalid)" + getString(R.string.mp02cg001) + " - " + getString(R.string.month), Toast.LENGTH_SHORT).show();
-            mp02cg00102.setError("Range is 0 to 11 months");
+                Log.i(TAG, "mp02cg00101: Range is 0 to 11 days");
+                return false;
+            } else {
+                mp02cg00102.setError(null);
+            }
 
-            Log.i(TAG, "mp02cg00101: Range is 0 to 11 days");
-            return false;
-        } else {
-            mp02cg00102.setError(null);
+            if (Integer.valueOf(mp02cg00101.getText().toString().isEmpty() ? "0" : mp02cg00101.getText().toString()) == 0
+                    && Integer.valueOf(mp02cg00102.getText().toString().isEmpty() ? "0" : mp02cg00102.getText().toString()) == 0) {
+                Toast.makeText(this, "ERROR(invalid)" + getString(R.string.mp02cg001) + " - " + getString(R.string.month), Toast.LENGTH_SHORT).show();
+                mp02cg00101.setError("Days and months can not be zero..");
+                mp02cg00102.setError("Days and months can not be zero..");
+
+                Log.i(TAG, "mp02cg00101: Both can not be zero");
+                return false;
+            } else {
+                mp02cg00101.setError(null);
+                mp02cg00102.setError(null);
+            }
         }
 
         if (mp02cg002.getCheckedRadioButtonId() == -1) {

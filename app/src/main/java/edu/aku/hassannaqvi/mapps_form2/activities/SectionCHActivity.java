@@ -31,7 +31,7 @@ public class SectionCHActivity extends Activity {
     private static final String TAG = SectionCHActivity.class.getSimpleName();
 
     @BindView(R.id.activity_section_ch)
-    RelativeLayout activitySectionch;
+    RelativeLayout activitySectionCh;
     @BindView(R.id.scrollView01)
     ScrollView scrollView01;
     @BindView(R.id.app_header)
@@ -42,6 +42,8 @@ public class SectionCHActivity extends Activity {
     RadioButton mp02ch00101;
     @BindView(R.id.mp02ch00102)
     RadioButton mp02ch00102;
+    @BindView(R.id.fldGrpmp02ch002)
+    LinearLayout fldGrpmp02ch002;
     @BindView(R.id.mp02ch002)
     RadioGroup mp02ch002;
     @BindView(R.id.mp02ch00201)
@@ -82,6 +84,8 @@ public class SectionCHActivity extends Activity {
     RadioButton mp02ch00504;
     @BindView(R.id.mp02ch00599)
     RadioButton mp02ch00599;
+    @BindView(R.id.fldGrpmp02ch006)
+    LinearLayout fldGrpmp02ch006;
     @BindView(R.id.mp02ch006)
     RadioGroup mp02ch006;
     @BindView(R.id.mp02ch00601)
@@ -98,18 +102,16 @@ public class SectionCHActivity extends Activity {
     EditText mp02ch00701;
     @BindView(R.id.mp02ch00702)
     EditText mp02ch00702;
-    @BindView(R.id.mp02ch008)
-    RadioGroup mp02ch008;
     @BindView(R.id.mp02ch00801)
-    RadioButton mp02ch00801;
+    CheckBox mp02ch00801;
     @BindView(R.id.mp02ch00802)
-    RadioButton mp02ch00802;
+    CheckBox mp02ch00802;
     @BindView(R.id.mp02ch00803)
-    RadioButton mp02ch00803;
+    CheckBox mp02ch00803;
     @BindView(R.id.mp02ch00804)
-    RadioButton mp02ch00804;
+    CheckBox mp02ch00804;
     @BindView(R.id.mp02ch00888)
-    RadioButton mp02ch00888;
+    CheckBox mp02ch00888;
     @BindView(R.id.mp02ch00888x)
     EditText mp02ch00888x;
     @BindView(R.id.mp02ch009)
@@ -118,6 +120,8 @@ public class SectionCHActivity extends Activity {
     RadioButton mp02ch00901;
     @BindView(R.id.mp02ch00902)
     RadioButton mp02ch00902;
+    @BindView(R.id.fldGrpmp02ch010)
+    LinearLayout fldGrpmp02ch010;
     @BindView(R.id.mp02ch010)
     RadioGroup mp02ch010;
     @BindView(R.id.mp02ch01001)
@@ -158,6 +162,8 @@ public class SectionCHActivity extends Activity {
     RadioButton mp02ch01304;
     @BindView(R.id.mp02ch01399)
     RadioButton mp02ch01399;
+    @BindView(R.id.fldGrpmp02ch014)
+    LinearLayout fldGrpmp02ch014;
     @BindView(R.id.mp02ch014)
     RadioGroup mp02ch014;
     @BindView(R.id.mp02ch01401)
@@ -174,29 +180,18 @@ public class SectionCHActivity extends Activity {
     EditText mp02ch01501;
     @BindView(R.id.mp02ch01502)
     EditText mp02ch01502;
-    @BindView(R.id.mp02ch016)
-    RadioGroup mp02ch016;
     @BindView(R.id.mp02ch01601)
-    RadioButton mp02ch01601;
+    CheckBox mp02ch01601;
     @BindView(R.id.mp02ch01602)
-    RadioButton mp02ch01602;
+    CheckBox mp02ch01602;
     @BindView(R.id.mp02ch01603)
-    RadioButton mp02ch01603;
+    CheckBox mp02ch01603;
     @BindView(R.id.mp02ch01604)
-    RadioButton mp02ch01604;
+    CheckBox mp02ch01604;
     @BindView(R.id.mp02ch01688)
-    RadioButton mp02ch01688;
+    CheckBox mp02ch01688;
     @BindView(R.id.mp02ch01688x)
     EditText mp02ch01688x;
-
-    @BindView(R.id.fldGrpmp02ch002)
-    LinearLayout fldGrpmp02ch002;
-    @BindView(R.id.fldGrpmp02ch006)
-    LinearLayout fldGrpmp02ch006;
-    @BindView(R.id.fldGrpmp02ch010)
-    LinearLayout fldGrpmp02ch010;
-    @BindView(R.id.fldGrpmp02ch014)
-    LinearLayout fldGrpmp02ch014;
 
 
     @Override
@@ -235,7 +230,10 @@ public class SectionCHActivity extends Activity {
                     mp02ch006.clearCheck();
                     mp02ch00701.setText(null);
                     mp02ch00702.setText(null);
-                    mp02ch008.clearCheck();
+                    mp02ch00801.setChecked(false);
+                    mp02ch00802.setChecked(false);
+                    mp02ch00803.setChecked(false);
+                    mp02ch00804.setChecked(false);
                     mp02ch00888x.setText(null);
                 }
             }
@@ -271,7 +269,10 @@ public class SectionCHActivity extends Activity {
                     mp02ch014.clearCheck();
                     mp02ch01501.setText(null);
                     mp02ch01502.setText(null);
-                    mp02ch016.clearCheck();
+                    mp02ch01601.setChecked(false);
+                    mp02ch01602.setChecked(false);
+                    mp02ch01603.setChecked(false);
+                    mp02ch01604.setChecked(false);
                     mp02ch01688x.setText(null);
                 }
             }
@@ -450,13 +451,26 @@ public class SectionCHActivity extends Activity {
             }
 
 
-            if ((Integer.parseInt(mp02ch00301.getText().toString()) < 1 || Integer.parseInt(mp02ch00301.getText().toString()) > 11)
-                    && (Integer.parseInt(mp02ch00302.getText().toString()) < 1 || Integer.parseInt(mp02ch00302.getText().toString()) > 29)) {
+            if ((Integer.parseInt(mp02ch00301.getText().toString()) < 0 || Integer.parseInt(mp02ch00301.getText().toString()) > 11)
+                    && (Integer.parseInt(mp02ch00302.getText().toString()) < 0 || Integer.parseInt(mp02ch00302.getText().toString()) > 29)) {
                 Toast.makeText(this, "Invalid:" + getString(R.string.mp02ch003), Toast.LENGTH_SHORT).show();
-                mp02ch00301.setError("Invalid:Month range 1 - 11");
-                mp02ch00302.setError("Invalid:Days range 1 - 29");
+                mp02ch00301.setError("Invalid:Month range 0 - 11");
+                mp02ch00302.setError("Invalid:Days range 2 - 29");
 
-                Log.i(TAG, "mp02ch00301: Invalid: Month range 1-11");
+                Log.i(TAG, "mp02ch00302: Invalid: Month range 0-11");
+                return false;
+            } else {
+                mp02ch00301.setError(null);
+                mp02ch00302.setError(null);
+            }
+
+            if (Integer.valueOf(mp02ch00301.getText().toString().isEmpty() ? "0" : mp02ch00301.getText().toString()) == 0
+                    && Integer.valueOf(mp02ch00302.getText().toString().isEmpty() ? "0" : mp02ch00302.getText().toString()) == 0) {
+                Toast.makeText(this, "ERROR(invalid)" + getString(R.string.mp02ch003) + " - " + getString(R.string.month), Toast.LENGTH_SHORT).show();
+                mp02ch00301.setError("Days and months can not be zero..");
+                mp02ch00302.setError("Days and months can not be zero..");
+
+                Log.i(TAG, "mp02ch003: Both can not be zero");
                 return false;
             } else {
                 mp02ch00301.setError(null);
@@ -547,13 +561,26 @@ public class SectionCHActivity extends Activity {
                 mp02ch00702.setError(null);
             }*/
 
-            if ((Integer.parseInt(mp02ch00701.getText().toString()) < 1 || Integer.parseInt(mp02ch00701.getText().toString()) > 11)
-                    && (Integer.parseInt(mp02ch00702.getText().toString()) < 1 || Integer.parseInt(mp02ch00702.getText().toString()) > 29)) {
+            if ((Integer.parseInt(mp02ch00701.getText().toString()) < 0 || Integer.parseInt(mp02ch00701.getText().toString()) > 11)
+                    && (Integer.parseInt(mp02ch00702.getText().toString()) < 0 || Integer.parseInt(mp02ch00702.getText().toString()) > 29)) {
                 Toast.makeText(this, "Invalid:" + getString(R.string.mp02ch007), Toast.LENGTH_SHORT).show();
-                mp02ch00701.setError("Invalid:Month range 1 - 11");
-                mp02ch00702.setError("Invalid:Days range 1 - 29");
+                mp02ch00701.setError("Invalid:Month range 0 - 11");
+                mp02ch00702.setError("Invalid:Days range 0 - 29");
 
-                Log.i(TAG, "mp02ch00701: Month Range 1 - 11");
+                Log.i(TAG, "mp02ch007: Month Range 0 - 11");
+                return false;
+            } else {
+                mp02ch00701.setError(null);
+                mp02ch00702.setError(null);
+            }
+
+            if (Integer.valueOf(mp02ch00701.getText().toString().isEmpty() ? "0" : mp02ch00701.getText().toString()) == 0
+                    && Integer.valueOf(mp02ch00702.getText().toString().isEmpty() ? "0" : mp02ch00702.getText().toString()) == 0) {
+                Toast.makeText(this, "ERROR(invalid)" + getString(R.string.mp02ch007) + " - " + getString(R.string.month), Toast.LENGTH_SHORT).show();
+                mp02ch00701.setError("Days and months can not be zero..");
+                mp02ch00702.setError("Days and months can not be zero..");
+
+                Log.i(TAG, "mp02cg00101: Both can not be zero");
                 return false;
             } else {
                 mp02ch00701.setError(null);
@@ -561,8 +588,10 @@ public class SectionCHActivity extends Activity {
             }
 
 
+
 //            8
-            if (mp02ch008.getCheckedRadioButtonId() == -1) {
+            if (!(mp02ch00801.isChecked() || mp02ch00802.isChecked() || mp02ch00803.isChecked() || mp02ch00804.isChecked()
+                    || mp02ch00888.isChecked())) {
                 Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ch008), Toast.LENGTH_SHORT).show();
                 mp02ch00888.setError("This data is Required!");
 
@@ -643,13 +672,26 @@ public class SectionCHActivity extends Activity {
                 mp02ch01102.setError(null);
             }*/
 
-            if ((Integer.parseInt(mp02ch01101.getText().toString()) < 1 || Integer.parseInt(mp02ch01101.getText().toString()) > 11)
-                    && (Integer.parseInt(mp02ch01102.getText().toString()) < 1 || Integer.parseInt(mp02ch01102.getText().toString()) > 29)) {
+            if ((Integer.parseInt(mp02ch01101.getText().toString()) < 0 || Integer.parseInt(mp02ch01101.getText().toString()) > 11)
+                    && (Integer.parseInt(mp02ch01102.getText().toString()) < 0 || Integer.parseInt(mp02ch01102.getText().toString()) > 29)) {
                 Toast.makeText(this, "Invalid:" + getString(R.string.mp02ch011), Toast.LENGTH_SHORT).show();
-                mp02ch01101.setError("Invalid:Month range 1 - 11");
-                mp02ch01102.setError("Invalid:Days range 1 - 29");
+                mp02ch01101.setError("Invalid:Month range 0 - 11");
+                mp02ch01102.setError("Invalid:Days range 0 - 29");
 
-                Log.i(TAG, "mp02ch01101: Month Range 1 - 11");
+                Log.i(TAG, "mp02ch01101: Month Range 0 - 11");
+                return false;
+            } else {
+                mp02ch01101.setError(null);
+                mp02ch01102.setError(null);
+            }
+
+            if (Integer.valueOf(mp02ch01101.getText().toString().isEmpty() ? "0" : mp02ch01101.getText().toString()) == 0
+                    && Integer.valueOf(mp02ch01102.getText().toString().isEmpty() ? "0" : mp02ch01102.getText().toString()) == 0) {
+                Toast.makeText(this, "ERROR(invalid)" + getString(R.string.mp02ch011) + " - " + getString(R.string.month), Toast.LENGTH_SHORT).show();
+                mp02ch01101.setError("Days and months can not be zero..");
+                mp02ch01102.setError("Days and months can not be zero..");
+
+                Log.i(TAG, "mp02ch011: Both can not be zero");
                 return false;
             } else {
                 mp02ch01101.setError(null);
@@ -740,13 +782,26 @@ public class SectionCHActivity extends Activity {
                 mp02ch01502.setError(null);
             }*/
 
-            if ((Integer.parseInt(mp02ch01501.getText().toString()) < 1 || Integer.parseInt(mp02ch01501.getText().toString()) > 11)
-                    && (Integer.parseInt(mp02ch01502.getText().toString()) < 1 || Integer.parseInt(mp02ch01502.getText().toString()) > 29)) {
+            if ((Integer.parseInt(mp02ch01501.getText().toString()) < 0 || Integer.parseInt(mp02ch01501.getText().toString()) > 11)
+                    && (Integer.parseInt(mp02ch01502.getText().toString()) < 0 || Integer.parseInt(mp02ch01502.getText().toString()) > 29)) {
                 Toast.makeText(this, "Invalid:" + getString(R.string.mp02ch015), Toast.LENGTH_SHORT).show();
-                mp02ch01501.setError("Invalid:Month range 1 - 11");
-                mp02ch01502.setError("Invalid:Days range 1 - 29");
+                mp02ch01501.setError("Invalid:Month range 0 - 11");
+                mp02ch01502.setError("Invalid:Days range 0 - 29");
 
-                Log.i(TAG, "mp02ch01501: Month Range 1 - 11");
+                Log.i(TAG, "mp02ch01501: Month Range 0 - 11");
+                return false;
+            } else {
+                mp02ch01501.setError(null);
+                mp02ch01502.setError(null);
+            }
+
+            if (Integer.valueOf(mp02ch01501.getText().toString().isEmpty() ? "0" : mp02ch01501.getText().toString()) == 0
+                    && Integer.valueOf(mp02ch01502.getText().toString().isEmpty() ? "0" : mp02ch01502.getText().toString()) == 0) {
+                Toast.makeText(this, "ERROR(invalid)" + getString(R.string.mp02ch015) + " - " + getString(R.string.month), Toast.LENGTH_SHORT).show();
+                mp02ch01501.setError("Days and months can not be zero..");
+                mp02ch01502.setError("Days and months can not be zero..");
+
+                Log.i(TAG, "mp02ch015: Both can not be zero");
                 return false;
             } else {
                 mp02ch01501.setError(null);
@@ -755,7 +810,8 @@ public class SectionCHActivity extends Activity {
 
 
 //            16
-            if (mp02ch016.getCheckedRadioButtonId() == -1) {
+            if (!(mp02ch01601.isChecked() || mp02ch01602.isChecked() || mp02ch01603.isChecked() || mp02ch01604.isChecked()
+                    || mp02ch01688.isChecked())) {
                 Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ch016), Toast.LENGTH_SHORT).show();
                 mp02ch01688.setError("This data is Required!");
 
@@ -840,7 +896,7 @@ public class SectionCHActivity extends Activity {
                 : mp02ch01604.isChecked() ? "4" : mp02ch01688.isChecked() ? "88" : "0");
         sch.put("mp02ch01688x", mp02ch01688x.getText().toString());
 
-        AppMain.pc.setsCG(String.valueOf(sch));
+        AppMain.pc.setsCH(String.valueOf(sch));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

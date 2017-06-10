@@ -36,26 +36,13 @@
                 android:layout_height="2dp"
                 android:background="@color/colorPrimary" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@color/dullWhile"
-                android:text="@string/mp02cgsub"
-                android:textColor="@color/colorPrimary"
-                android:textSize="25sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/colorPrimary" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
+
                 android:text="@string/mp02cg001"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -76,12 +63,24 @@
                 android:inputType="number"
                 android:maxLength="2" />
 
+            <CheckBox
+                android:id="@+id/mp02cg00103"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mp02cg00103" />
+
+            <LinearLayout
+                android:id="@+id/fldGrpmp02cg002"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
+
                 android:text="@string/mp02cg002"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -142,7 +141,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
+
                 android:text="@string/mp02cg003"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -201,7 +200,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
+
                 android:text="@string/mp02cg004"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -237,12 +236,14 @@
 
             </RadioGroup>
 
+            </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
+
                 android:text="@string/mp02cg005"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -277,8 +278,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/mp02cg006"
+
+                    android:text="@string/mp02cg006"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
 

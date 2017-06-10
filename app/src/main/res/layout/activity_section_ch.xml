@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
+
                 android:text="@string/mp02ch001"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
-                    android:padding="2dp"
+
                     android:text="@string/mp02ch002"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
@@ -138,7 +138,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
-                    android:padding="2dp"
+
                     android:text="@string/mp02ch003"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
@@ -173,7 +173,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
-                    android:padding="2dp"
+
                     android:text="@string/mp02ch004"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
@@ -216,7 +216,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:hint="@string/other"
+                    android:inputType="textCapWords"
                     android:visibility="gone" />
 
             </LinearLayout>
@@ -227,7 +229,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
+
                 android:text="@string/mp02ch005"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -253,13 +255,13 @@
                     android:id="@+id/mp02ch00503"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mp02ch00502" />
+                    android:text="@string/mp02ch00501" />
 
                 <RadioButton
                     android:id="@+id/mp02ch00504"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mp02ch00501" />
+                    android:text="@string/mp02ch00502" />
 
                 <RadioButton
                     android:id="@+id/mp02ch00599"
@@ -281,7 +283,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
-                    android:padding="2dp"
+
                     android:text="@string/mp02ch006"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
@@ -328,7 +330,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
-                    android:padding="2dp"
+
                     android:text="@string/mp02ch007"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
@@ -363,54 +365,51 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
-                    android:padding="2dp"
+
                     android:text="@string/mp02ch008"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
 
-                <RadioGroup
-                    android:id="@+id/mp02ch008"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02ch00801"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02ch00801" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02ch00802"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02ch00802" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02ch00803"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02ch00803" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02ch00804"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02ch00804" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02ch00888"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/other" />
 
-                </RadioGroup>
 
                 <EditText
                     android:id="@+id/mp02ch00888x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:hint="@string/other"
+                    android:inputType="textCapWords"
                     android:visibility="gone" />
 
             </LinearLayout>
@@ -420,7 +419,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
+
                 android:text="@string/mp02ch009"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -455,7 +454,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
-                    android:padding="2dp"
+
                     android:text="@string/mp02ch010"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
@@ -502,7 +501,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
-                    android:padding="2dp"
+
                     android:text="@string/mp02ch011"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
@@ -537,7 +536,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
-                    android:padding="2dp"
+
                     android:text="@string/mp02ch012"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
@@ -580,7 +579,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:hint="@string/other"
+                    android:inputType="textCapWords"
                     android:visibility="gone" />
 
             </LinearLayout>
@@ -590,7 +591,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
+
                 android:text="@string/mp02ch013"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -644,7 +645,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
-                    android:padding="2dp"
+
                     android:text="@string/mp02ch014"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
@@ -691,7 +692,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
-                    android:padding="2dp"
+
                     android:text="@string/mp02ch015"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
@@ -726,54 +727,49 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
-                    android:padding="2dp"
+
                     android:text="@string/mp02ch016"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
 
-                <RadioGroup
-                    android:id="@+id/mp02ch016"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02ch01601"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02ch01601" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02ch01602"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02ch01602" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02ch01603"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02ch01603" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02ch01604"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02ch01604" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02ch01688"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/other" />
-
-                </RadioGroup>
 
                 <EditText
                     android:id="@+id/mp02ch01688x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:hint="@string/other"
+                    android:inputType="textCapWords"
                     android:visibility="gone" />
 
             </LinearLayout>
