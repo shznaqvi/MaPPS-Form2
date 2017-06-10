@@ -234,7 +234,7 @@ public class MainActivity extends Activity {
 
             areaCode.setError(null);
 
-            Intent Clist = new Intent(this, FormsList.class);
+            Intent Clist = new Intent(getApplicationContext(), FormsList.class);
             Clist.putExtra("areaCode", areaCode.getText().toString());
             startActivity(Clist);
         } else {

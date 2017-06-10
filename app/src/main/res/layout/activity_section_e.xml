@@ -153,6 +153,12 @@
                     android:text="@string/mp02e00304" />
 
                 <RadioButton
+                    android:id="@+id/mp02e00305"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mp02e00305" />
+
+                <RadioButton
                     android:id="@+id/mp02e00388"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
