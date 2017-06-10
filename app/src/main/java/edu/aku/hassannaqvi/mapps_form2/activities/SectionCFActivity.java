@@ -1037,10 +1037,10 @@ public class SectionCFActivity extends Activity {
             }
         });
 
-        mp02cf005.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        mp02cf004.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                if (mp02cf00501.isChecked()) {
+                if (mp02cf00401.isChecked()) {
                     fldGrpmp02cf11.setVisibility(View.GONE);
                     mp02cf011.clearCheck();
                     mp02cf01188x.setText(null);
