@@ -1292,8 +1292,8 @@ public class SectionCFActivity extends Activity {
             mp02cf003.setError(null);
         }
 
-        if (Integer.parseInt(mp02cf003.getText().toString()) != 0
-                && Integer.parseInt(mp02cf003.getText().toString()) < 10
+        if ((Integer.parseInt(mp02cf003.getText().toString()) < 10
+                && Integer.parseInt(mp02cf003.getText().toString()) != 0)
                 || Integer.parseInt(mp02cf003.getText().toString()) > 18) {
             Toast.makeText(this, "ERROR: " + getString(R.string.mp02cf003), Toast.LENGTH_LONG).show();
             mp02cf003.setError("Age Limit is from 10 to 18 Years! ");
@@ -1519,10 +1519,10 @@ public class SectionCFActivity extends Activity {
                 mp02cf017.setError(null);
             }
 
-            if (Integer.parseInt(mp02cf017.getText().toString()) != 0
-                    && Integer.parseInt(mp02cf017.getText().toString()) != 99
-                    && Integer.parseInt(mp02cf017.getText().toString()) < 15
-                    || Integer.parseInt(mp02cf017.getText().toString()) > 24) {
+            if ((Integer.parseInt(mp02cf017.getText().toString()) < 15
+                    && Integer.parseInt(mp02cf017.getText().toString()) != 0)
+                    || (Integer.parseInt(mp02cf017.getText().toString()) > 24
+                    && Integer.parseInt(mp02cf017.getText().toString()) != 99)) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mp02cf017), Toast.LENGTH_LONG).show();
                 mp02cf017.setError("Age Limit is from 15 to 24 Years");
                 Log.i(TAG, "mp02cf017: Age Limit is from 15 to 24 Years");
