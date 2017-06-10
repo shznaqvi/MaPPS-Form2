@@ -79,13 +79,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + ParticipantsTable.COLUMN_UID + " TEXT,"
             + ParticipantsTable.COLUMN_UUID + " TEXT,"
             + ParticipantsTable.COLUMN_LUID + " TEXT,"
-            + ParticipantsContract.ParticipantsTable.COLUMN_FORMDATE + " TEXT,"
+            + ParticipantsTable.COLUMN_FORMDATE + " TEXT,"
             + ParticipantsTable.COLUMN_INTERVIEWER01 + " TEXT,"
-            + ParticipantsContract.ParticipantsTable.COLUMN_INTERVIEWER02 + " TEXT,"
-            + ParticipantsContract.ParticipantsTable.COLUMN_CLUSTERCODE + " TEXT,"
-            + ParticipantsContract.ParticipantsTable.COLUMN_HOUSEHOLD + " TEXT,"
+            + ParticipantsTable.COLUMN_INTERVIEWER02 + " TEXT,"
+            + ParticipantsTable.COLUMN_CLUSTERCODE + " TEXT,"
+            + ParticipantsTable.COLUMN_HOUSEHOLD + " TEXT,"
             + ParticipantsTable.COLUMN_LHWCODE + " TEXT,"
-            + ParticipantsContract.ParticipantsTable.COLUMN_ISTATUS + " TEXT,"
+            + ParticipantsTable.COLUMN_ISTATUS + " TEXT,"
             + ParticipantsTable.COLUMN_SCB + " TEXT,"
             + ParticipantsTable.COLUMN_SCC + " TEXT,"
             + ParticipantsTable.COLUMN_SCD + " TEXT,"
@@ -95,11 +95,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + ParticipantsTable.COLUMN_SCH + " TEXT,"
             + ParticipantsTable.COLUMN_SCIA + " TEXT,"
             + ParticipantsTable.COLUMN_SCIB + " TEXT,"
-            + ParticipantsContract.ParticipantsTable.COLUMN_SCIC + " TEXT,"
-            + ParticipantsContract.ParticipantsTable.COLUMN_SD + " TEXT,"
-            + ParticipantsContract.ParticipantsTable.COLUMN_SE + " TEXT,"
+            + ParticipantsTable.COLUMN_SCIC + " TEXT,"
+            + ParticipantsTable.COLUMN_SD + " TEXT,"
+            + ParticipantsTable.COLUMN_SE + " TEXT,"
             + ParticipantsTable.COLUMN_DEVICEID + " TEXT,"
-            + ParticipantsContract.ParticipantsTable.COLUMN_DEVICETAGID + " TEXT,"
+            + ParticipantsTable.COLUMN_DEVICETAGID + " TEXT,"
             + ParticipantsTable.COLUMN_APP_VERSION + " TEXT,"
             + ParticipantsTable.COLUMN_SYNCED + " TEXT,"
             + ParticipantsTable.COLUMN_SYNCED_DATE + " TEXT"
@@ -1291,6 +1291,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ParticipantsTable.COLUMN_SCE,
                 ParticipantsTable.COLUMN_SCF,
                 ParticipantsTable.COLUMN_SCG,
+                ParticipantsTable.COLUMN_SCH,
                 ParticipantsTable.COLUMN_SCIA,
                 ParticipantsTable.COLUMN_SCIB,
                 ParticipantsTable.COLUMN_SCIC,
