@@ -341,7 +341,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:background="@color/colorPrimary"
-
                     android:text="@string/mp02cb006"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
@@ -354,6 +353,13 @@
                     android:inputType="number"
                     android:maxLength="2" />
 
+                <LinearLayout
+                    android:id="@+id/fldGrpmp02cb007"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    tools:visibility="visible">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -407,7 +413,18 @@
                         android:text="@string/mp02cb00706" />
 
                 </RadioGroup>
+
+                    </LinearLayout>
+
             </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/fldGrpmp02cb008"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    tools:visibility="visible">
 
             <TextView
                 android:layout_width="match_parent"
@@ -490,6 +507,8 @@
                 android:inputType="textCapWords"
                 android:visibility="gone"
                 tools:visibility="visible" />
+
+                </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
