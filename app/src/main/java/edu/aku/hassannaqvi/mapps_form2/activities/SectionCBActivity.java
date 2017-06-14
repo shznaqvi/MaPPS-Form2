@@ -942,10 +942,10 @@ public class SectionCBActivity extends Activity {
                     mp02cb006.setError(null);
                 }
 
-                if ((Integer.parseInt(mp02cb006.getText().toString()) < 1) || (Integer.parseInt(mp02cb006.getText().toString()) > 16)) {
+                if ((Integer.parseInt(mp02cb006.getText().toString()) < 0) || (Integer.parseInt(mp02cb006.getText().toString()) > 16)) {
                     Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb006), Toast.LENGTH_LONG).show();
-                    mp02cb006.setError("Range is 1-16");
-                    Log.i(TAG, "mp02cb006: Range is 1-16");
+                    mp02cb006.setError("Range is 0-16");
+                    Log.i(TAG, "mp02cb006: Range is 0-16");
                     return false;
                 } else {
                     mp02cb006.setError(null);
@@ -961,6 +961,27 @@ public class SectionCBActivity extends Activity {
                 } else {
                     mp02cb00706.setError(null);
                 }
+
+                if (Integer.valueOf(mp02cb006.getText().toString()) < 1 && !mp02cb00701.isChecked()) {
+                    Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02cb006), Toast.LENGTH_LONG).show();
+                    mp02cb006.setError("Please check with highest level of education attended..");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cb006: Please check with highest level of education attended..");
+                    return false;
+                } else {
+                    mp02cb006.setError(null);
+                }
+
+                if (Integer.valueOf(mp02cb006.getText().toString()) > 1 && !mp02cb00701.isChecked()) {
+                    Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02cb006), Toast.LENGTH_LONG).show();
+                    mp02cb006.setError("Please check with highest level of education attended..");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cb006: Please check with highest level of education attended..");
+                    return false;
+                } else {
+                    mp02cb006.setError(null);
+                }
+
             }
 
             // ================== Q8 ====================
