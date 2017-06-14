@@ -180,15 +180,12 @@ public class SectionCICActivity extends Activity {
         setContentView(R.layout.activity_section_cic);
         ButterKnife.bind(this);
 
-        mp02cic00101.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b){
+
+        if (AppMain.maritalStatus == 1) {
                     fldGrpmp02cic002.setVisibility(View.VISIBLE);
 
                 }else {
                     fldGrpmp02cic002.setVisibility(View.GONE);
-
                     mp02cic002.clearCheck();
                     mp02cic003.clearCheck();
                     mp02cic004.clearCheck();
@@ -198,8 +195,7 @@ public class SectionCICActivity extends Activity {
                     mp02cic008.clearCheck();
                     mp02cic009.clearCheck();
                 }
-            }
-        });
+
 
         mp02cic01001.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -291,7 +287,7 @@ public class SectionCICActivity extends Activity {
     public boolean ValidateForm() {
 
 //        1
-        if (mp02cic001.getCheckedRadioButtonId() == -1) {
+        /*if (mp02cic001.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cic001), Toast.LENGTH_SHORT).show();
             mp02cic00102.setError("This data is Required!");
 
@@ -300,10 +296,10 @@ public class SectionCICActivity extends Activity {
             return false;
         } else {
             mp02cic00102.setError(null);
-        }
+        }*/
 
 //        Skip
-        if (mp02cic00101.isChecked()) {
+        if (AppMain.maritalStatus == 1) {
 
 
 //            2
@@ -471,8 +467,11 @@ public class SectionCICActivity extends Activity {
 
         JSONObject SCIC = new JSONObject();
 
-        SCIC.put("mp02cic001", mp02cic00101.isChecked() ? "1" : mp02cic00102.isChecked() ? "2" : "0");
-
+        if (AppMain.maritalStatus == 1) {
+            SCIC.put("mp02cic001", 1);
+        } else {
+            SCIC.put("mp02cic001", 2);
+        }
         SCIC.put("mp02cic002", mp02cic00201.isChecked() ? "1" : mp02cic00202.isChecked() ? "2" : mp02cic00203.isChecked() ? "3"
                 : mp02cic00204.isChecked() ? "4" : "0");
         SCIC.put("mp02cic003", mp02cic00301.isChecked() ? "1" : mp02cic00302.isChecked() ? "2" : mp02cic00303.isChecked() ? "3"

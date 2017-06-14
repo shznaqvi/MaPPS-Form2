@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.DateFormat;
@@ -527,9 +528,17 @@ public class SectionCBActivity extends Activity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (mp02cb01101.isChecked()) {
                     fldGrpmp02cb012.setVisibility(View.VISIBLE);
+                    mp02cb01406.setEnabled(true);
+                    mp02cb01407.setEnabled(true);
+
                 } else {
                     fldGrpmp02cb012.setVisibility(View.GONE);
                     mp02cb012.setText(null);
+                    mp02cb01406.setEnabled(false);
+                    mp02cb01406.setChecked(false);
+                    mp02cb01407.setEnabled(false);
+                    mp02cb01407.setChecked(false);
+
                 }
             }
         });
@@ -565,9 +574,16 @@ public class SectionCBActivity extends Activity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (mp02cb00501.isChecked()) {
                     fldGrpmp02cb006.setVisibility(View.VISIBLE);
+                    mp02cb00806.setEnabled(true);
+                    mp02cb00807.setEnabled(true);
                 } else {
                     fldGrpmp02cb006.setVisibility(View.GONE);
                     mp02cb006.setText(null);
+                    mp02cb00806.setEnabled(false);
+                    mp02cb00806.setChecked(false);
+                    mp02cb00807.setEnabled(false);
+                    mp02cb00807.setChecked(false);
+
                 }
             }
         });
@@ -615,6 +631,159 @@ public class SectionCBActivity extends Activity {
 
             }
         });
+
+        mp02cb006.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (Integer.valueOf(mp02cb006.getText().toString().isEmpty() ? "0" : mp02cb006.getText().toString()) == 0) {
+                    mp02cb00701.setEnabled(true);
+                    mp02cb00702.setEnabled(false);
+                    mp02cb00703.setEnabled(false);
+                    mp02cb00704.setEnabled(false);
+                    mp02cb00705.setEnabled(false);
+                    mp02cb00706.setEnabled(false);
+
+                } else if (Integer.valueOf(mp02cb006.getText().toString().isEmpty() ? "0" : mp02cb006.getText().toString()) > 1
+                        && Integer.valueOf(mp02cb006.getText().toString()) <= 5) {
+                    mp02cb00701.setEnabled(false);
+                    mp02cb00702.setEnabled(true);
+                    mp02cb00703.setEnabled(false);
+                    mp02cb00704.setEnabled(false);
+                    mp02cb00705.setEnabled(false);
+                    mp02cb00706.setEnabled(false);
+
+                } else if (Integer.valueOf(mp02cb006.getText().toString().isEmpty() ? "0" : mp02cb006.getText().toString()) > 5
+                        && Integer.valueOf(mp02cb006.getText().toString()) <= 10) {
+                    mp02cb00701.setEnabled(false);
+                    mp02cb00702.setEnabled(true);
+                    mp02cb00703.setEnabled(true);
+                    mp02cb00704.setEnabled(false);
+                    mp02cb00705.setEnabled(true);
+                    mp02cb00706.setEnabled(false);
+                } else if (Integer.valueOf(mp02cb006.getText().toString().isEmpty() ? "0" : mp02cb006.getText().toString()) > 10
+                        && Integer.valueOf(mp02cb006.getText().toString()) <= 12) {
+                    mp02cb00701.setEnabled(false);
+                    mp02cb00702.setEnabled(true);
+                    mp02cb00703.setEnabled(true);
+                    mp02cb00704.setEnabled(true);
+                    mp02cb00705.setEnabled(true);
+                    mp02cb00706.setEnabled(false);
+                } else if (Integer.valueOf(mp02cb006.getText().toString().isEmpty() ? "0" : mp02cb006.getText().toString()) > 12
+                        && Integer.valueOf(mp02cb006.getText().toString()) <= 16) {
+                    mp02cb00701.setEnabled(false);
+                    mp02cb00702.setEnabled(true);
+                    mp02cb00703.setEnabled(true);
+                    mp02cb00704.setEnabled(true);
+                    mp02cb00705.setEnabled(true);
+                    mp02cb00706.setEnabled(true);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        mp02cb012.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (Integer.valueOf(mp02cb012.getText().toString().isEmpty() ? "0" : mp02cb012.getText().toString()) == 0) {
+                    mp02cb01301.setEnabled(true);
+                    mp02cb01302.setEnabled(false);
+                    mp02cb01303.setEnabled(false);
+                    mp02cb01304.setEnabled(false);
+                    mp02cb01305.setEnabled(false);
+                    mp02cb01306.setEnabled(false);
+
+                } else if (Integer.valueOf(mp02cb012.getText().toString().isEmpty() ? "0" : mp02cb012.getText().toString()) > 1
+                        && Integer.valueOf(mp02cb012.getText().toString()) <= 5) {
+                    mp02cb01301.setEnabled(false);
+                    mp02cb01302.setEnabled(true);
+                    mp02cb01303.setEnabled(false);
+                    mp02cb01304.setEnabled(false);
+                    mp02cb01305.setEnabled(false);
+                    mp02cb01306.setEnabled(false);
+
+                } else if (Integer.valueOf(mp02cb012.getText().toString().isEmpty() ? "0" : mp02cb012.getText().toString()) > 5
+                        && Integer.valueOf(mp02cb012.getText().toString()) <= 10) {
+                    mp02cb01301.setEnabled(false);
+                    mp02cb01302.setEnabled(true);
+                    mp02cb01303.setEnabled(true);
+                    mp02cb01304.setEnabled(false);
+                    mp02cb01305.setEnabled(true);
+                    mp02cb01306.setEnabled(false);
+                } else if (Integer.valueOf(mp02cb012.getText().toString().isEmpty() ? "0" : mp02cb012.getText().toString()) > 10
+                        && Integer.valueOf(mp02cb012.getText().toString()) <= 12) {
+                    mp02cb01301.setEnabled(false);
+                    mp02cb01302.setEnabled(true);
+                    mp02cb01303.setEnabled(true);
+                    mp02cb01304.setEnabled(true);
+                    mp02cb01305.setEnabled(true);
+                    mp02cb01306.setEnabled(false);
+                } else if (Integer.valueOf(mp02cb012.getText().toString().isEmpty() ? "0" : mp02cb012.getText().toString()) > 12
+                        && Integer.valueOf(mp02cb012.getText().toString()) <= 16) {
+                    mp02cb01301.setEnabled(false);
+                    mp02cb01302.setEnabled(true);
+                    mp02cb01303.setEnabled(true);
+                    mp02cb01304.setEnabled(true);
+                    mp02cb01305.setEnabled(true);
+                    mp02cb01306.setEnabled(true);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        mp02cb007.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (mp02cb00701.isChecked() || mp02cb00702.isChecked()) {
+                    mp02cb00806.setEnabled(false);
+                    mp02cb00806.setChecked(false);
+                    mp02cb00807.setEnabled(false);
+                    mp02cb00807.setChecked(false);
+                } else {
+                    mp02cb00806.setEnabled(true);
+                    mp02cb00807.setEnabled(true);
+                }
+            }
+        });
+
+
+        mp02cb013.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (mp02cb01301.isChecked() || mp02cb01302.isChecked()) {
+                    mp02cb01406.setEnabled(false);
+                    mp02cb01406.setChecked(false);
+                    mp02cb01407.setEnabled(false);
+                    mp02cb01407.setChecked(false);
+                } else {
+                    mp02cb01406.setEnabled(true);
+                    mp02cb01407.setEnabled(true);
+                }
+            }
+        });
+
+
+
+
+
+
     }
 
     @OnClick(R.id.btn_End)
@@ -773,7 +942,7 @@ public class SectionCBActivity extends Activity {
         View radioButton = mp02cb009.findViewById(radioButtonID);
         int idx = mp02cb009.indexOfChild(radioButton);
 */
-        AppMain.unmarried = mp02cb009.indexOfChild(findViewById(mp02cb009.getCheckedRadioButtonId()));
+        AppMain.maritalStatus = mp02cb009.indexOfChild(findViewById(mp02cb009.getCheckedRadioButtonId())) + 1;
 
 
         AppMain.pc.setsCB(String.valueOf(scb));
@@ -868,15 +1037,6 @@ public class SectionCBActivity extends Activity {
                 mp02cb002.setError(null);
             }
 
-            /*if (currentAge != (Integer.parseInt(mp02cb002.getText().toString()))) {
-                Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb002), Toast.LENGTH_LONG).show();
-                mp02cb00101.setError("Age mismatch with year of birth... Check Again");
-                Log.i(TAG, "mp02cb00101: Age mismatch with year of birth... Check Again");
-                return false;
-            } else {
-                mp02cb00101.setError(null);
-            }*/
-
             //==================== Q3 =====================
             if (mp02cb003.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb003), Toast.LENGTH_LONG).show();
@@ -962,26 +1122,6 @@ public class SectionCBActivity extends Activity {
                     mp02cb00706.setError(null);
                 }
 
-                /*if (Integer.valueOf(mp02cb006.getText().toString()) < 1 && !mp02cb00701.isChecked()) {
-                    Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02cb006), Toast.LENGTH_LONG).show();
-                    mp02cb006.setError("Please check with highest level of education attended..");    // Set Error on last radio button
-
-                    Log.i(TAG, "mp02cb006: Please check with highest level of education attended..");
-                    return false;
-                } else {
-                    mp02cb006.setError(null);
-                }
-
-                if (Integer.valueOf(mp02cb006.getText().toString()) > 1 && !mp02cb00701.isChecked()) {
-                    Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02cb006), Toast.LENGTH_LONG).show();
-                    mp02cb006.setError("Please check with highest level of education attended..");    // Set Error on last radio button
-
-                    Log.i(TAG, "mp02cb006: Please check with highest level of education attended..");
-                    return false;
-                } else {
-                    mp02cb006.setError(null);
-                }
-*/
             }
 
             // ================== Q8 ====================

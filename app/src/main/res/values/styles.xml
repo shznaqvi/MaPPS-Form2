@@ -7,6 +7,8 @@
         <item name="android:editTextStyle">@style/txtEditText</item>
         <item name="android:radioButtonStyle">@style/radiobutton</item>
         <item name="android:checkboxStyle">@style/chkBox</item>
+        <item name="android:typeface">serif</item>
+
 
     </style>
 
@@ -28,7 +30,7 @@
         <!--<item name="android:button">@null</item>-->
         <!--<item name="android:drawableRight">@android:drawable/btn_radio</item>-->
         <item name="android:textSize">20sp</item>
-        <item name="android:padding">10dp</item>
+
 
     </style>
 
@@ -53,6 +55,7 @@
         <item name="android:layout_marginTop">16dp</item>
         <item name="android:layout_gravity">center_vertical</item>
 
+
     </style>
 
     <!--EDITTEXT-->
@@ -61,7 +64,8 @@
         <item name="android:paddingStart">8dp</item>
         <item name="android:paddingEnd">8dp</item>
         <item name="android:layout_marginTop">8dp</item>
-        <item name="android:textSize">18sp</item><!--or 16sp-->
+        <item name="android:textSize">20sp</item><!--or 16sp-->
+        <item name="android:typeface">serif</item>
 
 
     </style>

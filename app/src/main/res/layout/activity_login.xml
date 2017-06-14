@@ -74,7 +74,8 @@
                 android:padding="4px"
                 android:singleLine="true"
                 android:textAlignment="center"
-                android:textColor="#efefef" />
+                android:textColor="#efefef"
+                android:textSize="20sp" />
             <!--android:text="dmu@aku"-->
 
 
@@ -90,7 +91,8 @@
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textSize="20sp" />
             <!--android:text="aku?dmu"-->
 
 
@@ -106,7 +108,8 @@
                 android:padding="4px"
                 android:singleLine="true"
                 android:textAlignment="center"
-                android:textColor="#efefef" />
+                android:textColor="#efefef"
+                android:textSize="20sp" />
             <!--android:text="test1234"-->
 
 
@@ -122,7 +125,8 @@
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textSize="20sp" />
             <!--android:text="test1234"-->
 
 
@@ -162,6 +166,7 @@
                 android:layout_marginTop="40dp"
                 android:padding="16dp"
                 android:text="@string/action_sign_in"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
