@@ -962,7 +962,7 @@ public class SectionCBActivity extends Activity {
                     mp02cb00706.setError(null);
                 }
 
-                if (Integer.valueOf(mp02cb006.getText().toString()) < 1 && !mp02cb00701.isChecked()) {
+                /*if (Integer.valueOf(mp02cb006.getText().toString()) < 1 && !mp02cb00701.isChecked()) {
                     Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02cb006), Toast.LENGTH_LONG).show();
                     mp02cb006.setError("Please check with highest level of education attended..");    // Set Error on last radio button
 
@@ -981,7 +981,7 @@ public class SectionCBActivity extends Activity {
                 } else {
                     mp02cb006.setError(null);
                 }
-
+*/
             }
 
             // ================== Q8 ====================
