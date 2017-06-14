@@ -201,12 +201,12 @@ public class SectionEActivity extends Activity {
         } else {
             mp02e001.setError(null);
         }
-        if ((Double.parseDouble(mp02e001.getText().toString().isEmpty() ? "0" : mp02e001.getText().toString()) < 8)
-                || Double.parseDouble(mp02e001.getText().toString()) > 15.5) {
+        if ((Double.parseDouble(mp02e001.getText().toString().isEmpty() ? "0" : mp02e001.getText().toString()) < 4)
+                || Double.parseDouble(mp02e001.getText().toString()) > 20.0) {
             Toast.makeText(this, "Range:" + getString(R.string.mp02e001), Toast.LENGTH_SHORT).show();
-            mp02e001.setError("Range: 8.0 to 15.5 ");
+            mp02e001.setError("Range: 4.0 to 20.0 ");
 
-            Log.i(TAG, "mp02e001: Range: 8.0 to 15.5!");
+            Log.i(TAG, "mp02e001: Range: 4.0 to 20.0!");
             return false;
         } else {
             mp02e001.setError(null);

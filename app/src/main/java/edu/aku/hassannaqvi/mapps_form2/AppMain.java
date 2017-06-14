@@ -74,7 +74,7 @@ public class AppMain extends Application {
     public static String versionName;
     public static boolean endFlag = false;
     public static int partiFlag = 0;
-    public static int unmarried = 0;
+    public static int maritalStatus = 0;
     protected LocationManager locationManager;
     //    Login Members Array
     Location location;
@@ -83,7 +83,7 @@ public class AppMain extends Application {
     public void onCreate() {
         super.onCreate();
 
-        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/JameelNooriNastaleeq.ttf"); // font from assets: "assets/fonts/Roboto-Regular.ttf
+        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/MBLateefi.ttf"); // font from assets: "assets/fonts/Roboto-Regular.ttf
 
         deviceId = Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID);

@@ -538,12 +538,12 @@ public class SectionCCActivity extends Activity {
         });
 
 
-        if (AppMain.unmarried == 4) {
+        if (AppMain.maritalStatus == 1) {
+            fldGrpmp02cc08.setVisibility(View.VISIBLE);
+        } else {
             fldGrpmp02cc08.setVisibility(View.GONE);
             mp02cc008.clearCheck();
             mp02cc009.clearCheck();
-        } else {
-            fldGrpmp02cc08.setVisibility(View.VISIBLE);
         }
     }
 
@@ -835,7 +835,7 @@ public class SectionCCActivity extends Activity {
             mp02cc00705.setError(null);
         }
 
-        if (!(AppMain.unmarried == 4)) {
+        if (AppMain.maritalStatus == 1) {
 //        8
             if (mp02cc008.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cc008), Toast.LENGTH_SHORT).show();

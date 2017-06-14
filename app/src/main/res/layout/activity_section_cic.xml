@@ -44,24 +44,28 @@
 
                 android:text="@string/mp02cic001"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
 
             <RadioGroup
                 android:id="@+id/mp02cic001"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="gone">
 
                 <RadioButton
                     android:id="@+id/mp02cic00101"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/yes" />
+                    android:text="@string/yes"
+                    android:visibility="gone" />
 
                 <RadioButton
                     android:id="@+id/mp02cic00102"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/no" />
+                    android:text="@string/no"
+                    android:visibility="gone" />
             </RadioGroup>
 
             <LinearLayout

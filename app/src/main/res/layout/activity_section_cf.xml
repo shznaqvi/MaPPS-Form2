@@ -258,7 +258,13 @@
                     android:inputType="textCapWords"
                     android:visibility="gone" />
 
-                <TextView
+                <LinearLayout
+                    android:id="@+id/fldGrpmp02cf005"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -347,13 +353,18 @@
                         android:text="@string/mp02cf00603" />
             </RadioGroup>
 
+                    <LinearLayout
+                        android:id="@+id/fldGrpmp02cf007"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@color/colorPrimary"
-
                     android:text="@string/mp02cf007"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
@@ -424,12 +435,15 @@
 
                 </LinearLayout>
 
+                    </LinearLayout>
+
+                </LinearLayout>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@color/colorPrimary"
-
                     android:text="@string/mp02cf009"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
@@ -625,7 +639,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@color/colorPrimary"
-
                     android:text="@string/mp02cf012"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
@@ -836,28 +849,31 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@color/colorPrimary"
-
                 android:text="@string/mp02cf016"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
 
             <RadioGroup
                 android:id="@+id/mp02cf016"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="gone">
 
 
                 <RadioButton
                     android:id="@+id/mp02cf01601"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/yes" />
+                    android:text="@string/yes"
+                    android:visibility="gone" />
 
                 <RadioButton
                     android:id="@+id/mp02cf01602"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/no" />
+                    android:text="@string/no"
+                    android:visibility="gone" />
 
             </RadioGroup>
 
@@ -872,7 +888,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@color/colorPrimary"
-
                     android:text="@string/mp02cf017"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
@@ -1464,12 +1479,17 @@
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/fldGrpmp02cf033"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@color/colorPrimary"
-
                     android:text="@string/mp02cf033"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
@@ -1862,6 +1882,8 @@
                         android:hint="@string/other"
                         android:inputType="textCapWords"
                         android:visibility="gone" />
+
+                </LinearLayout>
 
                 </LinearLayout>
 
