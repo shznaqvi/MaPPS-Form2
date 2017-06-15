@@ -197,18 +197,16 @@ public class SectionCFActivity extends Activity {
     CheckBox mp02cf01388;
     @BindView(R.id.mp02cf01388x)
     EditText mp02cf01388x;
-    @BindView(R.id.mp02cf014)
-    RadioGroup mp02cf014;
     @BindView(R.id.mp02cf01401)
-    RadioButton mp02cf01401;
+    CheckBox mp02cf01401;
     @BindView(R.id.mp02cf01402)
-    RadioButton mp02cf01402;
+    CheckBox mp02cf01402;
     @BindView(R.id.mp02cf01403)
-    RadioButton mp02cf01403;
+    CheckBox mp02cf01403;
     @BindView(R.id.mp02cf01404)
-    RadioButton mp02cf01404;
+    CheckBox mp02cf01404;
     @BindView(R.id.mp02cf01405)
-    RadioButton mp02cf01405;
+    CheckBox mp02cf01405;
     @BindView(R.id.mp02cf01501)
     CheckBox mp02cf01501;
     @BindView(R.id.mp02cf01502)
@@ -504,7 +502,11 @@ public class SectionCFActivity extends Activity {
                     mp02cf01304.setChecked(false);
                     mp02cf01305.setChecked(false);
                     mp02cf01388x.setText(null);
-                    mp02cf014.clearCheck();
+                    mp02cf01401.setChecked(false);
+                    mp02cf01402.setChecked(false);
+                    mp02cf01403.setChecked(false);
+                    mp02cf01404.setChecked(false);
+                    mp02cf01405.setChecked(false);
                     mp02cf01501.setChecked(false);
                     mp02cf01502.setChecked(false);
                     mp02cf01503.setChecked(false);
@@ -1098,6 +1100,16 @@ public class SectionCFActivity extends Activity {
             }
         });
 
+        if (AppMain.maritalStatus == 5) {
+            mp02cf01004.setEnabled(false);
+            mp02cf01004.setChecked(false);
+            mp02cf01005.setEnabled(false);
+            mp02cf01005.setChecked(false);
+        } else {
+            mp02cf01004.setEnabled(true);
+            mp02cf01005.setEnabled(true);
+
+        }
 
 
     }
@@ -1215,8 +1227,11 @@ public class SectionCFActivity extends Activity {
         scf.put("mp02cf01388", mp02cf01388.isChecked() ? "88" : "0");
         scf.put("mp02cf01388x", mp02cf01388x.getText().toString());
 
-        scf.put("mp02cf014", mp02cf01401.isChecked() ? "1" : mp02cf01402.isChecked() ? "2" : mp02cf01403.isChecked() ? "3"
-                : mp02cf01404.isChecked() ? "4" : mp02cf01505.isChecked() ? "5" : "0");
+        scf.put("mp02cf01401", mp02cf01401.isChecked() ? "1" : "0");
+        scf.put("mp02cf01402", mp02cf01402.isChecked() ? "2" : "0");
+        scf.put("mp02cf01403", mp02cf01403.isChecked() ? "3" : "0");
+        scf.put("mp02cf01404", mp02cf01404.isChecked() ? "4" : "0");
+        scf.put("mp02cf01405", mp02cf01405.isChecked() ? "5" : "0");
 
         scf.put("mp02cf01501", mp02cf01501.isChecked() ? "1" : "0");
         scf.put("mp02cf01502", mp02cf01502.isChecked() ? "2" : "0");
@@ -1517,7 +1532,8 @@ public class SectionCFActivity extends Activity {
                 }
             }
 
-            if (mp02cf014.getCheckedRadioButtonId() == -1) {
+            if (!(mp02cf01401.isChecked() || mp02cf01402.isChecked() || mp02cf01403.isChecked() || mp02cf01404.isChecked()
+                    || mp02cf01405.isChecked())) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf014), Toast.LENGTH_LONG).show();
                 mp02cf01405.setError("This data is Required!");    // Set Error on last radio button
 
@@ -1653,39 +1669,6 @@ public class SectionCFActivity extends Activity {
                 } else {
                     mp02cf023.setError(null);
                 }
-
-/*                // ====================== Q 11 ===================
-                if ((mp02cf024.getText().toString().isEmpty()) || Integer.parseInt(mp02cf024.getText().toString()) < 0) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf024), Toast.LENGTH_LONG).show();
-                    mp02cf024.setError("This data is Required!");    // Set Error on last radio button
-
-                    Log.i(TAG, "mp02cf024: This data is Required!");
-                    return false;
-                } else {
-                    mp02cf024.setError(null);
-                }
-                // ====================== Q 12 ===================
-                if ((mp02cf025.getText().toString().isEmpty()) || Integer.parseInt(mp02cf025.getText().toString()) < 0) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf025), Toast.LENGTH_LONG).show();
-                    mp02cf025.setError("This data is Required!");    // Set Error on last radio button
-
-                    Log.i(TAG, "mp02cf025: This data is Required!");
-                    return false;
-                } else {
-                    mp02cf025.setError(null);
-                }
-
-                // ====================== Q 13 ===================
-                if ((mp02cf026.getText().toString().isEmpty()) || Integer.parseInt(mp02cf026.getText().toString()) < 0) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf026), Toast.LENGTH_LONG).show();
-                    mp02cf026.setError("This data is Required!");    // Set Error on last radio button
-
-                    Log.i(TAG, "mp02cf026: This data is Required!");
-                    return false;
-                } else {
-                    mp02cf026.setError(null);
-                }*/
-
                 if (Integer.parseInt(mp02cf019.getText().toString().isEmpty() ? "0" : mp02cf019.getText().toString()) < 1
                         && Integer.parseInt(mp02cf023.getText().toString().isEmpty() ? "0" : mp02cf023.getText().toString()) < 1) {
                     Toast.makeText(this, "Invalid: " + getString(R.string.mp02cf019), Toast.LENGTH_LONG).show();
@@ -1743,7 +1726,7 @@ public class SectionCFActivity extends Activity {
                     if ((Integer.parseInt(mp02cf024.getText().toString().isEmpty() ? "0" : mp02cf024.getText().toString())
                             + Integer.parseInt(mp02cf025.getText().toString().isEmpty() ? "0" : mp02cf025.getText().toString())
                             + Integer.parseInt(mp02cf026.getText().toString().isEmpty() ? "0" : mp02cf026.getText().toString()))
-                            != Integer.parseInt(mp02cf023.getText().toString().isEmpty() ? "0" : mp02cf023.getText().toString())) {
+                            != (Integer.parseInt(mp02cf023.getText().toString().isEmpty() ? "0" : mp02cf023.getText().toString())) * 2) {
                         Toast.makeText(this, "Invalid: " + getString(R.string.mp02cf023), Toast.LENGTH_LONG).show();
                         mp02cf023.setError("Invalid : Check again");    // Set Error on last radio button
 

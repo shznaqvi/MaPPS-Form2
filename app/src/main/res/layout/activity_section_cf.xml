@@ -738,43 +738,35 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
 
-                <RadioGroup
-                    android:id="@+id/mp02cf014"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02cf01401"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf01401" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02cf01402"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf01402" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02cf01403"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf01403" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02cf01404"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf01404" />
 
-                    <RadioButton
+                <CheckBox
                         android:id="@+id/mp02cf01405"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf01405" />
-
-
-                </RadioGroup>
 
 
                 <TextView
