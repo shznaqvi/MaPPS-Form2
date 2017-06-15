@@ -70,7 +70,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@color/colorPrimary"
-
                 android:text="@string/mp02ca002"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -123,28 +122,22 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:background="@color/colorPrimary"
-
                     android:text="@string/mp02cb001"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/mp02cb00101"
+                    android:id="@+id/mp02cb001"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:hint="@string/year"
-                    android:inputType="number"
-                    android:maxLength="4">
+                    android:inputType="datetime"
+                    android:maxLength="10">
                     <requestFocus />
                 </EditText>
 
-                <EditText
+                <!--<EditText
                     android:id="@+id/mp02cb00102"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -152,15 +145,13 @@
                     android:hint="@string/month"
                     android:inputType="number"
                     android:maxLength="2" />
-
-            </LinearLayout>
+-->
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@color/colorPrimary"
-
                 android:text="@string/mp02cb002"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -178,7 +169,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-
                 android:text="@string/mp02cb003"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -1173,7 +1163,7 @@
                     android:text="@string/mp02cb02503" />
 
                 <RadioButton
-                    android:id="@+id/mp02cb02504"
+                    android:id="@+id/mp02cb02577"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cb02504" />
@@ -1214,7 +1204,7 @@
                     android:text="@string/mp02cb02603" />
 
                 <RadioButton
-                    android:id="@+id/mp02cb02604"
+                    android:id="@+id/mp02cb02677"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cb02604" />
@@ -1255,7 +1245,7 @@
                     android:text="@string/mp02cb02503" />
 
                 <RadioButton
-                    android:id="@+id/mp02cb02704"
+                    android:id="@+id/mp02cb02777"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mp02cb02504" />

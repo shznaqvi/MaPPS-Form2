@@ -305,7 +305,7 @@
                     android:text="@string/mpVeryDifficult" />
 
                 <RadioButton
-                    android:id="@+id/mp02cc00605"
+                    android:id="@+id/mp02cc00677"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpDoesNotApply" />
@@ -354,7 +354,7 @@
                     android:text="@string/mpVeryDifficult" />
 
                 <RadioButton
-                    android:id="@+id/mp02cc00705"
+                    android:id="@+id/mp02cc00777"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpDoesNotApply" />
@@ -409,7 +409,7 @@
                     android:text="@string/mpVeryDifficult" />
 
                 <RadioButton
-                    android:id="@+id/mp02cc00805"
+                    android:id="@+id/mp02cc00877"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpDoesNotApply" />
@@ -459,7 +459,7 @@
                     android:text="@string/mpVeryDifficult" />
 
                 <RadioButton
-                    android:id="@+id/mp02cc00905"
+                    android:id="@+id/mp02cc00977"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mpDoesNotApply" />

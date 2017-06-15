@@ -41,8 +41,8 @@ public class SectionCEActivity extends Activity {
     CheckBox mp02ce00103;
     @BindView(R.id.mp02ce00104)
     CheckBox mp02ce00104;
-    @BindView(R.id.mp02ce00105)
-    CheckBox mp02ce00105;
+    @BindView(R.id.mp02ce00177)
+    CheckBox mp02ce00177;
     @BindView(R.id.mp02ce00106)
     CheckBox mp02ce00106;
     @BindView(R.id.mp02ce00188)
@@ -57,8 +57,8 @@ public class SectionCEActivity extends Activity {
     CheckBox mp02ce00203;
     @BindView(R.id.mp02ce00204)
     CheckBox mp02ce00204;
-    @BindView(R.id.mp02ce00205)
-    CheckBox mp02ce00205;
+    @BindView(R.id.mp02ce00277)
+    CheckBox mp02ce00277;
     @BindView(R.id.mp02ce00206)
     CheckBox mp02ce00206;
     @BindView(R.id.mp02ce00288)
@@ -73,8 +73,8 @@ public class SectionCEActivity extends Activity {
     CheckBox mp02ce00303;
     @BindView(R.id.mp02ce00304)
     CheckBox mp02ce00304;
-    @BindView(R.id.mp02ce00305)
-    CheckBox mp02ce00305;
+    @BindView(R.id.mp02ce00377)
+    CheckBox mp02ce00377;
     @BindView(R.id.mp02ce00306)
     CheckBox mp02ce00306;
     @BindView(R.id.mp02ce00388)
@@ -89,8 +89,8 @@ public class SectionCEActivity extends Activity {
     CheckBox mp02ce00403;
     @BindView(R.id.mp02ce00404)
     CheckBox mp02ce00404;
-    @BindView(R.id.mp02ce00405)
-    CheckBox mp02ce00405;
+    @BindView(R.id.mp02ce00477)
+    CheckBox mp02ce00477;
     @BindView(R.id.mp02ce00406)
     CheckBox mp02ce00406;
     @BindView(R.id.mp02ce00488)
@@ -105,8 +105,8 @@ public class SectionCEActivity extends Activity {
     CheckBox mp02ce00503;
     @BindView(R.id.mp02ce00504)
     CheckBox mp02ce00504;
-    @BindView(R.id.mp02ce00505)
-    CheckBox mp02ce00505;
+    @BindView(R.id.mp02ce00577)
+    CheckBox mp02ce00577;
     @BindView(R.id.mp02ce00506)
     CheckBox mp02ce00506;
     @BindView(R.id.mp02ce00588)
@@ -121,8 +121,8 @@ public class SectionCEActivity extends Activity {
     CheckBox mp02ce00603;
     @BindView(R.id.mp02ce00604)
     CheckBox mp02ce00604;
-    @BindView(R.id.mp02ce00605)
-    CheckBox mp02ce00605;
+    @BindView(R.id.mp02ce00677)
+    CheckBox mp02ce00677;
     @BindView(R.id.mp02ce00606)
     CheckBox mp02ce00606;
     @BindView(R.id.mp02ce00688)
@@ -208,6 +208,48 @@ public class SectionCEActivity extends Activity {
                 }
             }
         });
+
+        if (AppMain.maritalStatus == 5) {
+            mp02ce00103.setEnabled(false);
+            mp02ce00103.setChecked(false);
+            mp02ce00104.setEnabled(false);
+            mp02ce00104.setChecked(false);
+            mp02ce00203.setEnabled(false);
+            mp02ce00203.setChecked(false);
+            mp02ce00204.setEnabled(false);
+            mp02ce00204.setChecked(false);
+            mp02ce00303.setEnabled(false);
+            mp02ce00303.setChecked(false);
+            mp02ce00304.setEnabled(false);
+            mp02ce00304.setChecked(false);
+            mp02ce00403.setEnabled(false);
+            mp02ce00403.setChecked(false);
+            mp02ce00404.setEnabled(false);
+            mp02ce00404.setChecked(false);
+            mp02ce00503.setEnabled(false);
+            mp02ce00503.setChecked(false);
+            mp02ce00504.setEnabled(false);
+            mp02ce00504.setChecked(false);
+            mp02ce00603.setEnabled(false);
+            mp02ce00603.setChecked(false);
+            mp02ce00604.setEnabled(false);
+            mp02ce00604.setChecked(false);
+
+
+        } else {
+            mp02ce00103.setEnabled(true);
+            mp02ce00104.setEnabled(true);
+            mp02ce00203.setEnabled(true);
+            mp02ce00204.setEnabled(true);
+            mp02ce00303.setEnabled(true);
+            mp02ce00304.setEnabled(true);
+            mp02ce00403.setEnabled(true);
+            mp02ce00404.setEnabled(true);
+            mp02ce00503.setEnabled(true);
+            mp02ce00504.setEnabled(true);
+            mp02ce00603.setEnabled(true);
+            mp02ce00604.setEnabled(true);
+        }
     }
 
     @OnClick(R.id.btn_End)
@@ -269,7 +311,7 @@ public class SectionCEActivity extends Activity {
         sCE.put("mp02ce00102", mp02ce00102.isChecked() ? "2" : "0");
         sCE.put("mp02ce00103", mp02ce00103.isChecked() ? "3" : "0");
         sCE.put("mp02ce00104", mp02ce00104.isChecked() ? "4" : "0");
-        sCE.put("mp02ce00105", mp02ce00105.isChecked() ? "5" : "0");
+        sCE.put("mp02ce00177", mp02ce00177.isChecked() ? "77" : "0");
         sCE.put("mp02ce00106", mp02ce00106.isChecked() ? "6" : "0");
         sCE.put("mp02ce00188", mp02ce00188.isChecked() ? "88" : "0");
 
@@ -277,7 +319,7 @@ public class SectionCEActivity extends Activity {
         sCE.put("mp02ce00202", mp02ce00202.isChecked() ? "2" : "0");
         sCE.put("mp02ce00203", mp02ce00203.isChecked() ? "3" : "0");
         sCE.put("mp02ce00204", mp02ce00204.isChecked() ? "4" : "0");
-        sCE.put("mp02ce00205", mp02ce00205.isChecked() ? "5" : "0");
+        sCE.put("mp02ce00277", mp02ce00277.isChecked() ? "77" : "0");
         sCE.put("mp02ce00206", mp02ce00206.isChecked() ? "6" : "0");
         sCE.put("mp02ce00288", mp02ce00288.isChecked() ? "88" : "0");
 
@@ -285,7 +327,7 @@ public class SectionCEActivity extends Activity {
         sCE.put("mp02ce00302", mp02ce00302.isChecked() ? "2" : "0");
         sCE.put("mp02ce00303", mp02ce00303.isChecked() ? "3" : "0");
         sCE.put("mp02ce00304", mp02ce00304.isChecked() ? "4" : "0");
-        sCE.put("mp02ce00305", mp02ce00305.isChecked() ? "5" : "0");
+        sCE.put("mp02ce00377", mp02ce00377.isChecked() ? "77" : "0");
         sCE.put("mp02ce00306", mp02ce00306.isChecked() ? "6" : "0");
         sCE.put("mp02ce00388", mp02ce00388.isChecked() ? "88" : "0");
 
@@ -293,15 +335,15 @@ public class SectionCEActivity extends Activity {
         sCE.put("mp02ce00402", mp02ce00402.isChecked() ? "2" : "0");
         sCE.put("mp02ce00403", mp02ce00403.isChecked() ? "3" : "0");
         sCE.put("mp02ce00404", mp02ce00404.isChecked() ? "4" : "0");
-        sCE.put("mp02ce00405", mp02ce00405.isChecked() ? "5" : "0");
+        sCE.put("mp02ce00477", mp02ce00477.isChecked() ? "77" : "0");
         sCE.put("mp02ce00406", mp02ce00406.isChecked() ? "6" : "0");
         sCE.put("mp02ce00488", mp02ce00488.isChecked() ? "88" : "0");
 
-        sCE.put("mp02ce00501", mp02ce00501.isChecked() ? "1" : "0");
+        sCE.put("mp02ce07701", mp02ce00501.isChecked() ? "1" : "0");
         sCE.put("mp02ce00502", mp02ce00502.isChecked() ? "2" : "0");
         sCE.put("mp02ce00503", mp02ce00503.isChecked() ? "3" : "0");
         sCE.put("mp02ce00504", mp02ce00504.isChecked() ? "4" : "0");
-        sCE.put("mp02ce00505", mp02ce00505.isChecked() ? "5" : "0");
+        sCE.put("mp02ce00577", mp02ce00577.isChecked() ? "77" : "0");
         sCE.put("mp02ce00506", mp02ce00506.isChecked() ? "6" : "0");
         sCE.put("mp02ce00588", mp02ce00588.isChecked() ? "88" : "0");
 
@@ -309,7 +351,7 @@ public class SectionCEActivity extends Activity {
         sCE.put("mp02ce00602", mp02ce00602.isChecked() ? "2" : "0");
         sCE.put("mp02ce00603", mp02ce00603.isChecked() ? "3" : "0");
         sCE.put("mp02ce00604", mp02ce00604.isChecked() ? "4" : "0");
-        sCE.put("mp02ce00605", mp02ce00605.isChecked() ? "5" : "0");
+        sCE.put("mp02ce00677", mp02ce00677.isChecked() ? "77" : "0");
         sCE.put("mp02ce00606", mp02ce00606.isChecked() ? "6" : "0");
         sCE.put("mp02ce00688", mp02ce00688.isChecked() ? "88" : "0");
 
@@ -337,7 +379,7 @@ public class SectionCEActivity extends Activity {
 
 //      1
         if (!(mp02ce00101.isChecked() || mp02ce00102.isChecked() || mp02ce00103.isChecked() || mp02ce00104.isChecked()
-                || mp02ce00105.isChecked() || mp02ce00106.isChecked() || mp02ce00188.isChecked()
+                || mp02ce00177.isChecked() || mp02ce00106.isChecked() || mp02ce00188.isChecked()
         )) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02ce001), Toast.LENGTH_LONG).show();
             mp02ce00188.setError("This data is Required!");    // Set Error on last radio button
@@ -360,7 +402,7 @@ public class SectionCEActivity extends Activity {
 
 //      2
         if (!(mp02ce00201.isChecked() || mp02ce00202.isChecked() || mp02ce00203.isChecked() || mp02ce00204.isChecked()
-                || mp02ce00205.isChecked() || mp02ce00206.isChecked() || mp02ce00288.isChecked()
+                || mp02ce00277.isChecked() || mp02ce00206.isChecked() || mp02ce00288.isChecked()
         )) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02ce002), Toast.LENGTH_LONG).show();
             mp02ce00288.setError("This data is Required!");    // Set Error on last radio button
@@ -383,7 +425,7 @@ public class SectionCEActivity extends Activity {
 
 //      3
         if (!(mp02ce00301.isChecked() || mp02ce00302.isChecked() || mp02ce00303.isChecked() || mp02ce00304.isChecked()
-                || mp02ce00305.isChecked() || mp02ce00306.isChecked() || mp02ce00388.isChecked()
+                || mp02ce00377.isChecked() || mp02ce00306.isChecked() || mp02ce00388.isChecked()
         )) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02ce003), Toast.LENGTH_LONG).show();
             mp02ce00388.setError("This data is Required!");    // Set Error on last radio button
@@ -406,7 +448,7 @@ public class SectionCEActivity extends Activity {
 
 //      4
         if (!(mp02ce00401.isChecked() || mp02ce00402.isChecked() || mp02ce00403.isChecked() || mp02ce00404.isChecked()
-                || mp02ce00405.isChecked() || mp02ce00406.isChecked() || mp02ce00488.isChecked()
+                || mp02ce00477.isChecked() || mp02ce00406.isChecked() || mp02ce00488.isChecked()
         )) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02ce004), Toast.LENGTH_LONG).show();
             mp02ce00488.setError("This data is Required!");    // Set Error on last radio button
@@ -429,7 +471,7 @@ public class SectionCEActivity extends Activity {
 
 //      5
         if (!(mp02ce00501.isChecked() || mp02ce00502.isChecked() || mp02ce00503.isChecked() || mp02ce00504.isChecked()
-                || mp02ce00505.isChecked() || mp02ce00506.isChecked() || mp02ce00588.isChecked()
+                || mp02ce00577.isChecked() || mp02ce00506.isChecked() || mp02ce00588.isChecked()
         )) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02ce005), Toast.LENGTH_LONG).show();
             mp02ce00588.setError("This data is Required!");    // Set Error on last radio button
@@ -452,7 +494,7 @@ public class SectionCEActivity extends Activity {
 
 //      6
         if (!(mp02ce00601.isChecked() || mp02ce00602.isChecked() || mp02ce00603.isChecked() || mp02ce00604.isChecked()
-                || mp02ce00605.isChecked() || mp02ce00606.isChecked() || mp02ce00688.isChecked()
+                || mp02ce00677.isChecked() || mp02ce00606.isChecked() || mp02ce00688.isChecked()
         )) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02ce006), Toast.LENGTH_LONG).show();
             mp02ce00688.setError("This data is Required!");    // Set Error on last radio button

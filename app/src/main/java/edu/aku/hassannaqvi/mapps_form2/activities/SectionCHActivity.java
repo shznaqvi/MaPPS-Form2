@@ -192,6 +192,8 @@ public class SectionCHActivity extends Activity {
     CheckBox mp02ch01688;
     @BindView(R.id.mp02ch01688x)
     EditText mp02ch01688x;
+    @BindView(R.id.fldGrpmp02ch005)
+    LinearLayout fldGrpmp02ch005;
 
 
     @Override
@@ -329,6 +331,13 @@ public class SectionCHActivity extends Activity {
                 }
             }
         });
+
+        if (AppMain.maritalStatus != 1) {
+            fldGrpmp02ch005.setVisibility(View.GONE);
+            mp02ch005.clearCheck();
+        } else {
+            fldGrpmp02ch005.setVisibility(View.VISIBLE);
+        }
 
     }
 
@@ -502,14 +511,17 @@ public class SectionCHActivity extends Activity {
         }
 
 //        5
-        if (mp02ch005.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ch005), Toast.LENGTH_SHORT).show();
-            mp02ch00599.setError("This data is Required!");
 
-            Log.i(TAG, "mp02ch005: This data is Required!");
-            return false;
-        } else {
-            mp02ch00599.setError(null);
+        if (AppMain.maritalStatus == 1) {
+            if (mp02ch005.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ch005), Toast.LENGTH_SHORT).show();
+                mp02ch00599.setError("This data is Required!");
+
+                Log.i(TAG, "mp02ch005: This data is Required!");
+                return false;
+            } else {
+                mp02ch00599.setError(null);
+            }
         }
 
 //        Skip
@@ -536,13 +548,6 @@ public class SectionCHActivity extends Activity {
             } else {
                 mp02ch00701.setError(null);
             }
-            /*if (Integer.parseInt(mp02ch00701.getText().toString()) < 0 || Integer.parseInt(mp02ch00701.getText().toString()) > 11) {
-                Toast.makeText(this, "Invalid:" + getString(R.string.mp02ch007m), Toast.LENGTH_SHORT).show();
-                mp02ch00701.setError("Invalid:Month range 0 - 11");
-                return false;
-            } else {
-                mp02ch00701.setError(null);
-            }*/
 
             if (mp02ch00702.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ch007d), Toast.LENGTH_SHORT).show();
@@ -553,13 +558,6 @@ public class SectionCHActivity extends Activity {
             } else {
                 mp02ch00702.setError(null);
             }
-            /*if (Integer.parseInt(mp02ch00702.getText().toString()) < 0 || Integer.parseInt(mp02ch00702.getText().toString()) > 29) {
-                Toast.makeText(this, "Invalid:" + getString(R.string.mp02ch007d), Toast.LENGTH_SHORT).show();
-                mp02ch00702.setError("Invalid:Month range 0 - 29");
-                return false;
-            } else {
-                mp02ch00702.setError(null);
-            }*/
 
             if ((Integer.parseInt(mp02ch00701.getText().toString()) < 0 || Integer.parseInt(mp02ch00701.getText().toString()) > 11)
                     && (Integer.parseInt(mp02ch00702.getText().toString()) < 0 || Integer.parseInt(mp02ch00702.getText().toString()) > 29)) {
@@ -611,6 +609,96 @@ public class SectionCHActivity extends Activity {
                 mp02ch00888x.setError(null);
             }
         }
+
+        //====================================
+
+        if (AppMain.maritalStatus == 1) {
+
+//            6
+            if (mp02ch006.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ch006), Toast.LENGTH_SHORT).show();
+                mp02ch00605.setError("This data is Required!");
+
+                Log.i(TAG, "mp02ch006: This data is Required!");
+                return false;
+            } else {
+                mp02ch00605.setError(null);
+            }
+
+//            7
+            if (mp02ch00701.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ch007m), Toast.LENGTH_SHORT).show();
+                mp02ch00701.setError("This data is Required!");
+
+                Log.i(TAG, "mp02ch007: This data is Required!");
+                return false;
+            } else {
+                mp02ch00701.setError(null);
+            }
+
+            if (mp02ch00702.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ch007d), Toast.LENGTH_SHORT).show();
+                mp02ch00702.setError("This data is Required!");
+
+                Log.i(TAG, "mp02ch00702: This data is Required!");
+                return false;
+            } else {
+                mp02ch00702.setError(null);
+            }
+
+            if ((Integer.parseInt(mp02ch00701.getText().toString()) < 0 || Integer.parseInt(mp02ch00701.getText().toString()) > 11)
+                    && (Integer.parseInt(mp02ch00702.getText().toString()) < 0 || Integer.parseInt(mp02ch00702.getText().toString()) > 29)) {
+                Toast.makeText(this, "Invalid:" + getString(R.string.mp02ch007), Toast.LENGTH_SHORT).show();
+                mp02ch00701.setError("Invalid:Month range 0 - 11");
+                mp02ch00702.setError("Invalid:Days range 0 - 29");
+
+                Log.i(TAG, "mp02ch007: Month Range 0 - 11");
+                return false;
+            } else {
+                mp02ch00701.setError(null);
+                mp02ch00702.setError(null);
+            }
+
+            if (Integer.valueOf(mp02ch00701.getText().toString().isEmpty() ? "0" : mp02ch00701.getText().toString()) == 0
+                    && Integer.valueOf(mp02ch00702.getText().toString().isEmpty() ? "0" : mp02ch00702.getText().toString()) == 0) {
+                Toast.makeText(this, "ERROR(invalid)" + getString(R.string.mp02ch007) + " - " + getString(R.string.month), Toast.LENGTH_SHORT).show();
+                mp02ch00701.setError("Days and months can not be zero..");
+                mp02ch00702.setError("Days and months can not be zero..");
+
+                Log.i(TAG, "mp02cg00101: Both can not be zero");
+                return false;
+            } else {
+                mp02ch00701.setError(null);
+                mp02ch00702.setError(null);
+            }
+
+
+//            8
+            if (!(mp02ch00801.isChecked() || mp02ch00802.isChecked() || mp02ch00803.isChecked() || mp02ch00804.isChecked()
+                    || mp02ch00888.isChecked())) {
+                Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ch008), Toast.LENGTH_SHORT).show();
+                mp02ch00888.setError("This data is Required!");
+
+                Log.i(TAG, "mp02ch008: This data is Required!");
+                return false;
+            } else {
+                mp02ch00888.setError(null);
+            }
+
+            if (mp02ch00888.isChecked() && mp02ch00888x.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ch008), Toast.LENGTH_SHORT).show();
+                mp02ch00888x.setError("This data is Required!");
+
+                Log.i(TAG, "mp02ch00888x: This data is Required!");
+                return false;
+            } else {
+                mp02ch00888x.setError(null);
+            }
+        }
+
+
+        //====================================
+
 
 //        9
         if (mp02ch009.getCheckedRadioButtonId() == -1) {
