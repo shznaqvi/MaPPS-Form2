@@ -773,7 +773,8 @@ public class SectionBAActivity extends Activity {
             mp02ba006.setError(null);
         }
 
-        if (Integer.parseInt(mp02ba006.getText().toString()) < 1 || Integer.parseInt(mp02ba006.getText().toString()) > 20) {
+        if (Integer.parseInt(mp02ba006.getText().toString().isEmpty() ? "0" : mp02ba006.getText().toString()) < 1
+                || Integer.parseInt(mp02ba006.getText().toString().isEmpty() ? "0" : mp02ba006.getText().toString()) > 20) {
             Toast.makeText(this, "Invalid" + getString(R.string.mp02ba006), Toast.LENGTH_SHORT).show();
             mp02ba006.setError("Invalid: Cant be less than 1");
 
@@ -871,7 +872,7 @@ public class SectionBAActivity extends Activity {
                     mp02ba011.setError(null);
                 }
 
-                if (Integer.parseInt(mp02ba011.getText().toString()) < 1) {
+                if (Integer.parseInt(mp02ba011.getText().toString().isEmpty() ? "0" : mp02ba011.getText().toString()) < 1) {
                     Toast.makeText(this, "Invalid:" + getString(R.string.mp02ba011), Toast.LENGTH_SHORT).show();
                     mp02ba011.setError("Invalid: Greater than 0");
 
