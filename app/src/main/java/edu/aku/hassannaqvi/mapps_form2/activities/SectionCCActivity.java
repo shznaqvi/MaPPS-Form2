@@ -783,7 +783,8 @@ public class SectionCCActivity extends Activity {
         } else {
             mp02cc001.setError(null);
         }
-        if (Integer.parseInt(mp02cc001.getText().toString()) < 0 || Integer.parseInt(mp02cc001.getText().toString()) > 7) {
+        if (Integer.parseInt(mp02cc001.getText().toString().isEmpty() ? "0" : mp02cc001.getText().toString()) < 0
+                || Integer.parseInt(mp02cc001.getText().toString().isEmpty() ? "0" : mp02cc001.getText().toString()) > 7) {
             Toast.makeText(this, "Invalid:" + getString(R.string.mp02cc001), Toast.LENGTH_SHORT).show();
             mp02cc001.setError("Invalid: Range 0-7 days");
 

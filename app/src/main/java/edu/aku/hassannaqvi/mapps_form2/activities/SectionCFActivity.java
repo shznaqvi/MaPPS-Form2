@@ -715,65 +715,66 @@ public class SectionCFActivity extends Activity {
 
         //==================== Q 16 Skip pattern ==================
 
-        if (AppMain.maritalStatus == 1) {
-                    fldGrpmp02cf17.setVisibility(View.VISIBLE);
-                } else {
-                    fldGrpmp02cf17.setVisibility(View.GONE);
-                    mp02cf017.setText(null);
-                    mp02cf018.clearCheck();
-                    mp02cf019.setText(null);
-                    mp02cf020.setText(null);
-                    mp02cf021.setText(null);
-                    mp02cf022.setText(null);
-                    mp02cf023.setText(null);
-                    mp02cf024.setText(null);
-                    mp02cf025.setText(null);
-                    mp02cf026.setText(null);
-                    mp02cf027.setText(null);
-                    mp02cf028.setText(null);
-                    mp02cf029.clearCheck();
-                    mp02cf02988x.setText(null);
-                    mp02cf030.clearCheck();
-                    mp02cf03088x.setText(null);
-                    mp02cf031.clearCheck();
-                    mp02cf03201.setChecked(false);
-                    mp02cf03202.setChecked(false);
-                    mp02cf03203.setChecked(false);
-                    mp02cf03204.setChecked(false);
-                    mp02cf03205.setChecked(false);
-                    mp02cf03206.setChecked(false);
-                    mp02cf03207.setChecked(false);
-                    mp02cf03208.setChecked(false);
-                    mp02cf03209.setChecked(false);
-                    mp02cf03210.setChecked(false);
-                    mp02cf03211.setChecked(false);
-                    mp02cf03212.setChecked(false);
-                    mp02cf03213.setChecked(false);
-                    mp02cf03214.setChecked(false);
-                    mp02cf03215.setChecked(false);
-                    mp02cf03299.setChecked(false);
-                    mp02cf03288.setChecked(false);
-                    mp02cf03288x.setText(null);
-                    mp02cf033.clearCheck();
-                    mp02cf034.setText(null);
-                    mp02cf035.clearCheck();
-                    mp02cf036.clearCheck();
-                    mp02cf03688x.setText(null);
-                    mp02cf037.clearCheck();
-                    mp02cf03788x.setText(null);
-                    mp02cf038.clearCheck();
-                    mp02cf03901.setChecked(false);
-                    mp02cf03902.setChecked(false);
-                    mp02cf03903.setChecked(false);
-                    mp02cf03904.setChecked(false);
-                    mp02cf03905.setChecked(false);
-                    mp02cf03906.setChecked(false);
-                    mp02cf03907.setChecked(false);
-                    mp02cf03908.setChecked(false);
-                    mp02cf03988.setChecked(false);
-                    mp02cf03988x.setText(null);
+        if (AppMain.maritalStatus == 5) {
+            fldGrpmp02cf17.setVisibility(View.GONE);
+            mp02cf017.setText(null);
+            mp02cf018.clearCheck();
+            mp02cf019.setText(null);
+            mp02cf020.setText(null);
+            mp02cf021.setText(null);
+            mp02cf022.setText(null);
+            mp02cf023.setText(null);
+            mp02cf024.setText(null);
+            mp02cf025.setText(null);
+            mp02cf026.setText(null);
+            mp02cf027.setText(null);
+            mp02cf028.setText(null);
+            mp02cf029.clearCheck();
+            mp02cf02988x.setText(null);
+            mp02cf030.clearCheck();
+            mp02cf03088x.setText(null);
+            mp02cf031.clearCheck();
+            mp02cf03201.setChecked(false);
+            mp02cf03202.setChecked(false);
+            mp02cf03203.setChecked(false);
+            mp02cf03204.setChecked(false);
+            mp02cf03205.setChecked(false);
+            mp02cf03206.setChecked(false);
+            mp02cf03207.setChecked(false);
+            mp02cf03208.setChecked(false);
+            mp02cf03209.setChecked(false);
+            mp02cf03210.setChecked(false);
+            mp02cf03211.setChecked(false);
+            mp02cf03212.setChecked(false);
+            mp02cf03213.setChecked(false);
+            mp02cf03214.setChecked(false);
+            mp02cf03215.setChecked(false);
+            mp02cf03299.setChecked(false);
+            mp02cf03288.setChecked(false);
+            mp02cf03288x.setText(null);
+            mp02cf033.clearCheck();
+            mp02cf034.setText(null);
+            mp02cf035.clearCheck();
+            mp02cf036.clearCheck();
+            mp02cf03688x.setText(null);
+            mp02cf037.clearCheck();
+            mp02cf03788x.setText(null);
+            mp02cf038.clearCheck();
+            mp02cf03901.setChecked(false);
+            mp02cf03902.setChecked(false);
+            mp02cf03903.setChecked(false);
+            mp02cf03904.setChecked(false);
+            mp02cf03905.setChecked(false);
+            mp02cf03906.setChecked(false);
+            mp02cf03907.setChecked(false);
+            mp02cf03908.setChecked(false);
+            mp02cf03988.setChecked(false);
+            mp02cf03988x.setText(null);
 
-                }
+        } else {
+            fldGrpmp02cf17.setVisibility(View.VISIBLE);
+
+        }
 
 
         //==================== Q 4 Skip pattern ==================
@@ -1360,9 +1361,9 @@ public class SectionCFActivity extends Activity {
             mp02cf003.setError(null);
         }
 
-        if ((Integer.parseInt(mp02cf003.getText().toString()) < 10
-                && Integer.parseInt(mp02cf003.getText().toString()) != 0)
-                || Integer.parseInt(mp02cf003.getText().toString()) > 18) {
+        if ((Integer.parseInt(mp02cf003.getText().toString().isEmpty() ? "0" : mp02cf003.getText().toString()) < 10
+                && Integer.parseInt(mp02cf003.getText().toString().isEmpty() ? "0" : mp02cf003.getText().toString()) != 0)
+                || Integer.parseInt(mp02cf003.getText().toString().isEmpty() ? "0" : mp02cf003.getText().toString()) > 18) {
             Toast.makeText(this, "ERROR: " + getString(R.string.mp02cf003), Toast.LENGTH_LONG).show();
             mp02cf003.setError("Age Limit is from 10 to 18 Years! ");
             Log.i(TAG, "mp02cf003: Age Limit is from 10 to 18 Years");
@@ -1591,10 +1592,10 @@ public class SectionCFActivity extends Activity {
                 mp02cf017.setError(null);
             }
 
-            if ((Integer.parseInt(mp02cf017.getText().toString()) < 15
-                    && Integer.parseInt(mp02cf017.getText().toString()) != 0)
-                    || (Integer.parseInt(mp02cf017.getText().toString()) > 24
-                    && Integer.parseInt(mp02cf017.getText().toString()) != 99)) {
+            if ((Integer.parseInt(mp02cf017.getText().toString().isEmpty() ? "0" : mp02cf017.getText().toString()) < 15
+                    && Integer.parseInt(mp02cf017.getText().toString().isEmpty() ? "0" : mp02cf017.getText().toString()) != 0)
+                    || (Integer.parseInt(mp02cf017.getText().toString().isEmpty() ? "0" : mp02cf017.getText().toString()) > 24
+                    && Integer.parseInt(mp02cf017.getText().toString().isEmpty() ? "0" : mp02cf017.getText().toString()) != 99)) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mp02cf017), Toast.LENGTH_LONG).show();
                 mp02cf017.setError("Age Limit is from 15 to 24 Years");
                 Log.i(TAG, "mp02cf017: Age Limit is from 15 to 24 Years");
@@ -1747,8 +1748,9 @@ public class SectionCFActivity extends Activity {
                     mp02cf027.setError(null);
                 }
 
-                if ((Integer.parseInt(mp02cf027.getText().toString()) < 13) || (Integer.parseInt(mp02cf027.getText().toString()) > 23
-                        && (Integer.parseInt(mp02cf027.getText().toString()) != 99))) {
+                if ((Integer.parseInt(mp02cf027.getText().toString().isEmpty() ? "0" : mp02cf027.getText().toString()) < 13)
+                        || (Integer.parseInt(mp02cf027.getText().toString().isEmpty() ? "0" : mp02cf027.getText().toString()) > 23
+                        && (Integer.parseInt(mp02cf027.getText().toString().isEmpty() ? "0" : mp02cf027.getText().toString()) != 99))) {
                     Toast.makeText(this, "ERROR(Range Error): " + getString(R.string.mp02cf027), Toast.LENGTH_LONG).show();
                     mp02cf027.setError("Range is 13 to 23 Years!");    // Set Error on last radio button
                     Log.i(TAG, "mp02cf027: Age Limit is from 13 to 23 Years");
@@ -1768,8 +1770,9 @@ public class SectionCFActivity extends Activity {
                     mp02cf028.setError(null);
                 }
 
-                if ((Integer.parseInt(mp02cf028.getText().toString()) < 0) || (Integer.parseInt(mp02cf028.getText().toString()) > 15
-                        && (Integer.parseInt(mp02cf028.getText().toString()) != 99))) {
+                if ((Integer.parseInt(mp02cf028.getText().toString().isEmpty() ? "0" : mp02cf028.getText().toString()) < 0)
+                        || (Integer.parseInt(mp02cf028.getText().toString().isEmpty() ? "0" : mp02cf028.getText().toString()) > 15
+                        && (Integer.parseInt(mp02cf028.getText().toString().isEmpty() ? "0" : mp02cf028.getText().toString()) != 99))) {
                     Toast.makeText(this, "ERROR(Range Error): " + getString(R.string.mp02cf028), Toast.LENGTH_LONG).show();
                     mp02cf028.setError("Range is 1 to 15 Times!");    // Set Error on last radio button
                     Log.i(TAG, "mp02cf028: Range is 1 to 15 times");
@@ -1885,7 +1888,8 @@ public class SectionCFActivity extends Activity {
                         mp02cf034.setError(null);
                     }
 
-                    if (Integer.parseInt(mp02cf034.getText().toString()) < 1 || (Integer.parseInt(mp02cf034.getText().toString()) > 19)) {
+                    if (Integer.parseInt(mp02cf034.getText().toString().isEmpty() ? "0" : mp02cf034.getText().toString()) < 1
+                            || (Integer.parseInt(mp02cf034.getText().toString().isEmpty() ? "0" : mp02cf034.getText().toString()) > 19)) {
                         Toast.makeText(this, "ERROR(Range Error): " + getString(R.string.mp02cf034), Toast.LENGTH_LONG).show();
                         mp02cf034.setError("Range is 1 - 19 Months");    // Set Error on last radio button
 

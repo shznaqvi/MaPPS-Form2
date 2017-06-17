@@ -61,10 +61,10 @@ public class SectionCBActivity extends Activity {
     LinearLayout fldGrpmp02cb;
     @BindView(R.id.app_header1)
     TextView appHeader1;
-    @BindView(R.id.mp02cb001)
-    EditText mp02cb001;
-    /*@BindView(R.id.mp02cb00102)
-    EditText mp02cb00102;*/
+    @BindView(R.id.mp02cb00101)
+    EditText mp02cb00101;
+    @BindView(R.id.mp02cb00102)
+    EditText mp02cb00102;
     @BindView(R.id.mp02cb002)
     EditText mp02cb002;
     @BindView(R.id.mp02cb003)
@@ -335,7 +335,8 @@ public class SectionCBActivity extends Activity {
                 } else {
                     fldGrpmp02cb.setVisibility(View.GONE);
                     fldGrpmp02cbbutton.setVisibility(View.VISIBLE);
-                    mp02cb001.setText(null);
+                    mp02cb00101.setText(null);
+                    mp02cb00102.setText(null);
                     mp02cb002.setText(null);
                     mp02cb003.clearCheck();
                     mp02cb00388x.setText(null);
@@ -382,7 +383,8 @@ public class SectionCBActivity extends Activity {
                 } else {
                     fldGrpmp02cb.setVisibility(View.GONE);
                     fldGrpmp02cbbutton.setVisibility(View.VISIBLE);
-                    mp02cb001.setText(null);
+                    mp02cb00101.setText(null);
+                    mp02cb00102.setText(null);
                     mp02cb002.setText(null);
                     mp02cb003.clearCheck();
                     mp02cb00388x.setText(null);
@@ -588,7 +590,50 @@ public class SectionCBActivity extends Activity {
             }
         });
 
+        mp02cb00101.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (b) {
+                    if (!mp02cb00101.getText().toString().isEmpty()) {
+                        if (mp02cb00101.length() < 4 || mp02cb00101.length() > 4) {
+                            mp02cb00101.setError("Year Length is 4");
+                        } else {
+                            mp02cb00101.setError(null);
+                        }
+                    }
+                }
+            }
+        });
 
+        /*mp02cb002.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if (!mp02cb00101.getText().toString().isEmpty()) {
+                    int currentAge = year - (Integer.parseInt(mp02cb00101.getText().toString().isEmpty() ? "0" : mp02cb00101.getText().toString()));
+                    int enteredAge = Integer.parseInt(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString());
+
+                    if (currentAge == enteredAge || currentAge + 1 == enteredAge || currentAge - 1 == enteredAge) {
+
+                        mp02cb002.setError(null);
+                    } else {
+
+                        mp02cb002.setError("Check Age again!");
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+*/
         mp02cb006.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -842,7 +887,8 @@ public class SectionCBActivity extends Activity {
 
         scb.put("mp02ca001", mp02ca00101.isChecked() ? "1" : mp02ca00102.isChecked() ? "2" : "0");
         scb.put("mp02ca002", mp02ca00201.isChecked() ? "1" : mp02ca00202.isChecked() ? "2" : "0");
-        scb.put("mp02cb001", mp02cb001.getText().toString());
+        scb.put("mp02cb00101", mp02cb00101.getText().toString());
+        scb.put("mp02cb00102", mp02cb00102.getText().toString());
         scb.put("mp02cb002", mp02cb002.getText().toString());
         scb.put("mp02cb003", mp02cb00301.isChecked() ? "1" : mp02cb00302.isChecked() ? "2" : mp02cb00303.isChecked() ? "3"
                 : mp02cb00304.isChecked() ? "4" : mp02cb00305.isChecked() ? "5" : mp02cb00306.isChecked() ? "6"
@@ -933,15 +979,15 @@ public class SectionCBActivity extends Activity {
 
         if (mp02ca00101.isChecked() && mp02ca00201.isChecked()) {
             //================== Q 1 ==================
-            if (mp02cb001.getText().toString().isEmpty()) {
+            if (mp02cb00101.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb001), Toast.LENGTH_LONG).show();
-                mp02cb001.setError("This data is Required!");
+                mp02cb00101.setError("This data is Required!");
                 Log.i(TAG, "mp02cb001: This data is Required!");
                 return false;
             } else {
-                mp02cb001.setError(null);
+                mp02cb00101.setError(null);
             }
-            /*if (mp02cb00102.getText().toString().isEmpty()) {
+            if (mp02cb00102.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb001), Toast.LENGTH_LONG).show();
                 mp02cb00102.setError("This data is Required!"); // Set Error on last radio button
                 Log.i(TAG, "mp02cb001: This data is Required!");
@@ -951,6 +997,17 @@ public class SectionCBActivity extends Activity {
             }
 
 
+            int ageInYears = year - (Integer.parseInt(mp02cb00101.getText().toString()));
+
+            if (ageInYears < 15 || ageInYears > 23) {
+                Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb001), Toast.LENGTH_LONG).show();
+                mp02cb00101.setError("Age Limit is from 15 to 23 Years");
+                Log.i(TAG, "mp02cb00101: Age Limit is from 15 to 23 Years");
+                return false;
+            } else {
+                mp02cb00101.setError(null);
+            }
+
             if ((Integer.parseInt(mp02cb00102.getText().toString()) < 0) || (Integer.parseInt(mp02cb00102.getText().toString()) > 12)) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb001), Toast.LENGTH_LONG).show();
                 mp02cb00102.setError("Range is 1-12 months");
@@ -958,7 +1015,7 @@ public class SectionCBActivity extends Activity {
                 return false;
             } else {
                 mp02cb00102.setError(null);
-            }*/
+            }
 
 
             //================== Q 2 ==================
@@ -971,7 +1028,8 @@ public class SectionCBActivity extends Activity {
                 mp02cb002.setError(null);
             }
 
-            if (((Integer.parseInt(mp02cb002.getText().toString()) < 15)) || (Integer.parseInt(mp02cb002.getText().toString()) > 23)) {
+            if (((Integer.valueOf(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString()) < 15))
+                    || (Integer.valueOf(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString()) > 23)) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb002), Toast.LENGTH_LONG).show();
                 mp02cb002.setError("Age Limit is from 15 to 23 Years");
                 Log.i(TAG, "mp02cb002: Age Limit is from 15 to 23 Years");
@@ -980,19 +1038,20 @@ public class SectionCBActivity extends Activity {
                 mp02cb002.setError(null);
             }
 
-            Date dob = getDateFrom(mp02cb001.getText().toString());
+            //Date dob = getDateFrom(mp02cb001.getText().toString());
 
-            Date date1 = new Date();
+            //Date date1 = new Date();
 
-            long diff = date1.getTime() - dob.getTime();
+            //long diff = date1.getTime() - dob.getTime();
 
-            long ageInYears = (diff / (24 * 60 * 60 * 1000)) / 365;
-            int currentAge = Integer.parseInt(mp02cb002.getText().toString());
+            //long ageInYears = (diff / (24 * 60 * 60 * 1000)) / 365;
 
-            if (currentAge > ageInYears) {
+            int currentAge = Integer.valueOf(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString());
+
+            if (currentAge < (ageInYears - 1) || currentAge > ageInYears) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb002), Toast.LENGTH_LONG).show();
-                mp02cb002.setError("Please check age with date of birth");
-                Log.i(TAG, "mp02cb002: Please check age with date of birth");
+                mp02cb002.setError("Please check age with Year of birth");
+                Log.i(TAG, "mp02cb002: Please check age with Year of birth");
                 return false;
             } else {
                 mp02cb002.setError(null);
@@ -1064,7 +1123,8 @@ public class SectionCBActivity extends Activity {
                     mp02cb006.setError(null);
                 }
 
-                if ((Integer.parseInt(mp02cb006.getText().toString()) < 0) || (Integer.parseInt(mp02cb006.getText().toString()) > 16)) {
+                if ((Integer.valueOf(mp02cb006.getText().toString().isEmpty() ? "0" : mp02cb006.getText().toString()) < 0)
+                        || (Integer.valueOf(mp02cb006.getText().toString().isEmpty() ? "0" : mp02cb006.getText().toString()) > 16)) {
                     Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb006), Toast.LENGTH_LONG).show();
                     mp02cb006.setError("Range is 0-16");
                     Log.i(TAG, "mp02cb006: Range is 0-16");
@@ -1141,7 +1201,7 @@ public class SectionCBActivity extends Activity {
                         mp02cb010.setError(null);
                     }
 
-                if (Integer.parseInt(mp02cb010.getText().toString()) < 13) {
+                if (Integer.valueOf(mp02cb010.getText().toString().isEmpty() ? "0" : mp02cb010.getText().toString()) < 13) {
                         Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb010), Toast.LENGTH_LONG).show();
                     mp02cb010.setError("Age Not less then 13");
                     Log.i(TAG, "mp02cb010: Age Not less then 13");
@@ -1170,11 +1230,11 @@ public class SectionCBActivity extends Activity {
                             mp02cb012.setError(null);
                         }
 
-                        if (((Integer.parseInt(mp02cb012.getText().toString()) < 1))
-                                || (Integer.parseInt(mp02cb012.getText().toString()) > 16)) {
+                        if (((Integer.valueOf(mp02cb012.getText().toString().isEmpty() ? "0" : mp02cb012.getText().toString()) < 1))
+                                || (Integer.valueOf(mp02cb012.getText().toString().isEmpty() ? "0" : mp02cb012.getText().toString()) > 16)) {
                             Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb012), Toast.LENGTH_LONG).show();
-                            mp02cb012.setError("Age Limit is from 14 to 24 Years");
-                            Log.i(TAG, "mp02cb012: Age Limit is from 14 to 24 Years");
+                            mp02cb012.setError("Range is 0 to 16");
+                            Log.i(TAG, "mp02cb012: Range is 0 to 16");
                             return false;
                         } else {
                             mp02cb012.setError(null);
@@ -1242,7 +1302,9 @@ public class SectionCBActivity extends Activity {
                             mp02cb017.setError(null);
                         }
 
-                        if ((Integer.parseInt(mp02cb017.getText().toString()) < 2) || (Integer.parseInt(mp02cb017.getText().toString()) > 4)) {
+                        if ((Integer.valueOf(mp02cb017.getText().toString().isEmpty() ? "0" : mp02cb017.getText().toString()) < 2)
+                                || ((Integer.valueOf(mp02cb017.getText().toString().isEmpty() ? "0" : mp02cb017.getText().toString()) > 4)
+                                && Integer.valueOf(mp02cb017.getText().toString().isEmpty() ? "0" : mp02cb017.getText().toString()) != 99)) {
                             Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb017), Toast.LENGTH_LONG).show();
                             mp02cb017.setError("Range is 2 to 4");    // Set Error on last radio button
                             Log.i(TAG, "mp02cb0017: Range is 2 to 4");
@@ -1294,9 +1356,9 @@ public class SectionCBActivity extends Activity {
                         mp02cb021.setError(null);
                     }
 
-                if ((Integer.valueOf(mp02cb021.getText().toString()) < 13
-                        || Integer.valueOf(mp02cb021.getText().toString()) > currentAge)
-                        && Integer.valueOf(mp02cb021.getText().toString()) != 99) {
+                if ((Integer.valueOf(mp02cb021.getText().toString().isEmpty() ? "0" : mp02cb021.getText().toString()) < 13
+                        || Integer.valueOf(mp02cb021.getText().toString().isEmpty() ? "0" : mp02cb021.getText().toString()) > currentAge)
+                        && Integer.valueOf(mp02cb021.getText().toString().isEmpty() ? "0" : mp02cb021.getText().toString()) != 99) {
                     Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02cb021), Toast.LENGTH_LONG).show();
                     mp02cb021.setError("Can not be less than 13 years and greater than current age");    // Set Error on last radio button
 
@@ -1316,10 +1378,11 @@ public class SectionCBActivity extends Activity {
                         mp02cb022.setError(null);
                     }
 
-                if (Integer.valueOf(mp02cb021.getText().toString()) != 99) {
-                    if ((Integer.valueOf(mp02cb022.getText().toString()) < Integer.valueOf(mp02cb021.getText().toString())
-                            || Integer.valueOf(mp02cb022.getText().toString()) > currentAge)
-                            && Integer.valueOf(mp02cb022.getText().toString()) != 99) {
+                if (Integer.valueOf(mp02cb021.getText().toString().isEmpty() ? "0" : mp02cb021.getText().toString()) != 99) {
+                    if ((Integer.valueOf(mp02cb022.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString())
+                            < Integer.valueOf(mp02cb021.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString())
+                            || Integer.valueOf(mp02cb022.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString()) > currentAge)
+                            && Integer.valueOf(mp02cb022.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString()) != 99) {
                         Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02cb022), Toast.LENGTH_LONG).show();
                         mp02cb021.setError("Check again");    // Set Error on last radio button
                         mp02cb022.setError("Check again");
@@ -1331,9 +1394,9 @@ public class SectionCBActivity extends Activity {
                         mp02cb022.setError(null);
                     }
                 } else {
-                    if ((Integer.valueOf(mp02cb022.getText().toString()) < 13
-                            || Integer.valueOf(mp02cb022.getText().toString()) > currentAge)
-                            && Integer.valueOf(mp02cb022.getText().toString()) != 99) {
+                    if ((Integer.valueOf(mp02cb022.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString()) < 13
+                            || Integer.valueOf(mp02cb022.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString()) > currentAge)
+                            && Integer.valueOf(mp02cb022.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString()) != 99) {
                         Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02cb022), Toast.LENGTH_LONG).show();
                         mp02cb022.setError("Can not be less than 13 years and greater than current age");    // Set Error on last radio button
 
@@ -1398,7 +1461,8 @@ public class SectionCBActivity extends Activity {
                         mp02cb021.setError(null);
                     }
 
-                    if ((Integer.parseInt(mp02cb021.getText().toString()) < 15) || (Integer.parseInt(mp02cb021.getText().toString()) > 99)) {
+                if ((Integer.valueOf(mp02cb021.getText().toString().isEmpty() ? "0" : mp02cb021.getText().toString()) < 15)
+                        || (Integer.valueOf(mp02cb021.getText().toString().isEmpty() ? "0" : mp02cb021.getText().toString()) > 99)) {
                         Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb021), Toast.LENGTH_LONG).show();
                         mp02cb021.setError("Age Limit is from 15 to 99 Years");
                         Log.i(TAG, "mp02cb021: Age Limit is from 15 to 99 Years");
@@ -1417,7 +1481,8 @@ public class SectionCBActivity extends Activity {
                         mp02cb022.setError(null);
                     }
 
-                    if ((Integer.parseInt(mp02cb022.getText().toString()) < 15) || (Integer.parseInt(mp02cb022.getText().toString()) > 99)) {
+                if ((Integer.valueOf(mp02cb022.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString()) < 15)
+                        || (Integer.valueOf(mp02cb022.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString()) > 99)) {
                         Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb022), Toast.LENGTH_LONG).show();
                         mp02cb022.setError("Age Limit is from 15 to 99 Years");
                         Log.i(TAG, "mp02cb022 : Age Limit is from 15 to 99 Years");
@@ -1447,7 +1512,8 @@ public class SectionCBActivity extends Activity {
                     mp02cb024.setError(null);
                 }
 
-            if (Integer.valueOf(mp02cb024.getText().toString()) < 13 && Integer.valueOf(mp02cb024.getText().toString()) > 35) {
+            if (Integer.valueOf(mp02cb024.getText().toString().isEmpty() ? "0" : mp02cb024.getText().toString()) < 13
+                    || Integer.valueOf(mp02cb024.getText().toString().isEmpty() ? "0" : mp02cb024.getText().toString()) > 35) {
                 Toast.makeText(this, "ERROR(range): " + getString(R.string.mp02cb024), Toast.LENGTH_LONG).show();
                 mp02cb024.setError("Range is 13 to 35 years");    // Set Error on last radio button
 
