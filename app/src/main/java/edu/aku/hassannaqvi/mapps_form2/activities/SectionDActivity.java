@@ -325,7 +325,7 @@ public class SectionDActivity extends Activity {
         }
 
         if (!flag_q4) {
-            if (q4 > 1) {
+            if (q4 > 1.0) {
                 flag_q4 = true;
 
                 fldGrpmp02d004.setVisibility(View.VISIBLE);

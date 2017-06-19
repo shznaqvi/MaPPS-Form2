@@ -275,7 +275,6 @@
 
             </RadioGroup>
 
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/fldGrpmp02ch006"
@@ -417,6 +416,8 @@
                     android:hint="@string/other"
                     android:inputType="textCapWords"
                     android:visibility="gone" />
+
+            </LinearLayout>
 
             </LinearLayout>
 
