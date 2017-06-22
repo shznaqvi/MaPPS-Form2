@@ -32,7 +32,6 @@ import edu.aku.hassannaqvi.mapps_form2.R;
 import edu.aku.hassannaqvi.mapps_form2.contracts.FormsContract;
 import edu.aku.hassannaqvi.mapps_form2.getclasses.GetEligibles;
 import edu.aku.hassannaqvi.mapps_form2.otherclasses.FormsList;
-import edu.aku.hassannaqvi.mapps_form2.syncclasses.SyncEligibles;
 import edu.aku.hassannaqvi.mapps_form2.syncclasses.SyncForms;
 import edu.aku.hassannaqvi.mapps_form2.syncclasses.SyncParticipants;
 
@@ -257,8 +256,8 @@ public class MainActivity extends Activity {
             Toast.makeText(getApplicationContext(), "Syncing Participants", Toast.LENGTH_SHORT).show();
             new SyncParticipants(this).execute();
 
-            Toast.makeText(getApplicationContext(), "Syncing Eligibles", Toast.LENGTH_SHORT).show();
-            new SyncEligibles(this).execute();
+            /*Toast.makeText(getApplicationContext(), "Syncing Eligibles", Toast.LENGTH_SHORT).show();
+            new SyncEligibles(this).execute();*/
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = syncPref.edit();
