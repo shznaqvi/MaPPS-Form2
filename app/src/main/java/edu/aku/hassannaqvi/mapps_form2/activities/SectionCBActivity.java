@@ -1028,11 +1028,11 @@ public class SectionCBActivity extends Activity {
                 mp02cb002.setError(null);
             }
 
-            if (((Integer.valueOf(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString()) < 15))
-                    || (Integer.valueOf(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString()) > 23)) {
+            if (((Integer.valueOf(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString()) < 14))
+                    || (Integer.valueOf(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString()) > 24)) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb002), Toast.LENGTH_LONG).show();
-                mp02cb002.setError("Age Limit is from 15 to 23 Years");
-                Log.i(TAG, "mp02cb002: Age Limit is from 15 to 23 Years");
+                mp02cb002.setError("Age Limit is from 14 to 24 Years");
+                Log.i(TAG, "mp02cb002: Age Limit is from 14 to 24 Years");
                 return false;
             } else {
                 mp02cb002.setError(null);
