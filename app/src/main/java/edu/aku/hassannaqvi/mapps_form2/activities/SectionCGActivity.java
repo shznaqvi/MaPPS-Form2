@@ -56,22 +56,20 @@ public class SectionCGActivity extends Activity {
     RadioButton mp02cg00288;
     @BindView(R.id.mp02cg00288x)
     EditText mp02cg00288x;
-    @BindView(R.id.mp02cg003)
-    RadioGroup mp02cg003;
     @BindView(R.id.mp02cg00301)
-    RadioButton mp02cg00301;
+    CheckBox mp02cg00301;
     @BindView(R.id.mp02cg00302)
-    RadioButton mp02cg00302;
+    CheckBox mp02cg00302;
     @BindView(R.id.mp02cg00303)
-    RadioButton mp02cg00303;
+    CheckBox mp02cg00303;
     @BindView(R.id.mp02cg00304)
-    RadioButton mp02cg00304;
+    CheckBox mp02cg00304;
     @BindView(R.id.mp02cg00305)
-    RadioButton mp02cg00305;
+    CheckBox mp02cg00305;
     @BindView(R.id.mp02cg00306)
-    RadioButton mp02cg00306;
+    CheckBox mp02cg00306;
     @BindView(R.id.mp02cg00307)
-    RadioButton mp02cg00307;
+    CheckBox mp02cg00307;
     @BindView(R.id.mp02cg004)
     RadioGroup mp02cg004;
     @BindView(R.id.mp02cg00401)
@@ -133,7 +131,13 @@ public class SectionCGActivity extends Activity {
                     fldGrpmp02cg002.setVisibility(View.GONE);
                     mp02cg002.clearCheck();
                     mp02cg00288x.setText(null);
-                    mp02cg003.clearCheck();
+                    mp02cg00301.setChecked(false);
+                    mp02cg00302.setChecked(false);
+                    mp02cg00303.setChecked(false);
+                    mp02cg00304.setChecked(false);
+                    mp02cg00305.setChecked(false);
+                    mp02cg00306.setChecked(false);
+                    mp02cg00307.setChecked(false);
                     mp02cg004.clearCheck();
                 } else {
                     mp02cg00101.setVisibility(View.VISIBLE);
@@ -230,9 +234,13 @@ public class SectionCGActivity extends Activity {
         sCG.put("mp02cg002", mp02cg00201.isChecked() ? "1" : mp02cg00202.isChecked() ? "2" : mp02cg00203.isChecked() ? "3"
                 : mp02cg00204.isChecked() ? "4" : mp02cg00205.isChecked() ? "5" : mp02cg00288.isChecked() ? "88" : "0");
         sCG.put("mp02cg00288x", mp02cg00288x.getText().toString());
-        sCG.put("mp02cg003", mp02cg00301.isChecked() ? "1" : mp02cg00302.isChecked() ? "2" : mp02cg00303.isChecked() ? "3"
-                : mp02cg00304.isChecked() ? "4" : mp02cg00305.isChecked() ? "5" : mp02cg00306.isChecked() ? "6"
-                : mp02cg00307.isChecked() ? "7" : "0");
+        sCG.put("mp02cg00301", mp02cg00301.isChecked() ? "1" : "0");
+        sCG.put("mp02cg00302", mp02cg00302.isChecked() ? "2" : "0");
+        sCG.put("mp02cg00303", mp02cg00303.isChecked() ? "3" : "0");
+        sCG.put("mp02cg00304", mp02cg00304.isChecked() ? "4" : "0");
+        sCG.put("mp02cg00305", mp02cg00305.isChecked() ? "5" : "0");
+        sCG.put("mp02cg00306", mp02cg00301.isChecked() ? "6" : "0");
+        sCG.put("mp02cg00307", mp02cg00307.isChecked() ? "7" : "0");
         sCG.put("mp02cg004", mp02cg00401.isChecked() ? "1" : mp02cg00402.isChecked() ? "2" : mp02cg00403.isChecked() ? "3"
                 : mp02cg00404.isChecked() ? "4" : "0");
         sCG.put("mp02cg005", mp02cg00501.isChecked() ? "1" : mp02cg00502.isChecked() ? "2" : "0");
@@ -316,7 +324,8 @@ public class SectionCGActivity extends Activity {
             }
 
 
-            if (mp02cg003.getCheckedRadioButtonId() == -1) {
+            if (!(mp02cg00301.isChecked() || mp02cg00302.isChecked() || mp02cg00303.isChecked()
+                    || mp02cg00304.isChecked() || mp02cg00305.isChecked() || mp02cg00306.isChecked() || mp02cg00307.isChecked())) {
                 Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cg003), Toast.LENGTH_SHORT).show();
                 mp02cg00307.setError("This data is Required!");
 

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.DateFormat;
@@ -21,6 +22,8 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -278,8 +281,8 @@ public class SectionCBActivity extends Activity {
     RadioButton mp02cb02502;
     @BindView(R.id.mp02cb02503)
     RadioButton mp02cb02503;
-    @BindView(R.id.mp02cb02504)
-    RadioButton mp02cb02504;
+    @BindView(R.id.mp02cb02577)
+    RadioButton mp02cb02577;
     @BindView(R.id.mp02cb026)
     RadioGroup mp02cb026;
     @BindView(R.id.mp02cb02601)
@@ -288,8 +291,8 @@ public class SectionCBActivity extends Activity {
     RadioButton mp02cb02602;
     @BindView(R.id.mp02cb02603)
     RadioButton mp02cb02603;
-    @BindView(R.id.mp02cb02604)
-    RadioButton mp02cb02604;
+    @BindView(R.id.mp02cb02677)
+    RadioButton mp02cb02677;
     @BindView(R.id.mp02cb027)
     RadioGroup mp02cb027;
     @BindView(R.id.mp02cb02701)
@@ -298,8 +301,8 @@ public class SectionCBActivity extends Activity {
     RadioButton mp02cb02702;
     @BindView(R.id.mp02cb02703)
     RadioButton mp02cb02703;
-    @BindView(R.id.mp02cb02704)
-    RadioButton mp02cb02704;
+    @BindView(R.id.mp02cb02777)
+    RadioButton mp02cb02777;
     @BindView(R.id.mp02cb028)
     RadioGroup mp02cb028;
     @BindView(R.id.mp02cb02801)
@@ -519,8 +522,6 @@ public class SectionCBActivity extends Activity {
                 } else {
                     fldGrpmp02cb010.setVisibility(View.VISIBLE);
                 }
-
-
             }
         });
         // ====================== Q 11 Skip Pattern =========================
@@ -529,9 +530,17 @@ public class SectionCBActivity extends Activity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (mp02cb01101.isChecked()) {
                     fldGrpmp02cb012.setVisibility(View.VISIBLE);
+                    mp02cb01406.setEnabled(true);
+                    mp02cb01407.setEnabled(true);
+
                 } else {
                     fldGrpmp02cb012.setVisibility(View.GONE);
                     mp02cb012.setText(null);
+                    mp02cb01406.setEnabled(false);
+                    mp02cb01406.setChecked(false);
+                    mp02cb01407.setEnabled(false);
+                    mp02cb01407.setChecked(false);
+
                 }
             }
         });
@@ -567,13 +576,19 @@ public class SectionCBActivity extends Activity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (mp02cb00501.isChecked()) {
                     fldGrpmp02cb006.setVisibility(View.VISIBLE);
+                    mp02cb00806.setEnabled(true);
+                    mp02cb00807.setEnabled(true);
                 } else {
                     fldGrpmp02cb006.setVisibility(View.GONE);
                     mp02cb006.setText(null);
+                    mp02cb00806.setEnabled(false);
+                    mp02cb00806.setChecked(false);
+                    mp02cb00807.setEnabled(false);
+                    mp02cb00807.setChecked(false);
+
                 }
             }
         });
-
 
         mp02cb00101.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -590,7 +605,7 @@ public class SectionCBActivity extends Activity {
             }
         });
 
-        mp02cb002.addTextChangedListener(new TextWatcher() {
+        /*mp02cb002.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -611,7 +626,6 @@ public class SectionCBActivity extends Activity {
                         mp02cb002.setError("Check Age again!");
                     }
                 }
-
             }
 
             @Override
@@ -619,6 +633,155 @@ public class SectionCBActivity extends Activity {
 
             }
         });
+*/
+        mp02cb006.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (Integer.valueOf(mp02cb006.getText().toString().isEmpty() ? "0" : mp02cb006.getText().toString()) == 0) {
+                    mp02cb00701.setEnabled(true);
+                    mp02cb00702.setEnabled(false);
+                    mp02cb00703.setEnabled(false);
+                    mp02cb00704.setEnabled(false);
+                    mp02cb00705.setEnabled(false);
+                    mp02cb00706.setEnabled(false);
+
+                } else if (Integer.valueOf(mp02cb006.getText().toString().isEmpty() ? "0" : mp02cb006.getText().toString()) > 1
+                        && Integer.valueOf(mp02cb006.getText().toString()) <= 5) {
+                    mp02cb00701.setEnabled(false);
+                    mp02cb00702.setEnabled(true);
+                    mp02cb00703.setEnabled(false);
+                    mp02cb00704.setEnabled(false);
+                    mp02cb00705.setEnabled(false);
+                    mp02cb00706.setEnabled(false);
+
+                } else if (Integer.valueOf(mp02cb006.getText().toString().isEmpty() ? "0" : mp02cb006.getText().toString()) > 5
+                        && Integer.valueOf(mp02cb006.getText().toString()) <= 10) {
+                    mp02cb00701.setEnabled(false);
+                    mp02cb00702.setEnabled(true);
+                    mp02cb00703.setEnabled(true);
+                    mp02cb00704.setEnabled(false);
+                    mp02cb00705.setEnabled(true);
+                    mp02cb00706.setEnabled(false);
+                } else if (Integer.valueOf(mp02cb006.getText().toString().isEmpty() ? "0" : mp02cb006.getText().toString()) > 10
+                        && Integer.valueOf(mp02cb006.getText().toString()) <= 12) {
+                    mp02cb00701.setEnabled(false);
+                    mp02cb00702.setEnabled(true);
+                    mp02cb00703.setEnabled(true);
+                    mp02cb00704.setEnabled(true);
+                    mp02cb00705.setEnabled(true);
+                    mp02cb00706.setEnabled(false);
+                } else if (Integer.valueOf(mp02cb006.getText().toString().isEmpty() ? "0" : mp02cb006.getText().toString()) > 12
+                        && Integer.valueOf(mp02cb006.getText().toString()) <= 16) {
+                    mp02cb00701.setEnabled(false);
+                    mp02cb00702.setEnabled(true);
+                    mp02cb00703.setEnabled(true);
+                    mp02cb00704.setEnabled(true);
+                    mp02cb00705.setEnabled(true);
+                    mp02cb00706.setEnabled(true);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        mp02cb012.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (Integer.valueOf(mp02cb012.getText().toString().isEmpty() ? "0" : mp02cb012.getText().toString()) == 0) {
+                    mp02cb01301.setEnabled(true);
+                    mp02cb01302.setEnabled(false);
+                    mp02cb01303.setEnabled(false);
+                    mp02cb01304.setEnabled(false);
+                    mp02cb01305.setEnabled(false);
+                    mp02cb01306.setEnabled(false);
+
+                } else if (Integer.valueOf(mp02cb012.getText().toString().isEmpty() ? "0" : mp02cb012.getText().toString()) > 1
+                        && Integer.valueOf(mp02cb012.getText().toString()) <= 5) {
+                    mp02cb01301.setEnabled(false);
+                    mp02cb01302.setEnabled(true);
+                    mp02cb01303.setEnabled(false);
+                    mp02cb01304.setEnabled(false);
+                    mp02cb01305.setEnabled(false);
+                    mp02cb01306.setEnabled(false);
+
+                } else if (Integer.valueOf(mp02cb012.getText().toString().isEmpty() ? "0" : mp02cb012.getText().toString()) > 5
+                        && Integer.valueOf(mp02cb012.getText().toString()) <= 10) {
+                    mp02cb01301.setEnabled(false);
+                    mp02cb01302.setEnabled(true);
+                    mp02cb01303.setEnabled(true);
+                    mp02cb01304.setEnabled(false);
+                    mp02cb01305.setEnabled(true);
+                    mp02cb01306.setEnabled(false);
+                } else if (Integer.valueOf(mp02cb012.getText().toString().isEmpty() ? "0" : mp02cb012.getText().toString()) > 10
+                        && Integer.valueOf(mp02cb012.getText().toString()) <= 12) {
+                    mp02cb01301.setEnabled(false);
+                    mp02cb01302.setEnabled(true);
+                    mp02cb01303.setEnabled(true);
+                    mp02cb01304.setEnabled(true);
+                    mp02cb01305.setEnabled(true);
+                    mp02cb01306.setEnabled(false);
+                } else if (Integer.valueOf(mp02cb012.getText().toString().isEmpty() ? "0" : mp02cb012.getText().toString()) > 12
+                        && Integer.valueOf(mp02cb012.getText().toString()) <= 16) {
+                    mp02cb01301.setEnabled(false);
+                    mp02cb01302.setEnabled(true);
+                    mp02cb01303.setEnabled(true);
+                    mp02cb01304.setEnabled(true);
+                    mp02cb01305.setEnabled(true);
+                    mp02cb01306.setEnabled(true);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        mp02cb007.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (mp02cb00701.isChecked() || mp02cb00702.isChecked()) {
+                    mp02cb00806.setEnabled(false);
+                    mp02cb00806.setChecked(false);
+                    mp02cb00807.setEnabled(false);
+                    mp02cb00807.setChecked(false);
+                } else {
+                    mp02cb00806.setEnabled(true);
+                    mp02cb00807.setEnabled(true);
+                }
+            }
+        });
+
+
+
+        mp02cb013.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (mp02cb01301.isChecked() || mp02cb01302.isChecked()) {
+                    mp02cb01406.setEnabled(false);
+                    mp02cb01406.setChecked(false);
+                    mp02cb01407.setEnabled(false);
+                    mp02cb01407.setChecked(false);
+                } else {
+                    mp02cb01406.setEnabled(true);
+                    mp02cb01407.setEnabled(true);
+                }
+            }
+        });
+
 
 
     }
@@ -767,11 +930,11 @@ public class SectionCBActivity extends Activity {
                 : mp02cb02304.isChecked() ? "4" : "0");
         scb.put("mp02cb024", mp02cb024.getText().toString());
         scb.put("mp02cb025", mp02cb02501.isChecked() ? "1" : mp02cb02502.isChecked() ? "2" : mp02cb02503.isChecked() ? "3"
-                : mp02cb02504.isChecked() ? "4" : "0");
+                : mp02cb02577.isChecked() ? "77" : "0");
         scb.put("mp02cb026", mp02cb02601.isChecked() ? "1" : mp02cb02602.isChecked() ? "2" : mp02cb02603.isChecked() ? "3"
-                : mp02cb02604.isChecked() ? "4" : "0");
+                : mp02cb02677.isChecked() ? "77" : "0");
         scb.put("mp02cb027", mp02cb02701.isChecked() ? "1" : mp02cb02702.isChecked() ? "2" : mp02cb02703.isChecked() ? "3"
-                : mp02cb02704.isChecked() ? "4" : "0");
+                : mp02cb02777.isChecked() ? "77" : "0");
         scb.put("mp02cb028", mp02cb02801.isChecked() ? "1" : mp02cb02802.isChecked() ? "2" : "0");
 
 /*
@@ -779,7 +942,7 @@ public class SectionCBActivity extends Activity {
         View radioButton = mp02cb009.findViewById(radioButtonID);
         int idx = mp02cb009.indexOfChild(radioButton);
 */
-        AppMain.unmarried = mp02cb009.indexOfChild(findViewById(mp02cb009.getCheckedRadioButtonId()));
+        AppMain.maritalStatus = mp02cb009.indexOfChild(findViewById(mp02cb009.getCheckedRadioButtonId())) + 1;
 
 
         AppMain.pc.setsCB(String.valueOf(scb));
@@ -834,12 +997,12 @@ public class SectionCBActivity extends Activity {
             }
 
 
-            int currentAge = year - (Integer.parseInt(mp02cb00101.getText().toString()));
+            int ageInYears = year - (Integer.parseInt(mp02cb00101.getText().toString()));
 
-            if (currentAge < 15 || currentAge > 23) {
+            if (ageInYears < 15 || ageInYears > 23) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb001), Toast.LENGTH_LONG).show();
-                mp02cb00101.setError("Age Limit is from 15 to 24 Years");
-                Log.i(TAG, "mp02cb00101: Age Limit is from 15 to 24 Years");
+                mp02cb00101.setError("Age Limit is from 15 to 23 Years");
+                Log.i(TAG, "mp02cb00101: Age Limit is from 15 to 23 Years");
                 return false;
             } else {
                 mp02cb00101.setError(null);
@@ -863,10 +1026,10 @@ public class SectionCBActivity extends Activity {
                 return false;
             } else {
                 mp02cb002.setError(null);
-
             }
 
-            if (((Integer.parseInt(mp02cb002.getText().toString()) < 14)) || (Integer.parseInt(mp02cb002.getText().toString()) > 23)) {
+            if (((Integer.valueOf(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString()) < 14))
+                    || (Integer.valueOf(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString()) > 24)) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb002), Toast.LENGTH_LONG).show();
                 mp02cb002.setError("Age Limit is from 14 to 24 Years");
                 Log.i(TAG, "mp02cb002: Age Limit is from 14 to 24 Years");
@@ -875,14 +1038,26 @@ public class SectionCBActivity extends Activity {
                 mp02cb002.setError(null);
             }
 
-            /*if (currentAge != (Integer.parseInt(mp02cb002.getText().toString()))) {
+            //Date dob = getDateFrom(mp02cb001.getText().toString());
+
+            //Date date1 = new Date();
+
+            //long diff = date1.getTime() - dob.getTime();
+
+            //long ageInYears = (diff / (24 * 60 * 60 * 1000)) / 365;
+
+            int currentAge = Integer.valueOf(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString());
+
+            if (currentAge < (ageInYears - 1) || currentAge > ageInYears) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb002), Toast.LENGTH_LONG).show();
-                mp02cb00101.setError("Age mismatch with year of birth... Check Again");
-                Log.i(TAG, "mp02cb00101: Age mismatch with year of birth... Check Again");
+                mp02cb002.setError("Please check age with Year of birth");
+                Log.i(TAG, "mp02cb002: Please check age with Year of birth");
                 return false;
             } else {
-                mp02cb00101.setError(null);
-            }*/
+                mp02cb002.setError(null);
+            }
+
+
             //==================== Q3 =====================
             if (mp02cb003.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb003), Toast.LENGTH_LONG).show();
@@ -937,7 +1112,7 @@ public class SectionCBActivity extends Activity {
             }
 
             if (mp02cb00501.isChecked()) {
-                // ================ Q6==============
+                // ================ Q6 ==============
                 if (mp02cb006.getText().toString().isEmpty()) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb006), Toast.LENGTH_LONG).show();
                     mp02cb006.setError("This data is Required!");    // Set Error on last radio button
@@ -948,10 +1123,11 @@ public class SectionCBActivity extends Activity {
                     mp02cb006.setError(null);
                 }
 
-                if ((Integer.parseInt(mp02cb006.getText().toString()) < 1) || (Integer.parseInt(mp02cb006.getText().toString()) > 16)) {
+                if ((Integer.valueOf(mp02cb006.getText().toString().isEmpty() ? "0" : mp02cb006.getText().toString()) < 0)
+                        || (Integer.valueOf(mp02cb006.getText().toString().isEmpty() ? "0" : mp02cb006.getText().toString()) > 16)) {
                     Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb006), Toast.LENGTH_LONG).show();
-                    mp02cb006.setError("Range is 1-16");
-                    Log.i(TAG, "mp02cb006: Range is 1-16");
+                    mp02cb006.setError("Range is 0-16");
+                    Log.i(TAG, "mp02cb006: Range is 0-16");
                     return false;
                 } else {
                     mp02cb006.setError(null);
@@ -967,9 +1143,10 @@ public class SectionCBActivity extends Activity {
                 } else {
                     mp02cb00706.setError(null);
                 }
+
             }
 
-            // ================== Q8====================
+            // ================== Q8 ====================
             if (mp02cb008.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb008), Toast.LENGTH_LONG).show();
                 mp02cb00888.setError("This data is Required!");    // Set Error on last radio button
@@ -980,7 +1157,7 @@ public class SectionCBActivity extends Activity {
                 mp02cb00888.setError(null);
             }
 
-            // ================ Q 8 Others =================
+            // ================ Q8 Others =================
             if (mp02cb00888.isChecked() && mp02cb00888x.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb008) + " - " + getString(R.string.other), Toast.LENGTH_LONG).show();
                 mp02cb00888x.setError("This data is Required!");    // Set Error on last radio button
@@ -991,7 +1168,7 @@ public class SectionCBActivity extends Activity {
                 mp02cb00888x.setError(null);
             }
 
-            // ================== Q9====================
+            // ================== Q9 ====================
             if (mp02cb009.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb009), Toast.LENGTH_LONG).show();
                 mp02cb00905.setError("This data is Required!");    // Set Error on last radio button
@@ -1001,340 +1178,393 @@ public class SectionCBActivity extends Activity {
             } else {
                 mp02cb00905.setError(null);
             }
+
             // ============ Skip Check till Q 23 ==============
             if (mp02cb00901.isChecked()) {
-                if (mp02cb010.getText().toString().isEmpty()) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb010), Toast.LENGTH_LONG).show();
-                    mp02cb010.setError("This data is Required!");    // Set Error on last radio button
+                    if (mp02cb010.getText().toString().isEmpty()) {
+                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb010), Toast.LENGTH_LONG).show();
+                        mp02cb010.setError("This data is Required!");    // Set Error on last radio button
 
-                    Log.i(TAG, "mp02cb010: This data is Required!");
-                    return false;
-                } else {
-                    mp02cb010.setError(null);
-                }
-
-                if (mp02cb010.getText().toString().isEmpty()) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb010), Toast.LENGTH_LONG).show();
-                    mp02cb010.setError("This data is Required!");    // Set Error on last radio button
-
-                    Log.i(TAG, "mp02cb010: This data is Required!");
-                    return false;
-                } else {
-                    mp02cb010.setError(null);
-                }
-
-                if (Integer.parseInt(mp02cb010.getText().toString()) < 14) {
-                    Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb010), Toast.LENGTH_LONG).show();
-                    mp02cb010.setError("Age Not less then 14");
-                    Log.i(TAG, "mp02cb010: Age Not less then 14");
-                    return false;
-                } else {
-                    mp02cb010.setError(null);
-                }
-
-                if (mp02cb011.getCheckedRadioButtonId() == -1) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb011), Toast.LENGTH_LONG).show();
-                    mp02cb01102.setError("This data is Required!");    // Set Error on last radio button
-
-                    Log.i(TAG, "mp02cb011: This data is Required!");
-                    return false;
-                } else {
-                    mp02cb01101.setError(null);
-                }
-                if (mp02cb01101.isChecked()) {
-                    if (mp02cb012.getText().toString().isEmpty()) {
-                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb012), Toast.LENGTH_LONG).show();
-                        mp02cb012.setError("This data is Required!");    // Set Error on last radio button
-
-                        Log.i(TAG, "mp02cb012: This data is Required!");
+                        Log.i(TAG, "mp02cb010: This data is Required!");
                         return false;
                     } else {
-                        mp02cb012.setError(null);
+                        mp02cb010.setError(null);
                     }
 
-                    if (((Integer.parseInt(mp02cb012.getText().toString()) < 1)) || (Integer.parseInt(mp02cb012.getText().toString()) > 16)) {
-                        Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb012), Toast.LENGTH_LONG).show();
-                        mp02cb012.setError("Age Limit is from 14 to 24 Years");
-                        Log.i(TAG, "mp02cb012: Age Limit is from 14 to 24 Years");
+                    if (mp02cb010.getText().toString().isEmpty()) {
+                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb010), Toast.LENGTH_LONG).show();
+                        mp02cb010.setError("This data is Required!");    // Set Error on last radio button
+
+                        Log.i(TAG, "mp02cb010: This data is Required!");
                         return false;
                     } else {
-                        mp02cb012.setError(null);
+                        mp02cb010.setError(null);
                     }
 
-                    if (mp02cb013.getCheckedRadioButtonId() == -1) {
-                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb013), Toast.LENGTH_LONG).show();
-                        mp02cb01306.setError("This data is Required!");    // Set Error on last radio button
-
-                        Log.i(TAG, "mp02cb013: This data is Required!");
+                if (Integer.valueOf(mp02cb010.getText().toString().isEmpty() ? "0" : mp02cb010.getText().toString()) < 13) {
+                        Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb010), Toast.LENGTH_LONG).show();
+                    mp02cb010.setError("Age Not less then 13");
+                    Log.i(TAG, "mp02cb010: Age Not less then 13");
                         return false;
                     } else {
-                        mp02cb01306.setError(null);
+                        mp02cb010.setError(null);
                     }
-                }
 
-                if (mp02cb014.getCheckedRadioButtonId() == -1) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb014), Toast.LENGTH_LONG).show();
-                    mp02cb01488.setError("This data is Required!");    // Set Error on last radio button
+                    if (mp02cb011.getCheckedRadioButtonId() == -1) {
+                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb011), Toast.LENGTH_LONG).show();
+                        mp02cb01102.setError("This data is Required!");    // Set Error on last radio button
 
-                    Log.i(TAG, "mp02cb014: This data is Required!");
-                    return false;
-                } else {
-                    mp02cb01488.setError(null);
-                }
-
-                if (mp02cb01488.isChecked() && mp02cb01488x.getText().toString().isEmpty()) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb014) + " - " + getString(R.string.other), Toast.LENGTH_LONG).show();
-                    mp02cb01488x.setError("This data is Required!");    // Set Error on last radio button
-
-                    Log.i(TAG, "mp02cb01488x: This data is Required!");
-                    return false;
-                } else {
-                    mp02cb01488x.setError(null);
-                }
-
-                if (mp02cb015.getCheckedRadioButtonId() == -1) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb015), Toast.LENGTH_LONG).show();
-                    mp02cb01502.setError("This data is Required!");    // Set Error on last radio button
-
-                    Log.i(TAG, "mp02cb015: This data is Required!");
-                    return false;
-                } else {
-                    mp02cb01502.setError(null);
-                }
-
-                if (mp02cb016.getCheckedRadioButtonId() == -1) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb016), Toast.LENGTH_LONG).show();
-                    mp02cb01699.setError("This data is Required!");    // Set Error on last radio button
-
-                    Log.i(TAG, "mp02cb016: This data is Required!");
-                    return false;
-                } else {
-                    mp02cb01699.setError(null);
-                }
-
-                if (mp02cb01601.isChecked()) {
-                    if (mp02cb017.getText().toString().isEmpty()) {
-                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb017), Toast.LENGTH_LONG).show();
-                        mp02cb017.setError("This data is Required!");    // Set Error on last radio button
-
-                        Log.i(TAG, "mp02cb017: This data is Required!");
+                        Log.i(TAG, "mp02cb011: This data is Required!");
                         return false;
                     } else {
-                        mp02cb017.setError(null);
+                        mp02cb01101.setError(null);
+                    }
+                    if (mp02cb01101.isChecked()) {
+                        if (mp02cb012.getText().toString().isEmpty()) {
+                            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb012), Toast.LENGTH_LONG).show();
+                            mp02cb012.setError("This data is Required!");    // Set Error on last radio button
+
+                            Log.i(TAG, "mp02cb012: This data is Required!");
+                            return false;
+                        } else {
+                            mp02cb012.setError(null);
+                        }
+
+                        if (((Integer.valueOf(mp02cb012.getText().toString().isEmpty() ? "0" : mp02cb012.getText().toString()) < 1))
+                                || (Integer.valueOf(mp02cb012.getText().toString().isEmpty() ? "0" : mp02cb012.getText().toString()) > 16)) {
+                            Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb012), Toast.LENGTH_LONG).show();
+                            mp02cb012.setError("Range is 0 to 16");
+                            Log.i(TAG, "mp02cb012: Range is 0 to 16");
+                            return false;
+                        } else {
+                            mp02cb012.setError(null);
+                        }
+
+                        if (mp02cb013.getCheckedRadioButtonId() == -1) {
+                            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb013), Toast.LENGTH_LONG).show();
+                            mp02cb01306.setError("This data is Required!");    // Set Error on last radio button
+
+                            Log.i(TAG, "mp02cb013: This data is Required!");
+                            return false;
+                        } else {
+                            mp02cb01306.setError(null);
+                        }
                     }
 
-                    if ((Integer.parseInt(mp02cb017.getText().toString()) < 2) || (Integer.parseInt(mp02cb017.getText().toString()) > 4)) {
-                        Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb017), Toast.LENGTH_LONG).show();
-                        mp02cb017.setError("Range is 2 to 4");    // Set Error on last radio button
-                        Log.i(TAG, "mp02cb0017: Range is 2 to 4");
+                    if (mp02cb014.getCheckedRadioButtonId() == -1) {
+                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb014), Toast.LENGTH_LONG).show();
+                        mp02cb01488.setError("This data is Required!");    // Set Error on last radio button
 
-                    } else {
-                        mp02cb017.setError(null);
-                    }
-                }
-
-                if (mp02cb018.getCheckedRadioButtonId() == -1) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb018), Toast.LENGTH_LONG).show();
-                    mp02cb01899.setError("This data is Required!");    // Set Error on last radio button
-
-                    Log.i(TAG, "mp02cb018: This data is Required!");
-                    return false;
-                } else {
-                    mp02cb01899.setError(null);
-                }
-
-                if (mp02cb01801.isChecked()) {
-                    if (mp02cb019.getCheckedRadioButtonId() == -1) {
-                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb019), Toast.LENGTH_LONG).show();
-                        mp02cb01904.setError("This data is Required!");    // Set Error on last radio button
-
-                        Log.i(TAG, "mp02cb019: This data is Required!");
+                        Log.i(TAG, "mp02cb014: This data is Required!");
                         return false;
                     } else {
-                        mp02cb01904.setError(null);
+                        mp02cb01488.setError(null);
                     }
-                }
 
-                if (mp02cb020.getCheckedRadioButtonId() == -1) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb020), Toast.LENGTH_LONG).show();
-                    mp02cb02002.setError("This data is Required!");    // Set Error on last radio button
+                    if (mp02cb01488.isChecked() && mp02cb01488x.getText().toString().isEmpty()) {
+                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb014) + " - " + getString(R.string.other), Toast.LENGTH_LONG).show();
+                        mp02cb01488x.setError("This data is Required!");    // Set Error on last radio button
 
-                    Log.i(TAG, "mp02cb020: This data is Required!");
-                    return false;
-                } else {
-                    mp02cb02002.setError(null);
-                }
+                        Log.i(TAG, "mp02cb01488x: This data is Required!");
+                        return false;
+                    } else {
+                        mp02cb01488x.setError(null);
+                    }
 
-                if (mp02cb021.getText().toString().isEmpty()) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb021), Toast.LENGTH_LONG).show();
-                    mp02cb021.setError("This data is Required!");    // Set Error on last radio button
+                    if (mp02cb015.getCheckedRadioButtonId() == -1) {
+                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb015), Toast.LENGTH_LONG).show();
+                        mp02cb01502.setError("This data is Required!");    // Set Error on last radio button
 
-                    Log.i(TAG, "mp02cb021: This data is Required!");
+                        Log.i(TAG, "mp02cb015: This data is Required!");
+                        return false;
+                    } else {
+                        mp02cb01502.setError(null);
+                    }
+
+                    if (mp02cb016.getCheckedRadioButtonId() == -1) {
+                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb016), Toast.LENGTH_LONG).show();
+                        mp02cb01699.setError("This data is Required!");    // Set Error on last radio button
+
+                        Log.i(TAG, "mp02cb016: This data is Required!");
+                        return false;
+                    } else {
+                        mp02cb01699.setError(null);
+                    }
+
+                    if (mp02cb01601.isChecked()) {
+                        if (mp02cb017.getText().toString().isEmpty()) {
+                            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb017), Toast.LENGTH_LONG).show();
+                            mp02cb017.setError("This data is Required!");    // Set Error on last radio button
+
+                            Log.i(TAG, "mp02cb017: This data is Required!");
+                            return false;
+                        } else {
+                            mp02cb017.setError(null);
+                        }
+
+                        if ((Integer.valueOf(mp02cb017.getText().toString().isEmpty() ? "0" : mp02cb017.getText().toString()) < 2)
+                                || ((Integer.valueOf(mp02cb017.getText().toString().isEmpty() ? "0" : mp02cb017.getText().toString()) > 4)
+                                && Integer.valueOf(mp02cb017.getText().toString().isEmpty() ? "0" : mp02cb017.getText().toString()) != 99)) {
+                            Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb017), Toast.LENGTH_LONG).show();
+                            mp02cb017.setError("Range is 2 to 4");    // Set Error on last radio button
+                            Log.i(TAG, "mp02cb0017: Range is 2 to 4");
+
+                        } else {
+                            mp02cb017.setError(null);
+                        }
+                    }
+
+                    if (mp02cb018.getCheckedRadioButtonId() == -1) {
+                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb018), Toast.LENGTH_LONG).show();
+                        mp02cb01899.setError("This data is Required!");    // Set Error on last radio button
+
+                        Log.i(TAG, "mp02cb018: This data is Required!");
+                        return false;
+                    } else {
+                        mp02cb01899.setError(null);
+                    }
+
+                    if (mp02cb01801.isChecked()) {
+                        if (mp02cb019.getCheckedRadioButtonId() == -1) {
+                            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb019), Toast.LENGTH_LONG).show();
+                            mp02cb01904.setError("This data is Required!");    // Set Error on last radio button
+
+                            Log.i(TAG, "mp02cb019: This data is Required!");
+                            return false;
+                        } else {
+                            mp02cb01904.setError(null);
+                        }
+                    }
+
+                    if (mp02cb020.getCheckedRadioButtonId() == -1) {
+                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb020), Toast.LENGTH_LONG).show();
+                        mp02cb02002.setError("This data is Required!");    // Set Error on last radio button
+
+                        Log.i(TAG, "mp02cb020: This data is Required!");
+                        return false;
+                    } else {
+                        mp02cb02002.setError(null);
+                    }
+
+                    if (mp02cb021.getText().toString().isEmpty()) {
+                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb021), Toast.LENGTH_LONG).show();
+                        mp02cb021.setError("This data is Required!");    // Set Error on last radio button
+
+                        Log.i(TAG, "mp02cb021: This data is Required!");
+                        return false;
+                    } else {
+                        mp02cb021.setError(null);
+                    }
+
+                if ((Integer.valueOf(mp02cb021.getText().toString().isEmpty() ? "0" : mp02cb021.getText().toString()) < 13
+                        || Integer.valueOf(mp02cb021.getText().toString().isEmpty() ? "0" : mp02cb021.getText().toString()) > currentAge)
+                        && Integer.valueOf(mp02cb021.getText().toString().isEmpty() ? "0" : mp02cb021.getText().toString()) != 99) {
+                    Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02cb021), Toast.LENGTH_LONG).show();
+                    mp02cb021.setError("Can not be less than 13 years and greater than current age");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cb021: Can not be less than 13 years and greater than current age");
                     return false;
                 } else {
                     mp02cb021.setError(null);
                 }
 
+                    if (mp02cb022.getText().toString().isEmpty()) {
+                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb022), Toast.LENGTH_LONG).show();
+                        mp02cb022.setError("This data is Required!");    // Set Error on last radio button
 
-                if (mp02cb022.getText().toString().isEmpty()) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb022), Toast.LENGTH_LONG).show();
-                    mp02cb022.setError("This data is Required!");    // Set Error on last radio button
-
-                    Log.i(TAG, "mp02cb022: This data is Required!");
-                    return false;
-                } else {
-                    mp02cb022.setError(null);
-                }
-
-                if (mp02cb023.getCheckedRadioButtonId() == -1) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb023), Toast.LENGTH_LONG).show();
-                    mp02cb02304.setError("This data is Required!");    // Set Error on last radio button
-
-                    Log.i(TAG, "mp02cb023: This data is Required!");
-                    return false;
-                } else {
-                    mp02cb02304.setError(null);
-                }
-
-            } else if (mp02cb00902.isChecked() || mp02cb00903.isChecked() || mp02cb00904.isChecked()) {
-                if (mp02cb018.getCheckedRadioButtonId() == -1) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb018), Toast.LENGTH_LONG).show();
-                    mp02cb01899.setError("This data is Required!");    // Set Error on last radio button
-
-                    Log.i(TAG, "mp02cb018: This data is Required!");
-                    return false;
-                } else {
-                    mp02cb01899.setError(null);
-                }
-
-                if (mp02cb01801.isChecked()) {
-                    if (mp02cb019.getCheckedRadioButtonId() == -1) {
-                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb019), Toast.LENGTH_LONG).show();
-                        mp02cb01904.setError("This data is Required!");    // Set Error on last radio button
-
-                        Log.i(TAG, "mp02cb019: This data is Required!");
+                        Log.i(TAG, "mp02cb022: This data is Required!");
                         return false;
                     } else {
-                        mp02cb01904.setError(null);
+                        mp02cb022.setError(null);
                     }
+
+                if (Integer.valueOf(mp02cb021.getText().toString().isEmpty() ? "0" : mp02cb021.getText().toString()) != 99) {
+                    if ((Integer.valueOf(mp02cb022.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString())
+                            < Integer.valueOf(mp02cb021.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString())
+                            || Integer.valueOf(mp02cb022.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString()) > currentAge)
+                            && Integer.valueOf(mp02cb022.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString()) != 99) {
+                        Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02cb022), Toast.LENGTH_LONG).show();
+                        mp02cb021.setError("Check again");    // Set Error on last radio button
+                        mp02cb022.setError("Check again");
+
+                        Log.i(TAG, "mp02cb022: Check again");
+                        return false;
+                    } else {
+                        mp02cb021.setError(null);
+                        mp02cb022.setError(null);
+                    }
+                } else {
+                    if ((Integer.valueOf(mp02cb022.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString()) < 13
+                            || Integer.valueOf(mp02cb022.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString()) > currentAge)
+                            && Integer.valueOf(mp02cb022.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString()) != 99) {
+                        Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02cb022), Toast.LENGTH_LONG).show();
+                        mp02cb022.setError("Can not be less than 13 years and greater than current age");    // Set Error on last radio button
+
+                        Log.i(TAG, "mp02cb022: Can not be less than 13 years and greater than current age");
+                        return false;
+                    } else {
+                        mp02cb022.setError(null);
+                    }
+
                 }
 
-                if (mp02cb020.getCheckedRadioButtonId() == -1) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb020), Toast.LENGTH_LONG).show();
-                    mp02cb02002.setError("This data is Required!");    // Set Error on last radio button
+                    if (mp02cb023.getCheckedRadioButtonId() == -1) {
+                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb023), Toast.LENGTH_LONG).show();
+                        mp02cb02304.setError("This data is Required!");    // Set Error on last radio button
 
-                    Log.i(TAG, "mp02cb020: This data is Required!");
+                        Log.i(TAG, "mp02cb023: This data is Required!");
+                        return false;
+                    } else {
+                        mp02cb02304.setError(null);
+                    }
+
+                   } else if (mp02cb00902.isChecked() || mp02cb00903.isChecked() || mp02cb00904.isChecked()) {
+                    if (mp02cb018.getCheckedRadioButtonId() == -1) {
+                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb018), Toast.LENGTH_LONG).show();
+                        mp02cb01899.setError("This data is Required!");    // Set Error on last radio button
+
+                        Log.i(TAG, "mp02cb018: This data is Required!");
+                        return false;
+                    } else {
+                        mp02cb01899.setError(null);
+                    }
+
+                    if (mp02cb01801.isChecked()) {
+                        if (mp02cb019.getCheckedRadioButtonId() == -1) {
+                            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb019), Toast.LENGTH_LONG).show();
+                            mp02cb01904.setError("This data is Required!");    // Set Error on last radio button
+
+                            Log.i(TAG, "mp02cb019: This data is Required!");
+                            return false;
+                        } else {
+                            mp02cb01904.setError(null);
+                        }
+                    }
+
+                    if (mp02cb020.getCheckedRadioButtonId() == -1) {
+                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb020), Toast.LENGTH_LONG).show();
+                        mp02cb02002.setError("This data is Required!");    // Set Error on last radio button
+
+                        Log.i(TAG, "mp02cb020: This data is Required!");
+                        return false;
+                    } else {
+                        mp02cb02002.setError(null);
+                    }
+
+                    if (mp02cb021.getText().toString().isEmpty()) {
+                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb021), Toast.LENGTH_LONG).show();
+                        mp02cb021.setError("This data is Required!");    // Set Error on last radio button
+
+                        Log.i(TAG, "mp02cb021: This data is Required!");
+                        return false;
+                    } else {
+                        mp02cb021.setError(null);
+                    }
+
+                if ((Integer.valueOf(mp02cb021.getText().toString().isEmpty() ? "0" : mp02cb021.getText().toString()) < 15)
+                        || (Integer.valueOf(mp02cb021.getText().toString().isEmpty() ? "0" : mp02cb021.getText().toString()) > 99)) {
+                        Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb021), Toast.LENGTH_LONG).show();
+                        mp02cb021.setError("Age Limit is from 15 to 99 Years");
+                        Log.i(TAG, "mp02cb021: Age Limit is from 15 to 99 Years");
+                        return false;
+                    } else {
+                        mp02cb021.setError(null);
+                    }
+
+                    if (mp02cb022.getText().toString().isEmpty()) {
+                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb022), Toast.LENGTH_LONG).show();
+                        mp02cb022.setError("This data is Required!");    // Set Error on last radio button
+
+                        Log.i(TAG, "mp02cb022: This data is Required!");
+                        return false;
+                    } else {
+                        mp02cb022.setError(null);
+                    }
+
+                if ((Integer.valueOf(mp02cb022.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString()) < 15)
+                        || (Integer.valueOf(mp02cb022.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString()) > 99)) {
+                        Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb022), Toast.LENGTH_LONG).show();
+                        mp02cb022.setError("Age Limit is from 15 to 99 Years");
+                        Log.i(TAG, "mp02cb022 : Age Limit is from 15 to 99 Years");
+                        return false;
+                    } else {
+                        mp02cb022.setError(null);
+                    }
+
+                    if (mp02cb023.getCheckedRadioButtonId() == -1) {
+                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb023), Toast.LENGTH_LONG).show();
+                        mp02cb02304.setError("This data is Required!");    // Set Error on last radio button
+
+                        Log.i(TAG, "mp02cb023 : This data is Required!");
+                        return false;
+                    } else {
+                        mp02cb02304.setError(null);
+                    }
+
+                }
+                 if (mp02cb024.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb024), Toast.LENGTH_LONG).show();
+                    mp02cb024.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cb024 : This data is Required!");
                     return false;
                 } else {
-                    mp02cb02002.setError(null);
+                    mp02cb024.setError(null);
                 }
 
-                if (mp02cb021.getText().toString().isEmpty()) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb021), Toast.LENGTH_LONG).show();
-                    mp02cb021.setError("This data is Required!");    // Set Error on last radio button
+            if (Integer.valueOf(mp02cb024.getText().toString().isEmpty() ? "0" : mp02cb024.getText().toString()) < 13
+                    || Integer.valueOf(mp02cb024.getText().toString().isEmpty() ? "0" : mp02cb024.getText().toString()) > 35) {
+                Toast.makeText(this, "ERROR(range): " + getString(R.string.mp02cb024), Toast.LENGTH_LONG).show();
+                mp02cb024.setError("Range is 13 to 35 years");    // Set Error on last radio button
 
-                    Log.i(TAG, "mp02cb021: This data is Required!");
-                    return false;
-                } else {
-                    mp02cb021.setError(null);
-                }
-
-                if ((Integer.parseInt(mp02cb021.getText().toString()) < 15) || (Integer.parseInt(mp02cb021.getText().toString()) > 99)) {
-                    Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb021), Toast.LENGTH_LONG).show();
-                    mp02cb021.setError("Age Limit is from 15 to 99 Years");
-                    Log.i(TAG, "mp02cb021: Age Limit is from 15 to 99 Years");
-                    return false;
-                } else {
-                    mp02cb021.setError(null);
-                }
-
-                if (mp02cb022.getText().toString().isEmpty()) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb022), Toast.LENGTH_LONG).show();
-                    mp02cb022.setError("This data is Required!");    // Set Error on last radio button
-
-                    Log.i(TAG, "mp02cb022: This data is Required!");
-                    return false;
-                } else {
-                    mp02cb022.setError(null);
-                }
-
-                if ((Integer.parseInt(mp02cb022.getText().toString()) < 15) || (Integer.parseInt(mp02cb022.getText().toString()) > 99)) {
-                    Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb022), Toast.LENGTH_LONG).show();
-                    mp02cb022.setError("Age Limit is from 15 to 99 Years");
-                    Log.i(TAG, "mp02cb022: Age Limit is from 15 to 99 Years");
-                    return false;
-                } else {
-                    mp02cb022.setError(null);
-                }
-
-                if (mp02cb023.getCheckedRadioButtonId() == -1) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb023), Toast.LENGTH_LONG).show();
-                    mp02cb02304.setError("This data is Required!");    // Set Error on last radio button
-
-                    Log.i(TAG, "mp02cb023: This data is Required!");
-                    return false;
-                } else {
-                    mp02cb02304.setError(null);
-                }
-
-            }
-
-
-
-            if (mp02cb024.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb024), Toast.LENGTH_LONG).show();
-                mp02cb024.setError("This data is Required!");    // Set Error on last radio button
-
-                Log.i(TAG, "mp02cb024: This data is Required!");
+                Log.i(TAG, "mp02cb024 : Range is 13 to 35 Years");
                 return false;
             } else {
                 mp02cb024.setError(null);
             }
 
 
-            if (mp02cb025.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb025), Toast.LENGTH_LONG).show();
-                mp02cb02504.setError("This data is Required!");    // Set Error on last radio button
+                  if (mp02cb025.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb025), Toast.LENGTH_LONG).show();
+                      mp02cb02577.setError("This data is Required!");    // Set Error on last radio button
 
-                Log.i(TAG, "mp02cb025: This data is Required!");
-                return false;
-            } else {
-                mp02cb02504.setError(null);
+                    Log.i(TAG, "mp02cb025 : This data is Required!");
+                    return false;
+                } else {
+                      mp02cb02577.setError(null);
+                }
+
+                if (mp02cb026.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb026), Toast.LENGTH_LONG).show();
+                    mp02cb02677.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cb025 : This data is Required!");
+                    return false;
+                } else {
+                    mp02cb02677.setError(null);
+                }
+
+                if (mp02cb027.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb027), Toast.LENGTH_LONG).show();
+                    mp02cb02777.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cb027: This data is Required!");
+                    return false;
+                } else {
+                    mp02cb02777.setError(null);
+                }
+
+                if (mp02cb028.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb028), Toast.LENGTH_LONG).show();
+                    mp02cb02802.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "mp02cb028: This data is Required!");
+                    return false;
+                } else {
+                    mp02cb02802.setError(null);
+                }
+
             }
-
-            if (mp02cb026.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb026), Toast.LENGTH_LONG).show();
-                mp02cb02604.setError("This data is Required!");    // Set Error on last radio button
-
-                Log.i(TAG, "mp02cb025: This data is Required!");
-                return false;
-            } else {
-                mp02cb02604.setError(null);
-            }
-
-            if (mp02cb027.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb027), Toast.LENGTH_LONG).show();
-                mp02cb02704.setError("This data is Required!");    // Set Error on last radio button
-
-                Log.i(TAG, "mp02cb027: This data is Required!");
-                return false;
-            } else {
-                mp02cb02704.setError(null);
-            }
-
-            if (mp02cb028.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb028), Toast.LENGTH_LONG).show();
-                mp02cb02802.setError("This data is Required!");    // Set Error on last radio button
-
-                Log.i(TAG, "mp02cb028: This data is Required!");
-                return false;
-            } else {
-                mp02cb02802.setError(null);
-            }
-
-
-        }
-
 
         return true;
     }
@@ -1342,5 +1572,17 @@ public class SectionCBActivity extends Activity {
     public void onBackPressed() {
         Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
+
+    public Date getDateFrom(String dateStr) {
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = null;
+        try {
+            date = df.parse(dateStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
 
 }

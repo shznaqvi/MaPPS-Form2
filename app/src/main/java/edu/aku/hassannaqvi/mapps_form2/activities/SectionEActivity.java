@@ -3,9 +3,9 @@ package edu.aku.hassannaqvi.mapps_form2.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -45,36 +45,35 @@ public class SectionEActivity extends Activity {
     RadioButton mp02e00201;
     @BindView(R.id.mp02e00202)
     RadioButton mp02e00202;
-    @BindView(R.id.mp02e003)
-    RadioGroup mp02e003;
     @BindView(R.id.mp02e00301)
-    RadioButton mp02e00301;
+    CheckBox mp02e00301;
     @BindView(R.id.mp02e00302)
-    RadioButton mp02e00302;
+    CheckBox mp02e00302;
     @BindView(R.id.mp02e00303)
-    RadioButton mp02e00303;
+    CheckBox mp02e00303;
     @BindView(R.id.mp02e00304)
-    RadioButton mp02e00304;
+    CheckBox mp02e00304;
+    @BindView(R.id.mp02e00305)
+    CheckBox mp02e00305;
     @BindView(R.id.mp02e00388)
-    RadioButton mp02e00388;
+    CheckBox mp02e00388;
     @BindView(R.id.mp02e00388x)
     EditText mp02e00388x;
     @BindView(R.id.fldGrpmp02e004)
     LinearLayout fldGrpmp02e004;
-    @BindView(R.id.mp02e004)
-    RadioGroup mp02e004;
     @BindView(R.id.mp02e00401)
-    RadioButton mp02e00401;
+    CheckBox mp02e00401;
     @BindView(R.id.mp02e00402)
-    RadioButton mp02e00402;
+    CheckBox mp02e00402;
     @BindView(R.id.mp02e00402x)
     EditText mp02e00402x;
     @BindView(R.id.mp02e00488)
-    RadioButton mp02e00488;
+    CheckBox mp02e00488;
     @BindView(R.id.mp02e00488x)
     EditText mp02e00488x;
-    @BindView(R.id.mp02e00305)
-    RadioButton mp02e00305;
+    @BindView(R.id.mp02e00301x)
+    EditText mp02e00301x;
+
 
 
     @Override
@@ -123,15 +122,47 @@ public class SectionEActivity extends Activity {
             }
         });
 
-        mp02e003.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+        mp02e00305.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                if (mp02e00305.isChecked()) {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mp02e00301.setEnabled(false);
+                    mp02e00301.setChecked(false);
+                    mp02e00302.setEnabled(false);
+                    mp02e00302.setChecked(false);
+                    mp02e00303.setEnabled(false);
+                    mp02e00303.setChecked(false);
+                    mp02e00304.setEnabled(false);
+                    mp02e00304.setChecked(false);
+                    mp02e00388.setEnabled(false);
+                    mp02e00388.setChecked(false);
+                    mp02e00388x.setText(null);
                     fldGrpmp02e004.setVisibility(View.GONE);
-                    mp02e004.clearCheck();
+                    mp02e00401.setChecked(false);
+                    mp02e00402.setChecked(false);
+                    mp02e00402x.setText(null);
+                    mp02e00488.setChecked(false);
                     mp02e00488x.setText(null);
                 } else {
                     fldGrpmp02e004.setVisibility(View.VISIBLE);
+                    mp02e00301.setEnabled(true);
+                    mp02e00302.setEnabled(true);
+                    mp02e00303.setEnabled(true);
+                    mp02e00304.setEnabled(true);
+                    mp02e00388.setEnabled(true);
+                }
+            }
+        });
+
+        mp02e00301.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mp02e00301x.setVisibility(View.VISIBLE);
+                } else {
+                    mp02e00301x.setVisibility(View.GONE);
+                    mp02e00301x.setText(null);
                 }
             }
         });
@@ -201,12 +232,12 @@ public class SectionEActivity extends Activity {
         } else {
             mp02e001.setError(null);
         }
-        if ((Double.parseDouble(mp02e001.getText().toString().isEmpty() ? "0" : mp02e001.getText().toString()) < 8)
-                || Double.parseDouble(mp02e001.getText().toString()) > 15.5) {
+        if ((Double.parseDouble(mp02e001.getText().toString().isEmpty() ? "0" : mp02e001.getText().toString()) < 4)
+                || Double.parseDouble(mp02e001.getText().toString()) > 20.0) {
             Toast.makeText(this, "Range:" + getString(R.string.mp02e001), Toast.LENGTH_SHORT).show();
-            mp02e001.setError("Range: 8.0 to 15.5 ");
+            mp02e001.setError("Range: 4.0 to 20.0 ");
 
-            Log.i(TAG, "mp02e001: Range: 8.0 to 15.5!");
+            Log.i(TAG, "mp02e001: Range: 4.0 to 20.0!");
             return false;
         } else {
             mp02e001.setError(null);
@@ -224,7 +255,7 @@ public class SectionEActivity extends Activity {
 
 //        2
         if (mp02e002.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "" + getString(R.string.mp02e002), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02e002), Toast.LENGTH_SHORT).show();
             mp02e00202.setError("This data is Required!");
 
             Log.i(TAG, "mp02e002: This Data is Required!");
@@ -233,14 +264,25 @@ public class SectionEActivity extends Activity {
             mp02e00202.setError(null);
         }
 
-        if (mp02e003.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "" + getString(R.string.mp02e003), Toast.LENGTH_SHORT).show();
+        if (!(mp02e00301.isChecked() || mp02e00302.isChecked() || mp02e00303.isChecked() || mp02e00304.isChecked()
+                || mp02e00305.isChecked() || mp02e00388.isChecked())) {
+            Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02e003), Toast.LENGTH_SHORT).show();
             mp02e00388.setError("This data is Required!");
 
             Log.i(TAG, "mp02e004: This Data is Required!");
             return false;
         } else {
             mp02e00388.setError(null);
+        }
+
+        if (mp02e00301.isChecked() && mp02e00301x.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02e003), Toast.LENGTH_SHORT).show();
+            mp02e00301x.setError("This data is Required!");
+
+            Log.i(TAG, "mp02e00301x: This Data is Required!");
+            return false;
+        } else {
+            mp02e00301x.setError(null);
         }
 
         if (mp02e00388.isChecked() && mp02e00388x.getText().toString().isEmpty()) {
@@ -254,8 +296,8 @@ public class SectionEActivity extends Activity {
         }
 
         if (!mp02e00305.isChecked()) {
-            if (mp02e004.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "" + getString(R.string.mp02e004), Toast.LENGTH_SHORT).show();
+            if (!(mp02e00401.isChecked() || mp02e00402.isChecked() || mp02e00488.isChecked())) {
+                Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02e004), Toast.LENGTH_SHORT).show();
                 mp02e00488.setError("This data is Required!");
 
                 Log.i(TAG, "mp02e004: This Data is Required!");
@@ -302,6 +344,7 @@ public class SectionEActivity extends Activity {
 
         sE.put("mp02e003", mp02e00301.isChecked() ? "1" : mp02e00302.isChecked() ? "2" : mp02e00303.isChecked() ? "3"
                 : mp02e00304.isChecked() ? "4" : mp02e00305.isChecked() ? "5" : mp02e00388.isChecked() ? "88" : "0");
+        sE.put("mp02e00301x", mp02e00301x.getText().toString());
         sE.put("mp02e00388x", mp02e00388x.getText().toString());
 
         sE.put("mp02e004", mp02e00401.isChecked() ? "1" : mp02e00402.isChecked() ? "2" : mp02e00488.isChecked() ? "88" : "0");

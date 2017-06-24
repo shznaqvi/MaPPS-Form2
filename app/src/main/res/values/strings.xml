@@ -13,7 +13,7 @@
 
     <!-- String related to form buttons -->
     <string name="end_interview"> اختتام </string>
-    <string name="start_interview"> انٹرویو شروع کریں </string>
+    <string name="start_interview"> انٽرويو شروع ڪريو </string>
 
     <!-- String related to section headings -->
     <string name="Seca"> معلومات براء سڃاڻپ </string>
@@ -40,7 +40,7 @@
     <string name="dkn">خبر ڪونهي</string>
     <string name="yes">ها</string>
     <string name="no">نه</string>
-    <string name="na">قابل اطلاق نہیں</string>
+    <string name="na">لاڳو نه ٿو ٿئي</string>
     <string name="male"> مرد </string>
     <string name="female"> عورت </string>
     <string name="year"> سال </string>
@@ -353,7 +353,7 @@
     <string name="mp02cb01904"> ٻيو ڪو رشتو </string>
     "<string name="mp02cb020"> ڇا توهان پنهنجي مڙس جي چونڊ ۾ پاڻ پسند جو ڪو اظهار ڪيو هو؟
     ڇا توهان جي شادي ۾ توهان جي مرضي شامل هئي </string>"
-    <string name="mp02cb021"> توهان جي عمر ڪيتري هئي جڏهن توهان پنهنجي مڙس سان شادي ڪئي هئي؟ </string>
+    <string name="mp02cb021"> توهان جي عمر ڪيتري هئي جڏهن توهان جي شادي ٿي هئي؟ </string>
     <string name="mp02cb021sub"> لکو 99 جيڪڏهن ڪابه خبر ناهي </string>
     <string name="mp02cb022"> توهان جي عمر ڪيتري هئي جڏهن توهان پنهنجي مڙس سان گڏ رهڻ شروع ڪيو؟ </string>
     <string name="mp02cb022sub"> لکو 99 جيڪڏهن ڪابه خبر ناهي </string>
@@ -453,6 +453,7 @@
     <string name="mp02cc026"> جيئن آء آهيان ان کي ٻيا شاگرد /شگردياڻيون قبول ڪن ٿا / ٿيون يا خوش آهن. </string>
     <string name="mp02cc027"> ڇا توهان چاهيو ٿا ته توهان اسڪول وڃو ها ؟ </string>
     <string name="mp02cc02703"> جواب ڏيڻ کان انڪار ڪيو </string>
+    <string name="mp02cc02704"> اسڪول وڃڻ ۾ دلچسپي نه هئي. </string>
     <string name="mp02cc028"> ڇا توهان ڪڏهن پنهنجي گهر وارن کي اعتماد ۾ وٺڻ جي ڪوشش ڪئي ته توهان کي اسڪول لاء اجازت ڏني وڃي ها ؟ </string>
     <string name="mp02cc02803"> جواب ڏيڻ کان انڪار ڪيو </string>
     <string name="mp02cc029"> توهان ڇا ٿا سمجهو ته اُهي ڪهڙا سبب ٿي سگهن ٿا جنهن جي ڪري توهان اسڪول نه وڃي سگهيا ؟ </string>
@@ -463,9 +464,9 @@
     <string name="mp02cc02905"> مڱڻي ي شادي جي ڪري </string>
     <string name="mp02cc02906"> پڙهائي جي خرچن جي ڪري </string>
     <string name="mp02cc02907"> گهر جي ڪمن ڪارين ۾ هٿ ونڊرائڻ جي ڪري </string>
-    <string name="mp02cc02908"> مون خود اسڪول وڃڻ نه پئي چاهيو </string>
-    <string name="mp02cc02909"> جواب ڏيڻ کان انڪار ڪيو </string>
-    <string name="mp02cc030"> اهو ڪنهن فيصلو ڪيو هئو ته توهان اسڪول نه وڃو؟ </string>
+    <string name="mp02cc02909"> شرڪت ڪندڙ پاڻ نه پئي چاهيو ته هو اسڪول وڃي </string>
+    <string name="mp02cc02908"> جواب ڏيڻ کان انڪار ڪيو </string>
+    <string name="mp02cc030"> اهو ڪنهن فيصلو ڪيو هئو ته توهان اسڪول وڃو يا نه وڃو؟ </string>
     <string name="mp02cc03001"> شرڪت ڪندڙ پاڻ </string>
     <string name="mp02cc03002"> ماء </string>
     <string name="mp02cc03003"> پيء </string>
@@ -528,7 +529,7 @@
     <string name="mp02cf00202"> ڀيڻ </string>
     <string name="mp02cf00203"> دوست </string>
     <string name="mp02cf00204"> استاد </string>
-    <string name="mp02cf00205"> Other Family member </string>
+    <string name="mp02cf00205"> ٻيو ڪو گهروارو </string>
     <string name="mp02cf003"> توهان جي عمر ڪيتري هئي جڏهن توهانکي پهريون دفعو ماهواري آئي هئي؟ </string>
     <string name="mp02cf003sub"> جيڪڏهن هن کي اڃا تائين ماهواري ناهي آئي ته 00 لکو. </string>
     <string name="mp02cf004"> توهان آخري ماهواري دوران جسم ۽ ڪپڙڻ کي صاف رکڻ لاء ڇا استعمال ڪيو؟ </string>
@@ -564,7 +565,7 @@
     <string name="mp02cf01004"> مڙس </string>
     <string name="mp02cf01005"> سسُ </string>
     <string name="mp02cf01006"> ڀيڻ </string>
-    <string name="mp02cf01007"> Other family member </string>
+    <string name="mp02cf01007"> ٻيو ڪو گهر وارو </string>
     <string name="mp02cf011"> توهان سينيٽري پيڊ ڇو استعمال نٿا ڪيو؟ </string>
     <string name="mp02cf01101"> اهي تمام مهانگا آهن </string>
     <string name="mp02cf01102"> مون کي خبر ناهي ته اهي ڇا آهن </string>
@@ -776,8 +777,8 @@
     <string name="mp02ci"> ذهني صحت </string>
     <string name="mp02cisub"> وڏي آوز ۾ پڙهو ؛ بس هي آخري سوال آهن جنهن ۾ توهان کان پڇيو ويندو توهان مختلف شين جي باري ۾ ڇا ٿا محسوس ڪريو </string>
     <string name="mp02cia"> ذهني دٻاءُ جو درجو </string>
-    "<string name="mp02ciasub"> هيٺ ڏنل بيانن کي توهان ڪيئن محسوس ڪر يو ٿا؟
-    ( پنهنجي خاندان بابت راء ڏيو ) </string>"
+    <string name="mp02ciasub"> هيٺ ڏنل بيانن کي توهان ڪيئن محسوس ڪر يو ٿا؟
+    ( پنهنجي خاندان بابت راء ڏيو ) </string>
     <string name="mp02ciasubnever"> ڪڏهن به نه </string>
     <string name="mp02ciasubalmostno"> اڪثر نه </string>
     <string name="mp02ciasubsometimes"> ڪڌهن ڪڌهن </string>
@@ -826,42 +827,42 @@
     <string name="mp02cic002sub"> وڏي آواز ۾ پڙهو؛ جيڪي زال مڙس پاڻ ۾ تمام خوش هوندا آهن ، ڪيترن ئي مسئلن تي هڪٻئي کان ناراض به ٿيندا آهن، هڪٻئي کان خفا هوندا آهن، هڪٻئي کان مختلف شين جي توقعه رکندا آهن، يا ته ڪڏهن خراب رويي ، يا ٿڪاوٽ يا ٻي ڪنهن سبب جي ڪري وڙهندا آهن. زال ۽ مڙس وٽ اهڙا ڪئي مختلف حل هوندا آهن جن سان هو پنهنجا مسئلا حل ڪندا آهن.
     ڪجهه اهڙن مسئلن جي لسٽ هيٺ ڏجي ٿي جيڪي اختلافن جي ڪري ٿي سگھن ٿا
     مهرباني ڪري ڌيان سان ٻڌو ۽ ٻڌايو ته هيٺ ڏنل ڪهڙو عمل توهان جي مڙس توهان سان گذريل 12 مهينن ۾ڪيترا دفعا ڪيو آهي. </string>
-    <string name="mp02cic002"> گذريل 12 مهينن ۾منهنجي مڙس پنهنجي / ڳالهه واضع ٻڌائي ۽ ناراضگي ختم ڪرڻ ۽ صُلح جي جي لاء چيو. </string>
+    <string name="mp02cic002"> گذريل 12 مهينن ۾ توهان جي مڙس پنهنجي / ڳالهه واضع ٻڌائي ۽ ناراضگي ختم ڪرڻ ۽ صُلح جي جي لاء چيو. </string>
     <string name="mp02cic00201"> ڪڏهن به نه </string>
     <string name="mp02cic00202"> 1 يا 2 دفعه </string>
     <string name="mp02cic00203"> 3 يا وڌيڪ </string>
     <string name="mp02cic00204"> جواب ڏيڻ کان انڪار ڪيو </string>
-    <string name="mp02cic003"> گذريل 12 مهينن ۾ منهنجي مڙس منهنجي بي عزتي ڪئي يا مون تي دانهون يا رڙيون ڪيون. </string>
+    <string name="mp02cic003"> گذريل 12 مهينن ۾ توهان جي مڙس توهان جي بي عزتي ڪئي يا توهان تي دانهون يا رڙيون ڪيون. </string>
     <string name="mp02cic00301"> ڪڏهن به نه </string>
     <string name="mp02cic00302"> 1 يا 2 دفعه </string>
     <string name="mp02cic00303"> 3 يا وڌيڪ </string>
     <string name="mp02cic00304"> جواب ڏيڻ کان انڪارڪيو </string>
-    <string name="mp02cic004"> گذريل 12 مهينن ۾منهنجي مڙس سان جھيڙي جي ڪري جسم جي ڪنهن حصي ۾ رهڙ يا عضوي ۾ مروٽ آئي ۽ ان ڪري جھيڙي جي ٻئي ڏيهن تي سور رهيو. </string>
+    <string name="mp02cic004"> گذريل 12 مهينن ۾ توهان جي مڙس سان جھيڙي جي ڪري جسم جي ڪنهن حصي ۾ رهڙ يا عضوي ۾ مروٽ آئي ۽ ان ڪري جھيڙي جي ٻئي ڏيهن تي سور رهيو. </string>
     <string name="mp02cic00401"> ڪڏهن به نه </string>
     <string name="mp02cic00402"> 1يا 2 دفعه </string>
     <string name="mp02cic00403"> 3 يا وڌيڪ </string>
     <string name="mp02cic00404"> جواب ڏيڻ کان انڪارڪيو </string>
-    <string name="mp02cic005"> گذريل 12 مهينن ۾ ڪو اهڙو معاملو جنهن ۾ اسان جو اختلاف هُئو ان ۾ منهنجي مڙس منهنجي عزت ۽ احساس ڪيو </string>
+    <string name="mp02cic005"> گذريل 12 مهينن ۾ ڪو اهڙو معاملو جنهن ۾ توهان جو اختلاف هُئو ان ۾ توهان جي مڙس توهان جي عزت ۽ احساس ڪيو </string>
     <string name="mp02cic00501"> ڪڏهن به نه </string>
     <string name="mp02cic00502"> 1يا 2 دفعه </string>
     <string name="mp02cic00503">  3 يا وڌيڪ </string>
     <string name="mp02cic00504"> جواب ڏيڻ کان انڪارڪيو </string>
-    <string name="mp02cic006"> گذريل 12 مهينن ۾منهنجي مڙس مونکي ٿيلا ، ڌڪا يا ٿپڙون هنيون. </string>
+    <string name="mp02cic006"> گذريل 12 مهينن ۾توهان جي مڙس توهان کي ٿيلا ، ڌڪا يا ٿپڙون هنيون. </string>
     <string name="mp02cic00601"> ڪڏهن به نه </string>
     <string name="mp02cic00602"> 1 يا 2 دفعه </string>
     <string name="mp02cic00603"> 3 يا وڌيڪ </string>
     <string name="mp02cic00604"> جواب ڏيڻ کان انڪارڪيو </string>
-    <string name="mp02cic007"> گذريل 12 مهينن ۾منهنجي مڙس منهنجي ڪنهن شيءِ کي ٽوڙي ڇڏيو يا مون کي ڌمڪايو ته ماريندس. </string>
+    <string name="mp02cic007"> گذريل 12 مهينن ۾توهان جي مڙس توهان جي ڪنهن شيءِ کي ٽوڙي ڇڏيو يا توهان کي ڌمڪايو ته ماريندس. </string>
     <string name="mp02cic00701"> ڪڏهن به نه </string>
     <string name="mp02cic00702"> 1 يا 2 دفعه </string>
     <string name="mp02cic00703"> 3 يا وڌيڪ </string>
     <string name="mp02cic00704"> جواب ڏيڻ کان انڪارڪيو </string>
-    <string name="mp02cic008"> گذريڪ 12 مهينن ۾ منهنجي مڙس مونکي مڪون، يا لتون يا موچڙا ڏنا. </string>
+    <string name="mp02cic008"> گذريڪ 12 مهينن ۾ توهان جي مڙس توهان کي مڪون، يا لتون يا موچڙا ڏنا. </string>
     <string name="mp02cic00801"> ڪڏهن به نه </string>
     <string name="mp02cic00802"> 1 يا 2 دفعه </string>
     <string name="mp02cic00803"> 3 يا وڌيڪ </string>
     <string name="mp02cic00804"> جواب ڏيڻ کان انڪارڪيو </string>
-    <string name="mp02cic009"> گذريل 12 مهينن ۾جهيڙي کان پوء مون کي ڊاڪٽر کي ڏيکارڻ جي ضرورت پئي يا ڏيکاريو ؟ </string>
+    <string name="mp02cic009"> گذريل 12 مهينن ۾جهيڙي کان پوء توهان کي ڊاڪٽر کي ڏيکارڻ جي ضرورت پئي يا ڏيکاريو ؟ </string>
     <string name="mp02cic00901"> ڪڏهن به نه </string>
     <string name="mp02cic00902"> 1 يا 2 دفعه </string>
     <string name="mp02cic00903"> 3 يا وڌيڪ </string>

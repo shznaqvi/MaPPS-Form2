@@ -42,6 +42,8 @@ public class SectionCICActivity extends Activity {
     RadioButton mp02cic00101;
     @BindView(R.id.mp02cic00102)
     RadioButton mp02cic00102;
+    @BindView(R.id.fldGrpmp02cic002)
+    LinearLayout fldGrpmp02cic002;
     @BindView(R.id.mp02cic002)
     RadioGroup mp02cic002;
     @BindView(R.id.mp02cic00201)
@@ -52,6 +54,8 @@ public class SectionCICActivity extends Activity {
     RadioButton mp02cic00203;
     @BindView(R.id.mp02cic00204)
     RadioButton mp02cic00204;
+    @BindView(R.id.mp02cic00277)
+    RadioButton mp02cic00277;
     @BindView(R.id.mp02cic003)
     RadioGroup mp02cic003;
     @BindView(R.id.mp02cic00301)
@@ -62,6 +66,8 @@ public class SectionCICActivity extends Activity {
     RadioButton mp02cic00303;
     @BindView(R.id.mp02cic00304)
     RadioButton mp02cic00304;
+    @BindView(R.id.mp02cic00377)
+    RadioButton mp02cic00377;
     @BindView(R.id.mp02cic004)
     RadioGroup mp02cic004;
     @BindView(R.id.mp02cic00401)
@@ -72,6 +78,8 @@ public class SectionCICActivity extends Activity {
     RadioButton mp02cic00403;
     @BindView(R.id.mp02cic00404)
     RadioButton mp02cic00404;
+    @BindView(R.id.mp02cic00477)
+    RadioButton mp02cic00477;
     @BindView(R.id.mp02cic005)
     RadioGroup mp02cic005;
     @BindView(R.id.mp02cic00501)
@@ -82,6 +90,8 @@ public class SectionCICActivity extends Activity {
     RadioButton mp02cic00503;
     @BindView(R.id.mp02cic00504)
     RadioButton mp02cic00504;
+    @BindView(R.id.mp02cic00577)
+    RadioButton mp02cic00577;
     @BindView(R.id.mp02cic006)
     RadioGroup mp02cic006;
     @BindView(R.id.mp02cic00601)
@@ -92,6 +102,8 @@ public class SectionCICActivity extends Activity {
     RadioButton mp02cic00603;
     @BindView(R.id.mp02cic00604)
     RadioButton mp02cic00604;
+    @BindView(R.id.mp02cic00677)
+    RadioButton mp02cic00677;
     @BindView(R.id.mp02cic007)
     RadioGroup mp02cic007;
     @BindView(R.id.mp02cic00701)
@@ -102,6 +114,8 @@ public class SectionCICActivity extends Activity {
     RadioButton mp02cic00703;
     @BindView(R.id.mp02cic00704)
     RadioButton mp02cic00704;
+    @BindView(R.id.mp02cic00777)
+    RadioButton mp02cic00777;
     @BindView(R.id.mp02cic008)
     RadioGroup mp02cic008;
     @BindView(R.id.mp02cic00801)
@@ -112,6 +126,8 @@ public class SectionCICActivity extends Activity {
     RadioButton mp02cic00803;
     @BindView(R.id.mp02cic00804)
     RadioButton mp02cic00804;
+    @BindView(R.id.mp02cic00877)
+    RadioButton mp02cic00877;
     @BindView(R.id.mp02cic009)
     RadioGroup mp02cic009;
     @BindView(R.id.mp02cic00901)
@@ -122,6 +138,8 @@ public class SectionCICActivity extends Activity {
     RadioButton mp02cic00903;
     @BindView(R.id.mp02cic00904)
     RadioButton mp02cic00904;
+    @BindView(R.id.mp02cic00977)
+    RadioButton mp02cic00977;
     @BindView(R.id.mp02cic010)
     RadioGroup mp02cic010;
     @BindView(R.id.mp02cic01001)
@@ -130,6 +148,8 @@ public class SectionCICActivity extends Activity {
     RadioButton mp02cic01002;
     @BindView(R.id.mp02cic01003)
     RadioButton mp02cic01003;
+    @BindView(R.id.fldGrpmp02cic011)
+    LinearLayout fldGrpmp02cic011;
     @BindView(R.id.mp02cic01101)
     CheckBox mp02cic01101;
     @BindView(R.id.mp02cic01102)
@@ -169,26 +189,18 @@ public class SectionCICActivity extends Activity {
     @BindView(R.id.mp02cic01203)
     RadioButton mp02cic01203;
 
-    @BindView(R.id.fldGrpmp02cic002)
-    LinearLayout fldGrpmp02cic002;
-    @BindView(R.id.fldGrpmp02cic011)
-    LinearLayout fldGrpmp02cic011;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_cic);
         ButterKnife.bind(this);
 
-        mp02cic00101.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b){
+
+        if (AppMain.maritalStatus == 1) {
                     fldGrpmp02cic002.setVisibility(View.VISIBLE);
 
                 }else {
                     fldGrpmp02cic002.setVisibility(View.GONE);
-
                     mp02cic002.clearCheck();
                     mp02cic003.clearCheck();
                     mp02cic004.clearCheck();
@@ -198,8 +210,7 @@ public class SectionCICActivity extends Activity {
                     mp02cic008.clearCheck();
                     mp02cic009.clearCheck();
                 }
-            }
-        });
+
 
         mp02cic01001.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -239,6 +250,20 @@ public class SectionCICActivity extends Activity {
                 }
             }
         });
+
+        if (AppMain.maritalStatus == 5) {
+            mp02cic01108.setEnabled(false);
+            mp02cic01108.setChecked(false);
+            mp02cic01109.setEnabled(false);
+            mp02cic01109.setChecked(false);
+            mp02cic01110.setEnabled(false);
+            mp02cic01110.setChecked(false);
+        } else {
+            mp02cic01108.setEnabled(true);
+            mp02cic01109.setEnabled(true);
+            mp02cic01110.setEnabled(true);
+
+        }
 
     }
 
@@ -291,7 +316,7 @@ public class SectionCICActivity extends Activity {
     public boolean ValidateForm() {
 
 //        1
-        if (mp02cic001.getCheckedRadioButtonId() == -1) {
+        /*if (mp02cic001.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cic001), Toast.LENGTH_SHORT).show();
             mp02cic00102.setError("This data is Required!");
 
@@ -300,98 +325,98 @@ public class SectionCICActivity extends Activity {
             return false;
         } else {
             mp02cic00102.setError(null);
-        }
+        }*/
 
 //        Skip
-        if (mp02cic00101.isChecked()) {
+        if (AppMain.maritalStatus == 1) {
 
 
 //            2
             if (mp02cic002.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cic002), Toast.LENGTH_SHORT).show();
-                mp02cic00204.setError("This data is Required!");
+                mp02cic00277.setError("This data is Required!");
 
                 Log.i(TAG, "mp02cib002: This data is Required!");
                 return false;
             } else {
-                mp02cic00204.setError(null);
+                mp02cic00277.setError(null);
             }
 
 //            3
             if (mp02cic003.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cic003), Toast.LENGTH_SHORT).show();
-                mp02cic00304.setError("This data is Required!");
+                mp02cic00377.setError("This data is Required!");
 
                 Log.i(TAG, "mp02cib003: This data is Required!");
                 return false;
             } else {
-                mp02cic00304.setError(null);
+                mp02cic00377.setError(null);
             }
 
 //            4
             if (mp02cic004.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cic004), Toast.LENGTH_SHORT).show();
-                mp02cic00404.setError("This data is Required!");
+                mp02cic00477.setError("This data is Required!");
 
                 Log.i(TAG, "mp02cib004: This data is Required!");
                 return false;
             } else {
-                mp02cic00404.setError(null);
+                mp02cic00477.setError(null);
             }
 
 //            5
             if (mp02cic005.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cic005), Toast.LENGTH_SHORT).show();
-                mp02cic00504.setError("This data is Required!");
+                mp02cic00577.setError("This data is Required!");
 
                 Log.i(TAG, "mp02cib005: This data is Required!");
                 return false;
             } else {
-                mp02cic00504.setError(null);
+                mp02cic00577.setError(null);
             }
 
 //            6
             if (mp02cic006.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cic006), Toast.LENGTH_SHORT).show();
-                mp02cic00604.setError("This data is Required!");
+                mp02cic00677.setError("This data is Required!");
 
                 Log.i(TAG, "mp02cib006: This data is Required!");
                 return false;
             } else {
-                mp02cic00604.setError(null);
+                mp02cic00677.setError(null);
             }
 
 //            7
             if (mp02cic007.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cic007), Toast.LENGTH_SHORT).show();
-                mp02cic00704.setError("This data is Required!");
+                mp02cic00777.setError("This data is Required!");
 
                 Log.i(TAG, "mp02cib007: This data is Required!");
                 return false;
             } else {
-                mp02cic00704.setError(null);
+                mp02cic00777.setError(null);
             }
 
 //            8
             if (mp02cic008.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cic008), Toast.LENGTH_SHORT).show();
-                mp02cic00804.setError("This data is Required!");
+                mp02cic00877.setError("This data is Required!");
 
                 Log.i(TAG, "mp02cib008: This data is Required!");
                 return false;
             } else {
-                mp02cic00804.setError(null);
+                mp02cic00877.setError(null);
             }
 
 //            9
             if (mp02cic009.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02cic009), Toast.LENGTH_SHORT).show();
-                mp02cic00904.setError("This data is Required!");
+                mp02cic00977.setError("This data is Required!");
 
                 Log.i(TAG, "mp02cib009: This data is Required!");
                 return false;
             } else {
-                mp02cic00904.setError(null);
+                mp02cic00977.setError(null);
             }
         }
 
@@ -471,24 +496,27 @@ public class SectionCICActivity extends Activity {
 
         JSONObject SCIC = new JSONObject();
 
-        SCIC.put("mp02cic001", mp02cic00101.isChecked() ? "1" : mp02cic00102.isChecked() ? "2" : "0");
-
+        if (AppMain.maritalStatus == 1) {
+            SCIC.put("mp02cic001", 1);
+        } else {
+            SCIC.put("mp02cic001", 2);
+        }
         SCIC.put("mp02cic002", mp02cic00201.isChecked() ? "1" : mp02cic00202.isChecked() ? "2" : mp02cic00203.isChecked() ? "3"
-                : mp02cic00204.isChecked() ? "4" : "0");
+                : mp02cic00204.isChecked() ? "4" : mp02cic00277.isChecked() ? "77" : "0");
         SCIC.put("mp02cic003", mp02cic00301.isChecked() ? "1" : mp02cic00302.isChecked() ? "2" : mp02cic00303.isChecked() ? "3"
-                : mp02cic00304.isChecked() ? "4" : "0");
+                : mp02cic00304.isChecked() ? "4" : mp02cic00377.isChecked() ? "77" : "0");
         SCIC.put("mp02cic004", mp02cic00401.isChecked() ? "1" : mp02cic00402.isChecked() ? "2" : mp02cic00403.isChecked() ? "3"
-                : mp02cic00404.isChecked() ? "4" : "0");
+                : mp02cic00404.isChecked() ? "4" : mp02cic00477.isChecked() ? "77" : "0");
         SCIC.put("mp02cic005", mp02cic00501.isChecked() ? "1" : mp02cic00502.isChecked() ? "2" : mp02cic00503.isChecked() ? "3"
-                : mp02cic00504.isChecked() ? "4" : "0");
+                : mp02cic00504.isChecked() ? "4" : mp02cic00577.isChecked() ? "77" : "0");
         SCIC.put("mp02cic006", mp02cic00601.isChecked() ? "1" : mp02cic00602.isChecked() ? "2" : mp02cic00603.isChecked() ? "3"
-                : mp02cic00604.isChecked() ? "4" : "0");
+                : mp02cic00604.isChecked() ? "4" : mp02cic00677.isChecked() ? "77" : "0");
         SCIC.put("mp02cic007", mp02cic00701.isChecked() ? "1" : mp02cic00702.isChecked() ? "2" : mp02cic00703.isChecked() ? "3"
-                : mp02cic00704.isChecked() ? "4" : "0");
+                : mp02cic00704.isChecked() ? "4" : mp02cic00777.isChecked() ? "77" : "0");
         SCIC.put("mp02cic008", mp02cic00801.isChecked() ? "1" : mp02cic00802.isChecked() ? "2" : mp02cic00803.isChecked() ? "3"
-                : mp02cic00804.isChecked() ? "4" : "0");
+                : mp02cic00804.isChecked() ? "4" : mp02cic00877.isChecked() ? "77" : "0");
         SCIC.put("mp02cic009", mp02cic00901.isChecked() ? "1" : mp02cic00902.isChecked() ? "2" : mp02cic00903.isChecked() ? "3"
-                : mp02cic00904.isChecked() ? "4" : "0");
+                : mp02cic00904.isChecked() ? "4" : mp02cic00977.isChecked() ? "77" : "0");
 
         SCIC.put("mp02cic010", mp02cic01001.isChecked() ? "1" : mp02cic01002.isChecked() ? "2" : "0");
 

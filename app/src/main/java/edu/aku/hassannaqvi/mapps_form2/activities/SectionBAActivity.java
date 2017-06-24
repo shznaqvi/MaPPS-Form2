@@ -236,18 +236,16 @@ public class SectionBAActivity extends Activity {
     RadioButton mp02ba01002;
     @BindView(R.id.mp02ba011)
     EditText mp02ba011;
-    @BindView(R.id.mp02ba012)
-    RadioGroup mp02ba012;
     @BindView(R.id.mp02ba01201)
-    RadioButton mp02ba01201;
+    CheckBox mp02ba01201;
     @BindView(R.id.mp02ba01202)
-    RadioButton mp02ba01202;
+    CheckBox mp02ba01202;
     @BindView(R.id.mp02ba01203)
-    RadioButton mp02ba01203;
+    CheckBox mp02ba01203;
     @BindView(R.id.mp02ba01204)
-    RadioButton mp02ba01204;
+    CheckBox mp02ba01204;
     @BindView(R.id.mp02ba01288)
-    RadioButton mp02ba01288;
+    CheckBox mp02ba01288;
     @BindView(R.id.mp02ba01288x)
     EditText mp02ba01288x;
     @BindView(R.id.mp02ba01301)
@@ -775,7 +773,8 @@ public class SectionBAActivity extends Activity {
             mp02ba006.setError(null);
         }
 
-        if (Integer.parseInt(mp02ba006.getText().toString()) < 1 || Integer.parseInt(mp02ba006.getText().toString()) > 20) {
+        if (Integer.parseInt(mp02ba006.getText().toString().isEmpty() ? "0" : mp02ba006.getText().toString()) < 1
+                || Integer.parseInt(mp02ba006.getText().toString().isEmpty() ? "0" : mp02ba006.getText().toString()) > 20) {
             Toast.makeText(this, "Invalid" + getString(R.string.mp02ba006), Toast.LENGTH_SHORT).show();
             mp02ba006.setError("Invalid: Cant be less than 1");
 
@@ -873,7 +872,7 @@ public class SectionBAActivity extends Activity {
                     mp02ba011.setError(null);
                 }
 
-                if (Integer.parseInt(mp02ba011.getText().toString()) < 1) {
+                if (Integer.parseInt(mp02ba011.getText().toString().isEmpty() ? "0" : mp02ba011.getText().toString()) < 1) {
                     Toast.makeText(this, "Invalid:" + getString(R.string.mp02ba011), Toast.LENGTH_SHORT).show();
                     mp02ba011.setError("Invalid: Greater than 0");
 
@@ -886,7 +885,8 @@ public class SectionBAActivity extends Activity {
         }
 
 //        26
-        if (mp02ba012.getCheckedRadioButtonId() == -1) {
+        if (!(mp02ba01201.isChecked() || mp02ba01202.isChecked() || mp02ba01203.isChecked() || mp02ba01204.isChecked()
+                || mp02ba01288.isChecked())) {
             Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02ba012), Toast.LENGTH_SHORT).show();
             mp02ba01288.setError("This data is Required!");
 
@@ -1096,9 +1096,11 @@ public class SectionBAActivity extends Activity {
 
         sBA.put("mp02ba011", mp02ba011.getText().toString());
 
-        sBA.put("mp02ba012", mp02ba01201.isChecked() ? "1" : mp02ba01202.isChecked() ? "2"
-                :mp02ba01203.isChecked() ? "3" : mp02ba01204.isChecked() ? "4"
-                : mp02ba01288.isChecked() ? "88" : "0");
+        sBA.put("mp02ba01201", mp02ba01201.isChecked() ? "1" : "0");
+        sBA.put("mp02ba01203", mp02ba01202.isChecked() ? "2" : "0");
+        sBA.put("mp02ba01203", mp02ba01203.isChecked() ? "3" : "0");
+        sBA.put("mp02ba01204", mp02ba01204.isChecked() ? "4" : "0");
+        sBA.put("mp02ba01288", mp02ba01288.isChecked() ? "88" : "0");
 
         // Checkbox
         sBA.put("mp02ba01301", mp02ba01301.isChecked() ? "1" : "0");
