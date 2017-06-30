@@ -1063,7 +1063,7 @@ public class SectionBAActivity extends Activity {
                 : mp02ba00413.isChecked() ? "13" : mp02ba00488.isChecked() ? "88" : "0");
         sBA.put("mp02ba00488x", mp02ba00488x.getText().toString());
 
-        sBA.put("mp02ba004", mp02ba00501.isChecked() ? "1" : mp02ba00502.isChecked() ? "2": mp02ba00503.isChecked() ? "3"
+        sBA.put("mp02ba005", mp02ba00501.isChecked() ? "1" : mp02ba00502.isChecked() ? "2" : mp02ba00503.isChecked() ? "3"
                 : mp02ba00504.isChecked() ? "4" : mp02ba00505.isChecked() ? "5" : mp02ba00506.isChecked() ? "6"
                 : mp02ba00507.isChecked() ? "7" : mp02ba00508.isChecked() ? "8" : mp02ba00509.isChecked() ? "9"
                 : mp02ba00510.isChecked() ? "10" : mp02ba00511.isChecked() ? "11" : mp02ba00512.isChecked() ? "12"
