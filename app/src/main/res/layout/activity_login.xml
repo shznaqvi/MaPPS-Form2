@@ -28,7 +28,10 @@
             android:id="@+id/email_login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="72dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginBottom="40dp"
             android:orientation="vertical">
 
             <TextView
@@ -36,17 +39,16 @@
                 android:layout_height="wrap_content"
                 android:elevation="1dp"
                 android:gravity="center_horizontal"
-
                 android:keepScreenOn="true"
                 android:text="@string/app_name"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/green"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
+                android:layout_marginTop="18dp"
                 android:background="#efefef"
                 android:gravity="center_horizontal"
                 android:text="A Project of"
@@ -71,11 +73,11 @@
                 android:hint="User1 Username"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
-                android:padding="4px"
+                android:padding="2px"
                 android:singleLine="true"
                 android:textAlignment="center"
                 android:textColor="#efefef"
-                android:textSize="20sp" />
+                android:textSize="22sp" />
             <!--android:text="dmu@aku"-->
 
 
@@ -83,7 +85,7 @@
                 android:id="@+id/password1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="10dp"
                 android:hint="@string/prompt_password"
                 android:imeActionId="@+id/login"
                 android:imeActionLabel="@string/action_sign_in_short"
@@ -92,7 +94,7 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textSize="25sp" />
             <!--android:text="aku?dmu"-->
 
 
@@ -105,11 +107,11 @@
                 android:hint="User2 Username"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
-                android:padding="4px"
+                android:padding="2px"
                 android:singleLine="true"
                 android:textAlignment="center"
                 android:textColor="#efefef"
-                android:textSize="20sp" />
+                android:textSize="22sp" />
             <!--android:text="test1234"-->
 
 
@@ -117,7 +119,7 @@
                 android:id="@+id/password2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="10dp"
                 android:hint="@string/prompt_password"
                 android:imeActionId="@+id/login"
                 android:imeActionLabel="@string/action_sign_in_short"
@@ -126,7 +128,7 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textSize="25sp" />
             <!--android:text="test1234"-->
 
 
@@ -139,7 +141,7 @@
                     android:id="@+id/spUC"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
+                    android:layout_marginTop="10dp"
                     android:layout_weight="35"
                     android:gravity="center"
                     android:popupBackground="#ffffff" />
