@@ -243,10 +243,10 @@ public class SectionCHActivity extends Activity {
             }
         });
 
-        mp02ch00501.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mp02ch005.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (mp02ch00501.isChecked()) {
                     fldGrpmp02ch006.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpmp02ch006.setVisibility(View.GONE);
@@ -257,10 +257,12 @@ public class SectionCHActivity extends Activity {
                     mp02ch00802.setChecked(false);
                     mp02ch00803.setChecked(false);
                     mp02ch00804.setChecked(false);
+                    mp02ch00888.setChecked(false);
                     mp02ch00888x.setText(null);
                 }
             }
         });
+
 
 
         mp02ch009.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -297,6 +299,7 @@ public class SectionCHActivity extends Activity {
                     mp02ch01602.setChecked(false);
                     mp02ch01603.setChecked(false);
                     mp02ch01604.setChecked(false);
+                    mp02ch01688.setChecked(false);
                     mp02ch01688x.setText(null);
                 }
             }
@@ -892,8 +895,11 @@ public class SectionCHActivity extends Activity {
         sch.put("mp02ch00701", mp02ch00701.getText().toString());
         sch.put("mp02ch00702", mp02ch00702.getText().toString());
 
-        sch.put("mp02ch008", mp02ch00801.isChecked() ? "1" : mp02ch00802.isChecked() ? "2" : mp02ch00803.isChecked() ? "3"
-                : mp02ch00804.isChecked() ? "4" : mp02ch00888.isChecked() ? "88" : "0");
+        sch.put("mp02ch00801", mp02ch00801.isChecked() ? "1" : "0");
+        sch.put("mp02ch00802", mp02ch00802.isChecked() ? "2" : "0");
+        sch.put("mp02ch00803", mp02ch00803.isChecked() ? "3" : "0");
+        sch.put("mp02ch00804", mp02ch00804.isChecked() ? "4" : "0");
+        sch.put("mp02ch00888", mp02ch00888.isChecked() ? "88" : "0");
         sch.put("mp02ch00888x", mp02ch00888x.getText().toString());
 
         sch.put("mp02ch009", mp02ch00901.isChecked() ? "1" : mp02ch00902.isChecked() ? "2" : "0");
@@ -920,8 +926,11 @@ public class SectionCHActivity extends Activity {
         sch.put("mp02ch01501", mp02ch01501.getText().toString());
         sch.put("mp02ch01502", mp02ch01502.getText().toString());
 
-        sch.put("mp02ch016", mp02ch01601.isChecked() ? "1" : mp02ch01602.isChecked() ? "2" : mp02ch01603.isChecked() ? "3"
-                : mp02ch01604.isChecked() ? "4" : mp02ch01688.isChecked() ? "88" : "0");
+        sch.put("mp02ch01601", mp02ch01601.isChecked() ? "1" : "0");
+        sch.put("mp02ch01602", mp02ch01602.isChecked() ? "2" : "0");
+        sch.put("mp02ch01603", mp02ch01603.isChecked() ? "3" : "0");
+        sch.put("mp02ch01604", mp02ch01604.isChecked() ? "4" : "0");
+        sch.put("mp02ch01688", mp02ch01688.isChecked() ? "88" : "0");
         sch.put("mp02ch01688x", mp02ch01688x.getText().toString());
 
         AppMain.pc.setsCH(String.valueOf(sch));

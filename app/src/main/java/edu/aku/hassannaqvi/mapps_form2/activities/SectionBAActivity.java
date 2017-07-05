@@ -1097,11 +1097,11 @@ public class SectionBAActivity extends Activity {
         sBA.put("mp02ba011", mp02ba011.getText().toString());
 
         sBA.put("mp02ba01201", mp02ba01201.isChecked() ? "1" : "0");
-        sBA.put("mp02ba01203", mp02ba01202.isChecked() ? "2" : "0");
+        sBA.put("mp02ba01202", mp02ba01202.isChecked() ? "2" : "0");
         sBA.put("mp02ba01203", mp02ba01203.isChecked() ? "3" : "0");
         sBA.put("mp02ba01204", mp02ba01204.isChecked() ? "4" : "0");
         sBA.put("mp02ba01288", mp02ba01288.isChecked() ? "88" : "0");
-
+        sBA.put("mp02ba01288x", mp02ba01288x.getText().toString());
         // Checkbox
         sBA.put("mp02ba01301", mp02ba01301.isChecked() ? "1" : "0");
         sBA.put("mp02ba01302", mp02ba01302.isChecked() ? "1" : "0");

@@ -314,6 +314,7 @@ public class SectionCEActivity extends Activity {
         sCE.put("mp02ce00177", mp02ce00177.isChecked() ? "77" : "0");
         sCE.put("mp02ce00106", mp02ce00106.isChecked() ? "6" : "0");
         sCE.put("mp02ce00188", mp02ce00188.isChecked() ? "88" : "0");
+        sCE.put("mp02ce00188x", mp02ce00188x.getText().toString());
 
         sCE.put("mp02ce00201", mp02ce00201.isChecked() ? "1" : "0");
         sCE.put("mp02ce00202", mp02ce00202.isChecked() ? "2" : "0");
@@ -322,6 +323,7 @@ public class SectionCEActivity extends Activity {
         sCE.put("mp02ce00277", mp02ce00277.isChecked() ? "77" : "0");
         sCE.put("mp02ce00206", mp02ce00206.isChecked() ? "6" : "0");
         sCE.put("mp02ce00288", mp02ce00288.isChecked() ? "88" : "0");
+        sCE.put("mp02ce00288x", mp02ce00288x.getText().toString());
 
         sCE.put("mp02ce00301", mp02ce00301.isChecked() ? "1" : "0");
         sCE.put("mp02ce00302", mp02ce00302.isChecked() ? "2" : "0");
@@ -330,6 +332,7 @@ public class SectionCEActivity extends Activity {
         sCE.put("mp02ce00377", mp02ce00377.isChecked() ? "77" : "0");
         sCE.put("mp02ce00306", mp02ce00306.isChecked() ? "6" : "0");
         sCE.put("mp02ce00388", mp02ce00388.isChecked() ? "88" : "0");
+        sCE.put("mp02ce00388x", mp02ce00388x.getText().toString());
 
         sCE.put("mp02ce00401", mp02ce00401.isChecked() ? "1" : "0");
         sCE.put("mp02ce00402", mp02ce00402.isChecked() ? "2" : "0");
@@ -338,6 +341,7 @@ public class SectionCEActivity extends Activity {
         sCE.put("mp02ce00477", mp02ce00477.isChecked() ? "77" : "0");
         sCE.put("mp02ce00406", mp02ce00406.isChecked() ? "6" : "0");
         sCE.put("mp02ce00488", mp02ce00488.isChecked() ? "88" : "0");
+        sCE.put("mp02ce00488x", mp02ce00488x.getText().toString());
 
         sCE.put("mp02ce07701", mp02ce00501.isChecked() ? "1" : "0");
         sCE.put("mp02ce00502", mp02ce00502.isChecked() ? "2" : "0");
@@ -346,6 +350,7 @@ public class SectionCEActivity extends Activity {
         sCE.put("mp02ce00577", mp02ce00577.isChecked() ? "77" : "0");
         sCE.put("mp02ce00506", mp02ce00506.isChecked() ? "6" : "0");
         sCE.put("mp02ce00588", mp02ce00588.isChecked() ? "88" : "0");
+        sCE.put("mp02ce00588x", mp02ce00588x.getText().toString());
 
         sCE.put("mp02ce00601", mp02ce00601.isChecked() ? "1" : "0");
         sCE.put("mp02ce00602", mp02ce00602.isChecked() ? "2" : "0");
@@ -354,6 +359,7 @@ public class SectionCEActivity extends Activity {
         sCE.put("mp02ce00677", mp02ce00677.isChecked() ? "77" : "0");
         sCE.put("mp02ce00606", mp02ce00606.isChecked() ? "6" : "0");
         sCE.put("mp02ce00688", mp02ce00688.isChecked() ? "88" : "0");
+        sCE.put("mp02ce00688x", mp02ce00688x.getText().toString());
 
         AppMain.pc.setsCE(String.valueOf(sCE));
 

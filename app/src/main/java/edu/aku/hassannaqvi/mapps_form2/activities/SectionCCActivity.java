@@ -733,6 +733,7 @@ public class SectionCCActivity extends Activity {
         sCC.put("mp02cc02906", mp02cc02906.isChecked() ? "6" : "0");
         sCC.put("mp02cc02907", mp02cc02907.isChecked() ? "7" : "0");
         sCC.put("mp02cc02908", mp02cc02908.isChecked() ? "8" : "0");
+        sCC.put("mp02cc02909", mp02cc02909.isChecked() ? "9" : "0");
         sCC.put("mp02cc02988", mp02cc02988.isChecked() ? "88" : "0");
         sCC.put("mp02cc02988x", mp02cc02988x.getText().toString());
 

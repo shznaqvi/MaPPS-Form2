@@ -195,16 +195,16 @@ public class SectionCGActivity extends Activity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            //if (UpdateDB()) {
+            if (UpdateDB()) {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
                 Intent secc = new Intent(this, SectionCHActivity.class);
                 startActivity(secc);
 
-            //} else {
-            //    Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            //}
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
