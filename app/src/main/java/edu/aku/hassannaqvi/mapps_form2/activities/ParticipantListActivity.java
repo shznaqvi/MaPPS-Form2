@@ -13,7 +13,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,6 +33,7 @@ public class ParticipantListActivity extends Activity {
     ListView participantList;
 
     ArrayList<String> Ewomens;
+    ArrayList<Integer> bloodSample;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,35 +42,43 @@ public class ParticipantListActivity extends Activity {
         ButterKnife.bind(this);
 
         Ewomens = new ArrayList<>();
+        bloodSample = new ArrayList<>();
 
         Log.d("Size", "" + AppMain.Eparticipant.size());
 
         for (int i = 0; i < AppMain.Eparticipant.size(); i++) {
             Ewomens.add((AppMain.Eparticipant.get(i).getWname()).toUpperCase());
 
+            if (checkParticipantAge(AppMain.Eparticipant.get(i).getDob())) {
+                bloodSample.add(i);
+            }
         }
 
 
-        listAdapter partcipantAdapter = new listAdapter(this,android.R.layout.simple_list_item_1,Ewomens);
+        listAdapter partcipantAdapter = new listAdapter(this, android.R.layout.simple_list_item_1, Ewomens);
 
 //        participantList.setAdapter(new ArrayAdapter<>(this, R.layout.lstview, Ewomens));
         participantList.setAdapter(partcipantAdapter);
 
-//        participantList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-//
-//                AppMain.currentParticipantName = (String) participantList.getItemAtPosition(position);
-//
-//                participantList.getChildAt(position).setEnabled(false);
-//                participantList.getChildAt(position).setBackgroundColor(getResources().getColor(R.color.gray));
-//
-////                Toast.makeText(getApplicationContext(),AppMain.currentParticipantName,Toast.LENGTH_LONG).show();
-////                Toast.makeText(getApplicationContext(),""+position,Toast.LENGTH_LONG).show();
-//
-//                startActivity(new Intent(getApplicationContext(), SectionCBActivity.class));
-//            }
-//        });
+    }
+
+    public Boolean checkParticipantAge(String birthDate) {
+
+        try {
+            Date currentDate = new Date();
+            DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = null;
+
+            date = (Date) formatter.parse(birthDate);   //birthDate is a String, in format dd-MM-yyyy
+
+            long diff = currentDate.getTime() - date.getTime();
+            long d = (1000l * 60 * 60 * 24 * 365);
+            long years = Math.round(diff / d);
+            return (int) years == 18;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @OnClick(R.id.btn_End)
@@ -77,13 +90,13 @@ public class ParticipantListActivity extends Activity {
             Intent endSec = new Intent(this, EndingActivity.class);
             endSec.putExtra("complete", false);
             startActivity(endSec);
-        }else {
-            Toast.makeText(getApplicationContext(),"Fill all Participants",Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Fill all Participants", Toast.LENGTH_LONG).show();
         }
 
     }
 
-    public class listAdapter extends ArrayAdapter{
+    public class listAdapter extends ArrayAdapter {
 
         ArrayList<String> list = new ArrayList<>();
 
@@ -105,6 +118,14 @@ public class ParticipantListActivity extends Activity {
             TextView textView = (TextView) v.findViewById(R.id.txtView);
             textView.setText(list.get(position));
 
+            for (int i = 0; i < bloodSample.size(); i++) {
+
+                if (bloodSample.get(i) == position){
+                    v.setBackground(getContext().getDrawable(R.drawable.listview_border));
+                }
+            }
+
+
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -114,11 +135,17 @@ public class ParticipantListActivity extends Activity {
                     participantList.getChildAt(position).setEnabled(false);
                     participantList.getChildAt(position).setBackgroundColor(getResources().getColor(R.color.gray));
 
+                    for(int pos: bloodSample){
+                        if (pos == position){
+                            participantList.getChildAt(position).setBackground(getContext().getDrawable(R.drawable.listview_border_back));
+                        }
+                    }
+
 //                Toast.makeText(getApplicationContext(),AppMain.currentParticipantName,Toast.LENGTH_LONG).show();
 //                Toast.makeText(getApplicationContext(),""+position,Toast.LENGTH_LONG).show();
 
                     Intent cb = new Intent(getApplicationContext(), SectionCBActivity.class);
-                    cb.putExtra("l_uid",AppMain.Eparticipant.get(position).getL_uid());
+                    cb.putExtra("l_uid", AppMain.Eparticipant.get(position).getL_uid());
                     startActivity(cb);
                 }
             });

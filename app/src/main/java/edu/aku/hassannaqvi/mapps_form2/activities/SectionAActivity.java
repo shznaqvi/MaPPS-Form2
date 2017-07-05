@@ -202,7 +202,7 @@ public class SectionAActivity extends Activity {
                 AppMain.Eparticipant = new ArrayList<>();
 
                 for (EligiblesContract ec : Econtract) {
-                    AppMain.Eparticipant.add(new EligibleParticipants(ec.getLUID(), ec.getWomen_name()));
+                    AppMain.Eparticipant.add(new EligibleParticipants(ec.getLUID(), ec.getWomen_name(), ec.getDob()));
                 }
 
                 Toast.makeText(this, "Participant Found", Toast.LENGTH_LONG).show();
