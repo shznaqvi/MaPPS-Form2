@@ -492,6 +492,7 @@ public class SectionCFActivity extends Activity {
                     mp02cf01005.setChecked(false);
                     mp02cf01006.setChecked(false);
                     mp02cf01007.setChecked(false);
+                    mp02cf01088.setChecked(false);
                     mp02cf01088x.setText(null);
                     mp02cf011.clearCheck();
                     mp02cf01188x.setText(null);
@@ -501,6 +502,7 @@ public class SectionCFActivity extends Activity {
                     mp02cf01303.setChecked(false);
                     mp02cf01304.setChecked(false);
                     mp02cf01305.setChecked(false);
+                    mp02cf01388.setChecked(false);
                     mp02cf01388x.setText(null);
                     mp02cf01401.setChecked(false);
                     mp02cf01402.setChecked(false);
@@ -513,6 +515,7 @@ public class SectionCFActivity extends Activity {
                     mp02cf01504.setChecked(false);
                     mp02cf01505.setChecked(false);
                     mp02cf01506.setChecked(false);
+                    mp02cf01588.setChecked(false);
                     mp02cf01588x.setText(null);
                 } else {
                     fldGrpmp02cf004.setVisibility(View.VISIBLE);
@@ -545,6 +548,7 @@ public class SectionCFActivity extends Activity {
                     mp02cf01303.setChecked(false);
                     mp02cf01304.setChecked(false);
                     mp02cf01305.setChecked(false);
+                    mp02cf01388.setChecked(false);
                     mp02cf01388x.setText(null);
                 }
             }
@@ -1189,7 +1193,7 @@ public class SectionCFActivity extends Activity {
         scf.put("mp02cf001", mp02cf00101.isChecked() ? "1" : mp02cf00102.isChecked() ? "2" : mp02cf00103.isChecked() ? "3"
                 : mp02cf00104.isChecked() ? "4" : "0");
         scf.put("mp02cf002", mp02cf00201.isChecked() ? "1" : mp02cf00202.isChecked() ? "2" : mp02cf00203.isChecked() ? "3"
-                : mp02cf00204.isChecked() ? "4" : mp02cf00205.isChecked() ? "5" : "0");
+                : mp02cf00204.isChecked() ? "4" : mp02cf00205.isChecked() ? "5" : mp02cf00288.isChecked() ? "88" : "0");
         scf.put("mp02cf00288x", mp02cf00288x.getText().toString());
         scf.put("mp02cf003", mp02cf003.getText().toString());
         scf.put("mp02cf004", mp02cf00401.isChecked() ? "1" : mp02cf00402.isChecked() ? "2" : mp02cf00403.isChecked() ? "3"
@@ -1214,7 +1218,7 @@ public class SectionCFActivity extends Activity {
         scf.put("mp02cf01088", mp02cf01088.isChecked() ? "88" : "0");
         scf.put("mp02cf01088x", mp02cf01088x.getText().toString());
 
-        scf.put("mp02cf011", mp02cf01001.isChecked() ? "1" : mp02cf01102.isChecked() ? "2" : mp02cf01103.isChecked() ? "3"
+        scf.put("mp02cf011", mp02cf01101.isChecked() ? "1" : mp02cf01102.isChecked() ? "2" : mp02cf01103.isChecked() ? "3"
                 : mp02cf01104.isChecked() ? "4" : mp02cf01105.isChecked() ? "5" : mp02cf01106.isChecked() ? "6"
                 : mp02cf01188.isChecked() ? "88" : "0");
         scf.put("mp02cf01188x", mp02cf01188x.getText().toString());
@@ -1363,10 +1367,10 @@ public class SectionCFActivity extends Activity {
 
         if ((Integer.parseInt(mp02cf003.getText().toString().isEmpty() ? "0" : mp02cf003.getText().toString()) < 10
                 && Integer.parseInt(mp02cf003.getText().toString().isEmpty() ? "0" : mp02cf003.getText().toString()) != 0)
-                || Integer.parseInt(mp02cf003.getText().toString().isEmpty() ? "0" : mp02cf003.getText().toString()) > 18) {
+                || Integer.parseInt(mp02cf003.getText().toString().isEmpty() ? "0" : mp02cf003.getText().toString()) > AppMain.currentAge) {
             Toast.makeText(this, "ERROR: " + getString(R.string.mp02cf003), Toast.LENGTH_LONG).show();
-            mp02cf003.setError("Age Limit is from 10 to 18 Years! ");
-            Log.i(TAG, "mp02cf003: Age Limit is from 10 to 18 Years");
+            mp02cf003.setError("Age Limit is from 10 to " + AppMain.currentAge + "  Years! ");
+            Log.i(TAG, "mp02cf003: Age Limit is from 10 to " + AppMain.currentAge + " Years");
             return false;
         } else {
             mp02cf003.setError(null);

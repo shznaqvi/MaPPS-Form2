@@ -1063,7 +1063,7 @@ public class SectionBAActivity extends Activity {
                 : mp02ba00413.isChecked() ? "13" : mp02ba00488.isChecked() ? "88" : "0");
         sBA.put("mp02ba00488x", mp02ba00488x.getText().toString());
 
-        sBA.put("mp02ba004", mp02ba00501.isChecked() ? "1" : mp02ba00502.isChecked() ? "2": mp02ba00503.isChecked() ? "3"
+        sBA.put("mp02ba005", mp02ba00501.isChecked() ? "1" : mp02ba00502.isChecked() ? "2" : mp02ba00503.isChecked() ? "3"
                 : mp02ba00504.isChecked() ? "4" : mp02ba00505.isChecked() ? "5" : mp02ba00506.isChecked() ? "6"
                 : mp02ba00507.isChecked() ? "7" : mp02ba00508.isChecked() ? "8" : mp02ba00509.isChecked() ? "9"
                 : mp02ba00510.isChecked() ? "10" : mp02ba00511.isChecked() ? "11" : mp02ba00512.isChecked() ? "12"
@@ -1097,11 +1097,11 @@ public class SectionBAActivity extends Activity {
         sBA.put("mp02ba011", mp02ba011.getText().toString());
 
         sBA.put("mp02ba01201", mp02ba01201.isChecked() ? "1" : "0");
-        sBA.put("mp02ba01203", mp02ba01202.isChecked() ? "2" : "0");
+        sBA.put("mp02ba01202", mp02ba01202.isChecked() ? "2" : "0");
         sBA.put("mp02ba01203", mp02ba01203.isChecked() ? "3" : "0");
         sBA.put("mp02ba01204", mp02ba01204.isChecked() ? "4" : "0");
         sBA.put("mp02ba01288", mp02ba01288.isChecked() ? "88" : "0");
-
+        sBA.put("mp02ba01288x", mp02ba01288x.getText().toString());
         // Checkbox
         sBA.put("mp02ba01301", mp02ba01301.isChecked() ? "1" : "0");
         sBA.put("mp02ba01302", mp02ba01302.isChecked() ? "1" : "0");

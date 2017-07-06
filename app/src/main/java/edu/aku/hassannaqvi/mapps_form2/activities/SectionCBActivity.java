@@ -536,6 +536,7 @@ public class SectionCBActivity extends Activity {
                 } else {
                     fldGrpmp02cb012.setVisibility(View.GONE);
                     mp02cb012.setText(null);
+                    mp02cb013.clearCheck();
                     mp02cb01406.setEnabled(false);
                     mp02cb01406.setChecked(false);
                     mp02cb01407.setEnabled(false);
@@ -581,6 +582,7 @@ public class SectionCBActivity extends Activity {
                 } else {
                     fldGrpmp02cb006.setVisibility(View.GONE);
                     mp02cb006.setText(null);
+                    mp02cb007.clearCheck();
                     mp02cb00806.setEnabled(false);
                     mp02cb00806.setChecked(false);
                     mp02cb00807.setEnabled(false);
@@ -915,7 +917,7 @@ public class SectionCBActivity extends Activity {
         scb.put("mp02cb014", mp02cb01401.isChecked() ? "1" : mp02cb01402.isChecked() ? "2" : mp02cb01403.isChecked() ? "3"
                 : mp02cb01404.isChecked() ? "4" : mp02cb01405.isChecked() ? "5" : mp02cb01406.isChecked() ? "6"
                 : mp02cb01407.isChecked() ? "7" : mp02cb01408.isChecked() ? "8" : mp02cb01488.isChecked() ? "88" : "0");
-        scb.put("mp02cb01488x", mp02cb00888x.getText().toString());
+        scb.put("mp02cb01488x", mp02cb01488x.getText().toString());
         scb.put("mp02cb015", mp02cb01501.isChecked() ? "1" : mp02cb01502.isChecked() ? "2" : mp02cb01503.isChecked() ? "3"
                 : mp02cb01504.isChecked() ? "4" : "0");
         scb.put("mp02cb016", mp02cb01601.isChecked() ? "1" : mp02cb01602.isChecked() ? "2" : mp02cb01699.isChecked() ? "99" : "0");
@@ -943,6 +945,7 @@ public class SectionCBActivity extends Activity {
         int idx = mp02cb009.indexOfChild(radioButton);
 */
         AppMain.maritalStatus = mp02cb009.indexOfChild(findViewById(mp02cb009.getCheckedRadioButtonId())) + 1;
+        AppMain.currentAge = Integer.valueOf(mp02cb002.getText().toString());
 
 
         AppMain.pc.setsCB(String.valueOf(scb));
@@ -1028,11 +1031,11 @@ public class SectionCBActivity extends Activity {
                 mp02cb002.setError(null);
             }
 
-            if (((Integer.valueOf(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString()) < 15))
-                    || (Integer.valueOf(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString()) > 23)) {
+            if (((Integer.valueOf(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString()) < 14))
+                    || (Integer.valueOf(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString()) > 24)) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb002), Toast.LENGTH_LONG).show();
-                mp02cb002.setError("Age Limit is from 15 to 23 Years");
-                Log.i(TAG, "mp02cb002: Age Limit is from 15 to 23 Years");
+                mp02cb002.setError("Age Limit is from 14 to 24 Years");
+                Log.i(TAG, "mp02cb002: Age Limit is from 14 to 24 Years");
                 return false;
             } else {
                 mp02cb002.setError(null);
@@ -1380,7 +1383,7 @@ public class SectionCBActivity extends Activity {
 
                 if (Integer.valueOf(mp02cb021.getText().toString().isEmpty() ? "0" : mp02cb021.getText().toString()) != 99) {
                     if ((Integer.valueOf(mp02cb022.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString())
-                            < Integer.valueOf(mp02cb021.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString())
+                            < Integer.valueOf(mp02cb021.getText().toString().isEmpty() ? "0" : mp02cb021.getText().toString())
                             || Integer.valueOf(mp02cb022.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString()) > currentAge)
                             && Integer.valueOf(mp02cb022.getText().toString().isEmpty() ? "0" : mp02cb022.getText().toString()) != 99) {
                         Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02cb022), Toast.LENGTH_LONG).show();

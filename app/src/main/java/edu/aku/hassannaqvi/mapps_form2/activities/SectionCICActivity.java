@@ -534,6 +534,7 @@ public class SectionCICActivity extends Activity {
         SCIC.put("mp02cic01112", mp02cic01112.isChecked() ? "12" : "0");
         SCIC.put("mp02cic01113", mp02cic01113.isChecked() ? "13" : "0");
         SCIC.put("mp02cic01188", mp02cic01188.isChecked() ? "88" : "0");
+        SCIC.put("mp02cic01188x", mp02cic01188x.getText().toString());
 
         SCIC.put("mp02cic012", mp02cic01201.isChecked() ? "1" : mp02cic01202.isChecked() ? "2" : mp02cic01203.isChecked() ? "3" : "0");
 

@@ -65,6 +65,12 @@ public class MainActivity extends Activity {
         // Reset working variables
         AppMain.child_name = "Test";
 
+        if (AppMain.admin) {
+            adminsec.setVisibility(View.VISIBLE);
+        } else {
+            adminsec.setVisibility(View.GONE);
+        }
+
         sharedPref = getSharedPreferences("tagName",MODE_PRIVATE);
         editor = sharedPref.edit();
 
