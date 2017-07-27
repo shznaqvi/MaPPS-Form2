@@ -88,7 +88,7 @@ public class ParticipantListActivity extends Activity {
         if (AppMain.Eparticipant.size() == AppMain.partiFlag) {
             finish();
             Intent endSec = new Intent(this, EndingActivity.class);
-            endSec.putExtra("complete", false);
+            endSec.putExtra("complete", true);
             startActivity(endSec);
         } else {
             Toast.makeText(getApplicationContext(), "Fill all Participants", Toast.LENGTH_LONG).show();
