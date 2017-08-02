@@ -386,18 +386,45 @@ public class ParticipantsContract {
         json.put(ParticipantsTable.COLUMN_HOUSEHOLD, this.household == null ? JSONObject.NULL : this.household);
         json.put(ParticipantsTable.COLUMN_LHWCODE, this.lhwCode == null ? JSONObject.NULL : this.lhwCode);
         json.put(ParticipantsTable.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
-        json.put(ParticipantsTable.COLUMN_SCB, this.sCB == null ? JSONObject.NULL : new JSONObject(this.sCB));
-        json.put(ParticipantsTable.COLUMN_SCC, this.sCC == null ? JSONObject.NULL : new JSONObject(this.sCC));
+        if (!this.sCB.equals("")) {
+            json.put(ParticipantsTable.COLUMN_SCB, this.sCB == null ? JSONObject.NULL : new JSONObject(this.sCB));
+        }
+        if (!this.sCC.equals("")) {
+            json.put(ParticipantsTable.COLUMN_SCC, this.sCC == null ? JSONObject.NULL : new JSONObject(this.sCC));
         json.put(ParticipantsTable.COLUMN_SCD, this.sCD == null ? JSONObject.NULL : new JSONObject(this.sCD));
-        json.put(ParticipantsTable.COLUMN_SCE, this.sCE == null ? JSONObject.NULL : new JSONObject(this.sCE));
-        json.put(ParticipantsTable.COLUMN_SCF, this.sCF == null ? JSONObject.NULL : new JSONObject(this.sCF));
-        json.put(ParticipantsTable.COLUMN_SCG, this.sCG == null ? JSONObject.NULL : new JSONObject(this.sCG));
-        json.put(ParticipantsTable.COLUMN_SCH, this.sCH == null ? JSONObject.NULL : new JSONObject(this.sCH));
-        json.put(ParticipantsTable.COLUMN_SCIA, this.sCIA == null ? JSONObject.NULL : new JSONObject(this.sCIA));
-        json.put(ParticipantsTable.COLUMN_SCIB, this.sCIB == null ? JSONObject.NULL : new JSONObject(this.sCIB));
+        }
+        if (!this.sCE.equals("")) {
+            json.put(ParticipantsTable.COLUMN_SCE, this.sCE == null ? JSONObject.NULL : new JSONObject(this.sCE));
+        }
+        if (!this.sCF.equals("")) {
+            json.put(ParticipantsTable.COLUMN_SCF, this.sCF == null ? JSONObject.NULL : new JSONObject(this.sCF));
+        }
+        if (!this.sCG.equals("")) {
+
+            json.put(ParticipantsTable.COLUMN_SCG, this.sCG == null ? JSONObject.NULL : new JSONObject(this.sCG));
+        }
+        if (!this.sCH.equals("")) {
+
+            json.put(ParticipantsTable.COLUMN_SCH, this.sCH == null ? JSONObject.NULL : new JSONObject(this.sCH));
+        }
+        if (!this.sCIA.equals("")) {
+
+            json.put(ParticipantsTable.COLUMN_SCIA, this.sCIA == null ? JSONObject.NULL : new JSONObject(this.sCIA));
+        }
+        if (!this.sCIB.equals("")) {
+
+            json.put(ParticipantsTable.COLUMN_SCIB, this.sCIB == null ? JSONObject.NULL : new JSONObject(this.sCIB));
+        }
+        if (!this.sCIC.equals("")) {
+
         json.put(ParticipantsTable.COLUMN_SCIC, this.sCIC == null ? JSONObject.NULL : new JSONObject(this.sCIC));
+        }
+        if (!this.sD.equals("")) {
         json.put(ParticipantsTable.COLUMN_SD, this.sD == null ? JSONObject.NULL : new JSONObject(this.sD));
+        }
+        if (!this.sE.equals("")) {
         json.put(ParticipantsTable.COLUMN_SE, this.sE == null ? JSONObject.NULL : new JSONObject(this.sE));
+        }
         json.put(ParticipantsTable.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
         json.put(ParticipantsTable.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
         json.put(ParticipantsTable.COLUMN_GPSTIME, this.gpsTime == null ? JSONObject.NULL : this.gpsTime);

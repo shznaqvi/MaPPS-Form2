@@ -229,7 +229,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } finally {
             db.close();
         }
-    }
+        }
 
     public void syncLHWs(JSONArray lhwslist) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -1276,7 +1276,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Collection<ParticipantsContract> getUnsyncedParticipants() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
-        String[] columns = {
+        String[] columns = new String[]{
                 ParticipantsTable.COLUMN_PROJECTNAME,
                 ParticipantsTable.COLUMN_SURVEYTYPE,
                 ParticipantsTable.COLUMN__ID,
@@ -1287,10 +1287,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ParticipantsTable.COLUMN_INTERVIEWER01,
                 ParticipantsTable.COLUMN_INTERVIEWER02,
                 ParticipantsTable.COLUMN_CLUSTERCODE,
-                ParticipantsContract.ParticipantsTable.COLUMN_HOUSEHOLD,
-                ParticipantsContract.ParticipantsTable.COLUMN_LHWCODE,
+                ParticipantsTable.COLUMN_HOUSEHOLD,
+                ParticipantsTable.COLUMN_LHWCODE,
                 ParticipantsTable.COLUMN_ISTATUS,
-                ParticipantsContract.ParticipantsTable.COLUMN_SCB,
+                ParticipantsTable.COLUMN_SCB,
                 ParticipantsTable.COLUMN_SCC,
                 ParticipantsTable.COLUMN_SCD,
                 ParticipantsTable.COLUMN_SCE,
@@ -1300,15 +1300,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ParticipantsTable.COLUMN_SCIA,
                 ParticipantsTable.COLUMN_SCIB,
                 ParticipantsTable.COLUMN_SCIC,
-                ParticipantsContract.ParticipantsTable.COLUMN_SD,
-                ParticipantsContract.ParticipantsTable.COLUMN_SE,
+                ParticipantsTable.COLUMN_SD,
+                ParticipantsTable.COLUMN_SE,
                 ParticipantsTable.COLUMN_APP_VERSION,
-                ParticipantsContract.ParticipantsTable.COLUMN_DEVICEID,
+                ParticipantsTable.COLUMN_DEVICEID,
                 ParticipantsTable.COLUMN_DEVICETAGID,
                 ParticipantsTable.COLUMN_SYNCED,
-                ParticipantsContract.ParticipantsTable.COLUMN_SYNCED_DATE,
+                ParticipantsTable.COLUMN_SYNCED_DATE,
         };
-        String whereClause = ParticipantsContract.ParticipantsTable.COLUMN_SYNCED + " is null OR " + ParticipantsContract.ParticipantsTable.COLUMN_SYNCED + " = ''";
+        String whereClause = ParticipantsTable.COLUMN_SYNCED + " is null OR " + ParticipantsTable.COLUMN_SYNCED + " = ''";
         String[] whereArgs = null;
         String groupBy = null;
         String having = null;
@@ -1319,7 +1319,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Collection<ParticipantsContract> allFC = new ArrayList<ParticipantsContract>();
         try {
             c = db.query(
-                    ParticipantsContract.ParticipantsTable.TABLE_NAME,  // The table to query
+                    ParticipantsTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause

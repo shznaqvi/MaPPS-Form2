@@ -108,7 +108,7 @@ public class SyncParticipants extends AsyncTask<Void, Void, String> {
         //int len = 500;
         DatabaseHelper db = new DatabaseHelper(mContext);
         Collection<ParticipantsContract> participants = db.getUnsyncedParticipants();
-        Log.d(TAG, String.valueOf(participants.size()));
+        Log.d(TAG + "Part:", String.valueOf(participants.size()));
         if (participants.size() > 0) {
             try {
                 URL url = new URL(myurl);
