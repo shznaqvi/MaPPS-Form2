@@ -945,7 +945,7 @@ public class SectionCBActivity extends Activity {
         int idx = mp02cb009.indexOfChild(radioButton);
 */
         AppMain.maritalStatus = mp02cb009.indexOfChild(findViewById(mp02cb009.getCheckedRadioButtonId())) + 1;
-        AppMain.currentAge = Integer.valueOf(mp02cb002.getText().toString());
+        AppMain.currentAge = mp02cb002.getText().toString().isEmpty() ? 0 : Integer.valueOf(mp02cb002.getText().toString());
 
 
         AppMain.pc.setsCB(String.valueOf(scb));
