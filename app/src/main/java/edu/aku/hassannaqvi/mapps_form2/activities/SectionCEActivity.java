@@ -343,7 +343,7 @@ public class SectionCEActivity extends Activity {
         sCE.put("mp02ce00488", mp02ce00488.isChecked() ? "88" : "0");
         sCE.put("mp02ce00488x", mp02ce00488x.getText().toString());
 
-        sCE.put("mp02ce07701", mp02ce00501.isChecked() ? "1" : "0");
+        sCE.put("mp02ce00501", mp02ce00501.isChecked() ? "1" : "0");
         sCE.put("mp02ce00502", mp02ce00502.isChecked() ? "2" : "0");
         sCE.put("mp02ce00503", mp02ce00503.isChecked() ? "3" : "0");
         sCE.put("mp02ce00504", mp02ce00504.isChecked() ? "4" : "0");

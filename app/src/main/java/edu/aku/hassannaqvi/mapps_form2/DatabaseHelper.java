@@ -113,7 +113,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             EligiblesTable.COLUMN_NAME_HOUSEHOLD + " TEXT," +
             EligiblesTable.COLUMN_SYNCED + " TEXT,"
             + EligiblesTable.COLUMN_SYNCED_DATE + " TEXT," +
-            EligiblesTable.COLUMN_NAME_DOB + " TEXT," +
             EligiblesTable.COLUMN_NAME_WOMEN_NAME + " TEXT" +
             " );";
     private static final String SQL_CREATE_LHWS = "CREATE TABLE "
@@ -219,7 +218,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(EligiblesTable.COLUMN_NAME_LHWCODE, ec.getLhwCode());
                 values.put(EligiblesTable.COLUMN_NAME_HOUSEHOLD, ec.getHouseHold());
                 values.put(EligiblesTable.COLUMN_NAME_WOMEN_NAME, ec.getWomen_name());
-                values.put(EligiblesTable.COLUMN_NAME_DOB, ec.getDob());
 
                 db.insert(EligiblesTable.TABLE_NAME, null, values);
             }
@@ -940,7 +938,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = {
                 EligiblesTable.COLUMN_NAME_LUID,
                 EligiblesTable.COLUMN_NAME_WOMEN_NAME,
-                EligiblesTable.COLUMN_NAME_DOB,
                 EligiblesTable.COLUMN_NAME_SUBAREACODE,
                 EligiblesTable.COLUMN_NAME_LHWCODE,
                 EligiblesTable.COLUMN_NAME_HOUSEHOLD
@@ -991,7 +988,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 EligiblesTable.COLUMN_NAME_SUBAREACODE,
                 EligiblesTable.COLUMN_NAME_LHWCODE,
                 EligiblesTable.COLUMN_NAME_HOUSEHOLD,
-                EligiblesTable.COLUMN_NAME_DOB,
                 EligiblesTable.COLUMN_NAME_WOMEN_NAME
         };
 
@@ -1038,7 +1034,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 EligiblesTable.COLUMN_NAME_SUBAREACODE,
                 EligiblesTable.COLUMN_NAME_LHWCODE,
                 EligiblesTable.COLUMN_NAME_HOUSEHOLD,
-                EligiblesTable.COLUMN_NAME_DOB,
                 EligiblesTable.COLUMN_NAME_WOMEN_NAME
         };
 

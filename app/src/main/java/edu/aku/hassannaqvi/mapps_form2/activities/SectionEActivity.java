@@ -346,13 +346,14 @@ public class SectionEActivity extends Activity {
         sE.put("mp02e00302", mp02e00302.isChecked() ? "2" : "0");
         sE.put("mp02e00303", mp02e00303.isChecked() ? "3" : "0");
         sE.put("mp02e00304", mp02e00304.isChecked() ? "4" : "0");
-        sE.put("mp02e00302", mp02e00305.isChecked() ? "5" : "0");
+        sE.put("mp02e00305", mp02e00305.isChecked() ? "5" : "0");
         sE.put("mp02e00388", mp02e00388.isChecked() ? "88" : "0");
         sE.put("mp02e00301x", mp02e00301x.getText().toString());
         sE.put("mp02e00388x", mp02e00388x.getText().toString());
 
         sE.put("mp02e00401", mp02e00401.isChecked() ? "1" : "0");
         sE.put("mp02e00402", mp02e00402.isChecked() ? "2" : "0");
+        sE.put("mp02e00488", mp02e00488.isChecked() ? "88" : "0");
         sE.put("mp02e00488x", mp02e00488x.getText().toString());
         sE.put("mp02e00402x", mp02e00402x.getText().toString());
 

@@ -8,6 +8,11 @@ public class EligibleParticipants {
 
     String l_uid,wname,dob;
 
+    public EligibleParticipants(String l_uid, String wname) {
+        this.l_uid = l_uid;
+        this.wname = wname;
+    }
+
     public String getL_uid() {
         return l_uid;
     }
@@ -26,11 +31,5 @@ public class EligibleParticipants {
 
     public String getDob() {
         return dob;
-    }
-
-    public EligibleParticipants(String l_uid, String wname, String dob) {
-        this.l_uid = l_uid;
-        this.wname = wname;
-        this.dob = dob;
     }
 }

@@ -38,11 +38,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.mapps_form2.AppMain;
 import edu.aku.hassannaqvi.mapps_form2.DatabaseHelper;
-import edu.aku.hassannaqvi.mapps_form2.otherclasses.EligibleParticipants;
+import edu.aku.hassannaqvi.mapps_form2.R;
 import edu.aku.hassannaqvi.mapps_form2.contracts.EligiblesContract;
 import edu.aku.hassannaqvi.mapps_form2.contracts.FormsContract;
 import edu.aku.hassannaqvi.mapps_form2.contracts.LHWsContract;
-import edu.aku.hassannaqvi.mapps_form2.R;
+import edu.aku.hassannaqvi.mapps_form2.otherclasses.EligibleParticipants;
 
 public class SectionAActivity extends Activity {
 
@@ -202,7 +202,7 @@ public class SectionAActivity extends Activity {
                 AppMain.Eparticipant = new ArrayList<>();
 
                 for (EligiblesContract ec : Econtract) {
-                    AppMain.Eparticipant.add(new EligibleParticipants(ec.getLUID(), ec.getWomen_name(), ec.getDob()));
+                    AppMain.Eparticipant.add(new EligibleParticipants(ec.getLUID(), ec.getWomen_name()));
                 }
 
                 Toast.makeText(this, "Participant Found", Toast.LENGTH_LONG).show();

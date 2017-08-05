@@ -21,7 +21,6 @@ public class EligiblesContract {
     private String lhwCode; // Cluster
     private String houseHold;  // Structure
     private String women_name;
-    private String dob;
 
     public EligiblesContract Sync(JSONObject jsonObject) throws JSONException {
         this.LUID = jsonObject.getString(EligiblesTable.COLUMN_NAME_LUID);
@@ -29,7 +28,6 @@ public class EligiblesContract {
         this.lhwCode = jsonObject.getString(EligiblesTable.COLUMN_NAME_LHWCODE);
         this.houseHold = jsonObject.getString(EligiblesTable.COLUMN_NAME_HOUSEHOLD);
         this.women_name = jsonObject.getString(EligiblesTable.COLUMN_NAME_WOMEN_NAME);
-        this.dob = jsonObject.getString(EligiblesTable.COLUMN_NAME_DOB);
         return this;
 
     }
@@ -40,7 +38,6 @@ public class EligiblesContract {
         this.lhwCode = cursor.getString(cursor.getColumnIndex(EligiblesTable.COLUMN_NAME_LHWCODE));
         this.houseHold = cursor.getString(cursor.getColumnIndex(EligiblesTable.COLUMN_NAME_HOUSEHOLD));
         this.women_name = cursor.getString(cursor.getColumnIndex(EligiblesTable.COLUMN_NAME_WOMEN_NAME));
-        this.dob = cursor.getString(cursor.getColumnIndex(EligiblesTable.COLUMN_NAME_DOB));
         return this;
     }
 
@@ -92,9 +89,6 @@ public class EligiblesContract {
         this.lhwCode = lhwCode;
     }
 
-    public String getDob() {
-        return dob;
-    }
 
     public JSONObject toJSONObject() throws JSONException {
         JSONObject json = new JSONObject();
@@ -105,7 +99,7 @@ public class EligiblesContract {
         json.put(EligiblesTable.COLUMN_NAME_LHWCODE, this.lhwCode);
         json.put(EligiblesTable.COLUMN_NAME_HOUSEHOLD, this.houseHold);
         json.put(EligiblesTable.COLUMN_NAME_WOMEN_NAME, this.women_name);
-        json.put(EligiblesTable.COLUMN_NAME_DOB, this.dob);
+
 
         return json;
     }
@@ -122,7 +116,6 @@ public class EligiblesContract {
         public static final String COLUMN_NAME_LHWCODE = "lhwcode";
         public static final String COLUMN_NAME_HOUSEHOLD = "hhno";
         public static final String COLUMN_NAME_WOMEN_NAME = "epname";
-        public static final String COLUMN_NAME_DOB = "dob";
 
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "synced_date";

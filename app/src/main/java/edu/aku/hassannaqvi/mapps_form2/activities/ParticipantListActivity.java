@@ -13,11 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,9 +45,6 @@ public class ParticipantListActivity extends Activity {
         for (int i = 0; i < AppMain.Eparticipant.size(); i++) {
             Ewomens.add((AppMain.Eparticipant.get(i).getWname()).toUpperCase());
 
-            if (checkParticipantAge(AppMain.Eparticipant.get(i).getDob())) {
-                bloodSample.add(i);
-            }
         }
 
 
@@ -62,24 +55,6 @@ public class ParticipantListActivity extends Activity {
 
     }
 
-    public Boolean checkParticipantAge(String birthDate) {
-
-        try {
-            Date currentDate = new Date();
-            DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-            Date date = null;
-
-            date = (Date) formatter.parse(birthDate);   //birthDate is a String, in format dd-MM-yyyy
-
-            long diff = currentDate.getTime() - date.getTime();
-            long d = (1000l * 60 * 60 * 24 * 365);
-            long years = Math.round(diff / d);
-            return (int) years == 18;
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
