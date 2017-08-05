@@ -386,45 +386,102 @@ public class ParticipantsContract {
         json.put(ParticipantsTable.COLUMN_HOUSEHOLD, this.household == null ? JSONObject.NULL : this.household);
         json.put(ParticipantsTable.COLUMN_LHWCODE, this.lhwCode == null ? JSONObject.NULL : this.lhwCode);
         json.put(ParticipantsTable.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
+
+        try {
         if (!this.sCB.equals("")) {
             json.put(ParticipantsTable.COLUMN_SCB, this.sCB == null ? JSONObject.NULL : new JSONObject(this.sCB));
         }
+        } catch (Exception e) {
+
+        }
+
+        try {
         if (!this.sCC.equals("")) {
             json.put(ParticipantsTable.COLUMN_SCC, this.sCC == null ? JSONObject.NULL : new JSONObject(this.sCC));
-        json.put(ParticipantsTable.COLUMN_SCD, this.sCD == null ? JSONObject.NULL : new JSONObject(this.sCD));
         }
+        } catch (Exception e) {
+
+        }
+        try {
+            if (!this.sCD.equals("")) {
+                json.put(ParticipantsTable.COLUMN_SCD, this.sCD == null ? JSONObject.NULL : new JSONObject(this.sCD));
+            }
+        } catch (Exception e) {
+
+        }
+
+        try {
         if (!this.sCE.equals("")) {
             json.put(ParticipantsTable.COLUMN_SCE, this.sCE == null ? JSONObject.NULL : new JSONObject(this.sCE));
         }
+        } catch (Exception e) {
+
+        }
+
+        try {
         if (!this.sCF.equals("")) {
             json.put(ParticipantsTable.COLUMN_SCF, this.sCF == null ? JSONObject.NULL : new JSONObject(this.sCF));
         }
-        if (!this.sCG.equals("")) {
+        } catch (Exception e) {
 
+        }
+
+        try {
+        if (!this.sCG.equals("")) {
             json.put(ParticipantsTable.COLUMN_SCG, this.sCG == null ? JSONObject.NULL : new JSONObject(this.sCG));
         }
-        if (!this.sCH.equals("")) {
+        } catch (Exception e) {
 
+        }
+
+        try {
+        if (!this.sCH.equals("")) {
             json.put(ParticipantsTable.COLUMN_SCH, this.sCH == null ? JSONObject.NULL : new JSONObject(this.sCH));
         }
-        if (!this.sCIA.equals("")) {
+        } catch (Exception e) {
 
+        }
+
+        try {
+        if (!this.sCIA.equals("")) {
             json.put(ParticipantsTable.COLUMN_SCIA, this.sCIA == null ? JSONObject.NULL : new JSONObject(this.sCIA));
         }
-        if (!this.sCIB.equals("")) {
+        } catch (Exception e) {
 
+        }
+
+        try {
+        if (!this.sCIB.equals("")) {
             json.put(ParticipantsTable.COLUMN_SCIB, this.sCIB == null ? JSONObject.NULL : new JSONObject(this.sCIB));
         }
-        if (!this.sCIC.equals("")) {
+        } catch (Exception e) {
 
-        json.put(ParticipantsTable.COLUMN_SCIC, this.sCIC == null ? JSONObject.NULL : new JSONObject(this.sCIC));
         }
+
+        try {
+        if (!this.sCIC.equals("")) {
+            json.put(ParticipantsTable.COLUMN_SCIC, this.sCIC == null ? JSONObject.NULL : new JSONObject(this.sCIC));
+        }
+        } catch (Exception e) {
+
+        }
+
+        try {
         if (!this.sD.equals("")) {
         json.put(ParticipantsTable.COLUMN_SD, this.sD == null ? JSONObject.NULL : new JSONObject(this.sD));
         }
+        } catch (Exception e) {
+
+        }
+
+        try {
         if (!this.sE.equals("")) {
         json.put(ParticipantsTable.COLUMN_SE, this.sE == null ? JSONObject.NULL : new JSONObject(this.sE));
         }
+        } catch (Exception e) {
+
+        }
+
         json.put(ParticipantsTable.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
         json.put(ParticipantsTable.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
         json.put(ParticipantsTable.COLUMN_GPSTIME, this.gpsTime == null ? JSONObject.NULL : this.gpsTime);
