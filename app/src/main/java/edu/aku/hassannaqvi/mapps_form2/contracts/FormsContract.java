@@ -309,15 +309,31 @@ public class FormsContract {
         json.put(FormsTable.COLUMN_HOUSEHOLD, this.household == null ? JSONObject.NULL : this.household);
         json.put(FormsTable.COLUMN_LHWCODE, this.lhwCode == null ? JSONObject.NULL : this.lhwCode);
         json.put(FormsTable.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
-        if (this.sA != null && !this.sA.equals("")) {
+
+        try {
+            if (!this.sA.equals("")) {
         json.put(FormsTable.COLUMN_SA, this.sA == null ? JSONObject.NULL : new JSONObject(this.sA));
+            }
+        } catch (Exception e) {
+
         }
-        if (this.sA != null && !this.sBA.equals("")) {
+
+        try {
+            if (!this.sBA.equals("")) {
             json.put(FormsTable.COLUMN_SBA, this.sBA == null ? JSONObject.NULL : new JSONObject(this.sBA));
+            }
+        } catch (Exception e) {
+
         }
-        if (this.sA != null && !this.sBB.equals("")) {
+
+        try {
+            if (!this.sBB.equals("")) {
             json.put(FormsTable.COLUMN_SBB, this.sBB == null ? JSONObject.NULL : new JSONObject(this.sBB));
+            }
+        } catch (Exception e) {
+
         }
+
         json.put(FormsTable.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
         json.put(FormsTable.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
         json.put(FormsTable.COLUMN_GPSTIME, this.gpsTime == null ? JSONObject.NULL : this.gpsTime);
