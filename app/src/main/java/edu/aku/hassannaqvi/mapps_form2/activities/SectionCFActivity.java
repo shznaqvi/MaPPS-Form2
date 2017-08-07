@@ -1313,7 +1313,7 @@ public class SectionCFActivity extends Activity {
         scf.put("mp02cf03907", mp02cf03907.isChecked() ? "7" : "0");
         scf.put("mp02cf03908", mp02cf03908.isChecked() ? "8" : "0");
         scf.put("mp02cf03988", mp02cf03988.isChecked() ? "88" : "0");
-        scf.put("mp02cf02688x", mp02cf03988x.getText().toString());
+        scf.put("mp02cf03988x", mp02cf03988x.getText().toString());
 
         AppMain.pc.setsCF(String.valueOf(scf));
 
