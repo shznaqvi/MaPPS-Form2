@@ -325,6 +325,7 @@ public class SectionAActivity extends Activity {
         AppMain.fc.setIstatus("2");
         AppMain.fc.setDeviceID(AppMain.deviceId);
         AppMain.fc.setVillageacode(mp02a006.getText().toString());
+        AppMain.fc.setApp_version(AppMain.versionName + "." + AppMain.versionCode);
 
         AppMain.fc.setLhwCode(LHWs.get(mp02aLHWs.getSelectedItem().toString()));
 

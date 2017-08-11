@@ -6,8 +6,6 @@ import android.provider.BaseColumns;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import edu.aku.hassannaqvi.mapps_form2.AppMain;
-
 /**
  * Created by hassan.naqvi on 11/30/2016.
  */
@@ -35,7 +33,7 @@ public class FormsContract {
     private String gpsAcc = "";
     private String deviceID = "";
     private String tagID = "";
-    private String app_version = AppMain.versionName + "." + AppMain.versionCode;
+    private String app_version = "";
     private String synced = "";
     private String synced_date = "";
 
