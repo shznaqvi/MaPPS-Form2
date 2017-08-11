@@ -311,6 +311,8 @@ public class SectionCBActivity extends Activity {
     RadioButton mp02cb02802;
     @BindView(R.id.fldGrpmp02cbbutton)
     LinearLayout fldGrpmp02cbbutton;
+    @BindView(R.id.mp02cbName)
+    EditText mp02cbName;
 
     Calendar now = Calendar.getInstance();
     int year = now.get(Calendar.YEAR);
@@ -887,6 +889,7 @@ public class SectionCBActivity extends Activity {
 
         JSONObject scb = new JSONObject();
 
+        scb.put("mp02cbname", mp02cbName.getText().toString());
         scb.put("mp02ca001", mp02ca00101.isChecked() ? "1" : mp02ca00102.isChecked() ? "2" : "0");
         scb.put("mp02ca002", mp02ca00201.isChecked() ? "1" : mp02ca00202.isChecked() ? "2" : "0");
         scb.put("mp02cb00101", mp02cb00101.getText().toString());
@@ -956,6 +959,17 @@ public class SectionCBActivity extends Activity {
     }
 
     public boolean ValidateForm() {
+
+        if (mp02cbName.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cbName), Toast.LENGTH_LONG).show();
+            mp02cbName.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "mp02cbName: This data is Required!");
+            return false;
+        } else {
+            mp02cbName.setError(null);
+        }
+
 
         //======================= CA Q 1 ===============
         if (mp02ca001.getCheckedRadioButtonId() == -1) {
