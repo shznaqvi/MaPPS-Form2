@@ -556,7 +556,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             if (mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                 DatabaseHelper db = new DatabaseHelper(LoginActivity.this);
                 if ((mEmail1.equals("dmu@aku") && mPassword1.equals("aku?dmu")) || db.Login(mEmail1, mPassword1) ||
-                        (mEmail1.equals("test1234") && mPassword1.equals("test1234")) || (mEmail1.equals("test12345") && mPassword1.equals("test12345"))) {
+                        (mEmail1.equals("test1234") && mPassword1.equals("test1234"))
+                        || (mEmail1.equals("test12345") && mPassword1.equals("test12345"))) {
                     AppMain.userName = mEmail1;
                     AppMain.admin = mEmail1.contains("@");
 
