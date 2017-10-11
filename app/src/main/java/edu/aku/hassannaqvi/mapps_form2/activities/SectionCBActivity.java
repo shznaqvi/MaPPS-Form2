@@ -34,6 +34,7 @@ import edu.aku.hassannaqvi.mapps_form2.AppMain;
 import edu.aku.hassannaqvi.mapps_form2.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form2.R;
 import edu.aku.hassannaqvi.mapps_form2.contracts.ParticipantsContract;
+import edu.aku.hassannaqvi.mapps_form2.otherclasses.EligibleParticipants;
 
 public class SectionCBActivity extends Activity {
 
@@ -317,6 +318,8 @@ public class SectionCBActivity extends Activity {
     Calendar now = Calendar.getInstance();
     int year = now.get(Calendar.YEAR);
 
+int pos;
+    Boolean flag = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -324,6 +327,11 @@ public class SectionCBActivity extends Activity {
         setContentView(R.layout.activity_section_cb);
         ButterKnife.bind(this);
 
+        flag = getIntent().getBooleanExtra("flag",false);
+        pos = getIntent().getExtras().getInt("pos");
+        if (!flag) {
+            mp02cbName.setText(AppMain.Eparticipant.get(pos).getWname());
+        }
 
         AppMain.partiFlag++;
 
@@ -871,6 +879,10 @@ public class SectionCBActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
+        if (flag) {
+            AppMain.Eparticipant.add(new EligibleParticipants("", mp02cbName.getText().toString()));
+        }
+
         SharedPreferences sharedPref = getSharedPreferences("tagName",MODE_PRIVATE);
 
         AppMain.pc =new ParticipantsContract();
@@ -881,13 +893,19 @@ public class SectionCBActivity extends Activity {
         AppMain.pc.setInterviewer02(AppMain.loginMem[2]);
         AppMain.pc.setDeviceID(AppMain.deviceId);
         AppMain.pc.setUUID(AppMain.fc.getUID());
-        AppMain.pc.setLUID(getIntent().getExtras().getString("l_uid"));
+        AppMain.pc.setLUID(AppMain.Eparticipant.get(pos).getL_uid());
 
         AppMain.pc.setHousehold(AppMain.fc.getHousehold());
         AppMain.pc.setClustercode(AppMain.fc.getClustercode());
         AppMain.pc.setLhwCode(AppMain.fc.getLhwCode());
 
         JSONObject scb = new JSONObject();
+
+        if (!flag) {
+            AppMain.Eparticipant.get(pos).setWname(mp02cbName.getText().toString());
+        }
+
+        AppMain.currentParticipantName = mp02cbName.getText().toString().toUpperCase();
 
         scb.put("mp02cbname", mp02cbName.getText().toString());
         scb.put("mp02ca001", mp02ca00101.isChecked() ? "1" : mp02ca00102.isChecked() ? "2" : "0");
