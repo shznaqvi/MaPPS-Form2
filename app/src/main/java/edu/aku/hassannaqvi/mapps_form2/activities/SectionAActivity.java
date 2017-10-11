@@ -273,8 +273,8 @@ public class SectionAActivity extends Activity {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
-//                Intent secba = new Intent(this, SectionBAActivity.class);
-                Intent secba = new Intent(this, ParticipantListActivity.class);
+                Intent secba = new Intent(this, SectionBAActivity.class);
+//                Intent secba = new Intent(this, ParticipantListActivity.class);
                 secba.putExtra("data", Econtract.size());
                 startActivity(secba);
 
