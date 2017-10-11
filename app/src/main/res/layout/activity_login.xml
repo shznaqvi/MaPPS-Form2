@@ -73,6 +73,7 @@
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:padding="2px"
+                android:text="test1234"
                 android:singleLine="true"
                 android:textAlignment="center"
                 android:textColor="#efefef"
@@ -93,6 +94,7 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textAlignment="center"
+                android:text="test1234"
                 android:textSize="25sp" />
             <!--android:text="aku?dmu"-->
 
@@ -110,6 +112,7 @@
                 android:singleLine="true"
                 android:textAlignment="center"
                 android:textColor="#efefef"
+                android:text="dmu@aku"
                 android:textSize="22sp" />
             <!--android:text="test1234"-->
 
@@ -127,6 +130,7 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textAlignment="center"
+                android:text="aku?dmu"
                 android:textSize="25sp" />
             <!--android:text="test1234"-->
 

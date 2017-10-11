@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,6 +32,12 @@ public class ParticipantListActivity extends Activity {
     ArrayList<String> Ewomens;
     ArrayList<Integer> bloodSample;
 
+    listAdapter partcipantAdapter;
+
+    Boolean flag = false;
+
+    List<Integer> lastPos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +47,8 @@ public class ParticipantListActivity extends Activity {
         Ewomens = new ArrayList<>();
         bloodSample = new ArrayList<>();
 
+        lastPos = new ArrayList<>();
+
         Log.d("Size", "" + AppMain.Eparticipant.size());
 
         for (int i = 0; i < AppMain.Eparticipant.size(); i++) {
@@ -48,7 +57,7 @@ public class ParticipantListActivity extends Activity {
         }
 
 
-        listAdapter partcipantAdapter = new listAdapter(this, android.R.layout.simple_list_item_1, Ewomens);
+        partcipantAdapter = new listAdapter(this, android.R.layout.simple_list_item_1, Ewomens);
 
 //        participantList.setAdapter(new ArrayAdapter<>(this, R.layout.lstview, Ewomens));
         participantList.setAdapter(partcipantAdapter);
@@ -68,6 +77,30 @@ public class ParticipantListActivity extends Activity {
         } else {
             Toast.makeText(getApplicationContext(), "Fill all Participants", Toast.LENGTH_LONG).show();
         }
+
+    }
+
+    @OnClick(R.id.btn_addNew)
+    void onBtnAddNewClick() {
+        //TODO implement
+
+        /*if (AppMain.Eparticipant.size() == AppMain.partiFlag) {
+            finish();
+            Intent endSec = new Intent(this, EndingActivity.class);
+            endSec.putExtra("complete", true);
+            startActivity(endSec);
+        } else {
+            Toast.makeText(getApplicationContext(), "Fill all Participants", Toast.LENGTH_LONG).show();
+        }*/
+
+        flag = true;
+
+        lastPos.add(AppMain.Eparticipant.size());
+
+        Intent cb = new Intent(getApplicationContext(), SectionCBActivity.class);
+        cb.putExtra("flag", true);
+        cb.putExtra("pos", AppMain.Eparticipant.size());
+        startActivity(cb);
 
     }
 
@@ -94,33 +127,42 @@ public class ParticipantListActivity extends Activity {
             textView.setText(list.get(position));
 
             for (int i = 0; i < bloodSample.size(); i++) {
-
-                if (bloodSample.get(i) == position){
+                if (bloodSample.get(i) == position) {
                     v.setBackground(getContext().getDrawable(R.drawable.listview_border));
                 }
             }
 
+            for (int i = 0; i < lastPos.size(); i++) {
+                if (lastPos.get(i) == position) {
+                    v.setBackgroundColor(getResources().getColor(R.color.gray));
+                    v.setEnabled(false);
+                }
+            }
+
+            Log.i("count", String.valueOf(position));
 
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    AppMain.currentParticipantName = (String) participantList.getItemAtPosition(position);
+/*                    AppMain.currentParticipantName = (String) participantList.getItemAtPosition(position);*/
 
                     participantList.getChildAt(position).setEnabled(false);
                     participantList.getChildAt(position).setBackgroundColor(getResources().getColor(R.color.gray));
 
-                    for(int pos: bloodSample){
-                        if (pos == position){
+                    for (int pos : bloodSample) {
+                        if (pos == position) {
                             participantList.getChildAt(position).setBackground(getContext().getDrawable(R.drawable.listview_border_back));
                         }
                     }
+
+                    lastPos.add(position);
 
 //                Toast.makeText(getApplicationContext(),AppMain.currentParticipantName,Toast.LENGTH_LONG).show();
 //                Toast.makeText(getApplicationContext(),""+position,Toast.LENGTH_LONG).show();
 
                     Intent cb = new Intent(getApplicationContext(), SectionCBActivity.class);
-                    cb.putExtra("l_uid", AppMain.Eparticipant.get(position).getL_uid());
+                    cb.putExtra("pos", position);
                     startActivity(cb);
                 }
             });
@@ -129,4 +171,16 @@ public class ParticipantListActivity extends Activity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (flag) {
+            Ewomens.add(AppMain.currentParticipantName);
+            partcipantAdapter.notifyDataSetChanged();
+
+            flag = false;
+        }
+
+    }
 }
