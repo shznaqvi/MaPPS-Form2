@@ -10,12 +10,14 @@ import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +26,7 @@ import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -314,6 +317,10 @@ public class SectionCBActivity extends Activity {
     LinearLayout fldGrpmp02cbbutton;
     @BindView(R.id.mp02cbName)
     EditText mp02cbName;
+    @BindView(R.id.addParticipantReason)
+    Spinner addParticipantReason;
+    @BindView(R.id.fldGrpRsn)
+    LinearLayout fldGrpRsn;
 
     Calendar now = Calendar.getInstance();
     int year = now.get(Calendar.YEAR);
@@ -327,10 +334,20 @@ int pos;
         setContentView(R.layout.activity_section_cb);
         ButterKnife.bind(this);
 
+        ArrayList<String> rsnValues = new ArrayList<>();
+        rsnValues.add(0, "...");
+        rsnValues.add(1, "Migration in");
+        rsnValues.add(2, "Dont know");
+
+        addParticipantReason.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, rsnValues));
+
         flag = getIntent().getBooleanExtra("flag",false);
         pos = getIntent().getExtras().getInt("pos");
         if (!flag) {
             mp02cbName.setText(AppMain.Eparticipant.get(pos).getWname());
+            fldGrpRsn.setVisibility(View.GONE);
+        } else {
+            fldGrpRsn.setVisibility(View.VISIBLE);
         }
 
         AppMain.partiFlag++;
@@ -881,6 +898,7 @@ int pos;
 
         if (flag) {
             AppMain.Eparticipant.add(new EligibleParticipants("", mp02cbName.getText().toString()));
+
         }
 
         SharedPreferences sharedPref = getSharedPreferences("tagName",MODE_PRIVATE);
@@ -903,6 +921,8 @@ int pos;
 
         if (!flag) {
             AppMain.Eparticipant.get(pos).setWname(mp02cbName.getText().toString());
+        } else {
+            scb.put("mp02cbrsn", addParticipantReason.getSelectedItem().toString());
         }
 
         AppMain.currentParticipantName = mp02cbName.getText().toString().toUpperCase();
@@ -977,6 +997,19 @@ int pos;
     }
 
     public boolean ValidateForm() {
+
+        if (flag) {
+            if (addParticipantReason.getSelectedItem() == "...") {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mp02cbrsn), Toast.LENGTH_SHORT).show();
+                ((TextView) addParticipantReason.getSelectedView()).setError("This Data is Required");
+
+                Log.i(TAG, "mp02cbrsn: This Data is Required!");
+                return false;
+            } else {
+                ((TextView) addParticipantReason.getSelectedView()).setError(null);
+            }
+
+        }
 
         if (mp02cbName.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cbName), Toast.LENGTH_LONG).show();

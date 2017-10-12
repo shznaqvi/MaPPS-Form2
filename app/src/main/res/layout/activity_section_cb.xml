@@ -20,6 +20,32 @@
             android:layoutDirection="rtl"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:id="@+id/fldGrpRsn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorPrimary"
+                    android:text="@string/mp02cbrsn"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white"/>
+
+                <Spinner
+                    android:id="@+id/addParticipantReason"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:popupBackground="#ffffff">
+
+                </Spinner>
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"

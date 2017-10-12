@@ -19,6 +19,7 @@ import java.util.Date;
 import java.util.List;
 
 import edu.aku.hassannaqvi.mapps_form2.contracts.ClustersContract;
+import edu.aku.hassannaqvi.mapps_form2.contracts.DoneContract;
 import edu.aku.hassannaqvi.mapps_form2.contracts.EligiblesContract;
 import edu.aku.hassannaqvi.mapps_form2.contracts.EligiblesContract.EligiblesTable;
 import edu.aku.hassannaqvi.mapps_form2.contracts.FormsContract;
@@ -129,6 +130,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             ClustersContract.ClustersTable.COLUMN_CLUSTERNAME + " TEXT," +
             ClustersContract.ClustersTable.COLUMN_CLUSTERCODE + " TEXT" +
             " );";
+
+    private static final String SQL_CREATE_DONE = "CREATE TABLE "
+            + DoneContract.DoneTable.TABLE_NAME + "(" +
+            DoneContract.DoneTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            DoneContract.DoneTable.COLUMN_NAME_LUID + " TEXT" +
+            " );";
     /**
      * DELETE STRINGS
      */
@@ -144,6 +151,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + FormsTable.TABLE_NAME;
     private static final String SQL_DELETE_PARTICIPANTS =
             "DROP TABLE IF EXISTS " + ParticipantsTable.TABLE_NAME;
+    private static final String SQL_DELETE_DONE =
+            "DROP TABLE IF EXISTS " + DoneContract.DoneTable.TABLE_NAME;
     public static String DB_NAME = "mapps_f2_copy.db";
     private final String TAG = "DatabaseHelper";
     public String spDateT = new SimpleDateFormat("dd-MM-yy").format(new Date().getTime());
@@ -157,6 +166,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_USERS);
         db.execSQL(SQL_CREATE_ELIGIBLES);
+        db.execSQL(SQL_CREATE_DONE);
         db.execSQL(SQL_CREATE_LHWS);
         db.execSQL(SQL_CREATE_CLUSTERS);
         db.execSQL(SQL_CREATE_FORMS);
@@ -168,6 +178,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL(SQL_DELETE_USERS);
         db.execSQL(SQL_DELETE_ELIGIBLES);
+        db.execSQL(SQL_DELETE_DONE);
         db.execSQL(SQL_DELETE_LHWS);
         db.execSQL(SQL_DELETE_CLUSTERS);
         db.execSQL(SQL_DELETE_FORMS);
@@ -228,6 +239,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.close();
         }
         }
+
+    public void syncDone(JSONArray donelist) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(DoneContract.DoneTable.TABLE_NAME, null, null);
+        try {
+            JSONArray jsonArray = donelist;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectED = jsonArray.getJSONObject(i);
+
+                DoneContract ed = new DoneContract();
+                ed.Sync(jsonObjectED);
+
+                ContentValues values = new ContentValues();
+
+                values.put(DoneContract.DoneTable.COLUMN_NAME_LUID, ed.getLUID());
+
+                db.insert(DoneContract.DoneTable.TABLE_NAME, null, values);
+            }
+
+
+        } catch (Exception e) {
+        } finally {
+            db.close();
+        }
+    }
+
 
     public void syncLHWs(JSONArray lhwslist) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -426,6 +463,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void updateEligibles(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(EligiblesTable.COLUMN_SYNCED, true);
+        values.put(EligiblesTable.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = FormsTable._ID + " LIKE ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                FormsTable.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+
+    public void updateDone(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
@@ -1058,6 +1115,50 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             );
             while (c.moveToNext()) {
                 EligiblesContract ec = new EligiblesContract();
+                allEC.add(ec.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allEC;
+    }
+
+
+    public Collection<DoneContract> getUnsyncedDone() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                EligiblesTable._ID,
+                EligiblesTable.COLUMN_NAME_LUID,
+
+        };
+
+        String whereClause = DoneContract.DoneTable.COLUMN_SYNCED + " is null OR " + DoneContract.DoneTable.COLUMN_SYNCED + " = ''";
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                DoneContract.DoneTable._ID + " ASC";
+
+        Collection<DoneContract> allEC = new ArrayList<>();
+        try {
+            c = db.query(
+                    DoneContract.DoneTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                DoneContract ec = new DoneContract();
                 allEC.add(ec.Hydrate(c));
             }
         } finally {
