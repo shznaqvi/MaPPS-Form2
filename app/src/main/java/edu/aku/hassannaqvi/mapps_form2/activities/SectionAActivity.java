@@ -274,6 +274,7 @@ public class SectionAActivity extends Activity {
 
                 finish();
                 Intent secba = new Intent(this, SectionBAActivity.class);
+//                Intent secba = new Intent(this, ParticipantListActivity.class);
                 secba.putExtra("data", Econtract.size());
                 startActivity(secba);
 
