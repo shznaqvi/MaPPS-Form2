@@ -989,6 +989,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allCC;
     }
 
+
     public Collection<EligiblesContract> getEligiblesByHousehold(String clusterCode, String lhwCode, String hhno) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
@@ -1035,6 +1036,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return allEC;
     }
+
 
     public Collection<EligiblesContract> getAllEligibles() {
         SQLiteDatabase db = this.getReadableDatabase();
