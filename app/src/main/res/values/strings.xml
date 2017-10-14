@@ -51,7 +51,6 @@
     <!-- Strings related to Sections Below -->
 
 
-
     <string name="mp02a001"> جواب ڏيندڙ جو نالو </string>
     <string name="mp02a002"> گھر جي سربراه جو نالو </string>
     <string name="mp02a003"> خاندا ن نمبر </string>
@@ -281,6 +280,7 @@
     <string name="mp02ca002"> ڇا رضامندي لکت ۾ ورتي وئي آهي ؟ </string>
 
     <string name="mp02cbName"> شرڪت ڪندڙ جو نالو </string>
+    <string name="mp02cbrsn"> Reason for adding new participant </string>
     <string name="mp02cb001"> ڪهڙي مهيني ۽ سال ۾ توهان جي پيدائش ٿي هئي؟ </string>
     <string name="mp02cb002"> گذريل سالگراه جي ڏينهن تي توهان جي عمر ڪيتري ٿي هئي ؟ (پورا سال لکو) </string>
     <string name="mp02cb003"> توهان جي (علاقائي) ٻولي ڪهڙي آهي؟ </string>

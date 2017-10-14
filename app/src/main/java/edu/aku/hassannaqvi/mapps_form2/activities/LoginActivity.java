@@ -310,6 +310,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
             new syncData(this).execute();
 
+
         } else {
             Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
         }
@@ -638,6 +639,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                     new GetUsers(mContext).execute();
                     Toast.makeText(getApplicationContext(), "Getting LHW's", Toast.LENGTH_SHORT).show();
                     new GetLHWs(mContext).execute();
+
                 }
             });
 
