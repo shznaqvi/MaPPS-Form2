@@ -134,6 +134,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String SQL_CREATE_DONE = "CREATE TABLE "
             + DoneContract.DoneTable.TABLE_NAME + "(" +
             DoneContract.DoneTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            DoneContract.DoneTable.COLUMN_NAME_UID + " TEXT," +
             DoneContract.DoneTable.COLUMN_NAME_LUID + " TEXT" +
             " );";
     /**
@@ -246,14 +247,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         try {
             JSONArray jsonArray = donelist;
             for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObjectED = jsonArray.getJSONObject(i);
+                JSONObject jsonObjectLC = jsonArray.getJSONObject(i);
 
-                DoneContract ed = new DoneContract();
-                ed.Sync(jsonObjectED);
+                DoneContract lc = new DoneContract();
+                lc.Sync(jsonObjectLC);
+
 
                 ContentValues values = new ContentValues();
 
-                values.put(DoneContract.DoneTable.COLUMN_NAME_LUID, ed.getLUID());
+                values.put(DoneContract.DoneTable.COLUMN_NAME_UID, lc.getUID());
+                values.put(DoneContract.DoneTable.COLUMN_NAME_LUID, lc.getLUID());
+
 
                 db.insert(DoneContract.DoneTable.TABLE_NAME, null, values);
             }
@@ -1084,6 +1088,50 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allEC;
     }
 
+
+    public Collection<DoneContract> getAllUnDone() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                DoneContract.DoneTable._ID,
+                DoneContract.DoneTable.COLUMN_NAME_LUID,
+                DoneContract.DoneTable.COLUMN_NAME_UID
+        };
+
+        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                DoneContract.DoneTable._ID + " ASC";
+
+        Collection<DoneContract> allEC = new ArrayList<>();
+        try {
+            c = db.query(
+                    DoneContract.DoneTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                DoneContract ec = new DoneContract();
+                allEC.add(ec.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allEC;
+    }
+
     public Collection<EligiblesContract> getUnsyncedEligibles() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
@@ -1135,8 +1183,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                EligiblesTable._ID,
-                EligiblesTable.COLUMN_NAME_LUID,
+                DoneContract.DoneTable._ID,
+                DoneContract.DoneTable.COLUMN_NAME_LUID,
+                DoneContract.DoneTable.COLUMN_NAME_UID
 
         };
 

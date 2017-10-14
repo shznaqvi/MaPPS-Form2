@@ -17,16 +17,19 @@ public class DoneContract
 
     // for child level Randomisation
 
-
+    private String UID;
     private String LUID; // Link UID from Source
 
+
     public DoneContract Sync(JSONObject jsonObject) throws JSONException {
+        this.UID = jsonObject.getString(DoneTable.COLUMN_NAME_UID);
         this.LUID = jsonObject.getString(DoneTable.COLUMN_NAME_LUID);
         return this;
 
     }
 
     public DoneContract Hydrate(Cursor cursor) {
+        this.UID = cursor.getString(cursor.getColumnIndex(DoneTable.COLUMN_NAME_UID));
         this.LUID = cursor.getString(cursor.getColumnIndex(DoneTable.COLUMN_NAME_LUID));
         return this;
     }
@@ -47,11 +50,20 @@ public class DoneContract
         this.LUID = LUID;
     }
 
+    public String getUID() {
+        return UID;
+    }
+
+    public void setUID(String UID) {
+        this.UID = UID;
+    }
+
 
     public JSONObject toJSONObject() throws JSONException {
         JSONObject json = new JSONObject();
 
         json.put(DoneTable._ID, this._ID);
+        json.put(DoneTable.COLUMN_NAME_UID, this.UID);
         json.put(DoneTable.COLUMN_NAME_LUID, this.LUID);
 
 
@@ -61,16 +73,18 @@ public class DoneContract
     public static abstract class DoneTable implements BaseColumns
     {
 
-        public static final String _URI = "done.php";
+        public static final String _URI = "notdone.php";
 
-        public static final String TABLE_NAME = "done";
+        public static final String TABLE_NAME = "not_done";
 
         public static final String _ID = "id";
-        public static final String COLUMN_NAME_LUID = "uid";
+        public static final String COLUMN_NAME_UID = "uid";
+        public static final String COLUMN_NAME_LUID = "l_uid";
+        public static final String COLUMN_NAME_CLUSTER = "clustercode";
 
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "synced_date";
-        public static final String _URIGET = "getdone.php";
+        public static final String _URIGET = "getnotdone.php";
     }
 
 }

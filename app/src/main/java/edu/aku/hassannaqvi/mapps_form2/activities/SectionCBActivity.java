@@ -325,7 +325,7 @@ public class SectionCBActivity extends Activity {
     Calendar now = Calendar.getInstance();
     int year = now.get(Calendar.YEAR);
 
-int pos;
+    int pos;
     Boolean flag = true;
 
     @Override
@@ -904,18 +904,24 @@ int pos;
         SharedPreferences sharedPref = getSharedPreferences("tagName",MODE_PRIVATE);
 
         AppMain.pc =new ParticipantsContract();
+        //AppMain.dc  = new DoneContract();
 
         AppMain.pc.setTagID(sharedPref.getString("tagName",null));
         AppMain.pc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm",new Date())).toString());
         AppMain.pc.setInterviewer01(AppMain.loginMem[1]);
         AppMain.pc.setInterviewer02(AppMain.loginMem[2]);
         AppMain.pc.setDeviceID(AppMain.deviceId);
-        AppMain.pc.setUUID(AppMain.fc.getUID());
+        if (AppMain.formType.equals("1")) {
+            AppMain.pc.setUUID(AppMain.fc.getUID());
+        } else {
+            AppMain.pc.setUUID(AppMain.dc.getUID());
+        }
         AppMain.pc.setLUID(AppMain.Eparticipant.get(pos).getL_uid());
 
         AppMain.pc.setHousehold(AppMain.fc.getHousehold());
         AppMain.pc.setClustercode(AppMain.fc.getClustercode());
         AppMain.pc.setLhwCode(AppMain.fc.getLhwCode());
+        AppMain.pc.setApp_version(AppMain.versionName + "." + AppMain.versionCode);
 
         JSONObject scb = new JSONObject();
 

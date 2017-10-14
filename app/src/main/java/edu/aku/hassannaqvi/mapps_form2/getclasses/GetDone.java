@@ -54,7 +54,7 @@ public class GetDone extends AsyncTask<Void, Void, String>
     protected void onPreExecute() {
         super.onPreExecute();
         pd = new ProgressDialog(mContext);
-        pd.setTitle("Please wait... Processing Done Eligibles");
+        pd.setTitle("Please wait... Processing Not Done Eligibles");
         pd.show();
 
     }
@@ -81,17 +81,17 @@ public class GetDone extends AsyncTask<Void, Void, String>
             json = new JSONArray(result);
             DatabaseHelper db = new DatabaseHelper(mContext);
             db.syncDone(json);
-            Toast.makeText(mContext, "Successfully Synced " + json.length() + " Done Eligibles", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, "Successfully Synced " + json.length() + " Not Done Eligibles", Toast.LENGTH_SHORT).show();
 
-            pd.setMessage(json.length() + " done eligibles synced.");
-            pd.setTitle("Done Eligibles: Done");
+            pd.setMessage(json.length() + " Not done eligibles synced.");
+            pd.setTitle("Not Done Eligibles: Done");
             pd.show();
         } catch (JSONException e) {
             e.printStackTrace();
             Toast.makeText(mContext, "Failed Sync " + result, Toast.LENGTH_SHORT).show();
 
             pd.setMessage(result);
-            pd.setTitle("Done Eligibles Sync Failed");
+            pd.setTitle("Not Done Eligibles Sync Failed");
             pd.show();
 
         }

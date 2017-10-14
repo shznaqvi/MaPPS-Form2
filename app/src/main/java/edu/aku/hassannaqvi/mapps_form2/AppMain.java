@@ -15,6 +15,7 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.Map;
 
+import edu.aku.hassannaqvi.mapps_form2.contracts.DoneContract;
 import edu.aku.hassannaqvi.mapps_form2.contracts.FormsContract;
 import edu.aku.hassannaqvi.mapps_form2.contracts.ParticipantsContract;
 import edu.aku.hassannaqvi.mapps_form2.otherclasses.EligibleParticipants;
@@ -62,11 +63,14 @@ public class AppMain extends Application {
     public static String child_name = "TEST";
     public static FormsContract fc;
     public static ParticipantsContract pc;
+    public static DoneContract dc = new DoneContract();
     public static String userName = "0000";
     public static String areaCode;
     public static String curCluster;
+    public static String formType;
     //    For participant
     public static ArrayList<EligibleParticipants> Eparticipant;
+    //public static ArrayList<EligibleParticipants> Eparticipant;
     public static String currentParticipantName = "";
     public static String[] loginMem;
     public static long installedOn;

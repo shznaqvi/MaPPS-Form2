@@ -34,6 +34,7 @@ import butterknife.OnClick;
 import edu.aku.hassannaqvi.mapps_form2.AppMain;
 import edu.aku.hassannaqvi.mapps_form2.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form2.R;
+import edu.aku.hassannaqvi.mapps_form2.contracts.DoneContract;
 import edu.aku.hassannaqvi.mapps_form2.contracts.EligiblesContract;
 import edu.aku.hassannaqvi.mapps_form2.contracts.FormsContract;
 import edu.aku.hassannaqvi.mapps_form2.contracts.LHWsContract;
@@ -67,8 +68,10 @@ public class UpdateFormActivity extends Activity
     Boolean flag = false;
     Boolean checked = false;
 
+    Collection<DoneContract> Dcontract;
     Collection<EligiblesContract> Econtract;
 
+    //DoneContract dc = new DoneContract();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -152,31 +155,44 @@ public class UpdateFormActivity extends Activity
             mp02a003.setError(null);
 
             Econtract = db.getEligiblesByHousehold(AppMain.curCluster, LHWs.get(mp02aLHWs.getSelectedItem().toString()), mp02a003.getText().toString());
+            Dcontract = db.getAllUnDone();
 
-            mp02Count.setText("Eligible Women found = " + Econtract.size());
 
 
             if (Econtract.size() != 0) {
 
                 AppMain.Eparticipant = new ArrayList<>();
 
-                for (EligiblesContract ec : Econtract) {
-                    AppMain.Eparticipant.add(new EligibleParticipants(ec.getLUID(), ec.getWomen_name()));
+                for (DoneContract dc : Dcontract) {
+
+                    {
+                        for (EligiblesContract ec : Econtract) {
+                            if (ec.getLUID().equals(dc.getLUID())) {
+                                AppMain.Eparticipant.add(new EligibleParticipants(ec.getLUID(), ec.getWomen_name()));
+                                AppMain.dc.setUID(dc.getUID());
+                            }
+                        }
+                        mp02Count.setText("Remaining Eligible Women found = " + AppMain.Eparticipant.size());
+                    }
+
                 }
 
-                Toast.makeText(this, "Participant Found", Toast.LENGTH_LONG).show();
 
-                btnContinue.setVisibility(View.VISIBLE);
+                if (AppMain.Eparticipant.size() != 0) {
+                    Toast.makeText(this, "Participant Found", Toast.LENGTH_LONG).show();
 
-                flag = true;
+                    btnContinue.setVisibility(View.VISIBLE);
 
-            } else {
+                    flag = true;
+                } else {
 
-                btnContinue.setVisibility(View.GONE);
+                    btnContinue.setVisibility(View.GONE);
 
-                flag = false;
+                    flag = false;
 
-                Toast.makeText(this, "No Participant Found", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "No Participant Found", Toast.LENGTH_LONG).show();
+
+                }
             }
         } else {
             mp02a003.setError("This data is Required!");
@@ -199,10 +215,16 @@ public class UpdateFormActivity extends Activity
             if (UpdateDB()) {
 
                 finish();
-                Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-                Intent endSec = new Intent(this, EndingActivity.class);
-                endSec.putExtra("complete", false);
-                startActivity(endSec);
+
+                if (AppMain.formType.equals("1")) {
+                    Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+                    Intent endSec = new Intent(this, EndingActivity.class);
+                    endSec.putExtra("complete", false);
+                    startActivity(endSec);
+                } else {
+                    Intent endSec = new Intent(this, MainActivity.class);
+                    startActivity(endSec);
+                }
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
@@ -241,6 +263,7 @@ public class UpdateFormActivity extends Activity
 
     private boolean UpdateDB() {
 
+
         return true;
     }
 
@@ -250,6 +273,7 @@ public class UpdateFormActivity extends Activity
         SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
 
         AppMain.fc = new FormsContract();
+        //AppMain.dc  = new DoneContract();
 
         AppMain.fc.setTagID(sharedPref.getString("tagName", null));
         AppMain.fc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm", new Date())).toString());
@@ -260,6 +284,7 @@ public class UpdateFormActivity extends Activity
         AppMain.fc.setIstatus("2");
         AppMain.fc.setDeviceID(AppMain.deviceId);
         AppMain.fc.setApp_version(AppMain.versionName + "." + AppMain.versionCode);
+        AppMain.fc.setUID(AppMain.dc.getUID());
 
         AppMain.fc.setLhwCode(LHWs.get(mp02aLHWs.getSelectedItem().toString()));
 
