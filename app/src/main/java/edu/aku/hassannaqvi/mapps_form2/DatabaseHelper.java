@@ -44,7 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + UsersTable.ROW_USERNAME + " TEXT,"
             + UsersTable.ROW_PASSWORD + " TEXT );";
     public static final String DATABASE_NAME = "mapps_f2.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + FormsTable.TABLE_NAME + "(" +
             FormsTable.COLUMN__ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -177,13 +177,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        db.execSQL(SQL_DELETE_USERS);
+
+        switch (i) {
+            case 1:
+                db.execSQL(SQL_CREATE_DONE);
+
+        }
+
+        /*db.execSQL(SQL_DELETE_USERS);
         db.execSQL(SQL_DELETE_ELIGIBLES);
         db.execSQL(SQL_DELETE_DONE);
         db.execSQL(SQL_DELETE_LHWS);
         db.execSQL(SQL_DELETE_CLUSTERS);
         db.execSQL(SQL_DELETE_FORMS);
-        db.execSQL(SQL_DELETE_PARTICIPANTS);
+        db.execSQL(SQL_DELETE_PARTICIPANTS);*/
+
+
     }
 
     public void syncUsers(JSONArray userlist) {
@@ -239,7 +248,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } finally {
             db.close();
         }
-        }
+    }
 
     public void syncDone(JSONArray donelist) {
         SQLiteDatabase db = this.getWritableDatabase();
