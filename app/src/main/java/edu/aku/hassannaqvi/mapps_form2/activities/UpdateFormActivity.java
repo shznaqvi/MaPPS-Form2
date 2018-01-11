@@ -154,7 +154,8 @@ public class UpdateFormActivity extends Activity
 
             mp02a003.setError(null);
 
-            Econtract = db.getEligiblesByHousehold(AppMain.curCluster, LHWs.get(mp02aLHWs.getSelectedItem().toString()), mp02a003.getText().toString());
+            Econtract = db.getEligiblesByHousehold(AppMain.curCluster, LHWs.get(mp02aLHWs.getSelectedItem().toString()),
+                    mp02a003.getText().toString(), /*True means eligible*/false);
             Dcontract = db.getAllUnDone();
 
 
