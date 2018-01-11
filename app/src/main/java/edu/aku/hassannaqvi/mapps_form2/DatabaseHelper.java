@@ -932,7 +932,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String having = null;
 
         String orderBy =
-                ClustersContract.ClustersTable._ID + " ASC";
+                ClustersContract.ClustersTable.COLUMN_CLUSTERNAME + " ASC";
 
         Collection<ClustersContract> allCC = new ArrayList<>();
         try {
@@ -974,7 +974,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String having = null;
 
         String orderBy =
-                LHWsContract.LHWsTable._ID + " ASC";
+                LHWsContract.LHWsTable.COLUMN_LHWNAME + " ASC";
 
         Collection<LHWsContract> allCC = new ArrayList<>();
         try {
