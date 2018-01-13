@@ -69,18 +69,16 @@ public class ParticipantListActivity extends Activity {
     void onBtnEndClick() {
         //TODO implement
 
-        if (AppMain.Eparticipant.size() == AppMain.partiFlag) {
+        if (AppMain.formType.equals("2")) {
             finish();
+            Intent endSec = new Intent(this, MainActivity.class);
+            startActivity(endSec);
+        } else if (AppMain.Eparticipant.size() == AppMain.partiFlag) {
+            finish();
+            Intent endSec = new Intent(this, EndingActivity.class);
+            endSec.putExtra("complete", true);
+            startActivity(endSec);
 
-            if (AppMain.formType.equals("1")) {
-                Intent endSec = new Intent(this, EndingActivity.class);
-                endSec.putExtra("complete", true);
-                startActivity(endSec);
-            } else {
-                Intent endSec = new Intent(this, MainActivity.class);
-                endSec.putExtra("complete", true);
-                startActivity(endSec);
-            }
         } else {
             Toast.makeText(getApplicationContext(), "Fill all Participants", Toast.LENGTH_LONG).show();
         }

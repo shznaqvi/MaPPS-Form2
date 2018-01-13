@@ -44,7 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + UsersTable.ROW_USERNAME + " TEXT,"
             + UsersTable.ROW_PASSWORD + " TEXT );";
     public static final String DATABASE_NAME = "mapps_f2.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + FormsTable.TABLE_NAME + "(" +
             FormsTable.COLUMN__ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -137,6 +137,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             DoneContract.DoneTable.COLUMN_NAME_UID + " TEXT," +
             DoneContract.DoneTable.COLUMN_NAME_LUID + " TEXT" +
             " );";
+
+    private static final String SQL_CREATE_ELIGIBLES1 = "ALTER TABLE " +
+            EligiblesTable.TABLE_NAME + " ADD COLUMN " +
+            EligiblesTable.COLUMN_NAME_ELIGIBILITY_STATUS + " TEXT";
+
     /**
      * DELETE STRINGS
      */
@@ -181,6 +186,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         switch (i) {
             case 1:
                 db.execSQL(SQL_CREATE_DONE);
+            case 2:
+                db.execSQL(SQL_CREATE_ELIGIBLES1);
 
         }
 
@@ -239,12 +246,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(EligiblesTable.COLUMN_NAME_LHWCODE, ec.getLhwCode());
                 values.put(EligiblesTable.COLUMN_NAME_HOUSEHOLD, ec.getHouseHold());
                 values.put(EligiblesTable.COLUMN_NAME_WOMEN_NAME, ec.getWomen_name());
+                values.put(EligiblesTable.COLUMN_NAME_ELIGIBILITY_STATUS, ec.getEstatus());
 
                 db.insert(EligiblesTable.TABLE_NAME, null, values);
             }
 
 
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
+            Log.d(TAG, e.getMessage());
         } finally {
             db.close();
         }
@@ -932,7 +942,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String having = null;
 
         String orderBy =
-                ClustersContract.ClustersTable._ID + " ASC";
+                ClustersContract.ClustersTable.COLUMN_CLUSTERNAME + " ASC";
 
         Collection<ClustersContract> allCC = new ArrayList<>();
         try {
@@ -974,7 +984,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String having = null;
 
         String orderBy =
-                LHWsContract.LHWsTable._ID + " ASC";
+                LHWsContract.LHWsTable.COLUMN_LHWNAME + " ASC";
 
         Collection<LHWsContract> allCC = new ArrayList<>();
         try {
@@ -1003,7 +1013,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Collection<EligiblesContract> getEligiblesByHousehold(String clusterCode, String lhwCode, String hhno) {
+    public Collection<EligiblesContract> getEligiblesByHousehold(String clusterCode, String lhwCode, String hhno, Boolean flag) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
@@ -1011,12 +1021,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 EligiblesTable.COLUMN_NAME_WOMEN_NAME,
                 EligiblesTable.COLUMN_NAME_SUBAREACODE,
                 EligiblesTable.COLUMN_NAME_LHWCODE,
+                EligiblesTable.COLUMN_NAME_ELIGIBILITY_STATUS,
                 EligiblesTable.COLUMN_NAME_HOUSEHOLD
         };
 
         String whereClause = EligiblesTable.COLUMN_NAME_SUBAREACODE + " = ? AND " +
                 EligiblesTable.COLUMN_NAME_LHWCODE + " = ? AND " +
-                EligiblesTable.COLUMN_NAME_HOUSEHOLD + " = ?";
+                EligiblesTable.COLUMN_NAME_HOUSEHOLD + " = ? " + (flag ? "AND "+EligiblesTable.COLUMN_NAME_ELIGIBILITY_STATUS + " = '1'" : "");
         String[] whereArgs = new String[]{clusterCode, lhwCode, hhno};
         String groupBy = null;
         String having = null;
@@ -1060,6 +1071,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 EligiblesTable.COLUMN_NAME_SUBAREACODE,
                 EligiblesTable.COLUMN_NAME_LHWCODE,
                 EligiblesTable.COLUMN_NAME_HOUSEHOLD,
+                EligiblesTable.COLUMN_NAME_ELIGIBILITY_STATUS,
                 EligiblesTable.COLUMN_NAME_WOMEN_NAME
         };
 
@@ -1150,6 +1162,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 EligiblesTable.COLUMN_NAME_SUBAREACODE,
                 EligiblesTable.COLUMN_NAME_LHWCODE,
                 EligiblesTable.COLUMN_NAME_HOUSEHOLD,
+                EligiblesTable.COLUMN_NAME_ELIGIBILITY_STATUS,
                 EligiblesTable.COLUMN_NAME_WOMEN_NAME
         };
 

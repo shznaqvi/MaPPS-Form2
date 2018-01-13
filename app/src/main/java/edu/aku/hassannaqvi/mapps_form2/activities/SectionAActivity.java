@@ -192,7 +192,8 @@ public class SectionAActivity extends Activity {
 
             mp02a003.setError(null);
 
-            Econtract = db.getEligiblesByHousehold(AppMain.curCluster, LHWs.get(mp02aLHWs.getSelectedItem().toString()), mp02a003.getText().toString());
+            Econtract = db.getEligiblesByHousehold(AppMain.curCluster, LHWs.get(mp02aLHWs.getSelectedItem().toString()),
+                    mp02a003.getText().toString(), /*True means eligible*/true);
 
             mp02_count.setText("Eligible Women found = " + Econtract.size());
 
@@ -313,12 +314,12 @@ public class SectionAActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        SharedPreferences sharedPref = getSharedPreferences("tagName",MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
 
         AppMain.fc = new FormsContract();
 
-        AppMain.fc.setTagID(sharedPref.getString("tagName",null));
-        AppMain.fc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm",new Date())).toString());
+        AppMain.fc.setTagID(sharedPref.getString("tagName", null));
+        AppMain.fc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm", new Date())).toString());
         AppMain.fc.setInterviewer01(AppMain.loginMem[1]);
         AppMain.fc.setInterviewer02(AppMain.loginMem[2]);
         AppMain.fc.setClustercode(AppMain.curCluster);
