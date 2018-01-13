@@ -252,7 +252,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
 
 
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
+            Log.d(TAG, e.getMessage());
         } finally {
             db.close();
         }
