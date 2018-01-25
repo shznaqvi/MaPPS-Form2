@@ -6,11 +6,12 @@ package edu.aku.hassannaqvi.mapps_form2.otherclasses;
 
 public class EligibleParticipants {
 
-    String l_uid,wname,dob;
+    String l_uid, wname, dob, sno;
 
-    public EligibleParticipants(String l_uid, String wname) {
+    public EligibleParticipants(String l_uid, String wname, String sno) {
         this.l_uid = l_uid;
         this.wname = wname;
+        this.sno = sno;
     }
 
     public String getL_uid() {
@@ -31,5 +32,14 @@ public class EligibleParticipants {
 
     public String getDob() {
         return dob;
+    }
+
+    public String getSno() {
+
+        return sno;
+    }
+
+    public void setSno(String sno) {
+        this.sno = sno;
     }
 }

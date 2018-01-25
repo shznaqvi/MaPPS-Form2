@@ -44,7 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + UsersTable.ROW_USERNAME + " TEXT,"
             + UsersTable.ROW_PASSWORD + " TEXT );";
     public static final String DATABASE_NAME = "mapps_f2.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + FormsTable.TABLE_NAME + "(" +
             FormsTable.COLUMN__ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -143,6 +143,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             EligiblesTable.TABLE_NAME + " ADD COLUMN " +
             EligiblesTable.COLUMN_NAME_ELIGIBILITY_STATUS + " TEXT";
 
+
+    private static final String SQL_CREATE_ELIGIBLES2 = "ALTER TABLE " +
+            EligiblesTable.TABLE_NAME + " ADD COLUMN " +
+            EligiblesTable.COLUMN_NAME_SNO + " TEXT";
+
     /**
      * DELETE STRINGS
      */
@@ -189,6 +194,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.execSQL(SQL_CREATE_DONE);
             case 2:
                 db.execSQL(SQL_CREATE_ELIGIBLES1);
+            case 3:
+                db.execSQL(SQL_CREATE_ELIGIBLES2);
 
         }
 
@@ -248,6 +255,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(EligiblesTable.COLUMN_NAME_HOUSEHOLD, ec.getHouseHold());
                 values.put(EligiblesTable.COLUMN_NAME_WOMEN_NAME, ec.getWomen_name());
                 values.put(EligiblesTable.COLUMN_NAME_ELIGIBILITY_STATUS, ec.getEstatus());
+                values.put(EligiblesTable.COLUMN_NAME_SNO, ec.getSno());
 
                 db.insert(EligiblesTable.TABLE_NAME, null, values);
             }
@@ -1023,6 +1031,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 EligiblesTable.COLUMN_NAME_SUBAREACODE,
                 EligiblesTable.COLUMN_NAME_LHWCODE,
                 EligiblesTable.COLUMN_NAME_ELIGIBILITY_STATUS,
+                EligiblesTable.COLUMN_NAME_SNO,
                 EligiblesTable.COLUMN_NAME_HOUSEHOLD
         };
 
@@ -1073,6 +1082,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 EligiblesTable.COLUMN_NAME_LHWCODE,
                 EligiblesTable.COLUMN_NAME_HOUSEHOLD,
                 EligiblesTable.COLUMN_NAME_ELIGIBILITY_STATUS,
+                EligiblesTable.COLUMN_NAME_SNO,
                 EligiblesTable.COLUMN_NAME_WOMEN_NAME
         };
 
@@ -1164,6 +1174,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 EligiblesTable.COLUMN_NAME_LHWCODE,
                 EligiblesTable.COLUMN_NAME_HOUSEHOLD,
                 EligiblesTable.COLUMN_NAME_ELIGIBILITY_STATUS,
+                EligiblesTable.COLUMN_NAME_SNO,
                 EligiblesTable.COLUMN_NAME_WOMEN_NAME
         };
 

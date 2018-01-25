@@ -169,7 +169,7 @@ public class UpdateFormActivity extends Activity
                     {
                         for (EligiblesContract ec : Econtract) {
                             if (ec.getLUID().equals(dc.getLUID())) {
-                                AppMain.Eparticipant.add(new EligibleParticipants(ec.getLUID(), ec.getWomen_name()));
+                                AppMain.Eparticipant.add(new EligibleParticipants(ec.getLUID(), ec.getWomen_name(), ec.getSno()));
                                 AppMain.dc.setUID(dc.getUID());
                             }
                         }

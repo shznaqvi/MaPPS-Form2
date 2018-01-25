@@ -897,7 +897,7 @@ public class SectionCBActivity extends Activity {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
         if (flag) {
-            AppMain.Eparticipant.add(new EligibleParticipants("", mp02cbName.getText().toString()));
+            AppMain.Eparticipant.add(new EligibleParticipants("", mp02cbName.getText().toString(), ""));
 
         }
 
@@ -934,6 +934,7 @@ public class SectionCBActivity extends Activity {
         AppMain.currentParticipantName = mp02cbName.getText().toString().toUpperCase();
 
         scb.put("mp02cbname", mp02cbName.getText().toString());
+        scb.put("sno", AppMain.Eparticipant.get(pos).getSno());
         scb.put("mp02ca001", mp02ca00101.isChecked() ? "1" : mp02ca00102.isChecked() ? "2" : "0");
         scb.put("mp02ca002", mp02ca00201.isChecked() ? "1" : mp02ca00202.isChecked() ? "2" : "0");
         scb.put("mp02cb00101", mp02cb00101.getText().toString());

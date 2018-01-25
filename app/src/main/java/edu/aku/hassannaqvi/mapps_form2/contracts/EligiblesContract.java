@@ -22,6 +22,7 @@ public class EligiblesContract {
     private String houseHold;  // Structure
     private String women_name;
     private String estatus;
+    private String sno;
 
     public EligiblesContract Sync(JSONObject jsonObject) throws JSONException {
         this.LUID = jsonObject.getString(EligiblesTable.COLUMN_NAME_LUID);
@@ -30,6 +31,7 @@ public class EligiblesContract {
         this.houseHold = jsonObject.getString(EligiblesTable.COLUMN_NAME_HOUSEHOLD);
         this.women_name = jsonObject.getString(EligiblesTable.COLUMN_NAME_WOMEN_NAME);
         this.estatus = jsonObject.getString(EligiblesTable.COLUMN_NAME_ELIGIBILITY_STATUS);
+        this.sno = jsonObject.getString(EligiblesTable.COLUMN_NAME_SNO);
         return this;
 
     }
@@ -41,6 +43,7 @@ public class EligiblesContract {
         this.houseHold = cursor.getString(cursor.getColumnIndex(EligiblesTable.COLUMN_NAME_HOUSEHOLD));
         this.women_name = cursor.getString(cursor.getColumnIndex(EligiblesTable.COLUMN_NAME_WOMEN_NAME));
         this.estatus = cursor.getString(cursor.getColumnIndex(EligiblesTable.COLUMN_NAME_ELIGIBILITY_STATUS));
+        this.sno = cursor.getString(cursor.getColumnIndex(EligiblesTable.COLUMN_NAME_SNO));
         return this;
     }
 
@@ -100,6 +103,14 @@ public class EligiblesContract {
         this.estatus = estatus;
     }
 
+    public String getSno() {
+        return sno;
+    }
+
+    public void setSno(String sno) {
+        this.sno = sno;
+    }
+
     public JSONObject toJSONObject() throws JSONException {
         JSONObject json = new JSONObject();
 
@@ -110,6 +121,7 @@ public class EligiblesContract {
         json.put(EligiblesTable.COLUMN_NAME_HOUSEHOLD, this.houseHold);
         json.put(EligiblesTable.COLUMN_NAME_WOMEN_NAME, this.women_name);
         json.put(EligiblesTable.COLUMN_NAME_ELIGIBILITY_STATUS, this.estatus);
+        json.put(EligiblesTable.COLUMN_NAME_SNO, this.sno);
 
         return json;
     }
@@ -127,6 +139,7 @@ public class EligiblesContract {
         public static final String COLUMN_NAME_HOUSEHOLD = "hhno";
         public static final String COLUMN_NAME_WOMEN_NAME = "epname";
         public static final String COLUMN_NAME_ELIGIBILITY_STATUS = "estatus";
+        public static final String COLUMN_NAME_SNO = "sno";
 
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "synced_date";
