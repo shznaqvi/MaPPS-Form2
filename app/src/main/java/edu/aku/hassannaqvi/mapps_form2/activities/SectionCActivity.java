@@ -97,6 +97,8 @@ public class SectionCActivity extends Activity {
 //            endSec.putExtra("complete", false);
 //            startActivity(endSec);
                 finish();
+
+
             }
         }
     }
