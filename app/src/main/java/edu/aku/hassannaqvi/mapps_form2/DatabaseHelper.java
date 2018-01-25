@@ -115,7 +115,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             EligiblesTable.COLUMN_SYNCED + " TEXT,"
             + EligiblesTable.COLUMN_SYNCED_DATE + " TEXT," +
             EligiblesTable.COLUMN_NAME_ELIGIBILITY_STATUS + " TEXT," +
-            EligiblesTable.COLUMN_NAME_WOMEN_NAME + " TEXT" +
+            EligiblesTable.COLUMN_NAME_WOMEN_NAME + " TEXT," +
+            EligiblesTable.COLUMN_NAME_SNO + " TEXT" +
             " );";
     private static final String SQL_CREATE_LHWS = "CREATE TABLE "
             + LHWsContract.LHWsTable.TABLE_NAME + "(" +
