@@ -63,11 +63,7 @@ public class GetEligibles extends AsyncTask<Void, Void, String> {
     protected String doInBackground(Void... params) {
 
         String line = "No Response";
-        try {
-            return downloadUrl(AppMain._HOST_URL + EligiblesContract.EligiblesTable._URIGET);
-        } catch (IOException e) {
-            return "Unable to upload data. Server may be down.";
-        }
+        return downloadUrl(AppMain._HOST_URL + EligiblesContract.EligiblesTable._URIGET);
 
     }
 
