@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_section_e"
+    android:id="@+id/activity_section_d"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.aku.hassannaqvi.mapps_form2.activities.SectionEActivity">
+
+    tools:context="edu.aku.hassannaqvi.mapps_form3.activities.SectionEActivity">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/scrollView01"
@@ -28,10 +29,9 @@
                 android:layout_marginTop="16dp"
                 android:background="@color/colorAccent"
                 android:gravity="center"
-                android:text="@string/mp02e"
+                android:text="@string/mp02d"
                 android:textSize="30sp" />
 
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
@@ -41,37 +41,145 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="@color/dullWhile"
-                android:text="@string/mp02esub"
+                android:background="#efefef"
+                android:gravity="center"
+                android:text="Measurer 1"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/colorPrimary" />
-
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-
-                android:text="@string/mp02e001"
+                android:text="@string/mp02d001"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
-
 
             <EditText
-                android:id="@+id/mp02e001"
+                android:id="@+id/mp02d001"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mp02e001"
+                android:hint="@string/mp02d001"
                 android:inputType="numberDecimal"
-                android:maxLength="4"
+                android:maxLength="5" />
 
-                />
+            <Spinner
+                android:id="@+id/mp02d001id1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mp02dsubM1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
+                android:text="@string/mp02d005"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+            <EditText
+                android:id="@+id/mp02d005"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mp02d005"
+                android:inputType="numberDecimal"
+                android:maxLength="5" />
+
+            <Spinner
+                android:id="@+id/mp02d005id1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mp02dsubM1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
+
+                android:text="@string/mp02d009"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+            <EditText
+                android:id="@+id/mp02d009"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mp02d009"
+                android:inputType="numberDecimal"
+                android:maxLength="4" />
+
+            <Spinner
+                android:id="@+id/mp02d009id1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mp02dsubM1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#efefef"
+                android:gravity="center"
+                android:text="Measurer 2"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
+
+                android:text="@string/mp02d002"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+            <EditText
+                android:id="@+id/mp02d002"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mp02d002"
+                android:inputType="numberDecimal"
+                android:maxLength="5" />
+
+            <Spinner
+                android:id="@+id/mp02d002id2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mp02dsubM2" />
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="16dp"-->
+            <!--android:background="@color/colorPrimary"-->
+            <!--android:padding="2dp"-->
+            <!--android:text="@string/mp02d003"-->
+            <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+            <!--android:textColor="@android:color/white" />-->
+
+            <!--<RadioGroup-->
+            <!--android:id="@+id/mp02d003"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<RadioButton-->
+            <!--android:id="@+id/mp02d00301"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/yes" />-->
+
+            <!--<RadioButton-->
+            <!--android:id="@+id/mp02d00302"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/no" />-->
+            <!--</RadioGroup>-->
 
 
             <TextView
@@ -80,109 +188,123 @@
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
 
-                android:text="@string/mp02e002"
+
+                android:text="@string/mp02d006"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
 
-            <RadioGroup
-                android:id="@+id/mp02e002"
+            <EditText
+                android:id="@+id/mp02d006"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:hint="@string/mp02d006"
+                android:inputType="numberDecimal"
+                android:maxLength="5" />
+
+            <Spinner
+                android:id="@+id/mp02d006id2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mp02dsubM2" />
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="16dp"-->
+            <!--android:background="@color/colorPrimary"-->
+            <!--android:padding="2dp"-->
+            <!--android:text="@string/mp02d007"-->
+            <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+            <!--android:textColor="@android:color/white" />-->
+
+            <!--<RadioGroup-->
+            <!--android:id="@+id/mp02d007"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<RadioButton-->
+            <!--android:id="@+id/mp02d00701"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/yes" />-->
+
+            <!--<RadioButton-->
+            <!--android:id="@+id/mp02d00702"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/no" />-->
+            <!--</RadioGroup>-->
 
 
-                <RadioButton
-                    android:id="@+id/mp02e00201"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/yes" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
 
-                <RadioButton
-                    android:id="@+id/mp02e00202"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no" />
+                android:text="@string/mp02d010"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+            <EditText
+                android:id="@+id/mp02d010"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mp02d010"
+                android:inputType="numberDecimal"
+                android:maxLength="4" />
+
+            <Spinner
+                android:id="@+id/mp02d010id2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mp02dsubM2" />
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="16dp"-->
+            <!--android:background="@color/colorPrimary"-->
+            <!--android:padding="2dp"-->
+            <!--android:text="@string/mp02d011"-->
+            <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+            <!--android:textColor="@android:color/white" />-->
+
+            <!--<RadioGroup-->
+            <!--android:id="@+id/mp02d011"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<RadioButton-->
+            <!--android:id="@+id/mp02d01101"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/yes" />-->
+
+            <!--<RadioButton-->
+            <!--android:id="@+id/mp02d01102"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/no" />-->
+            <!--</RadioGroup>-->
+
+            <LinearLayout
+                android:id="@+id/fldGrpmp02d004"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/dullWhile"
-                    android:text="@string/mp02e002sub"
+                    android:layout_marginTop="16dp"
+                    android:background="#efefef"
+                    android:gravity="center"
+                    android:text="Measurer 3"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="18sp" />
-
-            </RadioGroup>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-
-                android:text="@string/mp02e003"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
-
-
-            <CheckBox
-                    android:id="@+id/mp02e00301"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mp02e00301" />
-
-            <EditText
-                android:id="@+id/mp02e00301x"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Rs."
-                android:inputType="number"
-                android:maxLength="6"
-                android:visibility="gone" />
-
-            <CheckBox
-                    android:id="@+id/mp02e00302"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mp02e00302" />
-
-            <CheckBox
-                    android:id="@+id/mp02e00303"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mp02e00303" />
-
-            <CheckBox
-                    android:id="@+id/mp02e00304"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mp02e00304" />
-
-            <CheckBox
-                    android:id="@+id/mp02e00305"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mp02e00305" />
-
-            <CheckBox
-                    android:id="@+id/mp02e00388"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/other" />
-
-            <EditText
-                android:id="@+id/mp02e00388x"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                android:hint="@string/other"
-                android:inputType="textCapWords"
-                android:visibility="gone" />
-
-            <LinearLayout
-                android:id="@+id/fldGrpmp02e004"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -190,48 +312,89 @@
                     android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
 
-                    android:text="@string/mp02e004"
+                    android:text="@string/mp02d004"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
 
-
-                <CheckBox
-                        android:id="@+id/mp02e00401"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/mp02e00401" />
-
-                <CheckBox
-                        android:id="@+id/mp02e00402"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/mp02e00402" />
-
-
-                <CheckBox
-                        android:id="@+id/mp02e00488"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/other" />
-
-
                 <EditText
-                    android:id="@+id/mp02e00402x"
+                    android:id="@+id/mp02d004"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                    android:hint="@string/mp02e00403"
-                    android:inputType="textCapWords"
-                    android:visibility="gone" />
+                    android:hint="@string/mp02d004"
+                    android:inputType="numberDecimal"
+                    android:maxLength="5" />
 
-                <EditText
-                    android:id="@+id/mp02e00488x"
+                <Spinner
+                    android:id="@+id/mp02d004id3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                    android:hint="@string/other"
-                    android:inputType="textCapWords"
-                    android:visibility="gone" />
+                    android:hint="@string/mp02dsubM3" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fldGrpmp02d008"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorPrimary"
+
+                    android:text="@string/mp02d008"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
+
+                <EditText
+                    android:id="@+id/mp02d008"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mp02d008"
+                    android:inputType="numberDecimal"
+                    android:maxLength="5" />
+
+                <Spinner
+                    android:id="@+id/mp02d008id3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mp02dsubM3" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fldGrpmp02d012"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorPrimary"
+
+                    android:text="@string/mp02d012"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
+
+                <EditText
+                    android:id="@+id/mp02d012"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mp02d012"
+                    android:inputType="numberDecimal"
+                    android:maxLength="4" />
+
+                <Spinner
+                    android:id="@+id/mp02d012id3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mp02dsubM3" />
 
             </LinearLayout>
 
@@ -253,16 +416,15 @@
                     android:textColor="#ff1e1e" />
 
                 <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
+
                 <Button
                     android:id="@+id/btn_Continue"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="startInterview"
-                    android:padding="2dp"
                     android:text="@string/start_interview"
-                    android:textColor="@color/colorPrimaryDark" />
+                    android:textColor="@color/colorPrimary" />
                 <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
-
 
             </LinearLayout>
 
@@ -271,6 +433,5 @@
 
 
     </ScrollView>
-
 
 </RelativeLayout>
