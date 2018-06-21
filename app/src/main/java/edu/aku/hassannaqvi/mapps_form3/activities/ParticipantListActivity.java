@@ -44,10 +44,10 @@ public class ParticipantListActivity extends Activity {
         setContentView(R.layout.activity_participant_list);
         ButterKnife.bind(this);
 
-        Ewomens = new ArrayList<>();
-        bloodSample = new ArrayList<>();
+        Ewomens = new ArrayList<String>();
+        bloodSample = new ArrayList<Integer>();
 
-        lastPos = new ArrayList<>();
+        lastPos = new ArrayList<Integer>();
 
         Log.d("Size", "" + AppMain.Eparticipant.size());
 

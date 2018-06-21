@@ -304,7 +304,7 @@ public class SectionCFCActivity extends Activity {
 
                 finish();
 
-                Intent secd = new Intent(this, SectionEActivity.class);
+                Intent secd = new Intent(this, SectionDActivity.class);
                 startActivity(secd);
 
             } else {

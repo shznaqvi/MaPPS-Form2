@@ -206,7 +206,7 @@ public class SectionDActivity extends Activity {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
-                Intent end = new Intent(this, SectionCActivity.class);
+                Intent end = new Intent(this, SectionEActivity.class);
                 end.putExtra("complete", true);
                 startActivity(end);
 

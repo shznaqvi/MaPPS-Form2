@@ -10,8 +10,6 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONException;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -86,11 +84,11 @@ public class SectionCActivity extends Activity {
 
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (ValidateForm()) {
-            try {
+            //try {
                 SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            //} catch (JSONException e) {
+            //  e.printStackTrace();
+            //}
             if (UpdateDB()) {
                 Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
 //            Intent endSec = new Intent(this, EndingActivity.class);

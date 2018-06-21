@@ -8,8 +8,6 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import org.json.JSONException;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -62,11 +60,7 @@ public class EndingActivity extends Activity {
     void onBtnEndClick() {
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (ValidateForm()) {
-            try {
                 SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
             if (UpdateDB()) {
                 AppMain.endFlag = false;
 

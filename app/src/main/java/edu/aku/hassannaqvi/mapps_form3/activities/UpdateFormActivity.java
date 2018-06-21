@@ -20,8 +20,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONException;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -208,11 +206,11 @@ public class UpdateFormActivity extends Activity
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
 
         if (ValidateForm()) {
-            try {
+            //try {
                 SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            //} catch (JSONException e) {
+            //  e.printStackTrace();
+            //}
             if (UpdateDB()) {
 
                 finish();
@@ -241,11 +239,11 @@ public class UpdateFormActivity extends Activity
 //        startActivity(secba);
 
         if (ValidateForm()) {
-            try {
+            //try {
                 SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            //} catch (JSONException e) {
+            //  e.printStackTrace();
+            //}
             if (UpdateDB()) {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 

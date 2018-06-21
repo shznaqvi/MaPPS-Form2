@@ -200,7 +200,8 @@ public class SectionEActivity extends Activity {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
-                Intent sece = new Intent(this, SectionDActivity.class);
+                Intent sece = new Intent(this, SectionCActivity.class);
+                sece.putExtra("complete", true);
                 startActivity(sece);
 
             } else {
