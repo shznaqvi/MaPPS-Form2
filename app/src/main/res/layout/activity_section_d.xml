@@ -87,32 +87,36 @@
             <RadioGroup
                 android:id="@+id/mp02e002"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
 
                 <RadioButton
                     android:id="@+id/mp02e00201"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="@string/yes" />
 
                 <RadioButton
                     android:id="@+id/mp02e00202"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="@string/no" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/dullWhile"
-                    android:text="@string/mp02e002sub"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="18sp" />
 
             </RadioGroup>
 
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/dullWhile"
+                android:text="@string/mp02e002sub"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
+
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -234,13 +238,14 @@
                     android:visibility="gone" />
 
             </LinearLayout>
-
+-->
             <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:layout_marginTop="80dp"
                 android:orientation="horizontal">
 
                 <Button

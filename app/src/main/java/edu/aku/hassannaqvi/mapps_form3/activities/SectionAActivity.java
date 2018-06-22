@@ -62,10 +62,10 @@ public class SectionAActivity extends Activity {
     EditText mp02a003;
     @BindView(R.id.mp02a006)
     EditText mp02a006;
-    @BindView(R.id.mp02a007)
+    /*@BindView(R.id.mp02a007)
     EditText mp02a007;
-    @BindView(R.id.mp02a008)
-    EditText mp02a008;
+    @BindView(R.id.mp02a008)*/
+    //EditText mp02a008;
     @BindView(R.id.mp02a013)
     RadioGroup mp02a013;
     @BindView(R.id.mp02a01301)
@@ -115,8 +115,8 @@ public class SectionAActivity extends Activity {
                 if (!checked) {
                     fldGrpmp02a007.setVisibility(View.GONE);
                     btn_Continue.setVisibility(View.GONE);
-                    mp02a007.setText(null);
-                    mp02a008.setText(null);
+                    //mp02a007.setText(null);
+                    //mp02a008.setText(null);
                     mp02a013.clearCheck();
                     mp02a003.setError("Please check household number first");
 
@@ -217,8 +217,8 @@ public class SectionAActivity extends Activity {
 
                 fldGrpmp02a007.setVisibility(View.GONE);
                 btn_Continue.setVisibility(View.GONE);
-                mp02a007.setText(null);
-                mp02a008.setText(null);
+                /*mp02a007.setText(null);
+                mp02a008.setText(null);*/
                 mp02a013.clearCheck();
 
                 flag = false;
@@ -334,11 +334,11 @@ public class SectionAActivity extends Activity {
 
         JSONObject sa = new JSONObject();
 
-        sa.put("mp02a001", mp02a001.getText().toString());
-        sa.put("mp02a002", mp02a002.getText().toString());
-        sa.put("mp02a007", mp02a007.getText().toString());
-        sa.put("mp02a008", mp02a008.getText().toString());
-        sa.put("mp02a13", mp02a01301.isChecked() ? "1" : mp02a01302.isChecked() ? "2" : "0");
+        sa.put("mp03q003", mp02a001.getText().toString());
+        sa.put("mp03q005", mp02a002.getText().toString());
+        //sa.put("mp02a007", mp02a007.getText().toString());
+        //sa.put("mp02a008", mp02a008.getText().toString());
+        sa.put("mp03q013", mp02a01301.isChecked() ? "1" : mp02a01302.isChecked() ? "2" : "0");
 
         AppMain.fc.setsA(String.valueOf(sa));
 
@@ -422,7 +422,7 @@ public class SectionAActivity extends Activity {
         if (flag) {
             //======================= Q 7 ===============
 
-            if (mp02a007.getText().toString().isEmpty()) {
+            /*if (mp02a007.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mp02a007), Toast.LENGTH_SHORT).show();
                 mp02a007.setError("This data is Required!");
 
@@ -431,10 +431,10 @@ public class SectionAActivity extends Activity {
             } else {
                 mp02a007.setError(null);
             }
-
+*/
             //======================= Q 8 ===============
 
-            if (mp02a008.getText().toString().isEmpty()) {
+            /*if (mp02a008.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mp02a008), Toast.LENGTH_SHORT).show();
                 mp02a008.setError("This data is Required!");
 
@@ -444,7 +444,7 @@ public class SectionAActivity extends Activity {
                 mp02a008.setError(null);
             }
 
-
+*/
             //======================= Q 13 ===============
 
             if (mp02a013.getCheckedRadioButtonId() == -1) {

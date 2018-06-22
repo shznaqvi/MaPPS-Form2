@@ -229,7 +229,7 @@ public class SectionCEActivity extends Activity {
     RadioButton mp02cf01601;
     @BindView(R.id.mp02cf01602)
     RadioButton mp02cf01602;
-    @BindView(R.id.fldGrpmp02cf17)
+    /*@BindView(R.id.fldGrpmp02cf17)
     LinearLayout fldGrpmp02cf17;
     @BindView(R.id.mp02cf017)
     EditText mp02cf017;
@@ -443,14 +443,16 @@ public class SectionCEActivity extends Activity {
     CheckBox mp02cf03988;
     @BindView(R.id.mp02cf03988x)
     EditText mp02cf03988x;
-    @BindView(R.id.fldGrpmp02cf11)
-    LinearLayout fldGrpmp02cf11;
+
     @BindView(R.id.fldGrpmp02cf033)
     LinearLayout fldGrpmp02cf033;
+    */
     @BindView(R.id.fldGrpmp02cf007)
     LinearLayout fldGrpmp02cf007;
     @BindView(R.id.fldGrpmp02cf005)
     LinearLayout fldGrpmp02cf005;
+    @BindView(R.id.fldGrpmp02cf11)
+    LinearLayout fldGrpmp02cf11;
 
 
 
@@ -638,7 +640,7 @@ public class SectionCEActivity extends Activity {
             }
         });
 
-        // ================= Q 29 Others ===============
+       /* // ================= Q 29 Others ===============
         mp02cf029.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -1044,7 +1046,7 @@ public class SectionCEActivity extends Activity {
 
                 }
             }
-        });
+        });*/
 
         mp02cf004.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -1067,7 +1069,7 @@ public class SectionCEActivity extends Activity {
             }
         });
 
-        if (AppMain.maritalStatus == 1) {
+        /*if (AppMain.maritalStatus == 1) {
             fldGrpmp02cf033.setVisibility(View.VISIBLE);
         } else {
             fldGrpmp02cf033.setVisibility(View.GONE);
@@ -1091,7 +1093,7 @@ public class SectionCEActivity extends Activity {
             mp02cf03988.setChecked(false);
             mp02cf03988x.setText(null);
         }
-
+*/
         mp02cf006.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
@@ -1173,7 +1175,7 @@ public class SectionCEActivity extends Activity {
     private boolean UpdateDB() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-        int updcount = db.updateCF();
+        int updcount = db.updateCE();
 
         if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
@@ -1190,70 +1192,70 @@ public class SectionCEActivity extends Activity {
 
         JSONObject scf = new JSONObject();
 
-        scf.put("mp02cf001", mp02cf00101.isChecked() ? "1" : mp02cf00102.isChecked() ? "2" : mp02cf00103.isChecked() ? "3"
+        scf.put("mp03q102", mp02cf00101.isChecked() ? "1" : mp02cf00102.isChecked() ? "2" : mp02cf00103.isChecked() ? "3"
                 : mp02cf00104.isChecked() ? "4" : "0");
-        scf.put("mp02cf002", mp02cf00201.isChecked() ? "1" : mp02cf00202.isChecked() ? "2" : mp02cf00203.isChecked() ? "3"
+        scf.put("mp03q103", mp02cf00201.isChecked() ? "1" : mp02cf00202.isChecked() ? "2" : mp02cf00203.isChecked() ? "3"
                 : mp02cf00204.isChecked() ? "4" : mp02cf00205.isChecked() ? "5" : mp02cf00288.isChecked() ? "88" : "0");
-        scf.put("mp02cf00288x", mp02cf00288x.getText().toString());
-        scf.put("mp02cf003", mp02cf003.getText().toString());
-        scf.put("mp02cf004", mp02cf00401.isChecked() ? "1" : mp02cf00402.isChecked() ? "2" : mp02cf00403.isChecked() ? "3"
+        scf.put("mp03q10388x", mp02cf00288x.getText().toString());
+        scf.put("mp03q104", mp02cf003.getText().toString());
+        scf.put("mp03q105", mp02cf00401.isChecked() ? "1" : mp02cf00402.isChecked() ? "2" : mp02cf00403.isChecked() ? "3"
                 : mp02cf00404.isChecked() ? "4" : mp02cf00405.isChecked() ? "5" : mp02cf00406.isChecked() ? "6"
                 : mp02cf00488.isChecked() ? "88" : "0");
-        scf.put("mp02cf00488x", mp02cf00488x.getText().toString());
-        scf.put("mp02cf005", mp02cf00501.isChecked() ? "1" : mp02cf00502.isChecked() ? "2" : mp02cf00503.isChecked() ? "3"
+        scf.put("mp03q10588x", mp02cf00488x.getText().toString());
+        scf.put("mp03q106", mp02cf00501.isChecked() ? "1" : mp02cf00502.isChecked() ? "2" : mp02cf00503.isChecked() ? "3"
                 : mp02cf00504.isChecked() ? "4" : mp02cf00505.isChecked() ? "5" : mp02cf00506.isChecked() ? "6" : "0");
-        scf.put("mp02cf006", mp02cf00601.isChecked() ? "1" : mp02cf00602.isChecked() ? "2" : mp02cf00603.isChecked() ? "3" : "0");
-        scf.put("mp02cf007", mp02cf00701.isChecked() ? "1" : mp02cf00702.isChecked() ? "2" : mp02cf00703.isChecked() ? "3" : "0");
-        scf.put("mp02cf008", mp02cf00801.isChecked() ? "1" : mp02cf00802.isChecked() ? "2" : mp02cf00803.isChecked() ? "3" : "0");
-        scf.put("mp02cf009", mp02cf00901.isChecked() ? "1" : mp02cf00902.isChecked() ? "2" : mp02cf00903.isChecked() ? "3"
+        scf.put("mp03q107", mp02cf00601.isChecked() ? "1" : mp02cf00602.isChecked() ? "2" : mp02cf00603.isChecked() ? "3" : "0");
+        scf.put("mp03q108", mp02cf00701.isChecked() ? "1" : mp02cf00702.isChecked() ? "2" : mp02cf00703.isChecked() ? "3" : "0");
+        scf.put("mp03q109", mp02cf00801.isChecked() ? "1" : mp02cf00802.isChecked() ? "2" : mp02cf00803.isChecked() ? "3" : "0");
+        scf.put("mp03q110", mp02cf00901.isChecked() ? "1" : mp02cf00902.isChecked() ? "2" : mp02cf00903.isChecked() ? "3"
                 : mp02cf00988.isChecked() ? "88" : "0");
-        scf.put("mp02cf00988x", mp02cf00988x.getText().toString());
-        scf.put("mp02cf01001", mp02cf01001.isChecked() ? "1" : "0");
-        scf.put("mp02cf01002", mp02cf01002.isChecked() ? "2" : "0");
-        scf.put("mp02cf01003", mp02cf01003.isChecked() ? "3" : "0");
-        scf.put("mp02cf01004", mp02cf01004.isChecked() ? "4" : "0");
-        scf.put("mp02cf01005", mp02cf01005.isChecked() ? "5" : "0");
-        scf.put("mp02cf01006", mp02cf01006.isChecked() ? "6" : "0");
-        scf.put("mp02cf01007", mp02cf01007.isChecked() ? "7" : "0");
-        scf.put("mp02cf01088", mp02cf01088.isChecked() ? "88" : "0");
-        scf.put("mp02cf01088x", mp02cf01088x.getText().toString());
+        scf.put("mp03q11088x", mp02cf00988x.getText().toString());
+        scf.put("mp03q111a", mp02cf01001.isChecked() ? "1" : "0");
+        scf.put("mp03q111b", mp02cf01002.isChecked() ? "2" : "0");
+        scf.put("mp03q111c", mp02cf01003.isChecked() ? "3" : "0");
+        scf.put("mp03q111d", mp02cf01004.isChecked() ? "4" : "0");
+        scf.put("mp03q111e", mp02cf01005.isChecked() ? "5" : "0");
+        scf.put("mp03q111f", mp02cf01006.isChecked() ? "6" : "0");
+        scf.put("mp03q111g", mp02cf01007.isChecked() ? "7" : "0");
+        scf.put("mp03q11188", mp02cf01088.isChecked() ? "88" : "0");
+        scf.put("mp03q11188x", mp02cf01088x.getText().toString());
 
-        scf.put("mp02cf011", mp02cf01101.isChecked() ? "1" : mp02cf01102.isChecked() ? "2" : mp02cf01103.isChecked() ? "3"
+        scf.put("mp03q112", mp02cf01101.isChecked() ? "1" : mp02cf01102.isChecked() ? "2" : mp02cf01103.isChecked() ? "3"
                 : mp02cf01104.isChecked() ? "4" : mp02cf01105.isChecked() ? "5" : mp02cf01106.isChecked() ? "6"
                 : mp02cf01188.isChecked() ? "88" : "0");
-        scf.put("mp02cf01188x", mp02cf01188x.getText().toString());
-        scf.put("mp02cf012", mp02cf01201.isChecked() ? "1" : mp02cf01202.isChecked() ? "2" : "0");
+        scf.put("mp03q11288x", mp02cf01188x.getText().toString());
+        scf.put("mp03q113", mp02cf01201.isChecked() ? "1" : mp02cf01202.isChecked() ? "2" : "0");
 
-        scf.put("mp02cf01301", mp02cf01301.isChecked() ? "1" : "0");
-        scf.put("mp02cf01302", mp02cf01302.isChecked() ? "2" : "0");
-        scf.put("mp02cf01303", mp02cf01303.isChecked() ? "3" : "0");
-        scf.put("mp02cf01304", mp02cf01304.isChecked() ? "4" : "0");
-        scf.put("mp02cf01305", mp02cf01305.isChecked() ? "5" : "0");
-        scf.put("mp02cf01388", mp02cf01388.isChecked() ? "88" : "0");
-        scf.put("mp02cf01388x", mp02cf01388x.getText().toString());
+        scf.put("mp03q114a", mp02cf01301.isChecked() ? "1" : "0");
+        scf.put("mp03q114b", mp02cf01302.isChecked() ? "2" : "0");
+        scf.put("mp03q114c", mp02cf01303.isChecked() ? "3" : "0");
+        scf.put("mp03q114d", mp02cf01304.isChecked() ? "4" : "0");
+        scf.put("mp03q114e", mp02cf01305.isChecked() ? "5" : "0");
+        scf.put("mp03q11488", mp02cf01388.isChecked() ? "88" : "0");
+        scf.put("mp03q11488x", mp02cf01388x.getText().toString());
 
-        scf.put("mp02cf01401", mp02cf01401.isChecked() ? "1" : "0");
-        scf.put("mp02cf01402", mp02cf01402.isChecked() ? "2" : "0");
-        scf.put("mp02cf01403", mp02cf01403.isChecked() ? "3" : "0");
-        scf.put("mp02cf01404", mp02cf01404.isChecked() ? "4" : "0");
-        scf.put("mp02cf01405", mp02cf01405.isChecked() ? "5" : "0");
+        scf.put("mp03q115a", mp02cf01401.isChecked() ? "1" : "0");
+        scf.put("mp03q115b", mp02cf01402.isChecked() ? "2" : "0");
+        scf.put("mp03q115c", mp02cf01403.isChecked() ? "3" : "0");
+        scf.put("mp03q115d", mp02cf01404.isChecked() ? "4" : "0");
+        scf.put("mp03q115e", mp02cf01405.isChecked() ? "5" : "0");
 
-        scf.put("mp02cf01501", mp02cf01501.isChecked() ? "1" : "0");
-        scf.put("mp02cf01502", mp02cf01502.isChecked() ? "2" : "0");
-        scf.put("mp02cf01503", mp02cf01503.isChecked() ? "3" : "0");
-        scf.put("mp02cf01504", mp02cf01504.isChecked() ? "4" : "0");
-        scf.put("mp02cf01505", mp02cf01505.isChecked() ? "5" : "0");
-        scf.put("mp02cf01506", mp02cf01506.isChecked() ? "6" : "0");
-        scf.put("mp02cf01588", mp02cf01588.isChecked() ? "88" : "0");
-        scf.put("mp02cf01588x", mp02cf01588x.getText().toString());
+        scf.put("mp03q116a", mp02cf01501.isChecked() ? "1" : "0");
+        scf.put("mp03q116b", mp02cf01502.isChecked() ? "2" : "0");
+        scf.put("mp03q116c", mp02cf01503.isChecked() ? "3" : "0");
+        scf.put("mp03q116d", mp02cf01504.isChecked() ? "4" : "0");
+        scf.put("mp03q116e", mp02cf01505.isChecked() ? "5" : "0");
+        scf.put("mp03q116f", mp02cf01506.isChecked() ? "6" : "0");
+        scf.put("mp03q11688", mp02cf01588.isChecked() ? "88" : "0");
+        scf.put("mp03q11688x", mp02cf01588x.getText().toString());
 
-        if (AppMain.maritalStatus == 1) {
-            scf.put("mp02cf016", 1);
+        /*if (AppMain.maritalStatus == 1) {
+            scf.put("mp03q117", 1);
         } else {
-            scf.put("mp02cf016", 2);
-        }
+            scf.put("mp03q117", 2);
+        }*/
         //scf.put("mp02cf016", mp02cf01601.isChecked() ? "1" : mp02cf01602.isChecked() ? "2" : "0");
-        scf.put("mp02cf017", mp02cf017.getText().toString());
+        /*scf.put("mp02cf017", mp02cf017.getText().toString());
         scf.put("mp02cf018", mp02cf01801.isChecked() ? "1" : mp02cf01802.isChecked() ? "2" : "0");
         scf.put("mp02cf019", mp02cf019.getText().toString());
         scf.put("mp02cf020", mp02cf020.getText().toString());
@@ -1314,8 +1316,8 @@ public class SectionCEActivity extends Activity {
         scf.put("mp02cf03908", mp02cf03908.isChecked() ? "8" : "0");
         scf.put("mp02cf03988", mp02cf03988.isChecked() ? "88" : "0");
         scf.put("mp02cf03988x", mp02cf03988x.getText().toString());
-
-        AppMain.pc.setsCF(String.valueOf(scf));
+*/
+        AppMain.pc.setsCE(String.valueOf(scf));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
@@ -1366,11 +1368,10 @@ public class SectionCEActivity extends Activity {
         }
 
         if ((Integer.parseInt(mp02cf003.getText().toString().isEmpty() ? "0" : mp02cf003.getText().toString()) < 10
-                && Integer.parseInt(mp02cf003.getText().toString().isEmpty() ? "0" : mp02cf003.getText().toString()) != 0)
-                || Integer.parseInt(mp02cf003.getText().toString().isEmpty() ? "0" : mp02cf003.getText().toString()) > AppMain.currentAge) {
+                || Integer.parseInt(mp02cf003.getText().toString().isEmpty() ? "0" : mp02cf003.getText().toString()) > 23)) {
             Toast.makeText(this, "ERROR: " + getString(R.string.mp02cf003), Toast.LENGTH_LONG).show();
-            mp02cf003.setError("Age Limit is from 10 to " + AppMain.currentAge + "  Years! ");
-            Log.i(TAG, "mp02cf003: Age Limit is from 10 to " + AppMain.currentAge + " Years");
+            mp02cf003.setError("Age Limit is from 10 to 23 Years! ");
+            Log.i(TAG, "mp02cf003: Age Limit is from 10 to 23 Years");
             return false;
         } else {
             mp02cf003.setError(null);
@@ -1583,7 +1584,7 @@ public class SectionCEActivity extends Activity {
         }*/
 
         // ======================= Skip Check till Q 26 ==================
-        if (AppMain.maritalStatus == 1) {
+       /* if (AppMain.maritalStatus == 1) {
 
             // ====================== Q 4 ===================
             if (mp02cf017.getText().toString().isEmpty()) {
@@ -1631,7 +1632,7 @@ public class SectionCEActivity extends Activity {
                     mp02cf019.setError(null);
                 }
 
-/*                // ====================== Q 7 ===================
+*//*                // ====================== Q 7 ===================
                 if ((mp02cf020.getText().toString().isEmpty()) || Integer.parseInt(mp02cf020.getText().toString()) < 0) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cf020), Toast.LENGTH_LONG).show();
                     mp02cf020.setError("This data is Required!");    // Set Error on last radio button
@@ -1662,7 +1663,7 @@ public class SectionCEActivity extends Activity {
                     return false;
                 } else {
                     mp02cf022.setError(null);
-                }*/
+                }*//*
 
                 // ====================== Q 10 ===================
                 if ((mp02cf023.getText().toString().isEmpty())) {
@@ -1997,7 +1998,7 @@ public class SectionCEActivity extends Activity {
 
                 }
             }
-        }
+        }*/
 
 
         return true;

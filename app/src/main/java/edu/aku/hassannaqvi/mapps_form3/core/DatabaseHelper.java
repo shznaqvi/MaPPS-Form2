@@ -61,7 +61,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             FormsTable.COLUMN_ISTATUS + " TEXT," +
             FormsTable.COLUMN_SA + " TEXT," +
             FormsTable.COLUMN_SBA + " TEXT," +
-            FormsTable.COLUMN_SBB + " TEXT," +
+            //FormsTable.COLUMN_SBB + " TEXT," +
             FormsTable.COLUMN_GPSLAT + " TEXT," +
             FormsTable.COLUMN_GPSLNG + " TEXT," +
             FormsTable.COLUMN_GPSTIME + " TEXT," +
@@ -91,12 +91,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + ParticipantsTable.COLUMN_SCC + " TEXT,"
             + ParticipantsTable.COLUMN_SCD + " TEXT,"
             + ParticipantsTable.COLUMN_SCE + " TEXT,"
-            + ParticipantsTable.COLUMN_SCF + " TEXT,"
-            + ParticipantsTable.COLUMN_SCG + " TEXT,"
-            + ParticipantsTable.COLUMN_SCH + " TEXT,"
-            + ParticipantsTable.COLUMN_SCIA + " TEXT,"
-            + ParticipantsTable.COLUMN_SCIB + " TEXT,"
-            + ParticipantsTable.COLUMN_SCIC + " TEXT,"
+            + ParticipantsTable.COLUMN_SCFA + " TEXT,"
+            + ParticipantsTable.COLUMN_SCFB + " TEXT,"
+            + ParticipantsTable.COLUMN_SCFC + " TEXT,"
             + ParticipantsTable.COLUMN_SD + " TEXT,"
             + ParticipantsTable.COLUMN_SE + " TEXT,"
             + ParticipantsTable.COLUMN_DEVICEID + " TEXT,"
@@ -190,7 +187,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
 
-        switch (i) {
+        /*switch (i) {
             case 1:
                 db.execSQL(SQL_CREATE_DONE);
             case 2:
@@ -199,14 +196,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.execSQL(SQL_CREATE_ELIGIBLES2);
 
         }
-
-        /*db.execSQL(SQL_DELETE_USERS);
+*/
+        db.execSQL(SQL_DELETE_USERS);
         db.execSQL(SQL_DELETE_ELIGIBLES);
         db.execSQL(SQL_DELETE_DONE);
         db.execSQL(SQL_DELETE_LHWS);
         db.execSQL(SQL_DELETE_CLUSTERS);
         db.execSQL(SQL_DELETE_FORMS);
-        db.execSQL(SQL_DELETE_PARTICIPANTS);*/
+        db.execSQL(SQL_DELETE_PARTICIPANTS);
 
 
     }
@@ -577,12 +574,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(ParticipantsContract.ParticipantsTable.COLUMN_SCC, pc.getsCC());
         values.put(ParticipantsTable.COLUMN_SCD, pc.getsCD());
         values.put(ParticipantsContract.ParticipantsTable.COLUMN_SCE, pc.getsCE());
-        values.put(ParticipantsTable.COLUMN_SCF, pc.getsCF());
-        values.put(ParticipantsTable.COLUMN_SCG, pc.getsCG());
-        values.put(ParticipantsTable.COLUMN_SCH, pc.getsCH());
-        values.put(ParticipantsTable.COLUMN_SCIA, pc.getsCIA());
-        values.put(ParticipantsContract.ParticipantsTable.COLUMN_SCIB, pc.getsCIB());
-        values.put(ParticipantsContract.ParticipantsTable.COLUMN_SCIC, pc.getsCIC());
+        values.put(ParticipantsTable.COLUMN_SCFA, pc.getsCFA());
+        values.put(ParticipantsContract.ParticipantsTable.COLUMN_SCFB, pc.getsCFB());
+        values.put(ParticipantsContract.ParticipantsTable.COLUMN_SCFC, pc.getsCFC());
         values.put(ParticipantsTable.COLUMN_SD, pc.getsD());
         values.put(ParticipantsTable.COLUMN_SE, pc.getsE());
         values.put(ParticipantsContract.ParticipantsTable.COLUMN_DEVICEID, pc.getDeviceID());
@@ -660,7 +654,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
-    public int updateBB() {
+    /*public int updateBB() {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
@@ -679,7 +673,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selectionArgs);
         return count;
     }
-
+*/
     public int updateCC() {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -740,7 +734,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
-    public int updateCF() {
+    /*public int updateCF() {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
@@ -759,8 +753,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selectionArgs);
         return count;
     }
-
-    public int updateCG() {
+*/
+    /*public int updateCG() {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
@@ -799,13 +793,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selectionArgs);
         return count;
     }
-
-    public int updateCIA() {
+*/
+    public int updateCFA() {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(ParticipantsTable.COLUMN_SCIA, AppMain.pc.getsCIA());
+        values.put(ParticipantsTable.COLUMN_SCFA, AppMain.pc.getsCFA());
 //        values.put(ParticipantsTable.COLUMN_UID, AppMain.pc.getUID());
 
 
@@ -820,12 +814,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
-    public int updateCIB() {
+    public int updateCFB() {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(ParticipantsContract.ParticipantsTable.COLUMN_SCIB, AppMain.pc.getsCIB());
+        values.put(ParticipantsContract.ParticipantsTable.COLUMN_SCFB, AppMain.pc.getsCFB());
 //        values.put(ParticipantsTable.COLUMN_UID, AppMain.pc.getUID());
 
 
@@ -840,12 +834,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
-    public int updateCIC() {
+    public int updateCFC() {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(ParticipantsContract.ParticipantsTable.COLUMN_SCIC, AppMain.pc.getsCIC());
+        values.put(ParticipantsContract.ParticipantsTable.COLUMN_SCFC, AppMain.pc.getsCFC());
 //        values.put(ParticipantsTable.COLUMN_UID, AppMain.pc.getUID());
 
 
@@ -1277,7 +1271,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_LHWCODE,
                 FormsTable.COLUMN_SA,
                 FormsTable.COLUMN_SBA,
-                FormsTable.COLUMN_SBB,
+                //FormsTable.COLUMN_SBB,
                 FormsTable.COLUMN_GPSLAT,
                 FormsTable.COLUMN_GPSLNG,
                 FormsTable.COLUMN_GPSTIME,
@@ -1341,7 +1335,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_ISTATUS,
                 FormsTable.COLUMN_SA,
                 FormsTable.COLUMN_SBA,
-                FormsTable.COLUMN_SBB,
+                //FormsTable.COLUMN_SBB,
                 FormsTable.COLUMN_GPSLAT,
                 FormsTable.COLUMN_GPSLNG,
                 FormsTable.COLUMN_GPSTIME,
@@ -1403,11 +1397,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ParticipantsTable.COLUMN_SCC,
                 ParticipantsContract.ParticipantsTable.COLUMN_SCD,
                 ParticipantsTable.COLUMN_SCE,
-                ParticipantsTable.COLUMN_SCF,
-                ParticipantsTable.COLUMN_SCG,
-                ParticipantsTable.COLUMN_SCIA,
-                ParticipantsTable.COLUMN_SCIB,
-                ParticipantsTable.COLUMN_SCIC,
+                ParticipantsTable.COLUMN_SCFA,
+                ParticipantsTable.COLUMN_SCFB,
+                ParticipantsTable.COLUMN_SCFC,
                 ParticipantsTable.COLUMN_SD,
                 ParticipantsTable.COLUMN_SE,
                 ParticipantsTable.COLUMN_GPSLAT,
@@ -1476,12 +1468,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ParticipantsTable.COLUMN_SCC,
                 ParticipantsTable.COLUMN_SCD,
                 ParticipantsTable.COLUMN_SCE,
-                ParticipantsTable.COLUMN_SCF,
-                ParticipantsTable.COLUMN_SCG,
-                ParticipantsTable.COLUMN_SCH,
-                ParticipantsTable.COLUMN_SCIA,
-                ParticipantsTable.COLUMN_SCIB,
-                ParticipantsTable.COLUMN_SCIC,
+                ParticipantsTable.COLUMN_SCFA,
+                ParticipantsTable.COLUMN_SCFB,
+                ParticipantsTable.COLUMN_SCFC,
                 ParticipantsTable.COLUMN_SD,
                 ParticipantsTable.COLUMN_SE,
                 ParticipantsTable.COLUMN_APP_VERSION,

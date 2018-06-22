@@ -31,12 +31,12 @@ public class ParticipantsContract {
     private String sCC = "";
     private String sCD = "";
     private String sCE = "";
-    private String sCF = "";
+    /*private String sCF = "";
     private String sCG = "";
-    private String sCH = "";
-    private String sCIA = "";
-    private String sCIB = "";
-    private String sCIC = "";
+    private String sCH = "";*/
+    private String sCFA = "";
+    private String sCFB = "";
+    private String sCFC = "";
     private String sD = "";
     private String sE = "";
     private String gpsLat = "";
@@ -164,7 +164,7 @@ public class ParticipantsContract {
         this.sCE = sCE;
     }
 
-    public String getsCF() {
+    /*public String getsCF() {
         return sCF;
     }
 
@@ -188,29 +188,29 @@ public class ParticipantsContract {
     public void setsCH(String sCH) {
         this.sCH = sCH;
     }
-
-    public String getsCIA() {
-        return sCIA;
+*/
+    public String getsCFA() {
+        return sCFA;
     }
 
-    public void setsCIA(String sCIA) {
-        this.sCIA = sCIA;
+    public void setsCFA(String sCFA) {
+        this.sCFA = sCFA;
     }
 
-    public String getsCIB() {
-        return sCIB;
+    public String getsCFB() {
+        return sCFB;
     }
 
-    public void setsCIB(String sCIB) {
-        this.sCIB = sCIB;
+    public void setsCFB(String sCFB) {
+        this.sCFB = sCFB;
     }
 
-    public String getsCIC() {
-        return sCIC;
+    public String getsCFC() {
+        return sCFC;
     }
 
-    public void setsCIC(String sCIC) {
-        this.sCIC = sCIC;
+    public void setsCFC(String sCFC) {
+        this.sCFC = sCFC;
     }
 
     public String getsD() {
@@ -311,12 +311,12 @@ public class ParticipantsContract {
         this.sCC = jsonObject.getString(ParticipantsTable.COLUMN_SCC);
         this.sCD = jsonObject.getString(ParticipantsTable.COLUMN_SCD);
         this.sCE = jsonObject.getString(ParticipantsTable.COLUMN_SCE);
-        this.sCF = jsonObject.getString(ParticipantsTable.COLUMN_SCF);
+        /*this.sCF = jsonObject.getString(ParticipantsTable.COLUMN_SCF);
         this.sCG = jsonObject.getString(ParticipantsTable.COLUMN_SCG);
-        this.sCH = jsonObject.getString(ParticipantsTable.COLUMN_SCH);
-        this.sCIA = jsonObject.getString(ParticipantsTable.COLUMN_SCIA);
-        this.sCIB = jsonObject.getString(ParticipantsTable.COLUMN_SCIB);
-        this.sCIC = jsonObject.getString(ParticipantsTable.COLUMN_SCIC);
+        this.sCH = jsonObject.getString(ParticipantsTable.COLUMN_SCH);*/
+        this.sCFA = jsonObject.getString(ParticipantsTable.COLUMN_SCFA);
+        this.sCFB = jsonObject.getString(ParticipantsTable.COLUMN_SCFB);
+        this.sCFC = jsonObject.getString(ParticipantsTable.COLUMN_SCFC);
         this.sD = jsonObject.getString(ParticipantsTable.COLUMN_SD);
         this.sE = jsonObject.getString(ParticipantsTable.COLUMN_SE);
         this.deviceID = jsonObject.getString(ParticipantsTable.COLUMN_DEVICEID);
@@ -347,12 +347,12 @@ public class ParticipantsContract {
         this.sCC = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCC));
         this.sCD = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCD));
         this.sCE = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCE));
-        this.sCF = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCF));
+        /*this.sCF = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCF));
         this.sCG = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCG));
-        this.sCH = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCH));
-        this.sCIA = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCIA));
-        this.sCIB = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCIB));
-        this.sCIC = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCIC));
+        this.sCH = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCH));*/
+        this.sCFA = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCFA));
+        this.sCFB = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCFB));
+        this.sCFC = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SCFC));
         this.sD = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SD));
         this.sE = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_SE));
         this.deviceID = cursor.getString(cursor.getColumnIndex(ParticipantsTable.COLUMN_DEVICEID));
@@ -416,7 +416,7 @@ public class ParticipantsContract {
 
         }
 
-        try {
+       /* try {
         if (!this.sCF.equals("")) {
             json.put(ParticipantsTable.COLUMN_SCF, this.sCF == null ? JSONObject.NULL : new JSONObject(this.sCF));
         }
@@ -439,26 +439,26 @@ public class ParticipantsContract {
         } catch (Exception e) {
 
         }
-
+*/
         try {
-        if (!this.sCIA.equals("")) {
-            json.put(ParticipantsTable.COLUMN_SCIA, this.sCIA == null ? JSONObject.NULL : new JSONObject(this.sCIA));
+            if (!this.sCFA.equals("")) {
+                json.put(ParticipantsTable.COLUMN_SCFA, this.sCFA == null ? JSONObject.NULL : new JSONObject(this.sCFA));
         }
         } catch (Exception e) {
 
         }
 
         try {
-        if (!this.sCIB.equals("")) {
-            json.put(ParticipantsTable.COLUMN_SCIB, this.sCIB == null ? JSONObject.NULL : new JSONObject(this.sCIB));
+            if (!this.sCFB.equals("")) {
+                json.put(ParticipantsTable.COLUMN_SCFB, this.sCFB == null ? JSONObject.NULL : new JSONObject(this.sCFB));
         }
         } catch (Exception e) {
 
         }
 
         try {
-        if (!this.sCIC.equals("")) {
-            json.put(ParticipantsTable.COLUMN_SCIC, this.sCIC == null ? JSONObject.NULL : new JSONObject(this.sCIC));
+            if (!this.sCFC.equals("")) {
+                json.put(ParticipantsTable.COLUMN_SCFC, this.sCFC == null ? JSONObject.NULL : new JSONObject(this.sCFC));
         }
         } catch (Exception e) {
 
@@ -517,12 +517,12 @@ public class ParticipantsContract {
         public static final String COLUMN_SCC = "scc";
         public static final String COLUMN_SCD = "scd";
         public static final String COLUMN_SCE = "sce";
-        public static final String COLUMN_SCF = "scf";
+        /*public static final String COLUMN_SCF = "scf";
         public static final String COLUMN_SCG = "scg";
         public static final String COLUMN_SCH = "sch";
-        public static final String COLUMN_SCIA = "scia";
-        public static final String COLUMN_SCIB = "scib";
-        public static final String COLUMN_SCIC = "scic";
+        */public static final String COLUMN_SCFA = "scfa";
+        public static final String COLUMN_SCFB = "scfb";
+        public static final String COLUMN_SCFC = "scfc";
         public static final String COLUMN_SD = "sd";
         public static final String COLUMN_SE = "se";
         public static final String COLUMN_GPSLAT = "gpslat";

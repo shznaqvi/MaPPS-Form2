@@ -479,7 +479,7 @@ public class SectionCFCActivity extends Activity {
     private boolean UpdateDB() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-        int updcount = db.updateCIC();
+        int updcount = db.updateCFC();
 
         if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
@@ -497,48 +497,48 @@ public class SectionCFCActivity extends Activity {
         JSONObject SCIC = new JSONObject();
 
         if (AppMain.maritalStatus == 1) {
-            SCIC.put("mp02cic001", 1);
+            SCIC.put("mp03q148", 1);
         } else {
-            SCIC.put("mp02cic001", 2);
+            SCIC.put("mp03q148", 2);
         }
-        SCIC.put("mp02cic002", mp02cic00201.isChecked() ? "1" : mp02cic00202.isChecked() ? "2" : mp02cic00203.isChecked() ? "3"
+        SCIC.put("mp03q149", mp02cic00201.isChecked() ? "1" : mp02cic00202.isChecked() ? "2" : mp02cic00203.isChecked() ? "3"
                 : mp02cic00204.isChecked() ? "4" : mp02cic00277.isChecked() ? "77" : "0");
-        SCIC.put("mp02cic003", mp02cic00301.isChecked() ? "1" : mp02cic00302.isChecked() ? "2" : mp02cic00303.isChecked() ? "3"
+        SCIC.put("mp03q150", mp02cic00301.isChecked() ? "1" : mp02cic00302.isChecked() ? "2" : mp02cic00303.isChecked() ? "3"
                 : mp02cic00304.isChecked() ? "4" : mp02cic00377.isChecked() ? "77" : "0");
-        SCIC.put("mp02cic004", mp02cic00401.isChecked() ? "1" : mp02cic00402.isChecked() ? "2" : mp02cic00403.isChecked() ? "3"
+        SCIC.put("mp03q151", mp02cic00401.isChecked() ? "1" : mp02cic00402.isChecked() ? "2" : mp02cic00403.isChecked() ? "3"
                 : mp02cic00404.isChecked() ? "4" : mp02cic00477.isChecked() ? "77" : "0");
-        SCIC.put("mp02cic005", mp02cic00501.isChecked() ? "1" : mp02cic00502.isChecked() ? "2" : mp02cic00503.isChecked() ? "3"
+        SCIC.put("mp03q152", mp02cic00501.isChecked() ? "1" : mp02cic00502.isChecked() ? "2" : mp02cic00503.isChecked() ? "3"
                 : mp02cic00504.isChecked() ? "4" : mp02cic00577.isChecked() ? "77" : "0");
-        SCIC.put("mp02cic006", mp02cic00601.isChecked() ? "1" : mp02cic00602.isChecked() ? "2" : mp02cic00603.isChecked() ? "3"
+        SCIC.put("mp03q153", mp02cic00601.isChecked() ? "1" : mp02cic00602.isChecked() ? "2" : mp02cic00603.isChecked() ? "3"
                 : mp02cic00604.isChecked() ? "4" : mp02cic00677.isChecked() ? "77" : "0");
-        SCIC.put("mp02cic007", mp02cic00701.isChecked() ? "1" : mp02cic00702.isChecked() ? "2" : mp02cic00703.isChecked() ? "3"
+        SCIC.put("mp03q154", mp02cic00701.isChecked() ? "1" : mp02cic00702.isChecked() ? "2" : mp02cic00703.isChecked() ? "3"
                 : mp02cic00704.isChecked() ? "4" : mp02cic00777.isChecked() ? "77" : "0");
-        SCIC.put("mp02cic008", mp02cic00801.isChecked() ? "1" : mp02cic00802.isChecked() ? "2" : mp02cic00803.isChecked() ? "3"
+        SCIC.put("mp03q155", mp02cic00801.isChecked() ? "1" : mp02cic00802.isChecked() ? "2" : mp02cic00803.isChecked() ? "3"
                 : mp02cic00804.isChecked() ? "4" : mp02cic00877.isChecked() ? "77" : "0");
-        SCIC.put("mp02cic009", mp02cic00901.isChecked() ? "1" : mp02cic00902.isChecked() ? "2" : mp02cic00903.isChecked() ? "3"
+        SCIC.put("mp03q156", mp02cic00901.isChecked() ? "1" : mp02cic00902.isChecked() ? "2" : mp02cic00903.isChecked() ? "3"
                 : mp02cic00904.isChecked() ? "4" : mp02cic00977.isChecked() ? "77" : "0");
 
-        SCIC.put("mp02cic010", mp02cic01001.isChecked() ? "1" : mp02cic01002.isChecked() ? "2" : "0");
+        SCIC.put("mp03q157", mp02cic01001.isChecked() ? "1" : mp02cic01002.isChecked() ? "2" : "0");
 
-        SCIC.put("mp02cic01101", mp02cic01101.isChecked() ? "1" : "0");
-        SCIC.put("mp02cic01102", mp02cic01102.isChecked() ? "2" : "0");
-        SCIC.put("mp02cic01103", mp02cic01103.isChecked() ? "3" : "0");
-        SCIC.put("mp02cic01104", mp02cic01104.isChecked() ? "4" : "0");
-        SCIC.put("mp02cic01105", mp02cic01105.isChecked() ? "5" : "0");
-        SCIC.put("mp02cic01106", mp02cic01106.isChecked() ? "6" : "0");
-        SCIC.put("mp02cic01107", mp02cic01107.isChecked() ? "7" : "0");
-        SCIC.put("mp02cic01108", mp02cic01108.isChecked() ? "8" : "0");
-        SCIC.put("mp02cic01109", mp02cic01109.isChecked() ? "9" : "0");
-        SCIC.put("mp02cic01110", mp02cic01110.isChecked() ? "10" : "0");
-        SCIC.put("mp02cic01111", mp02cic01111.isChecked() ? "11" : "0");
-        SCIC.put("mp02cic01112", mp02cic01112.isChecked() ? "12" : "0");
-        SCIC.put("mp02cic01113", mp02cic01113.isChecked() ? "13" : "0");
-        SCIC.put("mp02cic01188", mp02cic01188.isChecked() ? "88" : "0");
-        SCIC.put("mp02cic01188x", mp02cic01188x.getText().toString());
+        SCIC.put("mp03q158a", mp02cic01101.isChecked() ? "1" : "0");
+        SCIC.put("mp03q158b", mp02cic01102.isChecked() ? "2" : "0");
+        SCIC.put("mp03q158c", mp02cic01103.isChecked() ? "3" : "0");
+        SCIC.put("mp03q158d", mp02cic01104.isChecked() ? "4" : "0");
+        SCIC.put("mp03q158e", mp02cic01105.isChecked() ? "5" : "0");
+        SCIC.put("mp03q158f", mp02cic01106.isChecked() ? "6" : "0");
+        SCIC.put("mp03q158g", mp02cic01107.isChecked() ? "7" : "0");
+        SCIC.put("mp03q158h", mp02cic01108.isChecked() ? "8" : "0");
+        SCIC.put("mp03q158i", mp02cic01109.isChecked() ? "9" : "0");
+        SCIC.put("mp03q158j", mp02cic01110.isChecked() ? "10" : "0");
+        SCIC.put("mp03q158k", mp02cic01111.isChecked() ? "11" : "0");
+        SCIC.put("mp03q158l", mp02cic01112.isChecked() ? "12" : "0");
+        SCIC.put("mp03q158m", mp02cic01113.isChecked() ? "13" : "0");
+        SCIC.put("mp03q15888", mp02cic01188.isChecked() ? "88" : "0");
+        SCIC.put("mp03q15888x", mp02cic01188x.getText().toString());
 
-        SCIC.put("mp02cic012", mp02cic01201.isChecked() ? "1" : mp02cic01202.isChecked() ? "2" : mp02cic01203.isChecked() ? "3" : "0");
+        SCIC.put("mp03q159", mp02cic01201.isChecked() ? "1" : mp02cic01202.isChecked() ? "2" : mp02cic01203.isChecked() ? "3" : "0");
 
-        AppMain.pc.setsCIC(String.valueOf(SCIC));
+        AppMain.pc.setsCFC(String.valueOf(SCIC));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

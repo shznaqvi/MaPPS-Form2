@@ -783,7 +783,7 @@ public class SectionEActivity extends Activity {
         sD.put("mp02d012", mp02d012.getText().toString());
         sD.put("mp02d012id3", mp02d012id3.getSelectedItem().toString());
 
-        AppMain.pc.setsD(String.valueOf(sD));
+        AppMain.pc.setsE(String.valueOf(sD));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
@@ -792,7 +792,7 @@ public class SectionEActivity extends Activity {
     private boolean UpdateDB() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-        int updcount = db.updateD();
+        int updcount = db.updateE();
 
         if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();

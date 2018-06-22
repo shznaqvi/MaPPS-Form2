@@ -213,34 +213,34 @@ public class SectionCCActivity extends Activity {
 
         JSONObject sCD = new JSONObject();
 
-        sCD.put("mp02cd001", mp02cd00101.isChecked() ? "1" : mp02cd00102.isChecked() ? "2" : mp02cd00103.isChecked() ? "3"
+        sCD.put("mp03q086", mp02cd00101.isChecked() ? "1" : mp02cd00102.isChecked() ? "2" : mp02cd00103.isChecked() ? "3"
                 : mp02cd00104.isChecked() ? "4" : mp02cd00105.isChecked() ? "5" : "0");
 
-        sCD.put("mp02cd002", mp02cd00201.isChecked() ? "1" : mp02cd00202.isChecked() ? "2" : mp02cd00203.isChecked() ? "3"
+        sCD.put("mp03q087", mp02cd00201.isChecked() ? "1" : mp02cd00202.isChecked() ? "2" : mp02cd00203.isChecked() ? "3"
                 : mp02cd00204.isChecked() ? "4" : mp02cd00205.isChecked() ? "5" : "0");
 
-        sCD.put("mp02cd003", mp02cd00301.isChecked() ? "1" : mp02cd00302.isChecked() ? "2" : mp02cd00303.isChecked() ? "3"
+        sCD.put("mp03q088", mp02cd00301.isChecked() ? "1" : mp02cd00302.isChecked() ? "2" : mp02cd00303.isChecked() ? "3"
                 : mp02cd00304.isChecked() ? "4" : mp02cd00305.isChecked() ? "5" : "0");
 
-        sCD.put("mp02cd004", mp02cd00401.isChecked() ? "1" : mp02cd00402.isChecked() ? "2" : mp02cd00403.isChecked() ? "3"
+        sCD.put("mp03q089", mp02cd00401.isChecked() ? "1" : mp02cd00402.isChecked() ? "2" : mp02cd00403.isChecked() ? "3"
                 : mp02cd00404.isChecked() ? "4" : mp02cd00405.isChecked() ? "5" : "0");
 
-        sCD.put("mp02cd005", mp02cd00501.isChecked() ? "1" : mp02cd00502.isChecked() ? "2" : mp02cd00503.isChecked() ? "3"
+        sCD.put("mp03q090", mp02cd00501.isChecked() ? "1" : mp02cd00502.isChecked() ? "2" : mp02cd00503.isChecked() ? "3"
                 : mp02cd00504.isChecked() ? "4" : mp02cd00505.isChecked() ? "5" : "0");
 
-        sCD.put("mp02cd006", mp02cd00601.isChecked() ? "1" : mp02cd00602.isChecked() ? "2" : mp02cd00603.isChecked() ? "3"
+        sCD.put("mp03q091", mp02cd00601.isChecked() ? "1" : mp02cd00602.isChecked() ? "2" : mp02cd00603.isChecked() ? "3"
                 : mp02cd00604.isChecked() ? "4" : mp02cd00605.isChecked() ? "5" : "0");
 
-        sCD.put("mp02cd007", mp02cd00701.isChecked() ? "1" : mp02cd00702.isChecked() ? "2" : mp02cd00703.isChecked() ? "3"
+        sCD.put("mp03q092", mp02cd00701.isChecked() ? "1" : mp02cd00702.isChecked() ? "2" : mp02cd00703.isChecked() ? "3"
                 : mp02cd00704.isChecked() ? "4" : mp02cd00705.isChecked() ? "5" : "0");
 
-        sCD.put("mp02cd008", mp02cd00801.isChecked() ? "1" : mp02cd00802.isChecked() ? "2" : mp02cd00803.isChecked() ? "3"
+        sCD.put("mp03q093", mp02cd00801.isChecked() ? "1" : mp02cd00802.isChecked() ? "2" : mp02cd00803.isChecked() ? "3"
                 : mp02cd00804.isChecked() ? "4" : mp02cd00805.isChecked() ? "5" : "0");
 
-        sCD.put("mp02cd009", mp02cd00901.isChecked() ? "1" : mp02cd00902.isChecked() ? "2" : mp02cd00903.isChecked() ? "3"
+        sCD.put("mp03q094", mp02cd00901.isChecked() ? "1" : mp02cd00902.isChecked() ? "2" : mp02cd00903.isChecked() ? "3"
                 : mp02cd00904.isChecked() ? "4" : mp02cd00905.isChecked() ? "5" : "0");
 
-        sCD.put("mp02cd010", mp02cd01001.isChecked() ? "1" : mp02cd01002.isChecked() ? "2" : mp02cd01003.isChecked() ? "3"
+        sCD.put("mp03q095", mp02cd01001.isChecked() ? "1" : mp02cd01002.isChecked() ? "2" : mp02cd01003.isChecked() ? "3"
                 : mp02cd01004.isChecked() ? "4" : mp02cd01005.isChecked() ? "5" : "0");
 
         AppMain.pc.setsCD(String.valueOf(sCD));

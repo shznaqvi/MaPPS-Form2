@@ -307,59 +307,59 @@ public class SectionCDActivity extends Activity {
         JSONObject sCE = new JSONObject();
 
 
-        sCE.put("mp02ce00101", mp02ce00101.isChecked() ? "1" : "0");
-        sCE.put("mp02ce00102", mp02ce00102.isChecked() ? "2" : "0");
-        sCE.put("mp02ce00103", mp02ce00103.isChecked() ? "3" : "0");
-        sCE.put("mp02ce00104", mp02ce00104.isChecked() ? "4" : "0");
-        sCE.put("mp02ce00177", mp02ce00177.isChecked() ? "77" : "0");
-        sCE.put("mp02ce00106", mp02ce00106.isChecked() ? "6" : "0");
-        sCE.put("mp02ce00188", mp02ce00188.isChecked() ? "88" : "0");
-        sCE.put("mp02ce00188x", mp02ce00188x.getText().toString());
+        sCE.put("mp03q096a", mp02ce00101.isChecked() ? "1" : "0");
+        sCE.put("mp03q096b", mp02ce00102.isChecked() ? "2" : "0");
+        sCE.put("mp03q096c", mp02ce00103.isChecked() ? "3" : "0");
+        sCE.put("mp03q096d", mp02ce00104.isChecked() ? "4" : "0");
+        sCE.put("mp03q09677", mp02ce00177.isChecked() ? "77" : "0");
+        sCE.put("mp03q096f", mp02ce00106.isChecked() ? "6" : "0");
+        sCE.put("mp03q09688", mp02ce00188.isChecked() ? "88" : "0");
+        sCE.put("mp03q09688x", mp02ce00188x.getText().toString());
 
-        sCE.put("mp02ce00201", mp02ce00201.isChecked() ? "1" : "0");
-        sCE.put("mp02ce00202", mp02ce00202.isChecked() ? "2" : "0");
-        sCE.put("mp02ce00203", mp02ce00203.isChecked() ? "3" : "0");
-        sCE.put("mp02ce00204", mp02ce00204.isChecked() ? "4" : "0");
-        sCE.put("mp02ce00277", mp02ce00277.isChecked() ? "77" : "0");
-        sCE.put("mp02ce00206", mp02ce00206.isChecked() ? "6" : "0");
-        sCE.put("mp02ce00288", mp02ce00288.isChecked() ? "88" : "0");
-        sCE.put("mp02ce00288x", mp02ce00288x.getText().toString());
+        sCE.put("mp03q097a", mp02ce00201.isChecked() ? "1" : "0");
+        sCE.put("mp03q097b", mp02ce00202.isChecked() ? "2" : "0");
+        sCE.put("mp03q097c", mp02ce00203.isChecked() ? "3" : "0");
+        sCE.put("mp03q097d", mp02ce00204.isChecked() ? "4" : "0");
+        sCE.put("mp03q09777", mp02ce00277.isChecked() ? "77" : "0");
+        sCE.put("mp03q097f", mp02ce00206.isChecked() ? "6" : "0");
+        sCE.put("mp03q09788", mp02ce00288.isChecked() ? "88" : "0");
+        sCE.put("mp03q09788x", mp02ce00288x.getText().toString());
 
-        sCE.put("mp02ce00301", mp02ce00301.isChecked() ? "1" : "0");
-        sCE.put("mp02ce00302", mp02ce00302.isChecked() ? "2" : "0");
-        sCE.put("mp02ce00303", mp02ce00303.isChecked() ? "3" : "0");
-        sCE.put("mp02ce00304", mp02ce00304.isChecked() ? "4" : "0");
-        sCE.put("mp02ce00377", mp02ce00377.isChecked() ? "77" : "0");
-        sCE.put("mp02ce00306", mp02ce00306.isChecked() ? "6" : "0");
-        sCE.put("mp02ce00388", mp02ce00388.isChecked() ? "88" : "0");
-        sCE.put("mp02ce00388x", mp02ce00388x.getText().toString());
+        sCE.put("mp03q098a", mp02ce00301.isChecked() ? "1" : "0");
+        sCE.put("mp03q098b", mp02ce00302.isChecked() ? "2" : "0");
+        sCE.put("mp03q098c", mp02ce00303.isChecked() ? "3" : "0");
+        sCE.put("mp03q098d", mp02ce00304.isChecked() ? "4" : "0");
+        sCE.put("mp03q09877", mp02ce00377.isChecked() ? "77" : "0");
+        sCE.put("mp03q098f", mp02ce00306.isChecked() ? "6" : "0");
+        sCE.put("mp03q09888", mp02ce00388.isChecked() ? "88" : "0");
+        sCE.put("mp03q09888x", mp02ce00388x.getText().toString());
 
-        sCE.put("mp02ce00401", mp02ce00401.isChecked() ? "1" : "0");
-        sCE.put("mp02ce00402", mp02ce00402.isChecked() ? "2" : "0");
-        sCE.put("mp02ce00403", mp02ce00403.isChecked() ? "3" : "0");
-        sCE.put("mp02ce00404", mp02ce00404.isChecked() ? "4" : "0");
-        sCE.put("mp02ce00477", mp02ce00477.isChecked() ? "77" : "0");
-        sCE.put("mp02ce00406", mp02ce00406.isChecked() ? "6" : "0");
-        sCE.put("mp02ce00488", mp02ce00488.isChecked() ? "88" : "0");
-        sCE.put("mp02ce00488x", mp02ce00488x.getText().toString());
+        sCE.put("mp03q099a", mp02ce00401.isChecked() ? "1" : "0");
+        sCE.put("mp03q099b", mp02ce00402.isChecked() ? "2" : "0");
+        sCE.put("mp03q099c", mp02ce00403.isChecked() ? "3" : "0");
+        sCE.put("mp03q099d", mp02ce00404.isChecked() ? "4" : "0");
+        sCE.put("mp03q09977", mp02ce00477.isChecked() ? "77" : "0");
+        sCE.put("mp03q099f", mp02ce00406.isChecked() ? "6" : "0");
+        sCE.put("mp03q09988", mp02ce00488.isChecked() ? "88" : "0");
+        sCE.put("mp03q09988x", mp02ce00488x.getText().toString());
 
-        sCE.put("mp02ce00501", mp02ce00501.isChecked() ? "1" : "0");
-        sCE.put("mp02ce00502", mp02ce00502.isChecked() ? "2" : "0");
-        sCE.put("mp02ce00503", mp02ce00503.isChecked() ? "3" : "0");
-        sCE.put("mp02ce00504", mp02ce00504.isChecked() ? "4" : "0");
-        sCE.put("mp02ce00577", mp02ce00577.isChecked() ? "77" : "0");
-        sCE.put("mp02ce00506", mp02ce00506.isChecked() ? "6" : "0");
-        sCE.put("mp02ce00588", mp02ce00588.isChecked() ? "88" : "0");
-        sCE.put("mp02ce00588x", mp02ce00588x.getText().toString());
+        sCE.put("mp03q100a", mp02ce00501.isChecked() ? "1" : "0");
+        sCE.put("mp03q100b", mp02ce00502.isChecked() ? "2" : "0");
+        sCE.put("mp03q100c", mp02ce00503.isChecked() ? "3" : "0");
+        sCE.put("mp03q100d", mp02ce00504.isChecked() ? "4" : "0");
+        sCE.put("mp03q10077", mp02ce00577.isChecked() ? "77" : "0");
+        sCE.put("mp03q100f", mp02ce00506.isChecked() ? "6" : "0");
+        sCE.put("mp03q10088", mp02ce00588.isChecked() ? "88" : "0");
+        sCE.put("mp03q10088x", mp02ce00588x.getText().toString());
 
-        sCE.put("mp02ce00601", mp02ce00601.isChecked() ? "1" : "0");
-        sCE.put("mp02ce00602", mp02ce00602.isChecked() ? "2" : "0");
-        sCE.put("mp02ce00603", mp02ce00603.isChecked() ? "3" : "0");
-        sCE.put("mp02ce00604", mp02ce00604.isChecked() ? "4" : "0");
-        sCE.put("mp02ce00677", mp02ce00677.isChecked() ? "77" : "0");
-        sCE.put("mp02ce00606", mp02ce00606.isChecked() ? "6" : "0");
-        sCE.put("mp02ce00688", mp02ce00688.isChecked() ? "88" : "0");
-        sCE.put("mp02ce00688x", mp02ce00688x.getText().toString());
+        sCE.put("mp03q101a", mp02ce00601.isChecked() ? "1" : "0");
+        sCE.put("mp03q101b", mp02ce00602.isChecked() ? "2" : "0");
+        sCE.put("mp03q101c", mp02ce00603.isChecked() ? "3" : "0");
+        sCE.put("mp03q101d", mp02ce00604.isChecked() ? "4" : "0");
+        sCE.put("mp03q10177", mp02ce00677.isChecked() ? "77" : "0");
+        sCE.put("mp03q101f", mp02ce00606.isChecked() ? "6" : "0");
+        sCE.put("mp03q10188", mp02ce00688.isChecked() ? "88" : "0");
+        sCE.put("mp03q10188x", mp02ce00688x.getText().toString());
 
         AppMain.pc.setsCE(String.valueOf(sCE));
 

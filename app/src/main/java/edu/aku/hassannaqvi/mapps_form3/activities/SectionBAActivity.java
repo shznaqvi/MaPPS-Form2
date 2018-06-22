@@ -373,7 +373,7 @@ public class SectionBAActivity extends Activity {
     private boolean UpdateDB() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-        int updcount = db.updateBB();
+        int updcount = db.updateBA();
 
         if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
@@ -389,36 +389,36 @@ public class SectionBAActivity extends Activity {
 
         JSONObject sbb = new JSONObject();
 
-        sbb.put("mp02bb001", mp02bb00101.isChecked() ? "1" : mp02bb00102.isChecked() ? "2" : "0");
-        sbb.put("mp02bb002", mp02bb00201.isChecked() ? "1" : mp02bb00202.isChecked() ? "2"
+        sbb.put("mp03q016", mp02bb00101.isChecked() ? "1" : mp02bb00102.isChecked() ? "2" : "0");
+        sbb.put("mp03q017", mp02bb00201.isChecked() ? "1" : mp02bb00202.isChecked() ? "2"
                 : mp02bb00203.isChecked() ? "3" : "0");
-        sbb.put("mp02bb003", mp02bb00301.isChecked() ? "1" : mp02bb00302.isChecked() ? "2" : "0");
-        sbb.put("mp02bb004", mp02bb00401.isChecked() ? "1" : mp02bb00402.isChecked() ? "2"
+        sbb.put("mp03q018", mp02bb00301.isChecked() ? "1" : mp02bb00302.isChecked() ? "2" : "0");
+        sbb.put("mp03q019", mp02bb00401.isChecked() ? "1" : mp02bb00402.isChecked() ? "2"
                 : mp02bb00403.isChecked() ? "3" : "0");
-        sbb.put("mp02bb005", mp02bb00501.isChecked() ? "1" : mp02bb00502.isChecked() ? "2" : "0");
-        sbb.put("mp02bb006", mp02bb00601.isChecked() ? "1" : mp02bb00602.isChecked() ? "2"
+        sbb.put("mp03q020", mp02bb00501.isChecked() ? "1" : mp02bb00502.isChecked() ? "2" : "0");
+        sbb.put("mp03q021", mp02bb00601.isChecked() ? "1" : mp02bb00602.isChecked() ? "2"
                 : mp02bb00603.isChecked() ? "3" : "0");
-        sbb.put("mp02bb007", mp02bb00701.isChecked() ? "1" : mp02bb00702.isChecked() ? "2" : "0");
-        sbb.put("mp02bb008", mp02bb00801.isChecked() ? "1" : mp02bb00802.isChecked() ? "2"
+        sbb.put("mp03q022", mp02bb00701.isChecked() ? "1" : mp02bb00702.isChecked() ? "2" : "0");
+        sbb.put("mp03q023", mp02bb00801.isChecked() ? "1" : mp02bb00802.isChecked() ? "2"
                 : mp02bb00803.isChecked() ? "3" : "0");
-        sbb.put("mp02bb009", mp02bb00901.isChecked() ? "1" : mp02bb00902.isChecked() ? "2" : "0");
-        sbb.put("mp02bb010", mp02bb01001.isChecked() ? "1" : mp02bb01002.isChecked() ? "2"
+        sbb.put("mp03q024", mp02bb00901.isChecked() ? "1" : mp02bb00902.isChecked() ? "2" : "0");
+        sbb.put("mp03q025", mp02bb01001.isChecked() ? "1" : mp02bb01002.isChecked() ? "2"
                 : mp02bb01003.isChecked() ? "3" : "0");
-        sbb.put("mp02bb011", mp02bb01101.isChecked() ? "1" : mp02bb01102.isChecked() ? "2" : "0");
-        sbb.put("mp02bb012", mp02bb01201.isChecked() ? "1" : mp02bb01202.isChecked() ? "2"
+        sbb.put("mp03q026", mp02bb01101.isChecked() ? "1" : mp02bb01102.isChecked() ? "2" : "0");
+        sbb.put("mp03q027", mp02bb01201.isChecked() ? "1" : mp02bb01202.isChecked() ? "2"
                 : mp02bb01203.isChecked() ? "3" : "0");
-        sbb.put("mp02bb013", mp02bb01301.isChecked() ? "1" : mp02bb01302.isChecked() ? "2" : "0");
-        sbb.put("mp02bb014", mp02bb01401.isChecked() ? "1" : mp02bb01402.isChecked() ? "2"
+        sbb.put("mp03q028", mp02bb01301.isChecked() ? "1" : mp02bb01302.isChecked() ? "2" : "0");
+        sbb.put("mp03q029", mp02bb01401.isChecked() ? "1" : mp02bb01402.isChecked() ? "2"
                 : mp02bb01403.isChecked() ? "3" : "0");
-        sbb.put("mp02bb015", mp02bb01501.isChecked() ? "1" : mp02bb01502.isChecked() ? "2" : "0");
-        sbb.put("mp02bb016", mp02bb01601.isChecked() ? "1" : mp02bb01602.isChecked() ? "2"
+        sbb.put("mp03q030", mp02bb01501.isChecked() ? "1" : mp02bb01502.isChecked() ? "2" : "0");
+        sbb.put("mp03q031", mp02bb01601.isChecked() ? "1" : mp02bb01602.isChecked() ? "2"
                 : mp02bb01603.isChecked() ? "3" : "0");
-        sbb.put("mp02bb017", mp02bb01701.isChecked() ? "1" : mp02bb01702.isChecked() ? "2" : "0");
-        sbb.put("mp02bb018", mp02bb01801.isChecked() ? "1" : mp02bb01802.isChecked() ? "2"
+        sbb.put("mp03q032", mp02bb01701.isChecked() ? "1" : mp02bb01702.isChecked() ? "2" : "0");
+        sbb.put("mp03q033", mp02bb01801.isChecked() ? "1" : mp02bb01802.isChecked() ? "2"
                 : mp02bb01803.isChecked() ? "3" : "0");
 
 
-        AppMain.fc.setsBB(String.valueOf(sbb));
+        AppMain.fc.setsBA(String.valueOf(sbb));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 

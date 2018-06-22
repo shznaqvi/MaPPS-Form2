@@ -4,11 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -45,7 +41,7 @@ public class SectionDActivity extends Activity {
     RadioButton mp02e00201;
     @BindView(R.id.mp02e00202)
     RadioButton mp02e00202;
-    @BindView(R.id.mp02e00301)
+    /*@BindView(R.id.mp02e00301)
     CheckBox mp02e00301;
     @BindView(R.id.mp02e00302)
     CheckBox mp02e00302;
@@ -74,7 +70,7 @@ public class SectionDActivity extends Activity {
     @BindView(R.id.mp02e00301x)
     EditText mp02e00301x;
 
-
+*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +82,7 @@ public class SectionDActivity extends Activity {
 
         //mp02e001.setText(df.format(mp02e001.getText().toString()));
 
-        mp02e00388.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        /*mp02e00388.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -165,7 +161,7 @@ public class SectionDActivity extends Activity {
                     mp02e00301x.setText(null);
                 }
             }
-        });
+        });*/
 
 
 
@@ -264,7 +260,7 @@ public class SectionDActivity extends Activity {
             mp02e00202.setError(null);
         }
 
-        if (!(mp02e00301.isChecked() || mp02e00302.isChecked() || mp02e00303.isChecked() || mp02e00304.isChecked()
+        /*if (!(mp02e00301.isChecked() || mp02e00302.isChecked() || mp02e00303.isChecked() || mp02e00304.isChecked()
                 || mp02e00305.isChecked() || mp02e00388.isChecked())) {
             Toast.makeText(this, "ERROR(empty)" + getString(R.string.mp02e003), Toast.LENGTH_SHORT).show();
             mp02e00388.setError("This data is Required!");
@@ -327,7 +323,7 @@ public class SectionDActivity extends Activity {
             }
 
         }
-
+*/
 
 
         return true;
@@ -338,11 +334,11 @@ public class SectionDActivity extends Activity {
 
         JSONObject sE = new JSONObject();
 
-        sE.put("mp02e001", mp02e001.getText().toString());
+        sE.put("mp03q160", mp02e001.getText().toString());
 
-        sE.put("mp02e002", mp02e00201.isChecked() ? "1" : mp02e00202.isChecked() ? "2" : "0");
+        sE.put("mp03q161", mp02e00201.isChecked() ? "1" : mp02e00202.isChecked() ? "2" : "0");
 
-        sE.put("mp02e00301", mp02e00301.isChecked() ? "1" : "0");
+        /*sE.put("mp02e00301", mp02e00301.isChecked() ? "1" : "0");
         sE.put("mp02e00302", mp02e00302.isChecked() ? "2" : "0");
         sE.put("mp02e00303", mp02e00303.isChecked() ? "3" : "0");
         sE.put("mp02e00304", mp02e00304.isChecked() ? "4" : "0");
@@ -355,9 +351,9 @@ public class SectionDActivity extends Activity {
         sE.put("mp02e00402", mp02e00402.isChecked() ? "2" : "0");
         sE.put("mp02e00488", mp02e00488.isChecked() ? "88" : "0");
         sE.put("mp02e00488x", mp02e00488x.getText().toString());
-        sE.put("mp02e00402x", mp02e00402x.getText().toString());
+        sE.put("mp02e00402x", mp02e00402x.getText().toString());*/
 
-        AppMain.pc.setsE(String.valueOf(sE));
+        AppMain.pc.setsD(String.valueOf(sE));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
@@ -365,7 +361,7 @@ public class SectionDActivity extends Activity {
     private boolean UpdateDB() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-        int updcount = db.updateE();
+        int updcount = db.updateD();
 
         if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();

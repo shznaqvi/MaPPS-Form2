@@ -26,7 +26,7 @@ public class FormsContract {
     private String lhwCode = ""; // lhwcode
     private String sA = "";
     private String sBA = "";
-    private String sBB = "";
+    /*private String sBB = "";*/
     private String gpsLat = "";
     private String gpsLng = "";
     private String gpsTime = "";
@@ -142,14 +142,14 @@ public class FormsContract {
         this.sBA = sBA;
     }
 
-    public String getsBB() {
+    /*public String getsBB() {
         return sBB;
     }
 
     public void setsBB(String sBB) {
         this.sBB = sBB;
     }
-
+*/
     public String getGpsLat() {
         return gpsLat;
     }
@@ -245,7 +245,7 @@ public class FormsContract {
         this.istatus = jsonObject.getString(FormsTable.COLUMN_ISTATUS);
         this.sA = jsonObject.getString(FormsTable.COLUMN_SA);
         this.sBA = jsonObject.getString(FormsTable.COLUMN_SBA);
-        this.sBB = jsonObject.getString(FormsTable.COLUMN_SBB);
+        //this.sBB = jsonObject.getString(FormsTable.COLUMN_SBB);
         this.gpsLat = jsonObject.getString(FormsTable.COLUMN_GPSLAT);
         this.gpsLng = jsonObject.getString(FormsTable.COLUMN_GPSLNG);
         this.gpsTime = jsonObject.getString(FormsTable.COLUMN_GPSTIME);
@@ -275,7 +275,7 @@ public class FormsContract {
         this.istatus = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ISTATUS));
         this.sA = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SA));
         this.sBA = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SBA));
-        this.sBB = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SBB));
+        //this.sBB = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SBB));
         this.gpsLat = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSLAT));
         this.gpsLng = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSLNG));
         this.gpsTime = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSTIME));
@@ -324,14 +324,14 @@ public class FormsContract {
 
         }
 
-        try {
+        /*try {
             if (!this.sBB.equals("")) {
             json.put(FormsTable.COLUMN_SBB, this.sBB == null ? JSONObject.NULL : new JSONObject(this.sBB));
             }
         } catch (Exception e) {
 
         }
-
+*/
         json.put(FormsTable.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
         json.put(FormsTable.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
         json.put(FormsTable.COLUMN_GPSTIME, this.gpsTime == null ? JSONObject.NULL : this.gpsTime);
@@ -366,7 +366,7 @@ public class FormsContract {
         public static final String COLUMN_ISTATUS = "istatus";
         public static final String COLUMN_SA = "sa";
         public static final String COLUMN_SBA = "sba";
-        public static final String COLUMN_SBB = "sbb";
+        //public static final String COLUMN_SBB = "sbb";
         public static final String COLUMN_GPSLAT = "gpslat";
         public static final String COLUMN_GPSLNG = "gpslng";
         public static final String COLUMN_GPSTIME = "gpstime";
