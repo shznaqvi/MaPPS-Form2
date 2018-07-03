@@ -353,7 +353,7 @@ public class SectionDActivity extends Activity {
         sE.put("mp02e00488x", mp02e00488x.getText().toString());
         sE.put("mp02e00402x", mp02e00402x.getText().toString());*/
 
-        AppMain.pc.setsD(String.valueOf(sE));
+        AppMain.fc.setsD(String.valueOf(sE));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

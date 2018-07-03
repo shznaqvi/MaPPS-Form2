@@ -30,8 +30,7 @@ import edu.aku.hassannaqvi.mapps_form3.contracts.FormsContract;
 import edu.aku.hassannaqvi.mapps_form3.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.mapps_form3.core.AppMain;
 import edu.aku.hassannaqvi.mapps_form3.core.DatabaseHelper;
-import edu.aku.hassannaqvi.mapps_form3.getclasses.GetDone;
-import edu.aku.hassannaqvi.mapps_form3.getclasses.GetEligibles;
+import edu.aku.hassannaqvi.mapps_form3.getclasses.GetFollowups;
 import edu.aku.hassannaqvi.mapps_form3.otherclasses.FormsList;
 import edu.aku.hassannaqvi.mapps_form3.syncclasses.SyncForms;
 import edu.aku.hassannaqvi.mapps_form3.syncclasses.SyncParticipants;
@@ -335,9 +334,13 @@ public class MainActivity extends Activity {
         if (networkInfo != null && networkInfo.isConnected()) {
 
             // Sync Randomization
-            Toast.makeText(getApplicationContext(), "Getting Eligibleomization", Toast.LENGTH_SHORT).show();
-            new GetEligibles(this).execute();
-            new GetDone(this).execute();
+//            Toast.makeText(getApplicationContext(), "Getting Eligibleomization", Toast.LENGTH_SHORT).show();
+//            new GetEligibles(this).execute();
+//            new GetDone(this).execute();
+
+            Toast.makeText(getApplicationContext(), "Getting Followups", Toast.LENGTH_SHORT).show();
+            new GetFollowups(this).execute();
+
 
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);

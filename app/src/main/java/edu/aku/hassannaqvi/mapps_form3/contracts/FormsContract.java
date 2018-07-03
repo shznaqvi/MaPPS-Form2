@@ -27,6 +27,16 @@ public class FormsContract {
     private String sA = "";
     private String sBA = "";
     /*private String sBB = "";*/
+    private String sCA = "";
+    private String sCB = "";
+    private String sCC = "";
+    private String sCD = "";
+    private String sCE = "";
+    private String sCFA = "";
+    private String sCFB = "";
+    private String sCFC = "";
+    private String sD = "";
+    private String sE = "";
     private String gpsLat = "";
     private String gpsLng = "";
     private String gpsTime = "";
@@ -142,14 +152,94 @@ public class FormsContract {
         this.sBA = sBA;
     }
 
-    /*public String getsBB() {
-        return sBB;
+    public String getsCB() {
+        return sCB;
     }
 
-    public void setsBB(String sBB) {
-        this.sBB = sBB;
+    public void setsCB(String sCB) {
+        this.sCB = sCB;
     }
-*/
+
+    public String getsCC() {
+        return sCC;
+    }
+
+    public void setsCC(String sCC) {
+        this.sCC = sCC;
+    }
+
+    public String getsCD() {
+        return sCD;
+    }
+
+    public void setsCD(String sCD) {
+        this.sCD = sCD;
+    }
+
+    public String getsCE() {
+        return sCE;
+    }
+
+    public void setsCE(String sCE) {
+        this.sCE = sCE;
+    }
+
+    public String getsCFA() {
+        return sCFA;
+    }
+
+    public void setsCFA(String sCFA) {
+        this.sCFA = sCFA;
+    }
+
+    public String getsCFB() {
+        return sCFB;
+    }
+
+    public void setsCFB(String sCFB) {
+        this.sCFB = sCFB;
+    }
+
+    public String getsCFC() {
+        return sCFC;
+    }
+
+    public void setsCFC(String sCFC) {
+        this.sCFC = sCFC;
+    }
+
+    public String getsD() {
+        return sD;
+    }
+
+    public void setsD(String sD) {
+        this.sD = sD;
+    }
+
+    public String getsE() {
+        return sE;
+    }
+
+    public void setsE(String sE) {
+        this.sE = sE;
+    }
+
+    public String getsCA() {
+        return sCA;
+    }
+
+    public void setsCA(String sCA) {
+        this.sCA = sCA;
+    }
+
+    /*public String getsBB() {
+                return sBB;
+            }
+
+            public void setsBB(String sBB) {
+                this.sBB = sBB;
+            }
+        */
     public String getGpsLat() {
         return gpsLat;
     }
@@ -245,6 +335,16 @@ public class FormsContract {
         this.istatus = jsonObject.getString(FormsTable.COLUMN_ISTATUS);
         this.sA = jsonObject.getString(FormsTable.COLUMN_SA);
         this.sBA = jsonObject.getString(FormsTable.COLUMN_SBA);
+        this.sCA = jsonObject.getString(FormsTable.COLUMN_SCA);
+        this.sCB = jsonObject.getString(FormsTable.COLUMN_SCB);
+        this.sCC = jsonObject.getString(FormsTable.COLUMN_SCC);
+        this.sCD = jsonObject.getString(FormsTable.COLUMN_SCD);
+        this.sCE = jsonObject.getString(FormsTable.COLUMN_SCE);
+        this.sCFA = jsonObject.getString(FormsTable.COLUMN_SCFA);
+        this.sCFB = jsonObject.getString(FormsTable.COLUMN_SCFB);
+        this.sCFC = jsonObject.getString(FormsTable.COLUMN_SCFC);
+        this.sD = jsonObject.getString(FormsTable.COLUMN_SD);
+        this.sE = jsonObject.getString(FormsTable.COLUMN_SE);
         //this.sBB = jsonObject.getString(FormsTable.COLUMN_SBB);
         this.gpsLat = jsonObject.getString(FormsTable.COLUMN_GPSLAT);
         this.gpsLng = jsonObject.getString(FormsTable.COLUMN_GPSLNG);
@@ -275,6 +375,16 @@ public class FormsContract {
         this.istatus = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ISTATUS));
         this.sA = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SA));
         this.sBA = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SBA));
+        this.sCA = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SCA));
+        this.sCB = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SCB));
+        this.sCC = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SCC));
+        this.sCD = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SCD));
+        this.sCE = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SCE));
+        this.sCFA = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SCFA));
+        this.sCFB = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SCFB));
+        this.sCFC = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SCFC));
+        this.sD = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SD));
+        this.sCE = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SE));
         //this.sBB = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SBB));
         this.gpsLat = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSLAT));
         this.gpsLng = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSLNG));
@@ -324,14 +434,86 @@ public class FormsContract {
 
         }
 
-        /*try {
-            if (!this.sBB.equals("")) {
-            json.put(FormsTable.COLUMN_SBB, this.sBB == null ? JSONObject.NULL : new JSONObject(this.sBB));
+        try {
+            if (!this.sCA.equals("")) {
+                json.put(FormsTable.COLUMN_SCA, this.sCA == null ? JSONObject.NULL : new JSONObject(this.sCA));
             }
         } catch (Exception e) {
 
         }
-*/
+
+        try {
+            if (!this.sCB.equals("")) {
+                json.put(FormsTable.COLUMN_SCB, this.sCB == null ? JSONObject.NULL : new JSONObject(this.sCB));
+            }
+        } catch (Exception e) {
+
+        }
+
+        try {
+            if (!this.sCC.equals("")) {
+                json.put(FormsTable.COLUMN_SCC, this.sCC == null ? JSONObject.NULL : new JSONObject(this.sCC));
+            }
+        } catch (Exception e) {
+
+        }
+
+        try {
+            if (!this.sCD.equals("")) {
+                json.put(FormsTable.COLUMN_SCD, this.sCD == null ? JSONObject.NULL : new JSONObject(this.sCD));
+            }
+        } catch (Exception e) {
+
+        }
+
+        try {
+            if (!this.sCE.equals("")) {
+                json.put(FormsTable.COLUMN_SCE, this.sCE == null ? JSONObject.NULL : new JSONObject(this.sCE));
+            }
+        } catch (Exception e) {
+
+        }
+
+        try {
+            if (!this.sCFA.equals("")) {
+                json.put(FormsTable.COLUMN_SCFA, this.sCFA == null ? JSONObject.NULL : new JSONObject(this.sCFA));
+            }
+        } catch (Exception e) {
+
+        }
+
+        try {
+            if (!this.sCFB.equals("")) {
+                json.put(FormsTable.COLUMN_SCFB, this.sCFB == null ? JSONObject.NULL : new JSONObject(this.sCFB));
+            }
+        } catch (Exception e) {
+
+        }
+
+        try {
+            if (!this.sCFC.equals("")) {
+                json.put(FormsTable.COLUMN_SCFC, this.sCFC == null ? JSONObject.NULL : new JSONObject(this.sCFC));
+            }
+        } catch (Exception e) {
+
+        }
+
+        try {
+            if (!this.sD.equals("")) {
+                json.put(FormsTable.COLUMN_SD, this.sD == null ? JSONObject.NULL : new JSONObject(this.sD));
+            }
+        } catch (Exception e) {
+
+        }
+
+        try {
+            if (!this.sE.equals("")) {
+                json.put(FormsTable.COLUMN_SE, this.sE == null ? JSONObject.NULL : new JSONObject(this.sE));
+            }
+        } catch (Exception e) {
+
+        }
+
         json.put(FormsTable.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
         json.put(FormsTable.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
         json.put(FormsTable.COLUMN_GPSTIME, this.gpsTime == null ? JSONObject.NULL : this.gpsTime);
@@ -366,6 +548,16 @@ public class FormsContract {
         public static final String COLUMN_ISTATUS = "istatus";
         public static final String COLUMN_SA = "sa";
         public static final String COLUMN_SBA = "sba";
+        public static final String COLUMN_SCA = "sca";
+        public static final String COLUMN_SCB = "scb";
+        public static final String COLUMN_SCC = "scc";
+        public static final String COLUMN_SCD = "scd";
+        public static final String COLUMN_SCE = "sce";
+        public static final String COLUMN_SCFA = "scfa";
+        public static final String COLUMN_SCFB = "scfb";
+        public static final String COLUMN_SCFC = "scfc";
+        public static final String COLUMN_SD = "sd";
+        public static final String COLUMN_SE = "se";
         //public static final String COLUMN_SBB = "sbb";
         public static final String COLUMN_GPSLAT = "gpslat";
         public static final String COLUMN_GPSLNG = "gpslng";

@@ -361,7 +361,7 @@ public class SectionCDActivity extends Activity {
         sCE.put("mp03q10188", mp02ce00688.isChecked() ? "88" : "0");
         sCE.put("mp03q10188x", mp02ce00688x.getText().toString());
 
-        AppMain.pc.setsCE(String.valueOf(sCE));
+        AppMain.fc.setsCD(String.valueOf(sCE));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

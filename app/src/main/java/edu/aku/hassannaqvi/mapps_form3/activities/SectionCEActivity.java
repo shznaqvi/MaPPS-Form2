@@ -1317,7 +1317,7 @@ public class SectionCEActivity extends Activity {
         scf.put("mp02cf03988", mp02cf03988.isChecked() ? "88" : "0");
         scf.put("mp02cf03988x", mp02cf03988x.getText().toString());
 */
-        AppMain.pc.setsCE(String.valueOf(scf));
+        AppMain.fc.setsCE(String.valueOf(scf));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 

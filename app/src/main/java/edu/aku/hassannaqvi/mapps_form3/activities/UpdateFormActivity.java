@@ -36,7 +36,6 @@ import edu.aku.hassannaqvi.mapps_form3.contracts.FormsContract;
 import edu.aku.hassannaqvi.mapps_form3.contracts.LHWsContract;
 import edu.aku.hassannaqvi.mapps_form3.core.AppMain;
 import edu.aku.hassannaqvi.mapps_form3.core.DatabaseHelper;
-import edu.aku.hassannaqvi.mapps_form3.otherclasses.EligibleParticipants;
 
 import static edu.aku.hassannaqvi.mapps_form3.R.id.btn_Continue;
 
@@ -167,7 +166,7 @@ public class UpdateFormActivity extends Activity
                     {
                         for (EligiblesContract ec : Econtract) {
                             if (ec.getLUID().equals(dc.getLUID())) {
-                                AppMain.Eparticipant.add(new EligibleParticipants(ec.getLUID(), ec.getWomen_name(), ec.getSno()));
+                                //AppMain.Eparticipant.add(new EligibleParticipants(ec.getLUID(), ec.getWomen_name(), ec.getSno()));
                                 AppMain.dc.setUID(dc.getUID());
                             }
                         }

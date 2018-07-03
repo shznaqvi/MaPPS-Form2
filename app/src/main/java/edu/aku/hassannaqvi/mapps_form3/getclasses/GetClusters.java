@@ -51,7 +51,7 @@ public class GetClusters extends AsyncTask<String, String, String> {
 
         URL url = null;
         try {
-            url = new URL(AppMain._HOST_URL + ClustersContract.ClustersTable._URI);
+            url = new URL(AppMain._HOST_URL_2 + ClustersContract.ClustersTable._URI);
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setReadTimeout(10000 /* milliseconds */);
             urlConnection.setConnectTimeout(15000 /* milliseconds */);

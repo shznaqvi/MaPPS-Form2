@@ -243,7 +243,7 @@ public class SectionCCActivity extends Activity {
         sCD.put("mp03q095", mp02cd01001.isChecked() ? "1" : mp02cd01002.isChecked() ? "2" : mp02cd01003.isChecked() ? "3"
                 : mp02cd01004.isChecked() ? "4" : mp02cd01005.isChecked() ? "5" : "0");
 
-        AppMain.pc.setsCD(String.valueOf(sCD));
+        AppMain.fc.setsCC(String.valueOf(sCD));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

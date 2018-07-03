@@ -767,7 +767,7 @@ public class SectionCBActivity extends Activity {
         sCC.put("mp03q08588x", mp02cc03288x.getText().toString());
 
 
-        AppMain.pc.setsCC(String.valueOf(sCC));
+        AppMain.fc.setsCB(String.valueOf(sCC));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

@@ -538,7 +538,7 @@ public class SectionCFCActivity extends Activity {
 
         SCIC.put("mp03q159", mp02cic01201.isChecked() ? "1" : mp02cic01202.isChecked() ? "2" : mp02cic01203.isChecked() ? "3" : "0");
 
-        AppMain.pc.setsCFC(String.valueOf(SCIC));
+        AppMain.fc.setsCFC(String.valueOf(SCIC));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

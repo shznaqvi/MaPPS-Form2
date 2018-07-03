@@ -89,5 +89,13 @@
 
     </style>
 
+    <style name="spinner" parent="@android:style/Widget.Material.Light.Spinner">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:textColor">@color/black</item>
+
+    </style>
 
 </resources>

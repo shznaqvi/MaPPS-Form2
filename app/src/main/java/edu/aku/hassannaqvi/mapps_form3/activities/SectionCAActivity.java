@@ -37,7 +37,6 @@ import edu.aku.hassannaqvi.mapps_form3.R;
 import edu.aku.hassannaqvi.mapps_form3.contracts.ParticipantsContract;
 import edu.aku.hassannaqvi.mapps_form3.core.AppMain;
 import edu.aku.hassannaqvi.mapps_form3.core.DatabaseHelper;
-import edu.aku.hassannaqvi.mapps_form3.otherclasses.EligibleParticipants;
 
 public class SectionCAActivity extends Activity {
 
@@ -345,7 +344,7 @@ public class SectionCAActivity extends Activity {
         flag = getIntent().getBooleanExtra("flag",false);
         pos = getIntent().getExtras().getInt("pos");
         if (!flag) {
-            mp02cbName.setText(AppMain.Eparticipant.get(pos).getWname());
+            //mp02cbName.setText(AppMain.Eparticipant.get(pos).getWname());
             fldGrpRsn.setVisibility(View.GONE);
         } else {
             fldGrpRsn.setVisibility(View.VISIBLE);
@@ -899,11 +898,11 @@ public class SectionCAActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        if (flag) {
-            AppMain.Eparticipant.add(new EligibleParticipants("", mp02cbName.getText().toString(), ""));
+        /*if (flag) {
+            AppMain.Eparticipant.add(new FollowupsContract("", mp02cbName.getText().toString(), ""));
 
         }
-
+*/
         SharedPreferences sharedPref = getSharedPreferences("tagName",MODE_PRIVATE);
 
         AppMain.pc =new ParticipantsContract();
@@ -919,7 +918,7 @@ public class SectionCAActivity extends Activity {
         } else {
             AppMain.pc.setUUID(AppMain.dc.getUID());
         }
-        AppMain.pc.setLUID(AppMain.Eparticipant.get(pos).getL_uid());
+        //AppMain.pc.setLUID(AppMain.Eparticipant.get(pos).getL_uid());
 
         AppMain.pc.setHousehold(AppMain.fc.getHousehold());
         AppMain.pc.setClustercode(AppMain.fc.getClustercode());
@@ -928,11 +927,11 @@ public class SectionCAActivity extends Activity {
 
         JSONObject scb = new JSONObject();
 
-        if (!flag) {
+        /*if (!flag) {
             AppMain.Eparticipant.get(pos).setWname(mp02cbName.getText().toString());
         } else {
             scb.put("mp02cbrsn", addParticipantReason.getSelectedItem().toString());
-        }
+        }*/
 
         AppMain.currentParticipantName = mp02cbName.getText().toString().toUpperCase();
 
@@ -999,7 +998,7 @@ public class SectionCAActivity extends Activity {
         //AppMain.currentAge = mp02cb002.getText().toString().isEmpty() ? 0 : Integer.valueOf(mp02cb002.getText().toString());
 
 
-        AppMain.pc.setsCB(String.valueOf(scb));
+        AppMain.fc.setsCA(String.valueOf(scb));
 
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();

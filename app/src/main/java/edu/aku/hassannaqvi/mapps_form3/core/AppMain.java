@@ -16,10 +16,10 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import edu.aku.hassannaqvi.mapps_form3.contracts.DoneContract;
+import edu.aku.hassannaqvi.mapps_form3.contracts.FollowupsContract;
 import edu.aku.hassannaqvi.mapps_form3.contracts.FormsContract;
 import edu.aku.hassannaqvi.mapps_form3.contracts.ParticipantsContract;
 import edu.aku.hassannaqvi.mapps_form3.other.TypefaceUtil;
-import edu.aku.hassannaqvi.mapps_form3.otherclasses.EligibleParticipants;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
@@ -33,10 +33,18 @@ public class AppMain extends Application {
 
     public static final String _PROJECT_FOLDER = "mapps/form2/api/";
 
-    public static final String _HOST_URL =
+    public static final String _PROJECT_FOLDER_3 = "mapps/form3/api/";
+
+    public static final String _HOST_URL_2 =
             "http://" + _IP
                     + ":" + _PORT
                     + "/" + _PROJECT_FOLDER;
+
+
+    public static final String _HOST_URL =
+            "http://" + _IP
+                    + ":" + _PORT
+                    + "/" + _PROJECT_FOLDER_3;
     // Retrieve FileName.php from Contract class Abstract _URI
 
 
@@ -70,7 +78,7 @@ public class AppMain extends Application {
     public static String curCluster;
     public static String formType;
     //    For participant
-    public static ArrayList<EligibleParticipants> Eparticipant;
+    public static ArrayList<FollowupsContract> Eparticipant;
     //public static ArrayList<EligibleParticipants> Eparticipant;
     public static String currentParticipantName = "";
     public static String[] loginMem;

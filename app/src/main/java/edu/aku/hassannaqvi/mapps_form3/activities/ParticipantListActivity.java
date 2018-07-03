@@ -52,7 +52,7 @@ public class ParticipantListActivity extends Activity {
         Log.d("Size", "" + AppMain.Eparticipant.size());
 
         for (int i = 0; i < AppMain.Eparticipant.size(); i++) {
-            Ewomens.add((AppMain.Eparticipant.get(i).getWname()).toUpperCase());
+            //Ewomens.add((AppMain.Eparticipant.get(i).getWname()).toUpperCase());
 
         }
 

@@ -617,7 +617,7 @@ public class SectionCFBActivity extends Activity {
         SCIB.put("mp03q147", mp02cib02101.isChecked() ? "1" : mp02cib02102.isChecked() ? "2" : mp02cib02103.isChecked() ? "3"
                 : mp02cib02104.isChecked() ? "4" : "0");
 
-        AppMain.pc.setsCFB(String.valueOf(SCIB));
+        AppMain.fc.setsCFB(String.valueOf(SCIB));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

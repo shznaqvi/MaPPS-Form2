@@ -360,7 +360,7 @@ public class SectionBAActivity extends Activity {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
-                Intent secc = new Intent(this, ParticipantListActivity.class);
+                Intent secc = new Intent(this, SectionCAActivity.class);
                 startActivity(secc);
 
             } else {

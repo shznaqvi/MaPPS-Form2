@@ -22,6 +22,7 @@ import edu.aku.hassannaqvi.mapps_form3.contracts.ClustersContract;
 import edu.aku.hassannaqvi.mapps_form3.contracts.DoneContract;
 import edu.aku.hassannaqvi.mapps_form3.contracts.EligiblesContract;
 import edu.aku.hassannaqvi.mapps_form3.contracts.EligiblesContract.EligiblesTable;
+import edu.aku.hassannaqvi.mapps_form3.contracts.FollowupsContract;
 import edu.aku.hassannaqvi.mapps_form3.contracts.FormsContract;
 import edu.aku.hassannaqvi.mapps_form3.contracts.FormsContract.FormsTable;
 import edu.aku.hassannaqvi.mapps_form3.contracts.LHWsContract;
@@ -61,6 +62,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             FormsTable.COLUMN_ISTATUS + " TEXT," +
             FormsTable.COLUMN_SA + " TEXT," +
             FormsTable.COLUMN_SBA + " TEXT," +
+            FormsTable.COLUMN_SCA + " TEXT," +
+            FormsTable.COLUMN_SCB + " TEXT," +
+            FormsTable.COLUMN_SCC + " TEXT," +
+            FormsTable.COLUMN_SCD + " TEXT," +
+            FormsTable.COLUMN_SCE + " TEXT," +
+            FormsTable.COLUMN_SCFA + " TEXT," +
+            FormsTable.COLUMN_SCFB + " TEXT," +
+            FormsTable.COLUMN_SCFC + " TEXT," +
+            FormsTable.COLUMN_SD + " TEXT," +
+            FormsTable.COLUMN_SE + " TEXT," +
             //FormsTable.COLUMN_SBB + " TEXT," +
             FormsTable.COLUMN_GPSLAT + " TEXT," +
             FormsTable.COLUMN_GPSLNG + " TEXT," +
@@ -115,6 +126,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             EligiblesTable.COLUMN_NAME_WOMEN_NAME + " TEXT," +
             EligiblesTable.COLUMN_NAME_SNO + " TEXT" +
             " );";
+
+    private static final String SQL_CREATE_FOLLOWUPS = "CREATE TABLE "
+            + FollowupsContract.FollowupsTable.TABLE_NAME + "(" +
+            FollowupsContract.FollowupsTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            FollowupsContract.FollowupsTable.COLUMN_NAME_LUID + " TEXT," +
+            FollowupsContract.FollowupsTable.COLUMN_NAME_SUBAREACODE + " TEXT," +
+            FollowupsContract.FollowupsTable.COLUMN_NAME_LHWCODE + " TEXT," +
+            FollowupsContract.FollowupsTable.COLUMN_NAME_HOUSEHOLD + " TEXT," +
+            FollowupsContract.FollowupsTable.COLUMN_SYNCED + " TEXT,"
+            + FollowupsContract.FollowupsTable.COLUMN_SYNCED_DATE + " TEXT," +
+            FollowupsContract.FollowupsTable.COLUMN_NAME_FORM_DATE + " TEXT," +
+            FollowupsContract.FollowupsTable.COLUMN_NAME_WOMEN_NAME + " TEXT," +
+            FollowupsContract.FollowupsTable.COLUMN_NAME_S1 + " TEXT," +
+            FollowupsContract.FollowupsTable.COLUMN_NAME_SNO + " TEXT" +
+            " );";
     private static final String SQL_CREATE_LHWS = "CREATE TABLE "
             + LHWsContract.LHWsTable.TABLE_NAME + "(" +
             LHWsContract.LHWsTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -159,6 +185,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + EligiblesTable.TABLE_NAME;
     private static final String SQL_DELETE_FORMS =
             "DROP TABLE IF EXISTS " + FormsTable.TABLE_NAME;
+    private static final String SQL_DELETE_FOLLOWUPS =
+            "DROP TABLE IF EXISTS " + FollowupsContract.FollowupsTable.TABLE_NAME;
     private static final String SQL_DELETE_PARTICIPANTS =
             "DROP TABLE IF EXISTS " + ParticipantsTable.TABLE_NAME;
     private static final String SQL_DELETE_DONE =
@@ -175,12 +203,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_USERS);
-        db.execSQL(SQL_CREATE_ELIGIBLES);
-        db.execSQL(SQL_CREATE_DONE);
+        //db.execSQL(SQL_CREATE_ELIGIBLES);
+        //db.execSQL(SQL_CREATE_DONE);
         db.execSQL(SQL_CREATE_LHWS);
         db.execSQL(SQL_CREATE_CLUSTERS);
         db.execSQL(SQL_CREATE_FORMS);
-        db.execSQL(SQL_CREATE_PARTICIPANTS);
+        db.execSQL(SQL_CREATE_FOLLOWUPS);
+        //db.execSQL(SQL_CREATE_PARTICIPANTS);
 
     }
 
@@ -198,12 +227,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 */
         db.execSQL(SQL_DELETE_USERS);
-        db.execSQL(SQL_DELETE_ELIGIBLES);
-        db.execSQL(SQL_DELETE_DONE);
+        //db.execSQL(SQL_DELETE_ELIGIBLES);
+        //db.execSQL(SQL_DELETE_DONE);
         db.execSQL(SQL_DELETE_LHWS);
         db.execSQL(SQL_DELETE_CLUSTERS);
         db.execSQL(SQL_DELETE_FORMS);
-        db.execSQL(SQL_DELETE_PARTICIPANTS);
+        db.execSQL(SQL_DELETE_FOLLOWUPS);
+        //db.execSQL(SQL_DELETE_PARTICIPANTS);
 
 
     }
@@ -266,6 +296,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.close();
         }
     }
+
+    public void syncFollowups(JSONArray followupsList) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(FollowupsContract.FollowupsTable.TABLE_NAME, null, null);
+        try {
+            JSONArray jsonArray = followupsList;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectEC = jsonArray.getJSONObject(i);
+
+                FollowupsContract ec = new FollowupsContract();
+                ec.Sync(jsonObjectEC);
+
+                ContentValues values = new ContentValues();
+
+                values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_LUID, ec.getLUID());
+                values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_SUBAREACODE, ec.getSubAreaCode());
+                values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_LHWCODE, ec.getLhwCode());
+                values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_HOUSEHOLD, ec.getHouseHold());
+                values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_WOMEN_NAME, ec.getWomen_name());
+                values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_FORM_DATE, ec.getFormdate());
+                values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_SNO, ec.getSno());
+                values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_S1, ec.getS1());
+
+                db.insert(FollowupsContract.FollowupsTable.TABLE_NAME, null, values);
+            }
+
+
+        } catch (Exception e) {
+            Log.d(TAG, e.getMessage());
+        } finally {
+            db.close();
+        }
+    }
+
 
     public void syncDone(JSONArray donelist) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -410,6 +474,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_LHWCODE, fc.getLhwCode());
         values.put(FormsTable.COLUMN_ISTATUS, fc.getIstatus());
         values.put(FormsTable.COLUMN_SA, fc.getsA());
+        values.put(FormsTable.COLUMN_SBA, fc.getsBA());
+        values.put(FormsTable.COLUMN_SCA, fc.getsCA());
+        values.put(FormsTable.COLUMN_SCB, fc.getsCB());
+        values.put(FormsTable.COLUMN_SCC, fc.getsCC());
+        values.put(FormsTable.COLUMN_SCD, fc.getsCD());
+        values.put(FormsTable.COLUMN_SCE, fc.getsCE());
+        values.put(FormsTable.COLUMN_SCFA, fc.getsCFA());
+        values.put(FormsTable.COLUMN_SCFB, fc.getsCFB());
+        values.put(FormsTable.COLUMN_SCFC, fc.getsCFC());
+        values.put(FormsTable.COLUMN_SD, fc.getsD());
+        values.put(FormsTable.COLUMN_SE, fc.getsE());
         values.put(FormsTable.COLUMN_GPSLAT, fc.getGpsLat());
         values.put(FormsTable.COLUMN_GPSLNG, fc.getGpsLng());
         values.put(FormsTable.COLUMN_GPSTIME, fc.getGpsTime());
@@ -654,6 +729,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
+    public int updateCA() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(FormsTable.COLUMN_SCA, AppMain.fc.getsCA());
+//        values.put(FormsTable.COLUMN_UID, AppMain.fc.getUID());
+
+
+// Which row to update, based on the ID
+        String selection = FormsContract.FormsTable._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
+
+        int count = db.update(FormsTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
     /*public int updateBB() {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -679,15 +774,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(ParticipantsContract.ParticipantsTable.COLUMN_SCC, AppMain.pc.getsCC());
+        values.put(FormsTable.COLUMN_SCC, AppMain.fc.getsCC());
 //        values.put(ParticipantsTable.COLUMN_UID, AppMain.pc.getUID());
 
 
 // Which row to update, based on the ID
-        String selection = ParticipantsTable._ID + " = ?";
-        String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
+        String selection = FormsTable._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
 
-        int count = db.update(ParticipantsTable.TABLE_NAME,
+        int count = db.update(FormsTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -699,15 +794,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(ParticipantsTable.COLUMN_SCD, AppMain.pc.getsCD());
+        values.put(FormsTable.COLUMN_SCD, AppMain.fc.getsCD());
 //        values.put(ParticipantsTable.COLUMN_UID, AppMain.pc.getUID());
 
 
 // Which row to update, based on the ID
-        String selection = ParticipantsTable._ID + " = ?";
-        String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
+        String selection = FormsTable._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
 
-        int count = db.update(ParticipantsTable.TABLE_NAME,
+        int count = db.update(FormsTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -719,15 +814,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(ParticipantsTable.COLUMN_SCE, AppMain.pc.getsCE());
+        values.put(FormsTable.COLUMN_SCE, AppMain.fc.getsCE());
 //        values.put(ParticipantsTable.COLUMN_UID, AppMain.pc.getUID());
 
 
 // Which row to update, based on the ID
-        String selection = ParticipantsTable._ID + " = ?";
-        String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
+        String selection = FormsTable._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
 
-        int count = db.update(ParticipantsTable.TABLE_NAME,
+        int count = db.update(FormsTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -799,15 +894,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(ParticipantsTable.COLUMN_SCFA, AppMain.pc.getsCFA());
+        values.put(FormsTable.COLUMN_SCFA, AppMain.fc.getsCFA());
 //        values.put(ParticipantsTable.COLUMN_UID, AppMain.pc.getUID());
 
 
 // Which row to update, based on the ID
-        String selection = ParticipantsContract.ParticipantsTable._ID + " = ?";
-        String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
+        String selection = FormsTable._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
 
-        int count = db.update(ParticipantsTable.TABLE_NAME,
+        int count = db.update(FormsTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -819,15 +914,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(ParticipantsContract.ParticipantsTable.COLUMN_SCFB, AppMain.pc.getsCFB());
+        values.put(FormsTable.COLUMN_SCFB, AppMain.fc.getsCFB());
 //        values.put(ParticipantsTable.COLUMN_UID, AppMain.pc.getUID());
 
 
 // Which row to update, based on the ID
-        String selection = ParticipantsContract.ParticipantsTable._ID + " = ?";
-        String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
+        String selection = FormsTable._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
 
-        int count = db.update(ParticipantsContract.ParticipantsTable.TABLE_NAME,
+        int count = db.update(FormsTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -839,15 +934,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(ParticipantsContract.ParticipantsTable.COLUMN_SCFC, AppMain.pc.getsCFC());
+        values.put(FormsTable.COLUMN_SCFC, AppMain.fc.getsCFC());
 //        values.put(ParticipantsTable.COLUMN_UID, AppMain.pc.getUID());
 
 
 // Which row to update, based on the ID
-        String selection = ParticipantsTable._ID + " = ?";
-        String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
+        String selection = FormsTable._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
 
-        int count = db.update(ParticipantsTable.TABLE_NAME,
+        int count = db.update(FormsTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -859,15 +954,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(ParticipantsContract.ParticipantsTable.COLUMN_SE, AppMain.pc.getsE());
+        values.put(FormsTable.COLUMN_SE, AppMain.fc.getsE());
 //        values.put(ParticipantsTable.COLUMN_UID, AppMain.pc.getUID());
 
 
 // Which row to update, based on the ID
-        String selection = ParticipantsTable._ID + " = ?";
-        String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
+        String selection = FormsTable._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
 
-        int count = db.update(ParticipantsTable.TABLE_NAME,
+        int count = db.update(FormsTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -879,15 +974,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(ParticipantsTable.COLUMN_SD, AppMain.pc.getsD());
+        values.put(FormsTable.COLUMN_SD, AppMain.fc.getsD());
 //        values.put(ParticipantsTable.COLUMN_UID, AppMain.pc.getUID());
 
 
 // Which row to update, based on the ID
-        String selection = ParticipantsTable._ID + " = ?";
-        String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
+        String selection = FormsTable._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
 
-        int count = db.update(ParticipantsTable.TABLE_NAME,
+        int count = db.update(FormsTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -1053,6 +1148,57 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             );
             while (c.moveToNext()) {
                 EligiblesContract ec = new EligiblesContract();
+                allEC.add(ec.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allEC;
+    }
+
+
+    public Collection<FollowupsContract> getFollowupsByHousehold(String clusterCode, String lhwCode, String hhno) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                FollowupsContract.FollowupsTable.COLUMN_NAME_LUID,
+                FollowupsContract.FollowupsTable.COLUMN_NAME_WOMEN_NAME,
+                FollowupsContract.FollowupsTable.COLUMN_NAME_SUBAREACODE,
+                FollowupsContract.FollowupsTable.COLUMN_NAME_LHWCODE,
+                FollowupsContract.FollowupsTable.COLUMN_NAME_FORM_DATE,
+                FollowupsContract.FollowupsTable.COLUMN_NAME_SNO,
+                FollowupsContract.FollowupsTable.COLUMN_NAME_S1,
+                FollowupsContract.FollowupsTable.COLUMN_NAME_HOUSEHOLD
+        };
+
+        String whereClause = FollowupsContract.FollowupsTable.COLUMN_NAME_SUBAREACODE + " = ? AND " +
+                FollowupsContract.FollowupsTable.COLUMN_NAME_LHWCODE + " = ? AND " +
+                FollowupsContract.FollowupsTable.COLUMN_NAME_HOUSEHOLD + " = ? ";
+        String[] whereArgs = new String[]{clusterCode, lhwCode, hhno};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                FollowupsContract.FollowupsTable.COLUMN_NAME_WOMEN_NAME + " ASC";
+
+        Collection<FollowupsContract> allEC = new ArrayList<>();
+        try {
+            c = db.query(
+                    FollowupsContract.FollowupsTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                FollowupsContract ec = new FollowupsContract();
                 allEC.add(ec.Hydrate(c));
             }
         } finally {

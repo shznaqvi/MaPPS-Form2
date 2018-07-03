@@ -362,7 +362,7 @@ public class SectionCFAActivity extends Activity {
         SCIA.put("mp03q126", mp02cia01001.isChecked() ? "1" : mp02cia01002.isChecked() ? "2" : mp02cia01003.isChecked() ? "3"
                 : mp02cia01004.isChecked() ? "4" : mp02cia01005.isChecked() ? "5" : "0");
 
-        AppMain.pc.setsCFA(String.valueOf(SCIA));
+        AppMain.fc.setsCFA(String.valueOf(SCIA));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

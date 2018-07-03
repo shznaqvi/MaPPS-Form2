@@ -200,7 +200,7 @@ public class SectionEActivity extends Activity {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
-                Intent sece = new Intent(this, SectionCActivity.class);
+                Intent sece = new Intent(this, EndingActivity.class);
                 sece.putExtra("complete", true);
                 startActivity(sece);
 
@@ -750,38 +750,38 @@ public class SectionEActivity extends Activity {
 
         JSONObject sD = new JSONObject();
 
-        sD.put("mp02d001", mp02d001.getText().toString());
-        sD.put("mp02d001id1", mp02d001id1.getSelectedItem().toString());
+        sD.put("mp03q162", mp02d001.getText().toString());
+        sD.put("mp03q162id1", mp02d001id1.getSelectedItem().toString());
 
-        sD.put("mp02d002", mp02d002.getText().toString());
-        sD.put("mp02d002id2", mp02d002id2.getSelectedItem().toString());
+        sD.put("mp03q163", mp02d002.getText().toString());
+        sD.put("mp03q163id2", mp02d002id2.getSelectedItem().toString());
 
-        sD.put("mp02d003", flag_q4 ? "1" : "2");
+        sD.put("mp03q164", flag_q4 ? "1" : "2");
 
-        sD.put("mp02d004", mp02d004.getText().toString());
-        sD.put("mp02d004id3", mp02d004id3.getSelectedItem().toString());
+        sD.put("mp03q165", mp02d004.getText().toString());
+        sD.put("mp03q165id3", mp02d004id3.getSelectedItem().toString());
 
-        sD.put("mp02d005", mp02d005.getText().toString());
-        sD.put("mp02d005id1", mp02d005id1.getSelectedItem().toString());
+        sD.put("mp03q166", mp02d005.getText().toString());
+        sD.put("mp03q166id1", mp02d005id1.getSelectedItem().toString());
 
-        sD.put("mp02d006", mp02d006.getText().toString());
-        sD.put("mp02d006id2", mp02d006id2.getSelectedItem().toString());
+        sD.put("mp03q167", mp02d006.getText().toString());
+        sD.put("mp03q167id2", mp02d006id2.getSelectedItem().toString());
 
-        sD.put("mp02d007", flag_q8 ? "1" : "2");
+        sD.put("mp03q168", flag_q8 ? "1" : "2");
 
-        sD.put("mp02d008", mp02d008.getText().toString());
-        sD.put("mp02d008id3", mp02d008id3.getSelectedItem().toString());
+        sD.put("mp03q169", mp02d008.getText().toString());
+        sD.put("mp03q169id3", mp02d008id3.getSelectedItem().toString());
 
-        sD.put("mp02d009", mp02d009.getText().toString());
-        sD.put("mp02d009id1", mp02d009id1.getSelectedItem().toString());
+        sD.put("mp03q170", mp02d009.getText().toString());
+        sD.put("mp03q170id1", mp02d009id1.getSelectedItem().toString());
 
-        sD.put("mp02d010", mp02d010.getText().toString());
-        sD.put("mp02d010id2", mp02d010id2.getSelectedItem().toString());
+        sD.put("mp03q171", mp02d010.getText().toString());
+        sD.put("mp03q171id2", mp02d010id2.getSelectedItem().toString());
 
-        sD.put("mp02d011", flag_q12 ? "1" : "2");
+        sD.put("mp03q172", flag_q12 ? "1" : "2");
 
-        sD.put("mp02d012", mp02d012.getText().toString());
-        sD.put("mp02d012id3", mp02d012id3.getSelectedItem().toString());
+        sD.put("mp03q173", mp02d012.getText().toString());
+        sD.put("mp03q173id3", mp02d012id3.getSelectedItem().toString());
 
         AppMain.pc.setsE(String.valueOf(sD));
 

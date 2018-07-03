@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.text.Editable;
@@ -37,12 +38,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.mapps_form3.R;
-import edu.aku.hassannaqvi.mapps_form3.contracts.EligiblesContract;
+import edu.aku.hassannaqvi.mapps_form3.contracts.FollowupsContract;
 import edu.aku.hassannaqvi.mapps_form3.contracts.FormsContract;
 import edu.aku.hassannaqvi.mapps_form3.contracts.LHWsContract;
 import edu.aku.hassannaqvi.mapps_form3.core.AppMain;
 import edu.aku.hassannaqvi.mapps_form3.core.DatabaseHelper;
-import edu.aku.hassannaqvi.mapps_form3.otherclasses.EligibleParticipants;
 
 public class SectionAActivity extends Activity {
 
@@ -55,7 +55,7 @@ public class SectionAActivity extends Activity {
     @BindView(R.id.app_header)
     TextView appHeader;
     @BindView(R.id.mp02a001)
-    EditText mp02a001;
+    Spinner mp02a001;
     @BindView(R.id.mp02a002)
     EditText mp02a002;
     @BindView(R.id.mp02a003)
@@ -79,13 +79,16 @@ public class SectionAActivity extends Activity {
     @BindView(R.id.fldGrpmp02a007)
     LinearLayout fldGrpmp02a007;
 
+    @BindView(R.id.fldGrpParticipant)
+    LinearLayout fldGrpParticipant;
+
     @BindView(R.id.btn_Continue)
     Button btn_Continue;
     @BindView(R.id.btn_End)
     Button btn_End;
 
-    @BindView(R.id.mp02_count)
-    TextView mp02_count;
+   /* @BindView(R.id.mp02_count)
+    TextView mp02_count;*/
 
     List<String> LHWsName;
     DatabaseHelper db;
@@ -93,7 +96,7 @@ public class SectionAActivity extends Activity {
     Boolean flag = false;
     Boolean checked = false;
 
-    Collection<EligiblesContract> Econtract;
+    Collection<FollowupsContract> Econtract;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +117,7 @@ public class SectionAActivity extends Activity {
 
                 if (!checked) {
                     fldGrpmp02a007.setVisibility(View.GONE);
+                    fldGrpParticipant.setVisibility(View.GONE);
                     btn_Continue.setVisibility(View.GONE);
                     //mp02a007.setText(null);
                     //mp02a008.setText(null);
@@ -186,24 +190,25 @@ public class SectionAActivity extends Activity {
 
         checked = true;
 
-        mp02_count.setVisibility(View.VISIBLE);
+        //mp02_count.setVisibility(View.VISIBLE);
 
         if (!mp02a003.getText().toString().isEmpty()) {
 
             mp02a003.setError(null);
 
-            Econtract = db.getEligiblesByHousehold(AppMain.curCluster, LHWs.get(mp02aLHWs.getSelectedItem().toString()),
-                    mp02a003.getText().toString(), /*True means eligible*/true);
+            Econtract = db.getFollowupsByHousehold(AppMain.curCluster, LHWs.get(mp02aLHWs.getSelectedItem().toString()),
+                    mp02a003.getText().toString());
 
-            mp02_count.setText("Eligible Women found = " + Econtract.size());
+            //mp02_count.setText("Eligible Women found = " + Econtract.size());
+            fldGrpParticipant.setVisibility(View.VISIBLE);
 
 
             if (Econtract.size() != 0) {
 
                 AppMain.Eparticipant = new ArrayList<>();
 
-                for (EligiblesContract ec : Econtract) {
-                    AppMain.Eparticipant.add(new EligibleParticipants(ec.getLUID(), ec.getWomen_name(), ec.getSno()));
+                for (FollowupsContract ec : Econtract) {
+                    AppMain.Eparticipant.add(new FollowupsContract(ec));
                 }
 
                 Toast.makeText(this, "Participant Found", Toast.LENGTH_LONG).show();
@@ -334,7 +339,7 @@ public class SectionAActivity extends Activity {
 
         JSONObject sa = new JSONObject();
 
-        sa.put("mp03q003", mp02a001.getText().toString());
+        sa.put("mp03q003", mp02a001.getSelectedItem().toString());
         sa.put("mp03q005", mp02a002.getText().toString());
         //sa.put("mp02a007", mp02a007.getText().toString());
         //sa.put("mp02a008", mp02a008.getText().toString());
@@ -385,27 +390,6 @@ public class SectionAActivity extends Activity {
 
         //======================= Q 1 ===============
 
-        if (mp02a001.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mp02a001), Toast.LENGTH_SHORT).show();
-            mp02a001.setError("This data is Required!");
-
-            Log.i(TAG, "mp02a001: This Data is Required!");
-            return false;
-        } else {
-            mp02a001.setError(null);
-        }
-
-        //======================= Q 2 ===============
-
-        if (mp02a002.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mp02a002), Toast.LENGTH_SHORT).show();
-            mp02a002.setError("This data is Required!");
-
-            Log.i(TAG, "mp02a002: This Data is Required!");
-            return false;
-        } else {
-            mp02a002.setError(null);
-        }
 
         //======================= Q 3 ===============
 
@@ -420,6 +404,32 @@ public class SectionAActivity extends Activity {
         }
 
         if (flag) {
+
+            if (mp02a001.getSelectedItem() == "....") {
+//        if (mp04a003.getSelectedItem().equals("")) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mp02a001), Toast.LENGTH_SHORT).show();
+                ((TextView) mp02a001.getSelectedView()).setText("This Data is Required");
+                ((TextView) mp02a001.getSelectedView()).setError("This Data is Required");
+                ((TextView) mp02a001.getSelectedView()).setTextColor(Color.RED);
+
+                Log.i(TAG, "mp04a003: This Data is Required!");
+                return false;
+            } else {
+                ((TextView) mp02a001.getSelectedView()).setError(null);
+            }
+
+
+            //======================= Q 2 ===============
+
+            if (mp02a002.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mp02a002), Toast.LENGTH_SHORT).show();
+                mp02a002.setError("This data is Required!");
+
+                Log.i(TAG, "mp02a002: This Data is Required!");
+                return false;
+            } else {
+                mp02a002.setError(null);
+            }
             //======================= Q 7 ===============
 
             /*if (mp02a007.getText().toString().isEmpty()) {
