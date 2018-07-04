@@ -136,7 +136,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             FollowupsContract.FollowupsTable.COLUMN_NAME_HOUSEHOLD + " TEXT," +
             FollowupsContract.FollowupsTable.COLUMN_SYNCED + " TEXT,"
             + FollowupsContract.FollowupsTable.COLUMN_SYNCED_DATE + " TEXT," +
-            FollowupsContract.FollowupsTable.COLUMN_NAME_FORM_DATE + " TEXT," +
+            FollowupsContract.FollowupsTable.COLUMN_NAME_FUP_DATE + " TEXT," +
             FollowupsContract.FollowupsTable.COLUMN_NAME_WOMEN_NAME + " TEXT," +
             FollowupsContract.FollowupsTable.COLUMN_NAME_S1 + " TEXT," +
             FollowupsContract.FollowupsTable.COLUMN_NAME_SNO + " TEXT" +
@@ -315,7 +315,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_LHWCODE, ec.getLhwCode());
                 values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_HOUSEHOLD, ec.getHouseHold());
                 values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_WOMEN_NAME, ec.getWomen_name());
-                values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_FORM_DATE, ec.getFormdate());
+                values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_FUP_DATE, ec.getFupdate());
                 values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_SNO, ec.getSno());
                 values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_S1, ec.getS1());
 
@@ -735,6 +735,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(FormsTable.COLUMN_SCA, AppMain.fc.getsCA());
+//        values.put(FormsTable.COLUMN_UID, AppMain.fc.getUID());
+
+
+// Which row to update, based on the ID
+        String selection = FormsContract.FormsTable._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
+
+        int count = db.update(FormsTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+    public int updateCB() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(FormsTable.COLUMN_SCB, AppMain.fc.getsCB());
 //        values.put(FormsTable.COLUMN_UID, AppMain.fc.getUID());
 
 
@@ -1170,7 +1190,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FollowupsContract.FollowupsTable.COLUMN_NAME_WOMEN_NAME,
                 FollowupsContract.FollowupsTable.COLUMN_NAME_SUBAREACODE,
                 FollowupsContract.FollowupsTable.COLUMN_NAME_LHWCODE,
-                FollowupsContract.FollowupsTable.COLUMN_NAME_FORM_DATE,
+                FollowupsContract.FollowupsTable.COLUMN_NAME_FUP_DATE,
                 FollowupsContract.FollowupsTable.COLUMN_NAME_SNO,
                 FollowupsContract.FollowupsTable.COLUMN_NAME_S1,
                 FollowupsContract.FollowupsTable.COLUMN_NAME_HOUSEHOLD
@@ -1417,6 +1437,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_LHWCODE,
                 FormsTable.COLUMN_SA,
                 FormsTable.COLUMN_SBA,
+                FormsTable.COLUMN_SCA,
+                FormsTable.COLUMN_SCB,
+                FormsTable.COLUMN_SCC,
+                FormsTable.COLUMN_SCD,
+                FormsTable.COLUMN_SCE,
+                FormsTable.COLUMN_SCFA,
+                FormsTable.COLUMN_SCFB,
+                FormsTable.COLUMN_SCFC,
+                FormsTable.COLUMN_SD,
+                FormsTable.COLUMN_SE,
                 //FormsTable.COLUMN_SBB,
                 FormsTable.COLUMN_GPSLAT,
                 FormsTable.COLUMN_GPSLNG,
@@ -1481,6 +1511,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_ISTATUS,
                 FormsTable.COLUMN_SA,
                 FormsTable.COLUMN_SBA,
+                FormsTable.COLUMN_SCA,
+                FormsTable.COLUMN_SCB,
+                FormsTable.COLUMN_SCC,
+                FormsTable.COLUMN_SCD,
+                FormsTable.COLUMN_SCE,
+                FormsTable.COLUMN_SCFA,
+                FormsTable.COLUMN_SCFB,
+                FormsTable.COLUMN_SCFC,
+                FormsTable.COLUMN_SD,
+                FormsTable.COLUMN_SE,
                 //FormsTable.COLUMN_SBB,
                 FormsTable.COLUMN_GPSLAT,
                 FormsTable.COLUMN_GPSLNG,

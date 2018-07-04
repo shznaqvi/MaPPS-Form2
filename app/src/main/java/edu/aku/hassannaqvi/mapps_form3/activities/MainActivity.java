@@ -14,19 +14,28 @@ import android.os.Handler;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import edu.aku.hassannaqvi.mapps_form3.R;
+import edu.aku.hassannaqvi.mapps_form3.contracts.ClustersContract;
 import edu.aku.hassannaqvi.mapps_form3.contracts.FormsContract;
+import edu.aku.hassannaqvi.mapps_form3.contracts.LHWsContract;
 import edu.aku.hassannaqvi.mapps_form3.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.mapps_form3.core.AppMain;
 import edu.aku.hassannaqvi.mapps_form3.core.DatabaseHelper;
@@ -54,6 +63,15 @@ public class MainActivity extends Activity {
     private String rSumText = "";
     private ProgressDialog pd;
     private Boolean exit = false;
+    @BindView(R.id.spClusters)
+    Spinner spClusters;
+    @BindView(R.id.mp02aLHWs)
+    Spinner mp02aLHWs;
+    DatabaseHelper db;
+    List<String> clustersName;
+    HashMap<String, String> cluster;
+    List<String> LHWsName;
+    HashMap<String, String> LHWs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +79,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
+        db = new DatabaseHelper(this);
 
         // Reset working variables
         AppMain.child_name = "Test";
@@ -172,8 +191,77 @@ public class MainActivity extends Activity {
         }
         Log.d(TAG, "onCreate: " + rSumText);
         recordSummary.setText(rSumText);
+        fillSpinners(this);
+
+    }
+
+    public void fillSpinners(Context mContext) {
+        Collection<ClustersContract> clusterCollection = db.getAllClusters();
+
+        clustersName = new ArrayList<>();
+
+        cluster = new HashMap<>();
+
+        if (clusterCollection.size() != 0) {
+            for (ClustersContract c : clusterCollection) {
+                clustersName.add(c.getClusterName());
+                cluster.put(c.getClusterName(), c.getClusterCode());
+            }
+
+            // Creating adapter for spinner
+            ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(mContext,
+                    android.R.layout.simple_dropdown_item_1line, clustersName);
+
+            // attaching data adapter to spinner
+            spClusters.setAdapter(dataAdapter);
+
+            spClusters.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                    //((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorPrimary));
+                    AppMain.curCluster = cluster.get(spClusters.getSelectedItem().toString());
+                    Log.d("Selected Cluster", AppMain.curCluster);
+
+                    LHWsName = new ArrayList<>();
+                    LHWs = new HashMap<>();
+
+                    Collection<LHWsContract> collectionLHWs = db.getLHWsByCluster(AppMain.curCluster);
+                    for (LHWsContract lhws : collectionLHWs) {
+                        LHWsName.add(lhws.getLhwName());
+                        LHWs.put(lhws.getLhwName(), lhws.getLhwId());
+                        Collections.sort(LHWsName);
+                    }
+
+                    ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(getBaseContext(),
+                            android.R.layout.simple_dropdown_item_1line, LHWsName);
+
+                    mp02aLHWs.setAdapter(dataAdapter2);
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
 
 
+        }
+
+        mp02aLHWs.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                //((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorPrimary));
+                Log.d("Selected LHWs", LHWs.get(mp02aLHWs.getSelectedItem().toString()));
+                AppMain.selectedLhw = LHWs.get(mp02aLHWs.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     public void openForm(View v) {

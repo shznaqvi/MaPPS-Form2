@@ -28,7 +28,6 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -40,7 +39,6 @@ import butterknife.OnClick;
 import edu.aku.hassannaqvi.mapps_form3.R;
 import edu.aku.hassannaqvi.mapps_form3.contracts.FollowupsContract;
 import edu.aku.hassannaqvi.mapps_form3.contracts.FormsContract;
-import edu.aku.hassannaqvi.mapps_form3.contracts.LHWsContract;
 import edu.aku.hassannaqvi.mapps_form3.core.AppMain;
 import edu.aku.hassannaqvi.mapps_form3.core.DatabaseHelper;
 
@@ -73,8 +71,8 @@ public class SectionAActivity extends Activity {
     @BindView(R.id.mp02a01302)
     RadioButton mp02a01302;
 
-    @BindView(R.id.mp02aLHWs)
-    Spinner mp02aLHWs;
+    /*@BindView(R.id.mp02aLHWs)
+    Spinner mp02aLHWs;*/
 
     @BindView(R.id.fldGrpmp02a007)
     LinearLayout fldGrpmp02a007;
@@ -86,6 +84,8 @@ public class SectionAActivity extends Activity {
     Button btn_Continue;
     @BindView(R.id.btn_End)
     Button btn_End;
+    @BindView(R.id.checkParticipants)
+    Button checkParticipants;
 
    /* @BindView(R.id.mp02_count)
     TextView mp02_count;*/
@@ -95,6 +95,7 @@ public class SectionAActivity extends Activity {
     HashMap<String, String> LHWs;
     Boolean flag = false;
     Boolean checked = false;
+    Boolean s1 = false;
 
     Collection<FollowupsContract> Econtract;
 
@@ -103,6 +104,22 @@ public class SectionAActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
+
+        //AppMain.Eparticipant = new ArrayList<>();
+
+        if (AppMain.checked) {
+            mp02a001.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, AppMain.ParticipantsName));
+            fldGrpParticipant.setVisibility(View.VISIBLE);
+            fldGrpmp02a007.setVisibility(View.VISIBLE);
+            mp02a003.setText(AppMain.hhno);
+            mp02a003.setEnabled(false);
+            checkParticipants.setEnabled(false);
+        } else {
+
+            mp02a003.setText(null);
+            mp02a003.setEnabled(true);
+            checkParticipants.setEnabled(true);
+        }
 
         mp02a003.addTextChangedListener(new TextWatcher() {
             @Override
@@ -113,20 +130,19 @@ public class SectionAActivity extends Activity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                checked = false;
+                AppMain.checked = false;
 
-                if (!checked) {
-                    fldGrpmp02a007.setVisibility(View.GONE);
+                if (!AppMain.checked) {
                     fldGrpParticipant.setVisibility(View.GONE);
-                    btn_Continue.setVisibility(View.GONE);
-                    //mp02a007.setText(null);
-                    //mp02a008.setText(null);
-                    mp02a013.clearCheck();
                     mp02a003.setError("Please check household number first");
+                    fldGrpmp02a007.setVisibility(View.GONE);
+                    AppMain.ParticipantsMap.clear();
+                    AppMain.ParticipantsName.clear();
 
                 } else {
-                    checked = true;
+                    AppMain.checked = true;
                     mp02a003.setError(null);
+                    //MainApp.hhno = mpl1a001.getText().toString();
                 }
 
 
@@ -152,28 +168,14 @@ public class SectionAActivity extends Activity {
             }
         });
 
-
-        db = new DatabaseHelper(this);
-
-        LHWsName = new ArrayList<>();
-
-        LHWs = new HashMap<>();
-
-        Collection<LHWsContract> collectionLHWs = db.getLHWsByCluster(AppMain.curCluster);
-
-        for (LHWsContract lhws : collectionLHWs) {
-            LHWsName.add(lhws.getLhwName());
-            LHWs.put(lhws.getLhwName(), lhws.getLhwId());
-        }
-        mp02aLHWs.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, LHWsName));
-
-        mp02aLHWs.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        mp02a001.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorPrimary));
-                Log.d("Selected LHWs", LHWs.get(mp02aLHWs.getSelectedItem().toString()));
-
+                if (mp02a001.getSelectedItemPosition() != 0) {
+                    AppMain.position = position;
+                    s1 = AppMain.ParticipantsMap.get(mp02a001.getSelectedItem().toString()).getS1().equals("1");
+                }
             }
 
             @Override
@@ -189,6 +191,9 @@ public class SectionAActivity extends Activity {
     void onCheckParticipantsClick() {
 
         checked = true;
+        AppMain.checked = true;
+
+        db = new DatabaseHelper(this);
 
         //mp02_count.setVisibility(View.VISIBLE);
 
@@ -196,18 +201,26 @@ public class SectionAActivity extends Activity {
 
             mp02a003.setError(null);
 
-            Econtract = db.getFollowupsByHousehold(AppMain.curCluster, LHWs.get(mp02aLHWs.getSelectedItem().toString()),
+            AppMain.ParticipantsName.add("Select Participant..");
+
+
+            Econtract = db.getFollowupsByHousehold(AppMain.curCluster, AppMain.selectedLhw,
                     mp02a003.getText().toString());
 
-            //mp02_count.setText("Eligible Women found = " + Econtract.size());
+            Toast.makeText(this, "Eligible Women found = " + Econtract.size(), Toast.LENGTH_SHORT).show();
+
+            AppMain.totalWmCount = Econtract.size();
             fldGrpParticipant.setVisibility(View.VISIBLE);
 
 
             if (Econtract.size() != 0) {
 
-                AppMain.Eparticipant = new ArrayList<>();
+                //AppMain.Eparticipant = new ArrayList<>();
 
                 for (FollowupsContract ec : Econtract) {
+                    AppMain.ParticipantsName.add(ec.getWomen_name().toUpperCase());
+                    AppMain.ParticipantsMap.put(ec.getWomen_name().toUpperCase(), new FollowupsContract(ec));
+
                     AppMain.Eparticipant.add(new FollowupsContract(ec));
                 }
 
@@ -217,6 +230,8 @@ public class SectionAActivity extends Activity {
                 btn_Continue.setVisibility(View.VISIBLE);
 
                 flag = true;
+
+                mp02a001.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, AppMain.ParticipantsName));
 
             } else {
 
@@ -279,10 +294,14 @@ public class SectionAActivity extends Activity {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
-                Intent secba = new Intent(this, SectionBAActivity.class);
-//                Intent secba = new Intent(this, ParticipantListActivity.class);
-                secba.putExtra("data", Econtract.size());
-                startActivity(secba);
+                if (s1) {
+                    Intent secba = new Intent(this, SectionBAActivity.class);
+                    secba.putExtra("data", Econtract.size());
+                    startActivity(secba);
+                } else {
+                    Intent secba = new Intent(this, SectionEActivity.class);
+                    startActivity(secba);
+                }
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -333,19 +352,25 @@ public class SectionAActivity extends Activity {
         AppMain.fc.setDeviceID(AppMain.deviceId);
         AppMain.fc.setVillageacode(mp02a006.getText().toString());
         AppMain.fc.setApp_version(AppMain.versionName + "." + AppMain.versionCode);
-
-        AppMain.fc.setLhwCode(LHWs.get(mp02aLHWs.getSelectedItem().toString()));
-
+        AppMain.fc.setLhwCode(AppMain.selectedLhw);
 
         JSONObject sa = new JSONObject();
 
+        if (mp02a001.getSelectedItemPosition() != 0) {
+            sa.put("sno", AppMain.ParticipantsMap.get(mp02a001.getSelectedItem()).getSno());
+            sa.put("luid", AppMain.ParticipantsMap.get(mp02a001.getSelectedItem()).getLUID());
+            sa.put("s1", AppMain.ParticipantsMap.get(mp02a001.getSelectedItem()).getFupdate());
+
+        }
+
+
         sa.put("mp03q003", mp02a001.getSelectedItem().toString());
         sa.put("mp03q005", mp02a002.getText().toString());
-        //sa.put("mp02a007", mp02a007.getText().toString());
-        //sa.put("mp02a008", mp02a008.getText().toString());
         sa.put("mp03q013", mp02a01301.isChecked() ? "1" : mp02a01302.isChecked() ? "2" : "0");
 
         AppMain.fc.setsA(String.valueOf(sa));
+
+        AppMain.hhno = mp02a003.getText().toString();
 
         setGPS();
 
@@ -405,7 +430,7 @@ public class SectionAActivity extends Activity {
 
         if (flag) {
 
-            if (mp02a001.getSelectedItem() == "....") {
+            if (mp02a001.getSelectedItem().equals("Select Participant..")) {
 //        if (mp04a003.getSelectedItem().equals("")) {
                 Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mp02a001), Toast.LENGTH_SHORT).show();
                 ((TextView) mp02a001.getSelectedView()).setText("This Data is Required");

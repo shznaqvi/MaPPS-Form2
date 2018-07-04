@@ -783,7 +783,7 @@ public class SectionEActivity extends Activity {
         sD.put("mp03q173", mp02d012.getText().toString());
         sD.put("mp03q173id3", mp02d012id3.getSelectedItem().toString());
 
-        AppMain.pc.setsE(String.valueOf(sD));
+        AppMain.fc.setsE(String.valueOf(sD));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 

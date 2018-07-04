@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import edu.aku.hassannaqvi.mapps_form3.contracts.DoneContract;
@@ -78,8 +80,20 @@ public class AppMain extends Application {
     public static String curCluster;
     public static String formType;
     //    For participant
-    public static ArrayList<FollowupsContract> Eparticipant;
+    public static ArrayList<FollowupsContract> Eparticipant = new ArrayList<>();
+    public static boolean checked = false;
+    public static String hhno;
+
+    public static int wmCount = 1;
+    public static int totalWmCount = 0;
+
+    public static int position = 0;
+
+    public static boolean flag = true;
     //public static ArrayList<EligibleParticipants> Eparticipant;
+
+    public static List<String> ParticipantsName = new ArrayList<>();
+    public static HashMap<String, FollowupsContract> ParticipantsMap = new HashMap<>();
     public static String currentParticipantName = "";
     public static String[] loginMem;
     public static long installedOn;
@@ -93,6 +107,7 @@ public class AppMain extends Application {
     //    Login Members Array
     Location location;
 
+    public static String selectedLhw;
     @Override
     public void onCreate() {
         super.onCreate();

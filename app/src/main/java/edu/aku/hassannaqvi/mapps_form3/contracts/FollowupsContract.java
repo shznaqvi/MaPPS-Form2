@@ -21,7 +21,7 @@ public class FollowupsContract {
     private String lhwCode; // Cluster
     private String houseHold;  // Structure
     private String women_name;
-    private String formdate;
+    private String fupdate;
     private String sno;
     private String s1;
 
@@ -48,7 +48,7 @@ public class FollowupsContract {
         this.lhwCode = jsonObject.getString(FollowupsTable.COLUMN_NAME_LHWCODE);
         this.houseHold = jsonObject.getString(FollowupsTable.COLUMN_NAME_HOUSEHOLD);
         this.women_name = jsonObject.getString(FollowupsTable.COLUMN_NAME_WOMEN_NAME);
-        this.formdate = jsonObject.getString(FollowupsTable.COLUMN_NAME_FORM_DATE);
+        this.fupdate = jsonObject.getString(FollowupsTable.COLUMN_NAME_FUP_DATE);
         this.sno = jsonObject.getString(FollowupsTable.COLUMN_NAME_SNO);
         this.s1 = jsonObject.getString(FollowupsTable.COLUMN_NAME_S1);
         return this;
@@ -61,7 +61,7 @@ public class FollowupsContract {
         this.lhwCode = cursor.getString(cursor.getColumnIndex(FollowupsTable.COLUMN_NAME_LHWCODE));
         this.houseHold = cursor.getString(cursor.getColumnIndex(FollowupsTable.COLUMN_NAME_HOUSEHOLD));
         this.women_name = cursor.getString(cursor.getColumnIndex(FollowupsTable.COLUMN_NAME_WOMEN_NAME));
-        this.formdate = cursor.getString(cursor.getColumnIndex(FollowupsTable.COLUMN_NAME_FORM_DATE));
+        this.fupdate = cursor.getString(cursor.getColumnIndex(FollowupsTable.COLUMN_NAME_FUP_DATE));
         this.sno = cursor.getString(cursor.getColumnIndex(FollowupsTable.COLUMN_NAME_SNO));
         this.s1 = cursor.getString(cursor.getColumnIndex(FollowupsTable.COLUMN_NAME_S1));
         return this;
@@ -115,12 +115,12 @@ public class FollowupsContract {
         this.lhwCode = lhwCode;
     }
 
-    public String getFormdate() {
-        return formdate;
+    public String getFupdate() {
+        return fupdate;
     }
 
-    public void setFormdate(String formdate) {
-        this.formdate = formdate;
+    public void setFupdate(String fupdate) {
+        this.fupdate = fupdate;
     }
 
     public String getSno() {
@@ -148,7 +148,7 @@ public class FollowupsContract {
         json.put(FollowupsTable.COLUMN_NAME_LHWCODE, this.lhwCode);
         json.put(FollowupsTable.COLUMN_NAME_HOUSEHOLD, this.houseHold);
         json.put(FollowupsTable.COLUMN_NAME_WOMEN_NAME, this.women_name);
-        json.put(FollowupsTable.COLUMN_NAME_FORM_DATE, this.formdate);
+        json.put(FollowupsTable.COLUMN_NAME_FUP_DATE, this.fupdate);
         json.put(FollowupsTable.COLUMN_NAME_SNO, this.sno);
         json.put(FollowupsTable.COLUMN_NAME_S1, this.s1);
 
@@ -167,7 +167,7 @@ public class FollowupsContract {
         public static final String COLUMN_NAME_LHWCODE = "lhwcode";
         public static final String COLUMN_NAME_HOUSEHOLD = "hhno";
         public static final String COLUMN_NAME_WOMEN_NAME = "epname";
-        public static final String COLUMN_NAME_FORM_DATE = "formdate";
+        public static final String COLUMN_NAME_FUP_DATE = "fupdt";
         public static final String COLUMN_NAME_SNO = "sno";
         public static final String COLUMN_NAME_S1 = "s1";
 

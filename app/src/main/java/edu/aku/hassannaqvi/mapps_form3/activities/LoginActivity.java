@@ -1,5 +1,7 @@
 package edu.aku.hassannaqvi.mapps_form3.activities;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -23,19 +25,17 @@ import android.os.Environment;
 import android.os.Handler;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,9 +46,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -56,7 +54,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.mapps_form3.R;
-import edu.aku.hassannaqvi.mapps_form3.contracts.ClustersContract;
 import edu.aku.hassannaqvi.mapps_form3.core.AppMain;
 import edu.aku.hassannaqvi.mapps_form3.core.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form3.getclasses.GetClusters;
@@ -86,36 +83,37 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     @BindView(R.id.login_form)
     ScrollView mLoginFormView;
     @BindView(R.id.email1)
-    AutoCompleteTextView mEmailView1;
+    EditText mEmailView1;
     @BindView(R.id.password1)
     EditText mPasswordView1;
     @BindView(R.id.email2)
-    AutoCompleteTextView mEmailView2;
+    EditText mEmailView2;
     @BindView(R.id.password2)
     EditText mPasswordView2;
     @BindView(R.id.txtinstalldate)
     TextView txtinstalldate;
     @BindView(R.id.email_sign_in_button)
     Button mEmailSignInButton;
-    @BindView(R.id.spUC)
-    Spinner spUC;
-    @BindView(R.id.syncClusters)
-    Button syncClusters;
-
-    DatabaseHelper db;
-    List<String> clustersCode;
-    List<String> clustersName;
-    HashMap<String, String> cluster;
+    @BindView(R.id.testing)
+    TextView testing;
+    @BindView(R.id.syncData)
+    Button syncData;
+    @BindView(R.id.loginLayout1)
+    LinearLayout loginLayout1;
+    @BindView(R.id.loginLayout2)
+    LinearLayout loginLayout2;
 
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
 
     String DirectoryName;
 
+    private UserLoginTask mAuthTask = null;
+
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
-    private UserLoginTask mAuthTask = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,9 +145,12 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
         // Set up the login form.
         mEmailView1 = findViewById(R.id.email1);
+        mEmailView2 = findViewById(R.id.email2);
         populateAutoComplete();
 
         mPasswordView1 = findViewById(R.id.password1);
+        mPasswordView2 = findViewById(R.id.password2);
+
         mPasswordView1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
@@ -161,84 +162,41 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             }
         });
 
+
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!mEmailView1.getText().toString().contains(mEmailView2.getText())) {
+                    attemptLogin();
 
-//                TextView spUCTxtView = (TextView) spUC.getSelectedView();
-
-                if (spUC.getSelectedItem() != null) {
-//                    spUCTxtView.setText(null);
-                    if (!mEmailView1.getText().toString().contains(mEmailView2.getText())) {
-                        attemptLogin();
-
-                        AppMain.loginMem[1] = mEmailView1.getText().toString();
-                        AppMain.loginMem[2] = mEmailView2.getText().toString();
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Both username same", Toast.LENGTH_LONG).show();
-                    }
+                    AppMain.loginMem[1] = mEmailView1.getText().toString();
+                    AppMain.loginMem[2] = mEmailView2.getText().toString();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Please Sync Clusters!!", Toast.LENGTH_LONG).show();
-//                    spUCTxtView.setTextColor(Color.RED);//just to highlight that this is an error
-//                    spUCTxtView.setText("Please Sync Clusters");//changes the selected item text to this
+                    Toast.makeText(getApplicationContext(), "Both username same", Toast.LENGTH_LONG).show();
                 }
             }
         });
 
-//        Spinner Cluster
+        lables = new ArrayList<String>();
+        lables.add("Rehri Goth");
+        lables.add("Ibrahim Haidery");
+        lables.add("Behns Colony");
+        lables.add("Ali Akber Shah Goth");
 
-        db = new DatabaseHelper(this);
-        Collection<ClustersContract> clusterCollection = db.getAllClusters();
-
-        clustersName = new ArrayList<>();
-
-        cluster = new HashMap<>();
-
-        if (clusterCollection.size() != 0) {
-            for (ClustersContract c : clusterCollection) {
-                clustersName.add(c.getClusterName());
-                cluster.put(c.getClusterName(), c.getClusterCode());
-            }
-
-            // Creating adapter for spinner
-            ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                    android.R.layout.simple_spinner_item, clustersName);
-
-            // Drop down layout style - list view with radio button
-            dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-            // attaching data adapter to spinner
-            spUC.setAdapter(dataAdapter);
-
-            spUC.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                    //((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorPrimary));
-                    AppMain.curCluster = cluster.get(spUC.getSelectedItem().toString());
-
-                    Log.d("Selected Cluster", AppMain.curCluster);
-
-
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
-
-        }
-
-//        DB backup
+        values = new ArrayList<String>();
+        values.add("01");
+        values.add("02");
+        values.add("03");
+        values.add("04");
 
         dbBackup();
-
     }
+//        Spinner Cluster
+
 
     public void dbBackup() {
 
-        sharedPref = getSharedPreferences("dss01", MODE_PRIVATE);
+        sharedPref = getSharedPreferences("mappsl2", MODE_PRIVATE);
         editor = sharedPref.edit();
 
         if (sharedPref.getBoolean("flag", false)) {
@@ -251,7 +209,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 editor.commit();
             }
 
-            File folder = new File(Environment.getExternalStorageDirectory() + File.separator + "DMU-MAPPSII");
+            File folder = new File(Environment.getExternalStorageDirectory() + File.separator + "DMU-MAPPS");
             boolean success = true;
             if (!folder.exists()) {
                 success = folder.mkdirs();
@@ -298,8 +256,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     }
 
-    @OnClick(R.id.syncClusters)
-    void onSyncClustersClick() {
+
+    @OnClick(R.id.syncData)
+    void onSyncDataClick() {
         //TODO implement
 
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
@@ -307,16 +266,13 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
-
             new syncData(this).execute();
-
 
         } else {
             Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
         }
+        }
 
-
-    }
 
     private void populateAutoComplete() {
         getLoaderManager().initLoader(0, null, this);
@@ -372,11 +328,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             mEmailView2.setError(getString(R.string.error_field_required));
             focusView = mEmailView2;
             cancel = true;
-        } /*else if (!isEmailValid(email)) {
-            mEmailView1.setError(getString(R.string.error_invalid_email));
-            focusView = mEmailView1;
-            cancel = true;
-        }*/
+        }
 
         if (cancel) {
             // There was an error; don't attempt login and focus the first
@@ -388,6 +340,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             showProgress(true);
             mAuthTask = new UserLoginTask(email1, password1, email2, password2);
             mAuthTask.execute((Void) null);
+
+
         }
     }
 
@@ -409,33 +363,32 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
         // for very easy animations. If available, use these APIs to fade-in
         // the progress spinner.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
 
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
-//            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
-//
-//            mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-//            mLoginFormView.animate().setDuration(shortAnimTime).alpha(
-//                    show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
-//                @Override
-//                public void onAnimationEnd(Animator animation) {
-//                    mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-//                }
-//            });
-//
-//            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-//            mProgressView.animate().setDuration(shortAnimTime).alpha(
-//                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
-//                @Override
-//                public void onAnimationEnd(Animator animation) {
-//                    mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-//                }
-//            });
-//        } else {
-//            // The ViewPropertyAnimator APIs are not available, so simply show
-//            // and hide the relevant UI components.
-//            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-//            mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-//        }
+            mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+            mLoginFormView.animate().setDuration(shortAnimTime).alpha(
+                    show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+                }
+            });
+
+            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+            mProgressView.animate().setDuration(shortAnimTime).alpha(
+                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+                }
+            });
+        } else {
+            // The ViewPropertyAnimator APIs are not available, so simply show
+            // and hide the relevant UI components.
+            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+            mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+        }
     }
 
     @Override
@@ -464,7 +417,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             cursor.moveToNext();
         }
 
-        addEmailsToAutoComplete(emails);
     }
 
     @Override
@@ -472,31 +424,39 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     }
 
-    private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
-        //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
-        ArrayAdapter<String> adapter =
-                new ArrayAdapter<>(LoginActivity.this,
-                        android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
+    @OnClick(R.id.showPassword1)
+    void onShowPasswordClick() {
+        //TODO implement
+        if (mPasswordView1.getTransformationMethod() == null) {
+            mPasswordView1.setTransformationMethod(new PasswordTransformationMethod());
+            mPasswordView1.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_lock_black_24dp, 0, 0, 0);
+        } else {
+            mPasswordView1.setTransformationMethod(null);
+            mPasswordView1.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_lock_open_black_24dp, 0, 0, 0);
+        }
 
-        mEmailView1.setAdapter(adapter);
+    }
+
+
+    @OnClick(R.id.showPassword2)
+    void onShowPassword2Click() {
+        //TODO implement
+        if (mPasswordView2.getTransformationMethod() == null) {
+            mPasswordView2.setTransformationMethod(new PasswordTransformationMethod());
+            mPasswordView2.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_lock_black_24dp, 0, 0, 0);
+        } else {
+            mPasswordView2.setTransformationMethod(null);
+            mPasswordView2.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_lock_open_black_24dp, 0, 0, 0);
+        }
+
     }
 
     public void gotoMain(View v) {
 
-//        TextView spUCTxtView = (TextView) spUC.getSelectedView();
+        finish();
 
-        if (spUC.getSelectedItem() != null) {
-
-//            spUCTxtView.setError(null);
-
-            finish();
-            Intent im = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(im);
-        } else {
-            Toast.makeText(this, "Please Sync Clusters!!", Toast.LENGTH_LONG).show();
-//            spUCTxtView.setTextColor(Color.RED);//just to highlight that this is an error
-//            spUCTxtView.setText("Please Sync Clusters");//changes the selected item text to this
-        }
+        Intent im = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(im);
     }
 
     private interface ProfileQuery {
@@ -524,6 +484,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             mEmail2 = email2;
             mPassword2 = password2;
         }
+
 
         @Override
         protected Boolean doInBackground(Void... params) {
@@ -557,8 +518,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             if (mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                 DatabaseHelper db = new DatabaseHelper(LoginActivity.this);
                 if ((mEmail1.equals("dmu@aku") && mPassword1.equals("aku?dmu")) || db.Login(mEmail1, mPassword1) ||
-                        (mEmail1.equals("test1234") && mPassword1.equals("test1234"))
-                        || (mEmail1.equals("test12345") && mPassword1.equals("test12345"))) {
+                        (mEmail1.equals("test1234") && mPassword1.equals("test1234")) || (mEmail1.equals("test12345") && mPassword1.equals("test12345"))) {
                     AppMain.userName = mEmail1;
                     AppMain.admin = mEmail1.contains("@");
 
@@ -576,12 +536,20 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                         mPasswordView2.setError(getString(R.string.error_incorrect_password));
                         mPasswordView2.requestFocus();
                         Toast.makeText(LoginActivity.this, mEmail2 + " " + mPassword2, Toast.LENGTH_SHORT).show();
+
+                        //Animation shake = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.shake);
+
+                        //loginLayout2.startAnimation(shake);
                     }
 
                 } else {
                     mPasswordView1.setError(getString(R.string.error_incorrect_password));
                     mPasswordView1.requestFocus();
                     Toast.makeText(LoginActivity.this, mEmail1 + " " + mPassword1, Toast.LENGTH_SHORT).show();
+
+                    //Animation shake = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.shake);
+
+                    //loginLayout1.startAnimation(shake);
                 }
             } else {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
@@ -619,6 +587,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         }
     }
 
+
     public class syncData extends AsyncTask<String, String, String> {
 
         private Context mContext;
@@ -639,7 +608,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                     new GetUsers(mContext).execute();
                     Toast.makeText(getApplicationContext(), "Getting LHW's", Toast.LENGTH_SHORT).show();
                     new GetLHWs(mContext).execute();
-
                 }
             });
 
@@ -647,63 +615,23 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             return null;
         }
 
+
         @Override
         protected void onPostExecute(String s) {
             new Handler().postDelayed(new Runnable() {
 
                 @Override
                 public void run() {
-                    db = new DatabaseHelper(mContext);
-                    Collection<ClustersContract> clusterCollection = db.getAllClusters();
-
-                    clustersName = new ArrayList<>();
-
-                    cluster = new HashMap<>();
-
-                    if (clusterCollection.size() != 0) {
-                        for (ClustersContract c : clusterCollection) {
-                            clustersName.add(c.getClusterName());
-                            cluster.put(c.getClusterName(), c.getClusterCode());
-                        }
-
-                        // Creating adapter for spinner
-                        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(mContext,
-                                android.R.layout.simple_spinner_item, clustersName);
-
-                        // Drop down layout style - list view with radio button
-                        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-                        // attaching data adapter to spinner
-                        spUC.setAdapter(dataAdapter);
-
-                        spUC.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                            @Override
-                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                                //((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorPrimary));
-                                AppMain.curCluster = cluster.get(spUC.getSelectedItem().toString());
-
-                                Log.d("Selected Cluster", AppMain.curCluster);
-
-
-                            }
-
-                            @Override
-                            public void onNothingSelected(AdapterView<?> parent) {
-
-                            }
-                        });
-                    }
 
                     editor.putBoolean("flag", true);
                     editor.commit();
 
                     dbBackup();
 
-
                 }
-            },1200);
+            }, 1200);
         }
     }
+
 }
 

@@ -2,22 +2,18 @@ package edu.aku.hassannaqvi.mapps_form3.activities;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +22,6 @@ import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -34,7 +29,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.mapps_form3.R;
-import edu.aku.hassannaqvi.mapps_form3.contracts.ParticipantsContract;
 import edu.aku.hassannaqvi.mapps_form3.core.AppMain;
 import edu.aku.hassannaqvi.mapps_form3.core.DatabaseHelper;
 
@@ -46,62 +40,10 @@ public class SectionCAActivity extends Activity {
     RelativeLayout activitySectionCb;
     @BindView(R.id.scrollView01)
     ScrollView scrollView01;
-    /* @BindView(R.id.app_header)
-     TextView appHeader;*/
-    /*@BindView(R.id.mp02ca001)
-    RadioGroup mp02ca001;
-    @BindView(R.id.mp02ca00101)
-    RadioButton mp02ca00101;
-    @BindView(R.id.mp02ca00102)
-    RadioButton mp02ca00102;
-    @BindView(R.id.mp02ca002)
-    RadioGroup mp02ca002;
-    @BindView(R.id.mp02ca00201)
-    RadioButton mp02ca00201;
-    @BindView(R.id.mp02ca00202)*/
-    RadioButton mp02ca00202;
     @BindView(R.id.fldGrpmp02cb)
     LinearLayout fldGrpmp02cb;
     @BindView(R.id.app_header1)
     TextView appHeader1;
-    /*@BindView(R.id.mp02cb00101)
-    EditText mp02cb00101;
-    @BindView(R.id.mp02cb00102)
-    EditText mp02cb00102;
-    @BindView(R.id.mp02cb002)
-    EditText mp02cb002;
-    @BindView(R.id.mp02cb003)
-    RadioGroup mp02cb003;
-    @BindView(R.id.mp02cb00301)
-    RadioButton mp02cb00301;
-    @BindView(R.id.mp02cb00302)
-    RadioButton mp02cb00302;
-    @BindView(R.id.mp02cb00303)
-    RadioButton mp02cb00303;
-    @BindView(R.id.mp02cb00304)
-    RadioButton mp02cb00304;
-    @BindView(R.id.mp02cb00305)
-    RadioButton mp02cb00305;
-    @BindView(R.id.mp02cb00306)
-    RadioButton mp02cb00306;
-    @BindView(R.id.mp02cb00388)
-    RadioButton mp02cb00388;
-    @BindView(R.id.mp02cb00388x)
-    EditText mp02cb00388x;
-    @BindView(R.id.mp02cb004)
-    RadioGroup mp02cb004;
-    @BindView(R.id.mp02cb00401)
-    RadioButton mp02cb00401;
-    @BindView(R.id.mp02cb00402)
-    RadioButton mp02cb00402;
-    @BindView(R.id.mp02cb00403)
-    RadioButton mp02cb00403;
-    @BindView(R.id.mp02cb00404)
-    RadioButton mp02cb00404;
-    @BindView(R.id.mp02cb00488)
-    RadioButton mp02cb00488;
-    @BindView(R.id.mp02cb00488x)
-    EditText mp02cb00488x;*/
     @BindView(R.id.mp02cb005)
     RadioGroup mp02cb005;
     @BindView(R.id.mp02cb00501)
@@ -276,52 +218,15 @@ public class SectionCAActivity extends Activity {
     RadioButton mp02cb02304;
     @BindView(R.id.mp02cb024)
     EditText mp02cb024;
-    /*@BindView(R.id.mp02cb025)
-    RadioGroup mp02cb025;
-    @BindView(R.id.mp02cb02501)
-    RadioButton mp02cb02501;
-    @BindView(R.id.mp02cb02502)
-    RadioButton mp02cb02502;
-    @BindView(R.id.mp02cb02503)
-    RadioButton mp02cb02503;
-    @BindView(R.id.mp02cb02577)
-    RadioButton mp02cb02577;
-    @BindView(R.id.mp02cb026)
-    RadioGroup mp02cb026;
-    @BindView(R.id.mp02cb02601)
-    RadioButton mp02cb02601;
-    @BindView(R.id.mp02cb02602)
-    RadioButton mp02cb02602;
-    @BindView(R.id.mp02cb02603)
-    RadioButton mp02cb02603;
-    @BindView(R.id.mp02cb02677)
-    RadioButton mp02cb02677;
-    @BindView(R.id.mp02cb027)
-    RadioGroup mp02cb027;
-    @BindView(R.id.mp02cb02701)
-    RadioButton mp02cb02701;
-    @BindView(R.id.mp02cb02702)
-    RadioButton mp02cb02702;
-    @BindView(R.id.mp02cb02703)
-    RadioButton mp02cb02703;
-    @BindView(R.id.mp02cb02777)
-    RadioButton mp02cb02777;
-    @BindView(R.id.mp02cb028)
-    RadioGroup mp02cb028;
-    @BindView(R.id.mp02cb02801)
-    RadioButton mp02cb02801;
-    @BindView(R.id.mp02cb02802)
-    RadioButton mp02cb02802;
-    */
     @BindView(R.id.fldGrpmp02cbbutton)
     LinearLayout fldGrpmp02cbbutton;
-    @BindView(R.id.mp02cbName)
-    EditText mp02cbName;
-    @BindView(R.id.addParticipantReason)
-    Spinner addParticipantReason;
-    @BindView(R.id.fldGrpRsn)
-    LinearLayout fldGrpRsn;
-
+    /* @BindView(R.id.mp02cbName)
+     EditText mp02cbName;
+     @BindView(R.id.addParticipantReason)
+     Spinner addParticipantReason;
+     @BindView(R.id.fldGrpRsn)
+     LinearLayout fldGrpRsn;
+ */
     Calendar now = Calendar.getInstance();
     int year = now.get(Calendar.YEAR);
 
@@ -334,7 +239,7 @@ public class SectionCAActivity extends Activity {
         setContentView(R.layout.activity_section_ca);
         ButterKnife.bind(this);
 
-        ArrayList<String> rsnValues = new ArrayList<>();
+        /*ArrayList<String> rsnValues = new ArrayList<>();
         rsnValues.add(0, "...");
         rsnValues.add(1, "Migration in");
         rsnValues.add(2, "Dont know");
@@ -350,7 +255,7 @@ public class SectionCAActivity extends Activity {
             fldGrpRsn.setVisibility(View.VISIBLE);
         }
 
-        AppMain.partiFlag++;
+        AppMain.partiFlag++;*/
 
         /*mp02ca001.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -872,22 +777,12 @@ public class SectionCAActivity extends Activity {
     }
 
     private boolean UpdateDB() {
-        Long rowId;
         DatabaseHelper db = new DatabaseHelper(this);
 
-        rowId = null;
-        rowId = db.addParticipants(AppMain.pc);
+        int updcount = db.updateCA();
 
-        AppMain.pc.setID(rowId);
-
-        if (rowId != null) {
+        if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
-            AppMain.pc.setUID(
-                    (AppMain.pc.getDeviceID() + AppMain.pc.getID()));
-            Toast.makeText(this, "Current Form No: " + AppMain.pc.getUID(), Toast.LENGTH_SHORT).show();
-
-            db.updateParticipantsUID();
-
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
@@ -898,57 +793,12 @@ public class SectionCAActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        /*if (flag) {
-            AppMain.Eparticipant.add(new FollowupsContract("", mp02cbName.getText().toString(), ""));
-
-        }
-*/
-        SharedPreferences sharedPref = getSharedPreferences("tagName",MODE_PRIVATE);
-
-        AppMain.pc =new ParticipantsContract();
-        //AppMain.dc  = new DoneContract();
-
-        AppMain.pc.setTagID(sharedPref.getString("tagName",null));
-        AppMain.pc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm",new Date())).toString());
-        AppMain.pc.setInterviewer01(AppMain.loginMem[1]);
-        AppMain.pc.setInterviewer02(AppMain.loginMem[2]);
-        AppMain.pc.setDeviceID(AppMain.deviceId);
-        if (AppMain.formType.equals("1")) {
-            AppMain.pc.setUUID(AppMain.fc.getUID());
-        } else {
-            AppMain.pc.setUUID(AppMain.dc.getUID());
-        }
-        //AppMain.pc.setLUID(AppMain.Eparticipant.get(pos).getL_uid());
-
-        AppMain.pc.setHousehold(AppMain.fc.getHousehold());
-        AppMain.pc.setClustercode(AppMain.fc.getClustercode());
-        AppMain.pc.setLhwCode(AppMain.fc.getLhwCode());
-        AppMain.pc.setApp_version(AppMain.versionName + "." + AppMain.versionCode);
-
         JSONObject scb = new JSONObject();
 
-        /*if (!flag) {
-            AppMain.Eparticipant.get(pos).setWname(mp02cbName.getText().toString());
-        } else {
-            scb.put("mp02cbrsn", addParticipantReason.getSelectedItem().toString());
-        }*/
 
-        AppMain.currentParticipantName = mp02cbName.getText().toString().toUpperCase();
+        //scb.put("mp03name", mp02cbName.getText().toString());
+        //scb.put("sno", AppMain.Eparticipant.get(pos).getSno());
 
-        scb.put("mp03name", mp02cbName.getText().toString());
-        scb.put("sno", AppMain.Eparticipant.get(pos).getSno());
-        /*scb.put("mp02ca001", mp02ca00101.isChecked() ? "1" : mp02ca00102.isChecked() ? "2" : "0");
-        scb.put("mp02ca002", mp02ca00201.isChecked() ? "1" : mp02ca00202.isChecked() ? "2" : "0");*/
-        /*scb.put("mp02cb00101", mp02cb00101.getText().toString());
-        scb.put("mp02cb00102", mp02cb00102.getText().toString());
-        scb.put("mp02cb002", mp02cb002.getText().toString());
-        scb.put("mp02cb003", mp02cb00301.isChecked() ? "1" : mp02cb00302.isChecked() ? "2" : mp02cb00303.isChecked() ? "3"
-                : mp02cb00304.isChecked() ? "4" : mp02cb00305.isChecked() ? "5" : mp02cb00306.isChecked() ? "6"
-                : mp02cb00388.isChecked() ? "88" : "0");
-        scb.put("mp02cb00388x", mp02cb00388x.getText().toString());
-        scb.put("mp02cb004", mp02cb00401.isChecked() ? "1" : mp02cb00402.isChecked() ? "2" : mp02cb00403.isChecked() ? "3"
-                : mp02cb00404.isChecked() ? "4" : mp02cb00488.isChecked() ? "88" : "0");
-        scb.put("mp02cb00488x", mp02cb00488x.getText().toString());*/
         scb.put("mp03q034", mp02cb00501.isChecked() ? "1" : mp02cb00502.isChecked() ? "2" : "0");
         scb.put("mp03q035", mp02cb006.getText().toString());
         scb.put("mp03q036", mp02cb00701.isChecked() ? "1" : mp02cb00702.isChecked() ? "2" : mp02cb00703.isChecked() ? "3"
@@ -981,21 +831,8 @@ public class SectionCAActivity extends Activity {
         scb.put("mp03q052", mp02cb02301.isChecked() ? "1" : mp02cb02302.isChecked() ? "2" : mp02cb02303.isChecked() ? "3"
                 : mp02cb02304.isChecked() ? "4" : "0");
         scb.put("mp03q053", mp02cb024.getText().toString());
-        /*scb.put("mp02cb025", mp02cb02501.isChecked() ? "1" : mp02cb02502.isChecked() ? "2" : mp02cb02503.isChecked() ? "3"
-                : mp02cb02577.isChecked() ? "77" : "0");
-        scb.put("mp02cb026", mp02cb02601.isChecked() ? "1" : mp02cb02602.isChecked() ? "2" : mp02cb02603.isChecked() ? "3"
-                : mp02cb02677.isChecked() ? "77" : "0");
-        scb.put("mp02cb027", mp02cb02701.isChecked() ? "1" : mp02cb02702.isChecked() ? "2" : mp02cb02703.isChecked() ? "3"
-                : mp02cb02777.isChecked() ? "77" : "0");
-        scb.put("mp02cb028", mp02cb02801.isChecked() ? "1" : mp02cb02802.isChecked() ? "2" : "0");
-*/
-/*
-        int radioButtonID = mp02cb009.getCheckedRadioButtonId();
-        View radioButton = mp02cb009.findViewById(radioButtonID);
-        int idx = mp02cb009.indexOfChild(radioButton);
-*/
+
         AppMain.maritalStatus = mp02cb009.indexOfChild(findViewById(mp02cb009.getCheckedRadioButtonId())) + 1;
-        //AppMain.currentAge = mp02cb002.getText().toString().isEmpty() ? 0 : Integer.valueOf(mp02cb002.getText().toString());
 
 
         AppMain.fc.setsCA(String.valueOf(scb));
@@ -1007,176 +844,6 @@ public class SectionCAActivity extends Activity {
 
     public boolean ValidateForm() {
 
-        if (flag) {
-            if (addParticipantReason.getSelectedItem() == "...") {
-                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mp02cbrsn), Toast.LENGTH_SHORT).show();
-                ((TextView) addParticipantReason.getSelectedView()).setError("This Data is Required");
-
-                Log.i(TAG, "mp02cbrsn: This Data is Required!");
-                return false;
-            } else {
-                ((TextView) addParticipantReason.getSelectedView()).setError(null);
-            }
-
-        }
-
-        if (mp02cbName.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cbName), Toast.LENGTH_LONG).show();
-            mp02cbName.setError("This data is Required!");    // Set Error on last radio button
-
-            Log.i(TAG, "mp02cbName: This data is Required!");
-            return false;
-        } else {
-            mp02cbName.setError(null);
-        }
-
-
-        //======================= CA Q 1 ===============
-        /*if (mp02ca001.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02ca001), Toast.LENGTH_LONG).show();
-            mp02ca00102.setError("This data is Required!");    // Set Error on last radio button
-
-            Log.i(TAG, "mp02ca001: This data is Required!");
-            return false;
-        } else {
-            mp02ca00102.setError(null);
-        }
-        //======================= CA Q 2 ===============
-        if (mp02ca002.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02ca002), Toast.LENGTH_LONG).show();
-            mp02ca00202.setError("This data is Required!");    // Set Error on last radio button
-
-            Log.i(TAG, "mp02ca002: This data is Required!");
-            return false;
-        } else {
-            mp02ca00202.setError(null);
-        }
-*/
-        // =========================== Section CB =====================
-
-        //if (mp02ca00101.isChecked() && mp02ca00201.isChecked()) {
-            //================== Q 1 ==================
-            /*if (mp02cb00101.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb001), Toast.LENGTH_LONG).show();
-                mp02cb00101.setError("This data is Required!");
-                Log.i(TAG, "mp02cb001: This data is Required!");
-                return false;
-            } else {
-                mp02cb00101.setError(null);
-            }
-            if (mp02cb00102.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb001), Toast.LENGTH_LONG).show();
-                mp02cb00102.setError("This data is Required!"); // Set Error on last radio button
-                Log.i(TAG, "mp02cb001: This data is Required!");
-                return false;
-            } else {
-                mp02cb00102.setError(null);
-            }
-
-
-            int ageInYears = year - (Integer.parseInt(mp02cb00101.getText().toString()));
-
-            if (ageInYears < 15 || ageInYears > 23) {
-                Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb001), Toast.LENGTH_LONG).show();
-                mp02cb00101.setError("Age Limit is from 15 to 23 Years");
-                Log.i(TAG, "mp02cb00101: Age Limit is from 15 to 23 Years");
-                return false;
-            } else {
-                mp02cb00101.setError(null);
-            }
-
-            if ((Integer.parseInt(mp02cb00102.getText().toString()) < 0) || (Integer.parseInt(mp02cb00102.getText().toString()) > 12)) {
-                Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb001), Toast.LENGTH_LONG).show();
-                mp02cb00102.setError("Range is 1-12 months");
-                Log.i(TAG, "mp02cb00102: Range is 1-12 months");
-                return false;
-            } else {
-                mp02cb00102.setError(null);
-            }
-
-
-            //================== Q 2 ==================
-            if (mp02cb002.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb002), Toast.LENGTH_LONG).show();
-                mp02cb002.setError("This data is Required!");
-                Log.i(TAG, "mp02cb002: This data is Required!");
-                return false;
-            } else {
-                mp02cb002.setError(null);
-            }
-
-            if (((Integer.valueOf(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString()) < 14))
-                    || (Integer.valueOf(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString()) > 24)) {
-                Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb002), Toast.LENGTH_LONG).show();
-                mp02cb002.setError("Age Limit is from 14 to 24 Years");
-                Log.i(TAG, "mp02cb002: Age Limit is from 14 to 24 Years");
-                return false;
-            } else {
-                mp02cb002.setError(null);
-            }
-
-            //Date dob = getDateFrom(mp02cb001.getText().toString());
-
-            //Date date1 = new Date();
-
-            //long diff = date1.getTime() - dob.getTime();
-
-            //long ageInYears = (diff / (24 * 60 * 60 * 1000)) / 365;
-
-            int currentAge = Integer.valueOf(mp02cb002.getText().toString().isEmpty() ? "0" : mp02cb002.getText().toString());
-
-            if (currentAge < (ageInYears - 1) || currentAge > ageInYears) {
-                Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb002), Toast.LENGTH_LONG).show();
-                mp02cb002.setError("Please check age with Year of birth");
-                Log.i(TAG, "mp02cb002: Please check age with Year of birth");
-                return false;
-            } else {
-                mp02cb002.setError(null);
-            }
-
-
-            //==================== Q3 =====================
-            if (mp02cb003.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb003), Toast.LENGTH_LONG).show();
-                mp02cb00388.setError("This data is Required!");    // Set Error on last radio button
-
-                Log.i(TAG, "mp02cb003: This data is Required!");
-                return false;
-            } else {
-                mp02cb00388.setError(null);
-            }
-            // ================ Q 3 Others =================
-            if (mp02cb00388.isChecked() && mp02cb00388x.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb003) + " - " + getString(R.string.other), Toast.LENGTH_LONG).show();
-                mp02cb00388x.setError("This data is Required!");    // Set Error on last radio button
-
-                Log.i(TAG, "mp02cb00388x: This data is Required!");
-                return false;
-            } else {
-                mp02cb00388x.setError(null);
-            }
-
-            //==================== Q4 =====================
-            if (mp02cb004.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb004), Toast.LENGTH_LONG).show();
-                mp02cb00488.setError("This data is Required!");    // Set Error on last radio button
-
-                Log.i(TAG, "mp02cb004: This data is Required!");
-                return false;
-            } else {
-                mp02cb00488.setError(null);
-            }
-            // ================ Q 4 Others =================
-            if (mp02cb00488.isChecked() && mp02cb00488x.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb004) + " - " + getString(R.string.other), Toast.LENGTH_LONG).show();
-                mp02cb00488x.setError("This data is Required!");    // Set Error on last radio button
-
-                Log.i(TAG, "mp02cb00488x: This data is Required!");
-                return false;
-            } else {
-                mp02cb00488x.setError(null);
-            }
-*/
             //==================== Q5 =====================
             if (mp02cb005.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb005), Toast.LENGTH_LONG).show();

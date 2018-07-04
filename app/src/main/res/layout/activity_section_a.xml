@@ -38,7 +38,7 @@
                 android:background="@color/colorPrimary" />
 
 
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:popupBackground="#ffffff" />
-
+-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -136,7 +136,7 @@
                     android:id="@+id/mp02a002"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:enabled="false"
+                    android:enabled="true"
                     android:hint="@string/mp02a002"
                     android:inputType="number"
                     android:maxLength="9" />

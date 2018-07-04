@@ -4,6 +4,7 @@
     <color name="colorPrimary">#1b5e20</color>
     <color name="colorAccent">#c8e6c9</color>
 
+
     <color name="black">#000000</color>
     <color name="blackOverlay">#66000000</color>
     <color name="dullBlack">#292929</color>
@@ -18,5 +19,7 @@
     <color name="green">#4caf50</color>
 
     <color name="my_spinner_text_color">#FFFFFF</color>
+
+    <color name="red">#f44336</color>
 
 </resources>
