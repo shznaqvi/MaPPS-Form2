@@ -87,7 +87,7 @@ public class AppMain extends Application {
     public static int wmCount = 1;
     public static int totalWmCount = 0;
 
-    public static int position = 0;
+//    public static int position = 0;
 
     public static boolean flag = true;
     //public static ArrayList<EligibleParticipants> Eparticipant;

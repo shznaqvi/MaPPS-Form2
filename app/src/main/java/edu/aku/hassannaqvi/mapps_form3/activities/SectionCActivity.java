@@ -96,7 +96,6 @@ public class SectionCActivity extends Activity {
 //            startActivity(endSec);
                 finish();
 
-
             }
         }
     }

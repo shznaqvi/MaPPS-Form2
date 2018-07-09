@@ -57,8 +57,8 @@
     <string name="mp02a004"> شرڪت ڪندڙ جي سڃاڻپ </string>
     <string name="mp02a005"> ڪلسٽر جو نالو </string>
     <string name="mp02a006"> ڳوٺ جو نالو </string>
-    <string name="mp02a007"> مڪمل پتو </string>
-    <string name="mp02a008"> رابطي لاء نمبر </string>
+    <!--<string name="mp02a007"> مڪمل پتو </string>-->
+    <string name="mp02a007"> رابطي لاء نمبر </string>
     <string name="mp02a009"> پهرين تحقيق ڪندڙ جو نالو ۽ سڃاڻپ </string>
     <string name="mp02a010"> ٻئي تحقيق ڪندڙ جو نالو ۽ سڃاڻپ </string>
     <string name="mp02a011"> تاريخ </string>

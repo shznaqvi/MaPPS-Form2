@@ -59,7 +59,7 @@ public class MainActivity extends Activity {
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
     AlertDialog.Builder builder;
-    String m_Text= "";
+    String m_Text = "";
     private String rSumText = "";
     private ProgressDialog pd;
     private Boolean exit = false;
@@ -90,7 +90,7 @@ public class MainActivity extends Activity {
             adminsec.setVisibility(View.GONE);
         }
 
-        sharedPref = getSharedPreferences("tagName",MODE_PRIVATE);
+        sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
         editor = sharedPref.edit();
 
         builder = new AlertDialog.Builder(MainActivity.this);
@@ -117,7 +117,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        if (sharedPref.getString("tagName",null) == "" || sharedPref.getString("tagName",null) == null){
+        if (sharedPref.getString("tagName", null) == "" || sharedPref.getString("tagName", null) == null) {
             builder.show();
         }
 
@@ -192,7 +192,6 @@ public class MainActivity extends Activity {
         Log.d(TAG, "onCreate: " + rSumText);
         recordSummary.setText(rSumText);
         fillSpinners(this);
-
     }
 
     public void fillSpinners(Context mContext) {
@@ -265,11 +264,11 @@ public class MainActivity extends Activity {
     }
 
     public void openForm(View v) {
-        if (sharedPref.getString("tagName",null) != "" && sharedPref.getString("tagName",null) != null){
+        if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null) {
             Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
             AppMain.formType = "1";
             startActivity(oF);
-        }else {
+        } else {
 
             builder = new AlertDialog.Builder(MainActivity.this);
             builder.setTitle("Tag Name");
@@ -318,8 +317,7 @@ public class MainActivity extends Activity {
             input.setInputType(InputType.TYPE_CLASS_TEXT);
             builder.setView(input);
 
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener()
-            {
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     m_Text = input.getText().toString();
@@ -333,8 +331,7 @@ public class MainActivity extends Activity {
                     }
                 }
             });
-            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener()
-            {
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.cancel();
@@ -344,7 +341,6 @@ public class MainActivity extends Activity {
             builder.show();
         }
     }
-
 
 
     public void openMembers(View v) {
@@ -430,7 +426,6 @@ public class MainActivity extends Activity {
             new GetFollowups(this).execute();
 
 
-
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = syncPref.edit();
 
@@ -447,7 +442,7 @@ public class MainActivity extends Activity {
         if (exit) {
             finish(); // finish activity
 
-            startActivity(new Intent(this,LoginActivity.class));
+            startActivity(new Intent(this, LoginActivity.class));
 
         } else {
             Toast.makeText(this, "Press Back again to Exit.",

@@ -28,6 +28,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -60,9 +61,9 @@ public class SectionAActivity extends Activity {
     EditText mp02a003;
     @BindView(R.id.mp02a006)
     EditText mp02a006;
-    /*@BindView(R.id.mp02a007)
+    @BindView(R.id.mp02a007)
     EditText mp02a007;
-    @BindView(R.id.mp02a008)*/
+    /*@BindView(R.id.mp02a008)*/
     //EditText mp02a008;
     @BindView(R.id.mp02a013)
     RadioGroup mp02a013;
@@ -74,11 +75,14 @@ public class SectionAActivity extends Activity {
     /*@BindView(R.id.mp02aLHWs)
     Spinner mp02aLHWs;*/
 
-    @BindView(R.id.fldGrpmp02a007)
-    LinearLayout fldGrpmp02a007;
+    /*@BindView(R.id.fldGrpmp02a007)
+    LinearLayout fldGrpmp02a007;*/
 
-    @BindView(R.id.fldGrpParticipant)
-    LinearLayout fldGrpParticipant;
+/*    @BindView(R.id.fldGrpParticipant)
+    LinearLayout fldGrpParticipant;*/
+
+    @BindView(R.id.fldGrpmp01)
+    LinearLayout fldGrpmp01;
 
     @BindView(R.id.btn_Continue)
     Button btn_Continue;
@@ -97,6 +101,10 @@ public class SectionAActivity extends Activity {
     Boolean checked = false;
     Boolean s1 = false;
 
+    Boolean reBack = false;
+
+    int position = 0;
+
     Collection<FollowupsContract> Econtract;
 
     @Override
@@ -107,7 +115,7 @@ public class SectionAActivity extends Activity {
 
         //AppMain.Eparticipant = new ArrayList<>();
 
-        if (AppMain.checked) {
+        /*if (AppMain.checked) {
             mp02a001.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, AppMain.ParticipantsName));
             fldGrpParticipant.setVisibility(View.VISIBLE);
             fldGrpmp02a007.setVisibility(View.VISIBLE);
@@ -119,7 +127,7 @@ public class SectionAActivity extends Activity {
             mp02a003.setText(null);
             mp02a003.setEnabled(true);
             checkParticipants.setEnabled(true);
-        }
+        }*/
 
         mp02a003.addTextChangedListener(new TextWatcher() {
             @Override
@@ -130,7 +138,7 @@ public class SectionAActivity extends Activity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                AppMain.checked = false;
+                /*AppMain.checked = false;
 
                 if (!AppMain.checked) {
                     fldGrpParticipant.setVisibility(View.GONE);
@@ -143,8 +151,14 @@ public class SectionAActivity extends Activity {
                     AppMain.checked = true;
                     mp02a003.setError(null);
                     //MainApp.hhno = mpl1a001.getText().toString();
-                }
+                }*/
 
+                fldGrpmp01.setVisibility(View.GONE);
+
+                mp02a002.setText(null);
+                mp02a006.setText(null);
+                mp02a007.setText(null);
+                mp02a013.clearCheck();
 
             }
 
@@ -170,10 +184,10 @@ public class SectionAActivity extends Activity {
 
         mp02a001.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
 
                 if (mp02a001.getSelectedItemPosition() != 0) {
-                    AppMain.position = position;
+                    position = pos;
                     s1 = AppMain.ParticipantsMap.get(mp02a001.getSelectedItem().toString()).getS1().equals("1");
                 }
             }
@@ -184,6 +198,24 @@ public class SectionAActivity extends Activity {
             }
         });
 
+//        Reback checking
+        reBack = getIntent().getBooleanExtra("flag_reback", false);
+
+        if (reBack) {
+
+            mp02a003.setText(AppMain.hhno);
+            mp02a003.setEnabled(false);
+            checkParticipants.setEnabled(false);
+            fldGrpmp01.setVisibility(View.VISIBLE);
+            btn_Continue.setVisibility(View.VISIBLE);
+
+            mp02a001.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, AppMain.ParticipantsName));
+
+        } else {
+            AppMain.ParticipantsName = new ArrayList<>();
+            AppMain.ParticipantsMap = new HashMap<>();
+            AppMain.Eparticipant = new ArrayList<>();
+        }
 
     }
 
@@ -201,19 +233,17 @@ public class SectionAActivity extends Activity {
 
             mp02a003.setError(null);
 
-            AppMain.ParticipantsName.add("Select Participant..");
-
-
             Econtract = db.getFollowupsByHousehold(AppMain.curCluster, AppMain.selectedLhw,
                     mp02a003.getText().toString());
 
             Toast.makeText(this, "Eligible Women found = " + Econtract.size(), Toast.LENGTH_SHORT).show();
 
-            AppMain.totalWmCount = Econtract.size();
-            fldGrpParticipant.setVisibility(View.VISIBLE);
-
-
             if (Econtract.size() != 0) {
+                AppMain.ParticipantsName = new ArrayList<>();
+                AppMain.ParticipantsMap = new HashMap<>();
+                AppMain.Eparticipant = new ArrayList<>();
+
+                AppMain.ParticipantsName.add("Select Participant..");
 
                 //AppMain.Eparticipant = new ArrayList<>();
 
@@ -226,7 +256,9 @@ public class SectionAActivity extends Activity {
 
                 Toast.makeText(this, "Participant Found", Toast.LENGTH_LONG).show();
 
-                fldGrpmp02a007.setVisibility(View.VISIBLE);
+//                fldGrpmp02a007.setVisibility(View.VISIBLE);
+                AppMain.totalWmCount = Econtract.size();
+                fldGrpmp01.setVisibility(View.VISIBLE);
                 btn_Continue.setVisibility(View.VISIBLE);
 
                 flag = true;
@@ -235,11 +267,11 @@ public class SectionAActivity extends Activity {
 
             } else {
 
-                fldGrpmp02a007.setVisibility(View.GONE);
-                btn_Continue.setVisibility(View.GONE);
+                fldGrpmp01.setVisibility(View.GONE);
                 /*mp02a007.setText(null);
                 mp02a008.setText(null);*/
-                mp02a013.clearCheck();
+
+//                mp02a013.clearCheck();
 
                 flag = false;
 
@@ -254,7 +286,7 @@ public class SectionAActivity extends Activity {
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
-        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
 
         if (ValidateForm()) {
             try {
@@ -264,8 +296,9 @@ public class SectionAActivity extends Activity {
             }
             if (UpdateDB()) {
 
+                AppMain.ParticipantsName.remove(position);
+
                 finish();
-                Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
                 Intent endSec = new Intent(this, EndingActivity.class);
                 endSec.putExtra("complete", false);
                 startActivity(endSec);
@@ -279,7 +312,7 @@ public class SectionAActivity extends Activity {
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
 
-        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
 //        Intent secba = new Intent(this, ParticipantListActivity.class);
 //        startActivity(secba);
@@ -291,12 +324,13 @@ public class SectionAActivity extends Activity {
                 e.printStackTrace();
             }
             if (UpdateDB()) {
-                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+
+                AppMain.ParticipantsName.remove(position);
 
                 finish();
                 if (s1) {
                     Intent secba = new Intent(this, SectionBAActivity.class);
-                    secba.putExtra("data", Econtract.size());
+                    secba.putExtra("data", AppMain.totalWmCount);
                     startActivity(secba);
                 } else {
                     Intent secba = new Intent(this, SectionEActivity.class);
@@ -314,7 +348,6 @@ public class SectionAActivity extends Activity {
         Long rowId;
         DatabaseHelper db = new DatabaseHelper(this);
 
-        rowId = null;
         rowId = db.addForm(AppMain.fc);
 
         AppMain.fc.setID(rowId);
@@ -336,8 +369,6 @@ public class SectionAActivity extends Activity {
     }
 
     private void SaveDraft() throws JSONException {
-        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
-
         SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
 
         AppMain.fc = new FormsContract();
@@ -360,12 +391,11 @@ public class SectionAActivity extends Activity {
             sa.put("sno", AppMain.ParticipantsMap.get(mp02a001.getSelectedItem()).getSno());
             sa.put("luid", AppMain.ParticipantsMap.get(mp02a001.getSelectedItem()).getLUID());
             sa.put("s1", AppMain.ParticipantsMap.get(mp02a001.getSelectedItem()).getFupdate());
-
         }
-
 
         sa.put("mp03q003", mp02a001.getSelectedItem().toString());
         sa.put("mp03q005", mp02a002.getText().toString());
+        sa.put("mp03q006", mp02a007.getText().toString());
         sa.put("mp03q013", mp02a01301.isChecked() ? "1" : mp02a01302.isChecked() ? "2" : "0");
 
         AppMain.fc.setsA(String.valueOf(sa));
@@ -457,7 +487,7 @@ public class SectionAActivity extends Activity {
             }
             //======================= Q 7 ===============
 
-            /*if (mp02a007.getText().toString().isEmpty()) {
+            if (mp02a007.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mp02a007), Toast.LENGTH_SHORT).show();
                 mp02a007.setError("This data is Required!");
 
@@ -466,7 +496,6 @@ public class SectionAActivity extends Activity {
             } else {
                 mp02a007.setError(null);
             }
-*/
             //======================= Q 8 ===============
 
             /*if (mp02a008.getText().toString().isEmpty()) {

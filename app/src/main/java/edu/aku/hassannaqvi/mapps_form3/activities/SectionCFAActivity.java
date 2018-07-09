@@ -173,7 +173,7 @@ public class SectionCFAActivity extends Activity {
 //            if (UpdateDB()) {
         finish();
                 Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-                Intent endSec = new Intent(this, SectionCActivity.class);
+                Intent endSec = new Intent(this, EndingActivity.class);
                 endSec.putExtra("complete", false);
                 startActivity(endSec);
 //            } else {

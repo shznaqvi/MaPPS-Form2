@@ -69,6 +69,17 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
+                <EditText
+                    android:id="@+id/mp02a003"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:hint="@string/mp02a003"
+                    android:inputType="number"
+                    android:maxLength="3" />
+
                 <Button
                     android:id="@+id/checkParticipants"
                     style="@style/button"
@@ -82,29 +93,26 @@
                     android:padding="2dp"
                     android:text="CHECK"
                     android:textColor="@color/colorPrimary"
-                    android:textStyle="bold"
-
-                    />
-
-                <EditText
-                    android:id="@+id/mp02a003"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/mp02a003"
-                    android:inputType="number"
-                    android:maxLength="3" />
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
 
             <LinearLayout
-                android:id="@+id/fldGrpParticipant"
+                android:id="@+id/fldGrpmp01"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:visibility="gone"
                 tools:visibility="visible">
+
+                <!--                <LinearLayout
+                                    android:id="@+id/fldGrpParticipant"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:visibility="gone"
+                                    tools:visibility="visible">-->
 
                 <TextView
                     android:layout_width="match_parent"
@@ -158,84 +166,98 @@
                     android:hint="@string/mp02a006"
                     android:inputType="textCapWords" />
 
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/fldGrpmp02a007"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
-                    android:text="@string/mp02a013"
+                    android:text="@string/mp02a007"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
 
-                <RadioGroup
-                    android:id="@+id/mp02a013"
+                <EditText
+                    android:id="@+id/mp02a007"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="@string/mp02a007"
+                    android:inputType="number"
+                    android:maxLength="11" />
+
+                <!--</LinearLayout>-->
+
+                <LinearLayout
+                    android:id="@+id/fldGrpmp02a007"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/colorPrimary"
+                        android:text="@string/mp02a013"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@android:color/white" />
+
+                    <RadioGroup
+                        android:id="@+id/mp02a013"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/mp02a01301"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/yes" />
+
+                        <RadioButton
+                            android:id="@+id/mp02a01302"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/no" />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
                     android:orientation="horizontal">
 
-                    <RadioButton
-                        android:id="@+id/mp02a01301"
-                        android:layout_width="match_parent"
+                    <Button
+                        android:id="@+id/btn_End"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/yes" />
+                        android:padding="2dp"
+                        android:text="@string/end_interview"
+                        android:textColor="#ff1e1e" />
 
-                    <RadioButton
-                        android:id="@+id/mp02a01302"
+                    <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
+
+                    <Button
+                        android:id="@+id/btn_Continue"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/no" />
+                        android:padding="2dp"
+                        android:text="@string/start_interview"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:visibility="visible" />
+                    <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
 
-                </RadioGroup>
-
-            </LinearLayout>
-
-
-            <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btn_End"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:padding="2dp"
-                    android:text="@string/end_interview"
-                    android:textColor="#ff1e1e" />
-
-                <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
-
-                <Button
-                    android:id="@+id/btn_Continue"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="2dp"
-                    android:text="@string/start_interview"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:visibility="visible" />
-                <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
+                </LinearLayout>
 
             </LinearLayout>
-
 
         </LinearLayout>
-
 
     </ScrollView>
 

@@ -128,15 +128,15 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         try {
             AppMain.installedOn = this
                     .getPackageManager()
-                    .getPackageInfo("edu.aku.hassannaqvi.mapps_form2", 0)
+                    .getPackageInfo("edu.aku.hassannaqvi.mapps_form3", 0)
                     .lastUpdateTime;
             AppMain.versionCode = this
                     .getPackageManager()
-                    .getPackageInfo("edu.aku.hassannaqvi.mapps_form2", 0)
+                    .getPackageInfo("edu.aku.hassannaqvi.mapps_form3", 0)
                     .versionCode;
             AppMain.versionName = this
                     .getPackageManager()
-                    .getPackageInfo("edu.aku.hassannaqvi.mapps_form2", 0)
+                    .getPackageInfo("edu.aku.hassannaqvi.mapps_form3", 0)
                     .versionName;
             txtinstalldate.setText("Ver. " + AppMain.versionName + "." + String.valueOf(AppMain.versionCode) + " \r\n( Last Updated: " + new SimpleDateFormat("dd MMM. yyyy").format(new Date(AppMain.installedOn)) + " )");
         } catch (PackageManager.NameNotFoundException e) {
@@ -190,6 +190,15 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         values.add("04");
 
         dbBackup();
+
+
+//        Testing visibility
+        if (Integer.valueOf(AppMain.versionName.split("\\.")[0]) > 0) {
+            testing.setVisibility(View.GONE);
+        } else {
+            testing.setVisibility(View.VISIBLE);
+        }
+
     }
 //        Spinner Cluster
 

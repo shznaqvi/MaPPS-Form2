@@ -62,21 +62,21 @@ public class EndingActivity extends Activity {
     void onBtnEndClick() {
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (ValidateForm()) {
-                SaveDraft();
+            SaveDraft();
             if (UpdateDB()) {
                 AppMain.endFlag = false;
 
                 finish();
-                if (AppMain.wmCount < AppMain.totalWmCount && check) {
+                if (AppMain.wmCount < AppMain.totalWmCount) {
                     finish();
 
                     AppMain.wmCount++;
-                    AppMain.ParticipantsMap.remove(AppMain.position);
-                    AppMain.ParticipantsName.remove(AppMain.position);
+                    /*AppMain.ParticipantsMap.remove(AppMain.position);
+                    AppMain.ParticipantsName.remove(AppMain.position);*/
                     AppMain.checked = true;
                     Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
                     Intent endSec = new Intent(this, SectionAActivity.class);
-                    endSec.putExtra("complete", false);
+                    endSec.putExtra("flag_reback", true);
                     startActivity(endSec);
                 } else {
                     AppMain.wmCount = 1;
