@@ -83,6 +83,8 @@ public class SectionCEActivity extends Activity {
     RadioButton mp02cf00405;
     @BindView(R.id.mp02cf00406)
     RadioButton mp02cf00406;
+    @BindView(R.id.mp02cf00407)
+    RadioButton mp02cf00407;
     @BindView(R.id.mp02cf00488)
     RadioButton mp02cf00488;
     @BindView(R.id.mp02cf00488x)
@@ -135,6 +137,8 @@ public class SectionCEActivity extends Activity {
     RadioButton mp02cf00902;
     @BindView(R.id.mp02cf00903)
     RadioButton mp02cf00903;
+    @BindView(R.id.mp02cf00904)
+    RadioButton mp02cf00904;
     @BindView(R.id.mp02cf00988)
     RadioButton mp02cf00988;
     @BindView(R.id.mp02cf00988x)
@@ -171,6 +175,10 @@ public class SectionCEActivity extends Activity {
     RadioButton mp02cf01105;
     @BindView(R.id.mp02cf01106)
     RadioButton mp02cf01106;
+    @BindView(R.id.mp02cf01107)
+    RadioButton mp02cf01107;
+    @BindView(R.id.mp02cf01108)
+    RadioButton mp02cf01108;
     @BindView(R.id.mp02cf01188)
     RadioButton mp02cf01188;
     @BindView(R.id.mp02cf01188x)
@@ -1199,7 +1207,7 @@ public class SectionCEActivity extends Activity {
         scf.put("mp03q10388x", mp02cf00288x.getText().toString());
         scf.put("mp03q104", mp02cf003.getText().toString());
         scf.put("mp03q105", mp02cf00401.isChecked() ? "1" : mp02cf00402.isChecked() ? "2" : mp02cf00403.isChecked() ? "3"
-                : mp02cf00404.isChecked() ? "4" : mp02cf00405.isChecked() ? "5" : mp02cf00406.isChecked() ? "6"
+                : mp02cf00404.isChecked() ? "4" : mp02cf00405.isChecked() ? "5" : mp02cf00406.isChecked() ? "6" : mp02cf00407.isChecked() ? "7"
                 : mp02cf00488.isChecked() ? "88" : "0");
         scf.put("mp03q10588x", mp02cf00488x.getText().toString());
         scf.put("mp03q106", mp02cf00501.isChecked() ? "1" : mp02cf00502.isChecked() ? "2" : mp02cf00503.isChecked() ? "3"
@@ -1207,7 +1215,7 @@ public class SectionCEActivity extends Activity {
         scf.put("mp03q107", mp02cf00601.isChecked() ? "1" : mp02cf00602.isChecked() ? "2" : mp02cf00603.isChecked() ? "3" : "0");
         scf.put("mp03q108", mp02cf00701.isChecked() ? "1" : mp02cf00702.isChecked() ? "2" : mp02cf00703.isChecked() ? "3" : "0");
         scf.put("mp03q109", mp02cf00801.isChecked() ? "1" : mp02cf00802.isChecked() ? "2" : mp02cf00803.isChecked() ? "3" : "0");
-        scf.put("mp03q110", mp02cf00901.isChecked() ? "1" : mp02cf00902.isChecked() ? "2" : mp02cf00903.isChecked() ? "3"
+        scf.put("mp03q110", mp02cf00901.isChecked() ? "1" : mp02cf00902.isChecked() ? "2" : mp02cf00903.isChecked() ? "3": mp02cf00904.isChecked() ? "4"
                 : mp02cf00988.isChecked() ? "88" : "0");
         scf.put("mp03q11088x", mp02cf00988x.getText().toString());
         scf.put("mp03q111a", mp02cf01001.isChecked() ? "1" : "0");
@@ -1222,6 +1230,7 @@ public class SectionCEActivity extends Activity {
 
         scf.put("mp03q112", mp02cf01101.isChecked() ? "1" : mp02cf01102.isChecked() ? "2" : mp02cf01103.isChecked() ? "3"
                 : mp02cf01104.isChecked() ? "4" : mp02cf01105.isChecked() ? "5" : mp02cf01106.isChecked() ? "6"
+                : mp02cf01107.isChecked() ? "7" : mp02cf01108.isChecked() ? "8"
                 : mp02cf01188.isChecked() ? "88" : "0");
         scf.put("mp03q11288x", mp02cf01188x.getText().toString());
         scf.put("mp03q113", mp02cf01201.isChecked() ? "1" : mp02cf01202.isChecked() ? "2" : "0");

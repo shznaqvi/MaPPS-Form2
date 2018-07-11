@@ -485,6 +485,17 @@ public class SectionAActivity extends Activity {
             } else {
                 mp02a002.setError(null);
             }
+            //======================= Q 6 ===============
+
+            if (mp02a006.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mp02a006), Toast.LENGTH_SHORT).show();
+                mp02a006.setError("This data is Required!");
+
+                Log.i(TAG, "mp02a006: This Data is Required!");
+                return false;
+            } else {
+                mp02a006.setError(null);
+            }
             //======================= Q 7 ===============
 
             if (mp02a007.getText().toString().isEmpty()) {

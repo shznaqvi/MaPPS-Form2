@@ -412,10 +412,10 @@ public class SectionEActivity extends Activity {
                     return false;
                 } else {
                     mp02d005.setError(null);
-                    if (Double.parseDouble(mp02d005.getText().toString()) < 5 || Double.parseDouble(mp02d005.getText().toString()) > 170) {
+                    if (Double.parseDouble(mp02d005.getText().toString()) < 35 || Double.parseDouble(mp02d005.getText().toString()) > 170) {
                         Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02d005), Toast.LENGTH_SHORT).show();
-                        mp02d005.setError("Invalid: Range 5-170");
-                        Log.i(TAG, "mp02d005: Invalid Range 5-170");
+                        mp02d005.setError("Invalid: Range 35-170");
+                        Log.i(TAG, "mp02d005: Invalid Range 35-170");
                         return false;
                     } else {
                         mp02d005.setError(null);
@@ -457,10 +457,10 @@ public class SectionEActivity extends Activity {
                     return false;
                 } else {
                     mp02d006.setError(null);
-                    if (Double.parseDouble(mp02d006.getText().toString()) < 5 || Double.parseDouble(mp02d006.getText().toString()) > 170) {
+                    if (Double.parseDouble(mp02d006.getText().toString()) < 35 || Double.parseDouble(mp02d006.getText().toString()) > 170) {
                         Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02d006), Toast.LENGTH_SHORT).show();
-                        mp02d006.setError("Invalid: Range 5-170");
-                        Log.i(TAG, "mp02d006: Invalid Range 5-170");
+                        mp02d006.setError("Invalid: Range 35-170");
+                        Log.i(TAG, "mp02d006: Invalid Range 35-170");
                         return false;
                     } else {
                         mp02d006.setError(null);
@@ -543,10 +543,10 @@ public class SectionEActivity extends Activity {
                         return false;
                     } else {
                         mp02d008.setError(null);
-                        if (Double.parseDouble(mp02d008.getText().toString()) < 5 || Double.parseDouble(mp02d008.getText().toString()) > 170) {
+                        if (Double.parseDouble(mp02d008.getText().toString()) < 35 || Double.parseDouble(mp02d008.getText().toString()) > 170) {
                             Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
-                            mp02d008.setError("Invalid: Range 5-170");
-                            Log.i(TAG, "mp02d008: Invalid Range 5-170");
+                            mp02d008.setError("Invalid: Range 35-170");
+                            Log.i(TAG, "mp02d008: Invalid Range 35-170");
                             return false;
                         } else {
                             mp02d008.setError(null);
@@ -751,37 +751,47 @@ public class SectionEActivity extends Activity {
         JSONObject sD = new JSONObject();
 
         sD.put("mp03q162", mp02d001.getText().toString());
-        sD.put("mp03q162id1", mp02d001id1.getSelectedItem().toString());
+//        sD.put("mp03q162id1", mp02d001id1.getSelectedItem().toString().equals("...")? "":mp02d001id1.getSelectedItem().toString());
+        sD.put("mp03q162id1", mp02d001id1.getSelectedItemPosition() == 0 ? "":mp02d001id1.getSelectedItem().toString());
 
         sD.put("mp03q163", mp02d002.getText().toString());
-        sD.put("mp03q163id2", mp02d002id2.getSelectedItem().toString());
+//        sD.put("mp03q163id2", mp02d002id2.getSelectedItem().toString());
+        sD.put("mp03q163id2", mp02d002id2.getSelectedItemPosition() == 0? "": mp02d002id2.getSelectedItem().toString());
 
         sD.put("mp03q164", flag_q4 ? "1" : "2");
 
         sD.put("mp03q165", mp02d004.getText().toString());
-        sD.put("mp03q165id3", mp02d004id3.getSelectedItem().toString());
+//        sD.put("mp03q165id3", mp02d004id3.getSelectedItem().toString());
+        sD.put("mp03q165id3", mp02d004id3.getSelectedItemPosition() == 0?"": mp02d004id3.getSelectedItem().toString());
+
 
         sD.put("mp03q166", mp02d005.getText().toString());
-        sD.put("mp03q166id1", mp02d005id1.getSelectedItem().toString());
+//        sD.put("mp03q166id1", mp02d005id1.getSelectedItem().toString());
+        sD.put("mp03q166id1", mp02d005id1.getSelectedItemPosition() ==0?"": mp02d005id1.getSelectedItem().toString());
 
         sD.put("mp03q167", mp02d006.getText().toString());
-        sD.put("mp03q167id2", mp02d006id2.getSelectedItem().toString());
+//        sD.put("mp03q167id2", mp02d006id2.getSelectedItem().toString());
+        sD.put("mp03q167id2", mp02d006id2.getSelectedItemPosition() ==0?"":mp02d006id2.getSelectedItem().toString());
 
         sD.put("mp03q168", flag_q8 ? "1" : "2");
 
         sD.put("mp03q169", mp02d008.getText().toString());
-        sD.put("mp03q169id3", mp02d008id3.getSelectedItem().toString());
+//        sD.put("mp03q169id3", mp02d008id3.getSelectedItem().toString());
+        sD.put("mp03q169id3", mp02d008id3.getSelectedItemPosition() ==0?"": mp02d008id3.getSelectedItem().toString());
 
         sD.put("mp03q170", mp02d009.getText().toString());
-        sD.put("mp03q170id1", mp02d009id1.getSelectedItem().toString());
+//        sD.put("mp03q170id1", mp02d009id1.getSelectedItem().toString());
+        sD.put("mp03q170id1", mp02d009id1.getSelectedItemPosition() ==0?"":mp02d009id1.getSelectedItem().toString());
 
         sD.put("mp03q171", mp02d010.getText().toString());
-        sD.put("mp03q171id2", mp02d010id2.getSelectedItem().toString());
+//        sD.put("mp03q171id2", mp02d010id2.getSelectedItem().toString());
+        sD.put("mp03q171id2", mp02d010id2.getSelectedItemPosition() ==0?"":mp02d010id2.getSelectedItem().toString());
 
         sD.put("mp03q172", flag_q12 ? "1" : "2");
 
         sD.put("mp03q173", mp02d012.getText().toString());
-        sD.put("mp03q173id3", mp02d012id3.getSelectedItem().toString());
+//        sD.put("mp03q173id3", mp02d012id3.getSelectedItem().toString());
+        sD.put("mp03q173id3", mp02d012id3.getSelectedItemPosition() ==0?"":mp02d012id3.getSelectedItem().toString());
 
         AppMain.fc.setsE(String.valueOf(sD));
 

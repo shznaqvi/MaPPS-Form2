@@ -31,6 +31,8 @@ public class EndingActivity extends Activity {
     RadioButton mp02a01404;
     @BindView(R.id.mp02a01405)
     RadioButton mp02a01405;
+    @BindView(R.id.mp02a01406)
+    RadioButton mp02a01406;
 
     Boolean check;
 
@@ -48,12 +50,14 @@ public class EndingActivity extends Activity {
             mp02a01403.setEnabled(false);
             mp02a01404.setEnabled(false);
             mp02a01405.setEnabled(false);
+            mp02a01406.setEnabled(false);
         } else {
             mp02a01401.setEnabled(false);
             mp02a01402.setEnabled(true);
             mp02a01403.setEnabled(true);
             mp02a01404.setEnabled(true);
             mp02a01405.setEnabled(true);
+            mp02a01406.setEnabled(true);
         }
 
     }
@@ -112,7 +116,7 @@ public class EndingActivity extends Activity {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
 
-        AppMain.fc.setIstatus(mp02a01401.isChecked() ? "1" : mp02a01402.isChecked() ? "2" : mp02a01403.isChecked() ? "3" : mp02a01404.isChecked() ? "4" : mp02a01405.isChecked() ? "5" : "0");
+        AppMain.fc.setIstatus(mp02a01401.isChecked() ? "1" : mp02a01402.isChecked() ? "2" : mp02a01403.isChecked() ? "3" : mp02a01404.isChecked() ? "4" : mp02a01405.isChecked() ? "5" : mp02a01406.isChecked() ? "6" : "0");
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

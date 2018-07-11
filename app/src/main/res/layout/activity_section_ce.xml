@@ -240,6 +240,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf00406" />
+                    <RadioButton
+                        android:id="@+id/mp02cf00407"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mp02cf00407" />
 
                     <RadioButton
                         android:id="@+id/mp02cf00488"
@@ -470,6 +475,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mp02cf00903" />
+                    <RadioButton
+                        android:id="@+id/mp02cf00904"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mp02cf00904" />
 
                     <RadioButton
                         android:id="@+id/mp02cf00988"
@@ -613,6 +623,16 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/mp02cf01106" />
+                        <RadioButton
+                            android:id="@+id/mp02cf01107"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mp02cf01107" />
+                        <RadioButton
+                            android:id="@+id/mp02cf01108"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mp02cf01108" />
 
 
                         <RadioButton

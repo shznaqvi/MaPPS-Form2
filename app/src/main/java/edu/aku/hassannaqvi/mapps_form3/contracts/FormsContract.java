@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class FormsContract {
 
     private String projectName = "MaPPS Study";
-    private String surveyType = "Form 02: Enrolment and Baseline Assessment";
+    private String surveyType = "Form 03: Annual Follow-up Form - Year 1 (Preconception)";
     private Long _ID;
     private String UID = "";
     private String formDate = ""; // Date
@@ -531,7 +531,7 @@ public class FormsContract {
     public static abstract class FormsTable implements BaseColumns {
 
         public static final String TABLE_NAME = "forms";
-        public static final String _URL = "forms.php";
+        public static final String _URL = "forms3.php";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
 
         public static final String COLUMN_PROJECTNAME = "projectname";

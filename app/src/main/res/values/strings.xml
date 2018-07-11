@@ -70,6 +70,7 @@
     <string name="mp02a01403"> انڪار ڪيو </string>
     <string name="mp02a01404"> ٻن دورن کان پوء به ڪير به موجوده نه هو </string>
     <string name="mp02a01405"> لڏي وئي </string>
+    <string name="mp02a01406">شرڪت ڪندڙ وفات ڪري ويئي آهي  </string>
     <string name="mp02ba001"> توهان جي گھر ۾ ڪُل ڪيترا ڀاتي رهندا آهن؟ (بالغ ۽ ٻار) </string>
 
     <string name="mp02ba002"> هي گهرتوهان جوپهنجوآهي يا ڪرائي جوآهي؟ </string>
@@ -475,6 +476,7 @@
     <string name="mp02cc03005"> سسُ </string>
     <string name="mp02cc03006"> ڀاء </string>
     <string name="mp02cc03007"> جواٻ ڏيڻ کان انڪار ڪيو </string>
+    <string name="mp02cc03008"> ٻيا ڪي رشتيدار </string>
     <string name="mp02cc031"> ڇا توهان جي گهر وارن مان ڪنهن پئي چاهيو ته توهان اسڪول وڃو ؟ </string>
     <string name="mp02cc03101"> ماء </string>
     <string name="mp02cc03102"> پيء </string>
@@ -482,6 +484,8 @@
     <string name="mp02cc03104"> سسُ </string>
     <string name="mp02cc03105"> ڀاء </string>
     <string name="mp02cc03106"> جواٻ ڏيڻ کان انڪار ڪيو </string>
+    <string name="mp02cc03107"> ٻيا ڪي رشتيدار </string>
+
     <string name="mp02cc032"> ڇا توهان جي گهر وارن مان ڪنهن پئي چاهيو ته توهان اسڪول نه وڃو ؟ </string>
     <string name="mp02cc03201"> ماء </string>
     <string name="mp02cc03202"> پيء </string>
@@ -489,6 +493,7 @@
     <string name="mp02cc03204"> سسُ </string>
     <string name="mp02cc03205"> ڀاء </string>
     <string name="mp02cc03206"> جواٻ ڏيڻ کان انڪار ڪيو </string>
+    <string name="mp02cc03207"> ٻيا ڪي رشتيدار </string>
 
 
     <string name="mp02cd001sub"> هيٺ ڏنل بيانن مان توهان ڪيترو متفق آهيو؟ </string>
@@ -540,6 +545,7 @@
     <string name="mp02cf00404"> سينيٽري پيڊ ۽ نئون ڪپڙو </string>
     <string name="mp02cf00405"> سينيٽري پيڊ ۽ پراڻو ڪپڙو </string>
     <string name="mp02cf00406"> ڪا به شيء استعمال ناهيان ڪندي </string>
+    <string name="mp02cf00407"> اندرئين حصي ۾ پهريو ويندڙ ڪپڙو </string>
     <string name="mp02cf005"> اهو ( ٻڌايل جوا ب ) توهان ڪيتري ڪيتري دير کان پوء تبديل ڪيو / ڪندا آهيو؟ </string>
     <string name="mp02cf00501"> ڏينهن ۾ هڪ دفعو </string>
     <string name="mp02cf00502"> ڏيهن ۾ ٻه دفعا </string>
@@ -559,6 +565,7 @@
     <string name="mp02cf00901"> سينيٽري پيڊ </string>
     <string name="mp02cf00902"> نئون ڪپڙو </string>
     <string name="mp02cf00903"> پراڻو ڪپڙو </string>
+    <string name="mp02cf00904">ڪجھه به نه </string>
     <string name="mp02cf010"> توهان ماهواري دوران جسم ۽ ڪپڙن کي صاف رکڻ لاءجيڪو طريقو استعمال ڪندا آهيو ان بابت فيصلو ڪير وٺندو آهي ؟ </string>
     <string name="mp02cf01001"> پاڻ </string>
     <string name="mp02cf01002"> ماء </string>
@@ -574,6 +581,8 @@
     <string name="mp02cf01104"> آء ايتري ته لڄاڙو آهيان جو گهري نٿي سگهان </string>
     <string name="mp02cf01105"> مون کي اهي استعمال ڪرڻ جي اجازت ڪونهي </string>
     <string name="mp02cf01106"> سينٽري پيڊ ٻاهر اُڇلائڻ گناه آهي </string>
+    <string name="mp02cf01107">سٺو محسوس نه ٿيو</string>
+    <string name="mp02cf01108">مون کي هي پسند نه آهي </string>
     <string name="mp02cf012"> ڇا ماهواري دوران توهان جي روزمره جي ڪم ڪار تي ڪو اثر ٿئي ٿويا ڪي اهڙا ڪم جيڪي توهان نه ڪري سگهندا هجو؟ </string>
     <string name="mp02cf013"> اهڙا ڪهڙا ڪم ماهواري دوران متاثر ٿين ٿا ؟ </string>
     <string name="mp02cf01301"> آءگهر کان ٻاهر نٿي وڃي سگهان </string>
@@ -784,7 +793,7 @@
     <string name="mp02ciasubalmostno"> اڪثر نه </string>
     <string name="mp02ciasubsometimes"> ڪڌهن ڪڌهن </string>
     <string name="mp02ciasubfairlyoften"> اڪثر ڪري </string>
-    <string name="mp02ciasubveryoften"> بار بار </string>
+    <string name="mp02ciasubveryoften">تمام گھٽ  </string>
     <string name="mp02cia001"> گذريل مهيني ۾ توهان ڪيترا دفعا اوچتو ٿيندڙ ڪنهن واقعي جي ڪري پريشان ٿيا ؟ </string>
     <string name="mp02cia002"> گذريل مهيني ۾توهان ڪيترا دفعا اهو محسوس ڪيو آهي ته توهان پنهنجي زندگي جي اهم مسئلن کي ظابطي / وس ۾ نٿا رکي سگهو ؟ </string>
     <string name="mp02cia003"> گذريل مهيني ۾ توهان ڪيترا ڀيرا ذهني دٻاءُ يا گھٻراهٽ محسوس ڪئي </string>
