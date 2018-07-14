@@ -806,7 +806,7 @@ public class SectionCAActivity extends Activity {
         scb.put("mp03q037", mp02cb00801.isChecked() ? "1" : mp02cb00802.isChecked() ? "2" : mp02cb00803.isChecked() ? "3"
                 : mp02cb00804.isChecked() ? "4" : mp02cb00805.isChecked() ? "5" : mp02cb00806.isChecked() ? "6"
                 : mp02cb00807.isChecked() ? "7" : mp02cb00808.isChecked() ? "8" : mp02cb00888.isChecked() ? "88" : "0");
-        scb.put("mp03q03688x", mp02cb00888x.getText().toString());
+        scb.put("mp03q03788x", mp02cb00888x.getText().toString());
         scb.put("mp03q038", mp02cb00901.isChecked() ? "1" : mp02cb00902.isChecked() ? "2" : mp02cb00903.isChecked() ? "3"
                 : mp02cb00904.isChecked() ? "4" : mp02cb00905.isChecked() ? "5" : "0");
         scb.put("mp03q039", mp02cb010.getText().toString());

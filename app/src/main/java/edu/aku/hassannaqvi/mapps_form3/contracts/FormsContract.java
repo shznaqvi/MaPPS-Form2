@@ -384,7 +384,7 @@ public class FormsContract {
         this.sCFB = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SCFB));
         this.sCFC = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SCFC));
         this.sD = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SD));
-        this.sCE = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SE));
+        this.sE = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SE));
         //this.sBB = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SBB));
         this.gpsLat = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSLAT));
         this.gpsLng = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSLNG));
