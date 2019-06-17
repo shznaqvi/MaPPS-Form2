@@ -44,8 +44,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + UsersTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + UsersTable.ROW_USERNAME + " TEXT,"
             + UsersTable.ROW_PASSWORD + " TEXT );";
-    public static final String DATABASE_NAME = "mapps_f2.db";
-    private static final int DATABASE_VERSION = 4;
+    public static final String DATABASE_NAME = "mapps_f11.db";
+    private static final int DATABASE_VERSION = 1;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + FormsTable.TABLE_NAME + "(" +
             FormsTable.COLUMN__ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -120,8 +120,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             EligiblesTable.COLUMN_NAME_SUBAREACODE + " TEXT," +
             EligiblesTable.COLUMN_NAME_LHWCODE + " TEXT," +
             EligiblesTable.COLUMN_NAME_HOUSEHOLD + " TEXT," +
-            EligiblesTable.COLUMN_SYNCED + " TEXT,"
-            + EligiblesTable.COLUMN_SYNCED_DATE + " TEXT," +
+            EligiblesTable.COLUMN_SYNCED + " TEXT," +
+            EligiblesTable.COLUMN_SYNCED_DATE + " TEXT," +
             EligiblesTable.COLUMN_NAME_ELIGIBILITY_STATUS + " TEXT," +
             EligiblesTable.COLUMN_NAME_WOMEN_NAME + " TEXT," +
             EligiblesTable.COLUMN_NAME_SNO + " TEXT" +
@@ -191,7 +191,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + ParticipantsTable.TABLE_NAME;
     private static final String SQL_DELETE_DONE =
             "DROP TABLE IF EXISTS " + DoneContract.DoneTable.TABLE_NAME;
-    public static String DB_NAME = "mapps_f2_copy.db";
+    public static String DB_NAME = "mapps_f11_copy.db";
     private final String TAG = "DatabaseHelper";
     public String spDateT = new SimpleDateFormat("dd-MM-yy").format(new Date().getTime());
 
@@ -203,39 +203,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_USERS);
-        //db.execSQL(SQL_CREATE_ELIGIBLES);
-        //db.execSQL(SQL_CREATE_DONE);
         db.execSQL(SQL_CREATE_LHWS);
         db.execSQL(SQL_CREATE_CLUSTERS);
         db.execSQL(SQL_CREATE_FORMS);
         db.execSQL(SQL_CREATE_FOLLOWUPS);
-        //db.execSQL(SQL_CREATE_PARTICIPANTS);
-
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-
-        /*switch (i) {
-            case 1:
-                db.execSQL(SQL_CREATE_DONE);
-            case 2:
-                db.execSQL(SQL_CREATE_ELIGIBLES1);
-            case 3:
-                db.execSQL(SQL_CREATE_ELIGIBLES2);
-
-        }
-*/
         db.execSQL(SQL_DELETE_USERS);
-        //db.execSQL(SQL_DELETE_ELIGIBLES);
-        //db.execSQL(SQL_DELETE_DONE);
         db.execSQL(SQL_DELETE_LHWS);
         db.execSQL(SQL_DELETE_CLUSTERS);
         db.execSQL(SQL_DELETE_FORMS);
         db.execSQL(SQL_DELETE_FOLLOWUPS);
-        //db.execSQL(SQL_DELETE_PARTICIPANTS);
-
-
     }
 
     public void syncUsers(JSONArray userlist) {
@@ -289,8 +269,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
 
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Log.d(TAG, e.getMessage());
         } finally {
             db.close();
@@ -611,8 +590,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(ParticipantsContract.ParticipantsTable.COLUMN_SYNCED, true);
-        values.put(ParticipantsContract.ParticipantsTable.COLUMN_SYNCED_DATE, new Date().toString());
+        values.put(ParticipantsTable.COLUMN_SYNCED, true);
+        values.put(ParticipantsTable.COLUMN_SYNCED_DATE, new Date().toString());
 
 // Which row to update, based on the title
         String where = ParticipantsTable._ID + " LIKE ?";
@@ -635,27 +614,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(ParticipantsTable.COLUMN_PROJECTNAME, pc.getProjectName());
         values.put(ParticipantsTable.COLUMN_SURVEYTYPE, pc.getSurveyType());
         //values.put(ParticipantsTable.COLUMN__ID, pc.getID());
-        values.put(ParticipantsContract.ParticipantsTable.COLUMN_UID, pc.getUID());
+        values.put(ParticipantsTable.COLUMN_UID, pc.getUID());
         values.put(ParticipantsTable.COLUMN_UUID, pc.getUUID());
         values.put(ParticipantsTable.COLUMN_LUID, pc.getLUID());
         values.put(ParticipantsTable.COLUMN_FORMDATE, pc.getFormDate());
-        values.put(ParticipantsContract.ParticipantsTable.COLUMN_INTERVIEWER01, pc.getInterviewer01());
+        values.put(ParticipantsTable.COLUMN_INTERVIEWER01, pc.getInterviewer01());
         values.put(ParticipantsTable.COLUMN_INTERVIEWER02, pc.getInterviewer02());
         values.put(ParticipantsTable.COLUMN_CLUSTERCODE, pc.getClustercode());
-        values.put(ParticipantsContract.ParticipantsTable.COLUMN_HOUSEHOLD, pc.getHousehold());
+        values.put(ParticipantsTable.COLUMN_HOUSEHOLD, pc.getHousehold());
         values.put(ParticipantsTable.COLUMN_LHWCODE, pc.getLhwCode());
         values.put(ParticipantsTable.COLUMN_ISTATUS, pc.getIstatus());
         values.put(ParticipantsTable.COLUMN_SCB, pc.getsCB());
-        values.put(ParticipantsContract.ParticipantsTable.COLUMN_SCC, pc.getsCC());
+        values.put(ParticipantsTable.COLUMN_SCC, pc.getsCC());
         values.put(ParticipantsTable.COLUMN_SCD, pc.getsCD());
-        values.put(ParticipantsContract.ParticipantsTable.COLUMN_SCE, pc.getsCE());
+        values.put(ParticipantsTable.COLUMN_SCE, pc.getsCE());
         values.put(ParticipantsTable.COLUMN_SCFA, pc.getsCFA());
-        values.put(ParticipantsContract.ParticipantsTable.COLUMN_SCFB, pc.getsCFB());
-        values.put(ParticipantsContract.ParticipantsTable.COLUMN_SCFC, pc.getsCFC());
+        values.put(ParticipantsTable.COLUMN_SCFB, pc.getsCFB());
+        values.put(ParticipantsTable.COLUMN_SCFC, pc.getsCFC());
         values.put(ParticipantsTable.COLUMN_SD, pc.getsD());
         values.put(ParticipantsTable.COLUMN_SE, pc.getsE());
-        values.put(ParticipantsContract.ParticipantsTable.COLUMN_DEVICEID, pc.getDeviceID());
-        values.put(ParticipantsContract.ParticipantsTable.COLUMN_DEVICETAGID, pc.getTagID());
+        values.put(ParticipantsTable.COLUMN_DEVICEID, pc.getDeviceID());
+        values.put(ParticipantsTable.COLUMN_DEVICETAGID, pc.getTagID());
         values.put(ParticipantsTable.COLUMN_APP_VERSION, pc.getApp_version());
         values.put(ParticipantsTable.COLUMN_SYNCED, pc.getSynced());
         values.put(ParticipantsTable.COLUMN_SYNCED_DATE, pc.getSynced_date());
@@ -664,7 +643,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
         newRowId = db.insert(
-                ParticipantsContract.ParticipantsTable.TABLE_NAME,
+                ParticipantsTable.TABLE_NAME,
                 ParticipantsTable.COLUMN_NAME_NULLABLE,
                 values);
         db.close();
@@ -683,7 +662,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] whereArgs = {AppMain.pc.getID().toString()};
 
         int count = db.update(
-                ParticipantsContract.ParticipantsTable.TABLE_NAME,
+                ParticipantsTable.TABLE_NAME,
                 values,
                 where,
                 whereArgs);
@@ -702,7 +681,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] whereArgs = {id};
 
         int count = db.update(
-                ParticipantsContract.ParticipantsTable.TABLE_NAME,
+                ParticipantsTable.TABLE_NAME,
                 values,
                 where,
                 whereArgs);
@@ -862,7 +841,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String selection = ParticipantsTable._ID + " = ?";
         String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
 
-        int count = db.update(ParticipantsContract.ParticipantsTable.TABLE_NAME,
+        int count = db.update(ParticipantsTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -882,7 +861,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String selection = ParticipantsTable._ID + " = ?";
         String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
 
-        int count = db.update(ParticipantsContract.ParticipantsTable.TABLE_NAME,
+        int count = db.update(ParticipantsTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -902,7 +881,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String selection = ParticipantsTable._ID + " = ?";
         String[] selectionArgs = {String.valueOf(AppMain.pc.getID())};
 
-        int count = db.update(ParticipantsContract.ParticipantsTable.TABLE_NAME,
+        int count = db.update(ParticipantsTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -1147,7 +1126,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         String whereClause = EligiblesTable.COLUMN_NAME_SUBAREACODE + " = ? AND " +
                 EligiblesTable.COLUMN_NAME_LHWCODE + " = ? AND " +
-                EligiblesTable.COLUMN_NAME_HOUSEHOLD + " = ? " + (flag ? "AND "+EligiblesTable.COLUMN_NAME_ELIGIBILITY_STATUS + " = '1'" : "");
+                EligiblesTable.COLUMN_NAME_HOUSEHOLD + " = ? " + (flag ? "AND " + EligiblesTable.COLUMN_NAME_ELIGIBILITY_STATUS + " = '1'" : "");
         String[] whereArgs = new String[]{clusterCode, lhwCode, hhno};
         String groupBy = null;
         String having = null;
@@ -1570,18 +1549,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                ParticipantsContract.ParticipantsTable.COLUMN_PROJECTNAME,
+                ParticipantsTable.COLUMN_PROJECTNAME,
                 ParticipantsTable.COLUMN_SURVEYTYPE,
-                ParticipantsContract.ParticipantsTable.COLUMN__ID,
+                ParticipantsTable.COLUMN__ID,
                 ParticipantsTable.COLUMN_UID,
-                ParticipantsContract.ParticipantsTable.COLUMN_UUID,
+                ParticipantsTable.COLUMN_UUID,
                 ParticipantsTable.COLUMN_FORMDATE,
                 ParticipantsTable.COLUMN_INTERVIEWER01,
                 ParticipantsTable.COLUMN_INTERVIEWER02,
                 ParticipantsTable.COLUMN_ISTATUS,
                 ParticipantsTable.COLUMN_SCB,
                 ParticipantsTable.COLUMN_SCC,
-                ParticipantsContract.ParticipantsTable.COLUMN_SCD,
+                ParticipantsTable.COLUMN_SCD,
                 ParticipantsTable.COLUMN_SCE,
                 ParticipantsTable.COLUMN_SCFA,
                 ParticipantsTable.COLUMN_SCFB,
@@ -1590,13 +1569,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ParticipantsTable.COLUMN_SE,
                 ParticipantsTable.COLUMN_GPSLAT,
                 ParticipantsTable.COLUMN_GPSLNG,
-                ParticipantsContract.ParticipantsTable.COLUMN_GPSTIME,
-                ParticipantsContract.ParticipantsTable.COLUMN_GPSACC,
-                ParticipantsContract.ParticipantsTable.COLUMN_APP_VERSION,
-                ParticipantsContract.ParticipantsTable.COLUMN_DEVICEID,
+                ParticipantsTable.COLUMN_GPSTIME,
+                ParticipantsTable.COLUMN_GPSACC,
+                ParticipantsTable.COLUMN_APP_VERSION,
+                ParticipantsTable.COLUMN_DEVICEID,
                 ParticipantsTable.COLUMN_DEVICETAGID,
-                ParticipantsContract.ParticipantsTable.COLUMN_SYNCED,
-                ParticipantsContract.ParticipantsTable.COLUMN_SYNCED_DATE,
+                ParticipantsTable.COLUMN_SYNCED,
+                ParticipantsTable.COLUMN_SYNCED_DATE,
 
         };
         String whereClause = null;
@@ -1610,7 +1589,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Collection<ParticipantsContract> allPC = new ArrayList<>();
         try {
             c = db.query(
-                    ParticipantsContract.ParticipantsTable.TABLE_NAME,  // The table to query
+                    ParticipantsTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
