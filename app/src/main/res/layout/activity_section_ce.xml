@@ -4,7 +4,7 @@
     android:id="@+id/activity_section_cf"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.aku.hassannaqvi.mapps_form3.activities.SectionCEActivity">
+    tools:context="edu.aku.hassannaqvi.mapps_form11.activities.SectionCEActivity">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/scrollView01"

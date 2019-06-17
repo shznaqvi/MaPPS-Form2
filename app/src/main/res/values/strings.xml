@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MaPPS - Form 3: Annual Follow-up Form - Year 1 (Preconception)</string>
+    <string name="app_name">MaPPS - Form 11: Annual Follow-up Form - Year 1 (Preconception)</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
