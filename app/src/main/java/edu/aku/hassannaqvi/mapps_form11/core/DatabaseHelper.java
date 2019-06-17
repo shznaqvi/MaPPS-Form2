@@ -33,6 +33,7 @@ import edu.aku.hassannaqvi.mapps_form11.contracts.UsersContract.UsersTable;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
+ * Update by ali.azaz on 06/17/2019.
  */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -46,6 +47,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + UsersTable.ROW_PASSWORD + " TEXT );";
     public static final String DATABASE_NAME = "mapps_f11.db";
     private static final int DATABASE_VERSION = 1;
+
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + FormsTable.TABLE_NAME + "(" +
             FormsTable.COLUMN__ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -155,22 +157,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             ClustersContract.ClustersTable.COLUMN_CLUSTERNAME + " TEXT," +
             ClustersContract.ClustersTable.COLUMN_CLUSTERCODE + " TEXT" +
             " );";
-
-    private static final String SQL_CREATE_DONE = "CREATE TABLE "
-            + DoneContract.DoneTable.TABLE_NAME + "(" +
-            DoneContract.DoneTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            DoneContract.DoneTable.COLUMN_NAME_UID + " TEXT," +
-            DoneContract.DoneTable.COLUMN_NAME_LUID + " TEXT" +
-            " );";
-
-    private static final String SQL_CREATE_ELIGIBLES1 = "ALTER TABLE " +
-            EligiblesTable.TABLE_NAME + " ADD COLUMN " +
-            EligiblesTable.COLUMN_NAME_ELIGIBILITY_STATUS + " TEXT";
-
-
-    private static final String SQL_CREATE_ELIGIBLES2 = "ALTER TABLE " +
-            EligiblesTable.TABLE_NAME + " ADD COLUMN " +
-            EligiblesTable.COLUMN_NAME_SNO + " TEXT";
 
     /**
      * DELETE STRINGS
