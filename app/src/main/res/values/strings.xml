@@ -933,5 +933,61 @@
     <string name="mp02e00403"> اين جي او جو نالو </string>
     <string name="title_activity_participant_list">ParticipantList</string>
 
+    <string name="mp02fh"> Part 4. Antenatal Care &amp;&amp; Family Planning </string>
+    <string name="mp02f01"> ڇا توهان شادي شده آهيو؟ </string>
+    <string name="mp02f02"> ڇا توهان ڪڏهن به حمل / پيٽ سان ٿيا آهيو؟ </string>
+    <string name="mp02f03"> توهان آخري حمل دوران ڪل ڪيترا ڀيرا پنهنجي حمل جو بنيادي معائنو ڪرايو هيو؟ </string>
+    <string name="mp02f03a"> لکو 99 جيڪڏهن ڪابه خبر ناهي </string>
+    <string name="mp02f04"> ڇا توهان هن وقت ڪو به فيملي پلائنگ جو طريقو استعمال ڪري رهيا آهيو؟ </string>
+    <string name="mp02f05"> توهان ڪهڙو وقفي جو طريقو استعمال ڪري رهيا آهيو؟ </string>
+    <string name="mp02f05a"> وقفي جون گوريون </string>
+    <string name="mp02f05b"> انجيڪشن </string>
+    <string name="mp02f05c"> ڇلو </string>
+    <string name="mp02f05d"> ڦوڪڻو </string>
+    <string name="mp02f05e"> اپملانٽ، يا راڊ </string>
+    <string name="mp02f05f"> نل بندي جو آپريشن </string>
+    <string name="mp02f05g"> محفوظ ڏينهن </string>
+    <string name="mp02f05h"> ٻار کي کير پيارڻ </string>
+    <string name="mp02f05i"> محفوظ دورانيه ۾ همبستري ڪرڻ </string>
+    <string name="mp02f05j"> عزل </string>
+    <string name="mp02f05k"> ٻيو ڪجه </string>
+    <string name="mp02f06"> هن ( مٿي ذڪر ڪيل) وقفي جو طريقو ڪٿان حاصل ڪيو ؟ </string>
+    <string name="mp02f06a"> سرڪاري اسپتال </string>
+    <string name="mp02f06b"> بنيادي صحت جو مرڪز </string>
+    <string name="mp02f06c"> ڊسپينسري </string>
+    <string name="mp02f06d"> ليڊي هيلٿ ورڪر </string>
+    <string name="mp02f06e"> پرائيوٽ اسپتال </string>
+    <string name="mp02f06f"> ميڊيڪل اسٽور </string>
+    <string name="mp02f06g"> دوست مائيٽ </string>
+    <string name="mp02f06h"> حڪيم </string>
+    <string name="mp02f06i"> ٻيو ڪجه </string>
+
+    <string name="mp02gh"> Access to LHWs </string>
+    <string name="mp02g01"> ليڊي هيلٿ ورڪر توهان جي گهر آخري دفعو ڪڏهن آئي </string>
+    <string name="mp02g01a"> ڏينهن </string>
+    <string name="mp02g01b"> مهينا </string>
+    <string name="mp02g01c"> ڪڏنهن ناهي آئي </string>
+    <string name="mp02g02"> ليڊي هيلٿ ورڪر ڪڏهن ڪڏهن توهان جي گهر ايندي آهي </string>
+    <string name="mp02g02a"> هفتيوار </string>
+    <string name="mp02g02b"> چوڏهن ڏينهن کان پوء </string>
+    <string name="mp02g02c"> ماهوار </string>
+    <string name="mp02g02d"> ڪڏهن ڪڏهن </string>
+    <string name="mp02g02e"> صرف پوليو لاء </string>
+    <string name="mp02g02f"> يا ڪو ٻيو </string>
+    <string name="mp02g03"> ليڊي هيلٿ ورڪر توهان جي گهر آخري دفعو ڪهڙي مقصد لاء آئي هُئي ؟ </string>
+    <string name="mp02g03a"> ماء ۽ ٻار جي صحت بابت ڄاڻ ڏيڻ </string>
+    <string name="mp02g03b"> وقفي جو گوريون ڏيڻ </string>
+    <string name="mp02g03c"> اسپتال منتقل ٿيڻ جو چوڻ لاء </string>
+    <string name="mp02g03d"> تُڪا </string>
+    <string name="mp02g03e"> پوليو </string>
+    <string name="mp02g03f"> ماء جي غلاج لاء </string>
+    <string name="mp02g03g"> ٻار جي غلاج لاء </string>
+    <string name="mp02g04"> ڇا توهان ڪڏهن به صحت متعلق ڪنهن گڏجاڻي ۾ ويا آهيو ؟ </string>
+    <string name="mp02g05"> ڪڏهن ڪڏهن اڪثر توهان جو اهڙين گڏجاڻين ۾ وڃڻ ٿيو آهي </string>
+    <string name="mp02g05a"> هر مهيني </string>
+    <string name="mp02g05b"> گزريل ٽن مهينن ۾ </string>
+    <string name="mp02g05c"> گزريل ڇهن مهينن ۾ </string>
+    <string name="mp02g05d"> سال ۾ هڪ دفعو </string>
+
 
 </resources>
