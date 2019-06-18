@@ -535,6 +535,19 @@
                             android:text="@string/mp02cb00808" />
 
                         <RadioButton
+                            android:id="@+id/mp02cb00809"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mp02cb00809" />
+
+                        <RadioButton
+                            android:id="@+id/mp02cb00810"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mp02cb00810" />
+
+
+                        <RadioButton
                             android:id="@+id/mp02cb00888"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

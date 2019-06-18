@@ -37,6 +37,7 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="other">ٻيو ڪو(وضاحت ڪريو)</string>
+    <string name="ot">ٻيو ڪجه</string>
     <string name="dkn">خبر ڪونهي</string>
     <string name="yes">ها</string>
     <string name="no">نه</string>
@@ -314,6 +315,8 @@
     <string name="mp02cb00806"> ماهر </string>
     <string name="mp02cb00807"> شاگرد </string>
     <string name="mp02cb00808"> بيروزگار </string>
+    <string name="mp02cb00809"> گهرواري يا زال (پنهنجي گهر جو ڪم ڪار) </string>
+    <string name="mp02cb00810"> گهر جي ڪم ڪار ۾ مددگار </string>
     <string name="mp02cb009"> توهان جي موجوده ازدواجي حيثيت ڇاآهي؟ </string>
     <string name="mp02cb00901"> شادي شده </string>
     <string name="mp02cb00902"> بيواه </string>
@@ -933,7 +936,7 @@
     <string name="mp02e00403"> اين جي او جو نالو </string>
     <string name="title_activity_participant_list">ParticipantList</string>
 
-    <string name="mp02fh"> Part 4. Antenatal Care &amp;&amp; Family Planning </string>
+    <string name="mp02fh"> Part 4. Antenatal Care &amp; Family Planning </string>
     <string name="mp02f01"> ڇا توهان شادي شده آهيو؟ </string>
     <string name="mp02f02"> ڇا توهان ڪڏهن به حمل / پيٽ سان ٿيا آهيو؟ </string>
     <string name="mp02f03"> توهان آخري حمل دوران ڪل ڪيترا ڀيرا پنهنجي حمل جو بنيادي معائنو ڪرايو هيو؟ </string>
@@ -961,6 +964,17 @@
     <string name="mp02f06g"> دوست مائيٽ </string>
     <string name="mp02f06h"> حڪيم </string>
     <string name="mp02f06i"> ٻيو ڪجه </string>
+    <string name="mp02f07"> ڇا توهان مستقبل ۾ حمل ۾ وقفي يا ان کان بچڻ لاءِ فيملي پلاننگ لاء سوچيو پيا ؟ </string>
+    <string name="mp02f08"> ڇا توهان کي خبر آهي  ته اهي فيملي پلاننگ جا طريقا ڪٿان حاصل ڪري سگهجن ٿا؟ </string>
+    <string name="mp02f08a"> سرڪاري اسپتال </string>
+    <string name="mp02f08b"> بنيادي صحت جو مرڪز </string>
+    <string name="mp02f08c"> ڊسپينسري </string>
+    <string name="mp02f08d"> ليڊي هيلٿ ورڪر </string>
+    <string name="mp02f08e"> پرائيوٽ اسپتال </string>
+    <string name="mp02f08f"> ميڊيڪل اسٽور </string>
+    <string name="mp02f08g"> دوست مائيٽ </string>
+    <string name="mp02f08h"> حڪيم </string>
+    <string name="mp02f08i"> ٻيو ڪجه </string>
 
     <string name="mp02gh"> Access to LHWs </string>
     <string name="mp02g01"> ليڊي هيلٿ ورڪر توهان جي گهر آخري دفعو ڪڏهن آئي </string>
