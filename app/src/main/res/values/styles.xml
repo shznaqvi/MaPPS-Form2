@@ -5,7 +5,6 @@
         <!-- Customize your theme here. -->
         <item name="android:textViewStyle">@style/lblTextView</item>
         <item name="android:editTextStyle">@style/txtEditText</item>
-        <item name="android:radioButtonStyle">@style/radiobutton</item>
         <item name="android:checkboxStyle">@style/chkBox</item>
         <item name="android:typeface">serif</item>
         <item name="android:spinnerItemStyle">@style/spinnerItemStyle</item>
@@ -21,17 +20,6 @@
         <item name="android:layout_marginBottom">16dp</item>
         <item name="android:textSize">36sp</item>
         <item name="android:padding">8dp</item>
-
-    </style>
-
-    <style name="radiobutton" parent="android:Widget.CompoundButton.RadioButton">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:layout_height">wrap_content</item>
-        <!--<item name="android:button">@null</item>-->
-        <!--<item name="android:drawableRight">@android:drawable/btn_radio</item>-->
-        <item name="android:textSize">32sp</item>
-
 
     </style>
 
@@ -120,6 +108,192 @@
 
     <style name="BackgroundStyle" parent="android:Widget.Material.Light.ScrollView">
         <item name="android:padding">24dp</item>
+    </style>
+
+    <!-- Irfan Textview  -->
+    <style name="i_textview">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="textview_heading">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- Textview List  -->
+    <style name="textview">
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="textview_fm_lst_h">
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">35sp</item>
+    </style>
+
+
+    <!-- Irfan RadioGroup  -->
+    <style name="i_radiogroup">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- Irfan RadioButton  -->
+    <style name="i_radiobutton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">1dp</item>
+        <item name="android:layout_weight">1</item>
+
+    </style>
+
+    <style name="textInput" parent="android:Widget.Material.Light.EditText">
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:background">@drawable/et_style</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:padding">10dp</item>
+
+    </style>
+
+    <!-- EditText Acept Characters Starts. -->
+    <style name="EditText">
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:digits">abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:background">@drawable/et_style</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:padding">10dp</item>
+    </style>
+    <!-- EditText Acept Number  Ends. -->
+
+    <!-- EditText Acept Number  Starts. -->
+    <style name="EditText_number" parent="android:Widget.Material.Light.EditText">
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:inputType">number</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:background">@drawable/et_style</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:padding">10dp</item>
+    </style>
+    <!-- EditText Acept Number  Ends. -->
+
+    <!-- EditText Acept Number Decimal  Starts. -->
+    <style name="EditText_number_de" parent="android:Widget.Material.Light.EditText">
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:background">@drawable/et_style</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <!-- EditText Acept Date Black Box.-->
+    <style name="EditText_number_b_box" parent="android:Widget.Material.Light.EditText">
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:background">@drawable/et_style</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:padding">10dp</item>
+    </style>
+    <!-- EditText Acept Number  Ends. -->
+
+    <!--Card View Start-->
+    <style name="cardView">
+        <item name="android:background">@color/dullWhileOverlay</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <!--<item name="android:layout_marginRight">10dp</item>-->
+        <!--<item name="android:layout_marginLeft">10dp</item>-->
+        <item name="cardCornerRadius">7dp</item>
+        <item name="cardElevation">3dp</item>
+    </style>
+    <!--Card View End-->
+
+    <style name="radiobutton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:clickable">true</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:elevation">1dp</item>
+    </style>
+
+    <style name="checkbox" parent="android:Widget.Material.Light.CompoundButton.CheckBox">
+        <item name="android:layout_gravity">right</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:clickable">true</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:drawableRight">?android:attr/listChoiceIndicatorMultiple</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:padding">4dp</item>
     </style>
 
 </resources>
