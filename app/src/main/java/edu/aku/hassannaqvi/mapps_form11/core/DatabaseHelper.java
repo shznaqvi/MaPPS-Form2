@@ -23,6 +23,7 @@ import edu.aku.hassannaqvi.mapps_form11.contracts.DoneContract;
 import edu.aku.hassannaqvi.mapps_form11.contracts.EligiblesContract;
 import edu.aku.hassannaqvi.mapps_form11.contracts.EligiblesContract.EligiblesTable;
 import edu.aku.hassannaqvi.mapps_form11.contracts.FollowupsContract;
+import edu.aku.hassannaqvi.mapps_form11.contracts.FollowupsContract.FollowupsTable;
 import edu.aku.hassannaqvi.mapps_form11.contracts.FormsContract;
 import edu.aku.hassannaqvi.mapps_form11.contracts.FormsContract.FormsTable;
 import edu.aku.hassannaqvi.mapps_form11.contracts.LHWsContract;
@@ -129,19 +130,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             EligiblesTable.COLUMN_NAME_SNO + " TEXT" +
             " );";
 
-    private static final String SQL_CREATE_FOLLOWUPS = "CREATE TABLE "
-            + FollowupsContract.FollowupsTable.TABLE_NAME + "(" +
-            FollowupsContract.FollowupsTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            FollowupsContract.FollowupsTable.COLUMN_NAME_LUID + " TEXT," +
-            FollowupsContract.FollowupsTable.COLUMN_NAME_SUBAREACODE + " TEXT," +
-            FollowupsContract.FollowupsTable.COLUMN_NAME_LHWCODE + " TEXT," +
-            FollowupsContract.FollowupsTable.COLUMN_NAME_HOUSEHOLD + " TEXT," +
-            FollowupsContract.FollowupsTable.COLUMN_SYNCED + " TEXT,"
-            + FollowupsContract.FollowupsTable.COLUMN_SYNCED_DATE + " TEXT," +
-            FollowupsContract.FollowupsTable.COLUMN_NAME_FUP_DATE + " TEXT," +
-            FollowupsContract.FollowupsTable.COLUMN_NAME_WOMEN_NAME + " TEXT," +
-            FollowupsContract.FollowupsTable.COLUMN_NAME_S1 + " TEXT," +
-            FollowupsContract.FollowupsTable.COLUMN_NAME_SNO + " TEXT" +
+    private static final String SQL_CREATE_FOLLOWUPS = "CREATE TABLE " +
+            FollowupsTable.TABLE_NAME + "(" +
+            FollowupsTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            FollowupsTable.COLUMN_NAME_LUID + " TEXT," +
+            FollowupsTable.COLUMN_NAME_SUBAREACODE + " TEXT," +
+            FollowupsTable.COLUMN_NAME_LHWCODE + " TEXT," +
+            FollowupsTable.COLUMN_NAME_HOUSEHOLD + " TEXT," +
+            FollowupsTable.COLUMN_SYNCED + " TEXT," +
+            FollowupsTable.COLUMN_SYNCED_DATE + " TEXT," +
+            FollowupsTable.COLUMN_NAME_FUP_DATE + " TEXT," +
+            FollowupsTable.COLUMN_NAME_WOMEN_NAME + " TEXT," +
+            FollowupsTable.COLUMN_NAME_S1 + " TEXT," +
+            FollowupsTable.COLUMN_NAME_SNO + " TEXT" +
             " );";
     private static final String SQL_CREATE_LHWS = "CREATE TABLE "
             + LHWsContract.LHWsTable.TABLE_NAME + "(" +
@@ -172,7 +173,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String SQL_DELETE_FORMS =
             "DROP TABLE IF EXISTS " + FormsTable.TABLE_NAME;
     private static final String SQL_DELETE_FOLLOWUPS =
-            "DROP TABLE IF EXISTS " + FollowupsContract.FollowupsTable.TABLE_NAME;
+            "DROP TABLE IF EXISTS " + FollowupsTable.TABLE_NAME;
     private static final String SQL_DELETE_PARTICIPANTS =
             "DROP TABLE IF EXISTS " + ParticipantsTable.TABLE_NAME;
     private static final String SQL_DELETE_DONE =
@@ -264,7 +265,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void syncFollowups(JSONArray followupsList) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(FollowupsContract.FollowupsTable.TABLE_NAME, null, null);
+        db.delete(FollowupsTable.TABLE_NAME, null, null);
         try {
             JSONArray jsonArray = followupsList;
             for (int i = 0; i < jsonArray.length(); i++) {
@@ -275,16 +276,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
                 ContentValues values = new ContentValues();
 
-                values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_LUID, ec.getLUID());
-                values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_SUBAREACODE, ec.getSubAreaCode());
-                values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_LHWCODE, ec.getLhwCode());
-                values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_HOUSEHOLD, ec.getHouseHold());
-                values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_WOMEN_NAME, ec.getWomen_name());
-                values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_FUP_DATE, ec.getFupdate());
-                values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_SNO, ec.getSno());
-                values.put(FollowupsContract.FollowupsTable.COLUMN_NAME_S1, ec.getS1());
+                values.put(FollowupsTable.COLUMN_NAME_LUID, ec.getLUID());
+                values.put(FollowupsTable.COLUMN_NAME_SUBAREACODE, ec.getSubAreaCode());
+                values.put(FollowupsTable.COLUMN_NAME_LHWCODE, ec.getLhwCode());
+                values.put(FollowupsTable.COLUMN_NAME_HOUSEHOLD, ec.getHouseHold());
+                values.put(FollowupsTable.COLUMN_NAME_WOMEN_NAME, ec.getWomen_name());
+                values.put(FollowupsTable.COLUMN_NAME_FUP_DATE, ec.getFupdate());
+                values.put(FollowupsTable.COLUMN_NAME_SNO, ec.getSno());
+                values.put(FollowupsTable.COLUMN_NAME_S1, ec.getS1());
 
-                db.insert(FollowupsContract.FollowupsTable.TABLE_NAME, null, values);
+                db.insert(FollowupsTable.TABLE_NAME, null, values);
             }
 
 
@@ -1151,30 +1152,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                FollowupsContract.FollowupsTable.COLUMN_NAME_LUID,
-                FollowupsContract.FollowupsTable.COLUMN_NAME_WOMEN_NAME,
-                FollowupsContract.FollowupsTable.COLUMN_NAME_SUBAREACODE,
-                FollowupsContract.FollowupsTable.COLUMN_NAME_LHWCODE,
-                FollowupsContract.FollowupsTable.COLUMN_NAME_FUP_DATE,
-                FollowupsContract.FollowupsTable.COLUMN_NAME_SNO,
-                FollowupsContract.FollowupsTable.COLUMN_NAME_S1,
-                FollowupsContract.FollowupsTable.COLUMN_NAME_HOUSEHOLD
+                FollowupsTable.COLUMN_NAME_LUID,
+                FollowupsTable.COLUMN_NAME_WOMEN_NAME,
+                FollowupsTable.COLUMN_NAME_SUBAREACODE,
+                FollowupsTable.COLUMN_NAME_LHWCODE,
+                FollowupsTable.COLUMN_NAME_FUP_DATE,
+                FollowupsTable.COLUMN_NAME_SNO,
+                FollowupsTable.COLUMN_NAME_S1,
+                FollowupsTable.COLUMN_NAME_HOUSEHOLD
         };
 
-        String whereClause = FollowupsContract.FollowupsTable.COLUMN_NAME_SUBAREACODE + " = ? AND " +
-                FollowupsContract.FollowupsTable.COLUMN_NAME_LHWCODE + " = ? AND " +
-                FollowupsContract.FollowupsTable.COLUMN_NAME_HOUSEHOLD + " = ? ";
+        String whereClause = FollowupsTable.COLUMN_NAME_SUBAREACODE + " = ? AND " +
+                FollowupsTable.COLUMN_NAME_LHWCODE + " = ? AND " +
+                FollowupsTable.COLUMN_NAME_HOUSEHOLD + " = ? ";
         String[] whereArgs = new String[]{clusterCode, lhwCode, hhno};
         String groupBy = null;
         String having = null;
 
         String orderBy =
-                FollowupsContract.FollowupsTable.COLUMN_NAME_WOMEN_NAME + " ASC";
+                FollowupsTable.COLUMN_NAME_WOMEN_NAME + " ASC";
 
         Collection<FollowupsContract> allEC = new ArrayList<>();
         try {
             c = db.query(
-                    FollowupsContract.FollowupsTable.TABLE_NAME,  // The table to query
+                    FollowupsTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
