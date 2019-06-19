@@ -202,7 +202,7 @@ public class UpdateFormActivity extends Activity
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
-        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+
 
         if (ValidateForm()) {
             //try {
@@ -232,7 +232,7 @@ public class UpdateFormActivity extends Activity
 
     @OnClick(btn_Continue)
     void onBtnContinueClick() {
-        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+
 
 //        Intent secba = new Intent(this, ParticipantListActivity.class);
 //        startActivity(secba);
@@ -244,7 +244,7 @@ public class UpdateFormActivity extends Activity
             //  e.printStackTrace();
             //}
             if (UpdateDB()) {
-                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+
 
                 finish();
                 Intent secba = new Intent(this, ParticipantListActivity.class);
@@ -266,7 +266,7 @@ public class UpdateFormActivity extends Activity
     }
 
     private void SaveDraft() {
-        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
+
 
         SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
 

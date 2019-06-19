@@ -269,7 +269,7 @@ public class SectionCFCActivity extends Activity {
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
-        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+
 
 //        if (ValidateForm()) {
 //            try {
@@ -292,7 +292,7 @@ public class SectionCFCActivity extends Activity {
 
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
-        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+
         if (ValidateForm()) {
             try {
                 SaveDraft();
@@ -300,7 +300,7 @@ public class SectionCFCActivity extends Activity {
                 e.printStackTrace();
             }
             if (UpdateDB()) {
-                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+
 
                 finish();
 
@@ -492,7 +492,7 @@ public class SectionCFCActivity extends Activity {
     }
 
     private void SaveDraft() throws JSONException {
-        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
+
 
         JSONObject SCIC = new JSONObject();
 

@@ -162,7 +162,7 @@ public class SectionCFAActivity extends Activity {
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
-        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+
 
 //        if (ValidateForm()) {
 //            try {
@@ -185,7 +185,6 @@ public class SectionCFAActivity extends Activity {
 
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
-        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
 
 
         if (ValidateForm()) {
@@ -195,7 +194,7 @@ public class SectionCFAActivity extends Activity {
                 e.printStackTrace();
             }
             if (UpdateDB()) {
-                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+
 
                 finish();
                 Intent secchb = new Intent(this, SectionCFBActivity.class);
@@ -337,7 +336,7 @@ public class SectionCFAActivity extends Activity {
     }
 
     private void SaveDraft() throws JSONException {
-        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
+
 
         JSONObject SCIA = new JSONObject();
 

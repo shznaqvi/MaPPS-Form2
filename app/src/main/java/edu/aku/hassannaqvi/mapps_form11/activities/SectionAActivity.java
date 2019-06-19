@@ -312,7 +312,7 @@ public class SectionAActivity extends Activity {
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
 
-        Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+
 
 //        Intent secba = new Intent(this, ParticipantListActivity.class);
 //        startActivity(secba);
@@ -328,14 +328,14 @@ public class SectionAActivity extends Activity {
                 AppMain.ParticipantsName.remove(position);
 
                 finish();
-                if (s1) {
+//                if (s1) {
                     Intent secba = new Intent(this, SectionBAActivity.class);
                     secba.putExtra("data", AppMain.totalWmCount);
                     startActivity(secba);
-                } else {
+                /*} else {
                     Intent secba = new Intent(this, SectionEActivity.class);
                     startActivity(secba);
-                }
+                }*/
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();

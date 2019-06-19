@@ -621,7 +621,7 @@ public class SectionCBActivity extends Activity {
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
-        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+
 
 //        if (ValidateForm()) {
 //            try {
@@ -645,7 +645,6 @@ public class SectionCBActivity extends Activity {
 
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
-        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
 
 
         if (ValidateForm()) {
@@ -655,7 +654,7 @@ public class SectionCBActivity extends Activity {
                 e.printStackTrace();
             }
             if (UpdateDB()) {
-                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+
 
                 finish();
                 Intent secc = new Intent(this, SectionCCActivity.class);
@@ -684,7 +683,7 @@ public class SectionCBActivity extends Activity {
     }
 
     private void SaveDraft() throws JSONException {
-        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
+
 
         JSONObject sCC = new JSONObject();
 

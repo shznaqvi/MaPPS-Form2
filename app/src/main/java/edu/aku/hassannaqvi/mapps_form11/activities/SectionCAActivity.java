@@ -749,7 +749,6 @@ public class SectionCAActivity extends Activity {
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
 
-        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
 
         if (ValidateForm()) {
             try {
@@ -758,20 +757,13 @@ public class SectionCAActivity extends Activity {
                 e.printStackTrace();
             }
             if (UpdateDB()) {
-                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+
 
                 finish();
 
                 Intent seccc = new Intent(this, SectionCBActivity.class);
                 startActivity(seccc);
 
-                /*if (mp02ca00101.isChecked() && mp02ca00201.isChecked()) {
-
-                } else {
-                    Intent endSec = new Intent(this, SectionCActivity.class);
-                    endSec.putExtra("complete", false);
-                    startActivity(endSec);
-                }*/
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -795,7 +787,7 @@ public class SectionCAActivity extends Activity {
     }
 
     private void SaveDraft() throws JSONException {
-        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
+
 
         JSONObject scb = new JSONObject();
 
