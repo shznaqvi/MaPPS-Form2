@@ -124,4 +124,28 @@ public class ClearClass {
     }
 
 
+    public static void ClearAllC(CardView cv) {
+
+        /// Checkbox Clear*************************************
+
+        try {
+
+            for (int i = 0, count = cv.getChildCount(); i < count; ++i) {
+                View view = cv.getChildAt(i);
+                if (view instanceof CheckBox) {
+                    ((CheckBox) view).setChecked(false);
+                } else if (view instanceof RadioGroup) {
+                    ((RadioGroup) view).clearCheck();
+                } else if (view instanceof EditText) {
+                    ((EditText) view).setText("");
+                }
+
+            }
+        } catch (Exception e) {
+
+        }
+
+    }
+
+
 }
