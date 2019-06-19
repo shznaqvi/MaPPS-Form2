@@ -286,7 +286,7 @@ public class SectionAActivity extends Activity {
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
-        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+
 
         if (ValidateForm()) {
             try {
@@ -353,7 +353,7 @@ public class SectionAActivity extends Activity {
         AppMain.fc.setID(rowId);
 
         if (rowId != null) {
-            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+
             AppMain.fc.setUID(
                     (AppMain.fc.getDeviceID() + AppMain.fc.getID()));
             Toast.makeText(this, "Current Form No: " + AppMain.fc.getUID(), Toast.LENGTH_SHORT).show();
@@ -404,7 +404,6 @@ public class SectionAActivity extends Activity {
 
         setGPS();
 
-        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
     }
 

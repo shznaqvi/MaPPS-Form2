@@ -118,7 +118,7 @@ public class EndingActivity extends Activity {
 
         AppMain.fc.setIstatus(mp02a01401.isChecked() ? "1" : mp02a01402.isChecked() ? "2" : mp02a01403.isChecked() ? "3" : mp02a01404.isChecked() ? "4" : mp02a01405.isChecked() ? "5" : mp02a01406.isChecked() ? "6" : "0");
 
-        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+
     }
 
     private boolean UpdateDB() {
@@ -127,7 +127,7 @@ public class EndingActivity extends Activity {
         int updcount = db.updateEnding();
 
         if (updcount == 1) {
-            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();

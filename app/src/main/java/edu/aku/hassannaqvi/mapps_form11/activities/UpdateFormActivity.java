@@ -215,7 +215,7 @@ public class UpdateFormActivity extends Activity
                 finish();
 
                 if (AppMain.formType.equals("1")) {
-                    Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+
                     Intent endSec = new Intent(this, EndingActivity.class);
                     endSec.putExtra("complete", false);
                     startActivity(endSec);
@@ -289,7 +289,6 @@ public class UpdateFormActivity extends Activity
 
         //setGPS();
 
-        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
     }
 

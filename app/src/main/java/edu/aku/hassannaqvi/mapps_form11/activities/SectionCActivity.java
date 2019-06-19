@@ -121,7 +121,7 @@ public class SectionCActivity extends Activity {
         AppMain.pc.setIstatus(mp02c00201.isChecked() ? "1" : mp02c00202.isChecked() ? "2" : mp02c00203.isChecked() ? "3" : mp02c00204.isChecked() ? "4"
                 : mp02c00205.isChecked() ? "5" : mp02c00206.isChecked() ? "6" : mp02c00207.isChecked() ? "7" : "0");
         AppMain.pc.setApp_version(AppMain.versionName + "." + AppMain.versionCode);
-        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+
     }
 
     private boolean UpdateDB() {
@@ -130,7 +130,7 @@ public class SectionCActivity extends Activity {
         int updcount = db.updateParticipantEnding();
 
         if (updcount == 1) {
-            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();

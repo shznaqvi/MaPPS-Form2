@@ -37,6 +37,8 @@ public class FormsContract {
     private String sCFC = "";
     private String sD = "";
     private String sE = "";
+    private String sF = "";
+    private String sG = "";
     private String gpsLat = "";
     private String gpsLng = "";
     private String gpsTime = "";
@@ -320,6 +322,22 @@ public class FormsContract {
         this.tagID = tagID;
     }
 
+    public String getsF() {
+        return sF;
+    }
+
+    public void setsF(String sF) {
+        this.sF = sF;
+    }
+
+    public String getsG() {
+        return sG;
+    }
+
+    public void setsG(String sG) {
+        this.sG = sG;
+    }
+
     public FormsContract Sync(JSONObject jsonObject) throws JSONException {
         this.projectName = jsonObject.getString(FormsTable.COLUMN_PROJECTNAME);
         this.surveyType = jsonObject.getString(FormsTable.COLUMN_SURVEYTYPE);
@@ -345,6 +363,8 @@ public class FormsContract {
         this.sCFC = jsonObject.getString(FormsTable.COLUMN_SCFC);
         this.sD = jsonObject.getString(FormsTable.COLUMN_SD);
         this.sE = jsonObject.getString(FormsTable.COLUMN_SE);
+        this.sF = jsonObject.getString(FormsTable.COLUMN_SF);
+        this.sG = jsonObject.getString(FormsTable.COLUMN_SG);
         //this.sBB = jsonObject.getString(FormsTable.COLUMN_SBB);
         this.gpsLat = jsonObject.getString(FormsTable.COLUMN_GPSLAT);
         this.gpsLng = jsonObject.getString(FormsTable.COLUMN_GPSLNG);
@@ -385,6 +405,8 @@ public class FormsContract {
         this.sCFC = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SCFC));
         this.sD = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SD));
         this.sE = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SE));
+        this.sF = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SF));
+        this.sG = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SG));
         //this.sBB = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SBB));
         this.gpsLat = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSLAT));
         this.gpsLng = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSLNG));
@@ -420,7 +442,7 @@ public class FormsContract {
 
         try {
             if (!this.sA.equals("")) {
-        json.put(FormsTable.COLUMN_SA, this.sA == null ? JSONObject.NULL : new JSONObject(this.sA));
+                json.put(FormsTable.COLUMN_SA, this.sA == null ? JSONObject.NULL : new JSONObject(this.sA));
             }
         } catch (Exception e) {
 
@@ -428,7 +450,7 @@ public class FormsContract {
 
         try {
             if (!this.sBA.equals("")) {
-            json.put(FormsTable.COLUMN_SBA, this.sBA == null ? JSONObject.NULL : new JSONObject(this.sBA));
+                json.put(FormsTable.COLUMN_SBA, this.sBA == null ? JSONObject.NULL : new JSONObject(this.sBA));
             }
         } catch (Exception e) {
 
@@ -514,6 +536,22 @@ public class FormsContract {
 
         }
 
+        try {
+            if (!this.sF.equals("")) {
+                json.put(FormsTable.COLUMN_SF, this.sF == null ? JSONObject.NULL : new JSONObject(this.sF));
+            }
+        } catch (Exception e) {
+
+        }
+
+        try {
+            if (!this.sG.equals("")) {
+                json.put(FormsTable.COLUMN_SG, this.sG == null ? JSONObject.NULL : new JSONObject(this.sG));
+            }
+        } catch (Exception e) {
+
+        }
+
         json.put(FormsTable.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
         json.put(FormsTable.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
         json.put(FormsTable.COLUMN_GPSTIME, this.gpsTime == null ? JSONObject.NULL : this.gpsTime);
@@ -558,7 +596,8 @@ public class FormsContract {
         public static final String COLUMN_SCFC = "scfc";
         public static final String COLUMN_SD = "sd";
         public static final String COLUMN_SE = "se";
-        //public static final String COLUMN_SBB = "sbb";
+        public static final String COLUMN_SF = "sf";
+        public static final String COLUMN_SG = "sg";
         public static final String COLUMN_GPSLAT = "gpslat";
         public static final String COLUMN_GPSLNG = "gpslng";
         public static final String COLUMN_GPSTIME = "gpstime";

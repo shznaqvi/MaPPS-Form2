@@ -2,10 +2,9 @@ package edu.aku.hassannaqvi.mapps_form11.activities;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -15,14 +14,15 @@ import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.mapps_form11.R;
 import edu.aku.hassannaqvi.mapps_form11.core.AppMain;
+import edu.aku.hassannaqvi.mapps_form11.core.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form11.databinding.ActivitySectionGBinding;
 import edu.aku.hassannaqvi.mapps_form11.validation.ClearClass;
 import edu.aku.hassannaqvi.mapps_form11.validation.ValidatorClass;
 
 public class SectionGActivity extends AppCompatActivity {
     ActivitySectionGBinding bi;
-    
-    
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +31,6 @@ public class SectionGActivity extends AppCompatActivity {
         setupSkips();
 
     }
-    
-    
 
     public void BtnContinue() {
         if (validateField()) {
@@ -42,8 +40,9 @@ public class SectionGActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            Intent c2 = new Intent(this, MainActivity.class);
-            startActivity(c2);
+            if (!UpdateDB()) return;
+
+            startActivity(new Intent(this, SectionDActivity.class));
 
         } else {
             Toast.makeText(this, "Required fields are missing", Toast.LENGTH_LONG).show();
@@ -53,9 +52,23 @@ public class SectionGActivity extends AppCompatActivity {
     }
 
 
+    private boolean UpdateDB() {
+        DatabaseHelper db = new DatabaseHelper(this);
+
+        int updcount = db.updateG();
+
+        if (updcount == 1) {
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+    }
+
     public void BtnEnd() {
         finish();
-        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+
         Intent endSec = new Intent(this, EndingActivity.class);
         endSec.putExtra("complete", false);
         startActivity(endSec);
@@ -107,9 +120,8 @@ public class SectionGActivity extends AppCompatActivity {
                 : bi.mp02g06d.isChecked() ? "4"
                 : "0");
 
-        AppMain.fc.setsCFC(String.valueOf(json));
+        AppMain.fc.setsG(String.valueOf(json));
 
-        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -161,6 +173,6 @@ public class SectionGActivity extends AppCompatActivity {
 
         return ValidatorClass.EmptyCheckingContainer(this, bi.llmp02g);
     }
-    
+
 
 }

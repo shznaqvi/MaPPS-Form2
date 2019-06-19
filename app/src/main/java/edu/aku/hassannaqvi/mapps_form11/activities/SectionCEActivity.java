@@ -1141,8 +1141,8 @@ public class SectionCEActivity extends Activity {
 //            }
 //            if (UpdateDB()) {
         finish();
-                Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-                Intent endSec = new Intent(this, EndingActivity.class);
+
+        Intent endSec = new Intent(this, EndingActivity.class);
                 endSec.putExtra("complete", false);
                 startActivity(endSec);
 //            } else {
@@ -1186,7 +1186,7 @@ public class SectionCEActivity extends Activity {
         int updcount = db.updateCE();
 
         if (updcount == 1) {
-            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
@@ -1328,7 +1328,6 @@ public class SectionCEActivity extends Activity {
 */
         AppMain.fc.setsCE(String.valueOf(scf));
 
-        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
     }
 

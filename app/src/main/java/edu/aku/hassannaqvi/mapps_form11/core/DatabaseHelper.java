@@ -75,7 +75,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             FormsTable.COLUMN_SCFC + " TEXT," +
             FormsTable.COLUMN_SD + " TEXT," +
             FormsTable.COLUMN_SE + " TEXT," +
-            //FormsTable.COLUMN_SBB + " TEXT," +
+            FormsTable.COLUMN_SF + " TEXT," +
+            FormsTable.COLUMN_SG + " TEXT," +
             FormsTable.COLUMN_GPSLAT + " TEXT," +
             FormsTable.COLUMN_GPSLNG + " TEXT," +
             FormsTable.COLUMN_GPSTIME + " TEXT," +
@@ -451,6 +452,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_SCFC, fc.getsCFC());
         values.put(FormsTable.COLUMN_SD, fc.getsD());
         values.put(FormsTable.COLUMN_SE, fc.getsE());
+        values.put(FormsTable.COLUMN_SF, fc.getsF());
+        values.put(FormsTable.COLUMN_SG, fc.getsG());
         values.put(FormsTable.COLUMN_GPSLAT, fc.getGpsLat());
         values.put(FormsTable.COLUMN_GPSLNG, fc.getGpsLng());
         values.put(FormsTable.COLUMN_GPSTIME, fc.getGpsTime());
@@ -955,6 +958,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
+    public int updateF() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(FormsTable.COLUMN_SF, AppMain.fc.getsF());
+//        values.put(ParticipantsTable.COLUMN_UID, AppMain.pc.getUID());
+
+
+// Which row to update, based on the ID
+        String selection = FormsTable._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
+
+        int count = db.update(FormsTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+    public int updateG() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(FormsTable.COLUMN_SG, AppMain.fc.getsG());
+//        values.put(ParticipantsTable.COLUMN_UID, AppMain.pc.getUID());
+
+
+// Which row to update, based on the ID
+        String selection = FormsTable._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
+
+        int count = db.update(FormsTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
     public int updateD() {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -1413,6 +1456,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_SCFC,
                 FormsTable.COLUMN_SD,
                 FormsTable.COLUMN_SE,
+                FormsTable.COLUMN_SF,
+                FormsTable.COLUMN_SG,
                 //FormsTable.COLUMN_SBB,
                 FormsTable.COLUMN_GPSLAT,
                 FormsTable.COLUMN_GPSLNG,
@@ -1487,6 +1532,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_SCFC,
                 FormsTable.COLUMN_SD,
                 FormsTable.COLUMN_SE,
+                FormsTable.COLUMN_SF,
+                FormsTable.COLUMN_SG,
                 //FormsTable.COLUMN_SBB,
                 FormsTable.COLUMN_GPSLAT,
                 FormsTable.COLUMN_GPSLNG,

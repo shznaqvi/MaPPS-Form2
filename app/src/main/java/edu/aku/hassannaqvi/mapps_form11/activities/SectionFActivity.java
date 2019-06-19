@@ -2,15 +2,18 @@ package edu.aku.hassannaqvi.mapps_form11.activities;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import edu.aku.hassannaqvi.mapps_form11.R;
 import edu.aku.hassannaqvi.mapps_form11.core.AppMain;
+import edu.aku.hassannaqvi.mapps_form11.core.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form11.databinding.ActivitySectionFBinding;
 import edu.aku.hassannaqvi.mapps_form11.validation.ClearClass;
 import edu.aku.hassannaqvi.mapps_form11.validation.ValidatorClass;
@@ -37,6 +40,8 @@ public class SectionFActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
+            if (!UpdateDB()) return;
+
             Intent c2 = new Intent(this, SectionGActivity.class);
             startActivity(c2);
 
@@ -47,10 +52,23 @@ public class SectionFActivity extends AppCompatActivity {
 
     }
 
+    private boolean UpdateDB() {
+        DatabaseHelper db = new DatabaseHelper(this);
+
+        int updcount = db.updateF();
+
+        if (updcount == 1) {
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+    }
 
     public void BtnEnd() {
         finish();
-        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+
         Intent endSec = new Intent(this, EndingActivity.class);
         endSec.putExtra("complete", false);
         startActivity(endSec);
@@ -116,9 +134,9 @@ public class SectionFActivity extends AppCompatActivity {
                 : bi.mp02f0896.isChecked() ? "96"
                 : "0");
 
-        AppMain.fc.setsCFC(String.valueOf(json));
+        AppMain.fc.setsF(String.valueOf(json));
 
-        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+
     }
 
 
