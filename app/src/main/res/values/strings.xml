@@ -37,6 +37,7 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="other">ٻيو ڪو(وضاحت ڪريو)</string>
+    <string name="exp">وضاحت ڪريو</string>
     <string name="ot">ٻيو ڪجه</string>
     <string name="dkn">خبر ڪونهي</string>
     <string name="yes">ها</string>
@@ -996,12 +997,18 @@
     <string name="mp02g03e"> پوليو </string>
     <string name="mp02g03f"> ماء جي غلاج لاء </string>
     <string name="mp02g03g"> ٻار جي غلاج لاء </string>
+    <string name="mp02g03h">MMN/IFA supply</string>
     <string name="mp02g04"> ڇا توهان ڪڏهن به صحت متعلق ڪنهن گڏجاڻي ۾ ويا آهيو ؟ </string>
-    <string name="mp02g05"> ڪڏهن ڪڏهن اڪثر توهان جو اهڙين گڏجاڻين ۾ وڃڻ ٿيو آهي </string>
-    <string name="mp02g05a"> هر مهيني </string>
-    <string name="mp02g05b"> گزريل ٽن مهينن ۾ </string>
-    <string name="mp02g05c"> گزريل ڇهن مهينن ۾ </string>
-    <string name="mp02g05d"> سال ۾ هڪ دفعو </string>
+    <string name="mp02g04a"> گزريل مهيني </string>
+    <string name="mp02g04b"> گزريل ٽن مهينن دوران </string>
+    <string name="mp02g04c"> گزريل ڇهن مهينن  ۾ </string>
+    <string name="mp02g0497"> ڪڏهن به نه </string>
+    <string name="mp02g05"> ڇا توهان ڪڏهن به  صحت متعلق ڪنهن گڏجاڻي ۾ ويا آهيو ؟ </string>
+    <string name="mp02g06"> ڪڏهن ڪڏهن اڪثر توهان جو اهڙين گڏجاڻين ۾ وڃڻ ٿيو آهي </string>
+    <string name="mp02g06a"> هر مهيني </string>
+    <string name="mp02g06b"> گزريل ٽن مهينن ۾ </string>
+    <string name="mp02g06c"> گزريل ڇهن مهينن ۾ </string>
+    <string name="mp02g06d"> سال ۾ هڪ دفعو </string>
 
 
 </resources>
