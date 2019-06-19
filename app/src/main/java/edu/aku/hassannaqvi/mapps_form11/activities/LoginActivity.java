@@ -125,20 +125,41 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         AppMain.loginMem = new String[3];
         AppMain.loginMem[0] = "...";    //default value
 
-        try {
+        /*try {
             AppMain.installedOn = this
                     .getPackageManager()
-                    .getPackageInfo("edu.aku.hassannaqvi.mapps_form3", 0)
+                    .getPackageInfo("edu.aku.hassannaqvi.mapps_form11", 0)
                     .lastUpdateTime;
             AppMain.versionCode = this
                     .getPackageManager()
-                    .getPackageInfo("edu.aku.hassannaqvi.mapps_form3", 0)
+                    .getPackageInfo("edu.aku.hassannaqvi.mapps_form11", 0)
                     .versionCode;
             AppMain.versionName = this
                     .getPackageManager()
-                    .getPackageInfo("edu.aku.hassannaqvi.mapps_form3", 0)
+                    .getPackageInfo("edu.aku.hassannaqvi.mapps_form11", 0)
                     .versionName;
             txtinstalldate.setText("Ver. " + AppMain.versionName + "." + String.valueOf(AppMain.versionCode) + " \r\n( Last Updated: " + new SimpleDateFormat("dd MMM. yyyy").format(new Date(AppMain.installedOn)) + " )");
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }*/
+
+        try {
+
+            String packageName = getApplicationContext().getPackageName();
+
+            long installedOn = this
+                    .getPackageManager()
+                    .getPackageInfo(packageName, 0)
+                    .lastUpdateTime;
+            AppMain.versionCode = this
+                    .getPackageManager()
+                    .getPackageInfo(packageName, 0)
+                    .versionCode;
+            AppMain.versionName = this
+                    .getPackageManager()
+                    .getPackageInfo(packageName, 0)
+                    .versionName;
+            txtinstalldate.setText("Ver. " + AppMain.versionName + "." + AppMain.versionCode + " \r\n( Last Updated: " + new SimpleDateFormat("dd MMM. yyyy").format(new Date(installedOn)) + " )");
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
