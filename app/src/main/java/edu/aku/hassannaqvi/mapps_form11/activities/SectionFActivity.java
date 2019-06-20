@@ -238,4 +238,9 @@ public class SectionFActivity extends AppCompatActivity {
         return ValidatorClass.EmptyCheckingContainer(this, bi.llmp02f);
     }
 
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+    }
+
 }

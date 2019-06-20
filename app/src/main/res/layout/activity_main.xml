@@ -182,53 +182,6 @@
                 android:text="Section A" />
 
             <Button
-                android:id="@+id/openB"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="16dp"
-                android:onClick="openB"
-                android:text="Section B" />
-
-            <Button
-                android:id="@+id/openC"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="16dp"
-                android:onClick="openC"
-                android:text="Section C" />
-
-            <Button
-                android:id="@+id/openD"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="16dp"
-                android:onClick="openD"
-                android:text="Section D" />
-
-            <Button
-                android:id="@+id/openE"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="16dp"
-                android:onClick="openE"
-                android:text="Section E" />
-
-
-
-            <!--<Button-->
-            <!--android:id="@+id/openEnd"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginBottom="8dp"-->
-            <!--android:layout_marginTop="16dp"-->
-            <!--android:onClick="openEnd"-->
-            <!--android:text="Section End" />-->
-
-            <Button
                 android:id="@+id/openDB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

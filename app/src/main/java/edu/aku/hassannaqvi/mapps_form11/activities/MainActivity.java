@@ -348,13 +348,8 @@ public class MainActivity extends Activity {
     }
 
     public void openA(View v) {
-        Intent iA = new Intent(this, SectionAActivity.class);
+        Intent iA = new Intent(this, SectionGActivity.class);
         startActivity(iA);
-    }
-
-    public void openD(View v) {
-        Intent iD = new Intent(this, SectionEActivity.class);
-        startActivity(iD);
     }
 
 
