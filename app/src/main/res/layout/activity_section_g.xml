@@ -29,8 +29,8 @@
             <TextView
                 android:id="@+id/app_header"
                 style="@style/lblTextView"
-                android:layout_marginTop="0dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="0dp"
                 android:background="@color/colorAccent"
                 android:gravity="center"
                 android:text="@string/mp02gh"
@@ -51,22 +51,23 @@
                     <EditText
                         android:id="@+id/mp02g01a"
                         style="@style/EditText_number"
-                        android:maxLength="2"
                         android:hint="@string/mp02g01a"
-                        android:visibility='@{mp02g0197.checked? View.GONE : View.VISIBLE}'
-                        android:text='@{mp02g0197.checked ? "" : mp02g01a.getText.toString }'/>
+                        android:maxLength="2"
+                        android:text='@{mp02g0197.checked ? "" : mp02g01a.getText.toString }'
+                        android:visibility='@{mp02g0197.checked? View.GONE : View.VISIBLE}' />
 
                     <EditText
                         android:id="@+id/mp02g01b"
                         style="@style/EditText_number"
-                        android:maxLength="2"
                         android:hint="@string/mp02g01b"
-                        android:visibility='@{mp02g0197.checked? View.GONE : View.VISIBLE}'
-                        android:text='@{mp02g0197.checked ? "" : mp02g01b.getText.toString }'/>
+                        android:maxLength="2"
+                        android:text='@{mp02g0197.checked ? "" : mp02g01b.getText.toString }'
+                        android:visibility='@{mp02g0197.checked? View.GONE : View.VISIBLE}' />
 
                     <CheckBox
                         android:id="@+id/mp02g0197"
                         style="@style/i_checkbox"
+                        android:tag="-1"
                         android:text="@string/mp02g01c" />
 
                 </LinearLayout>
@@ -121,11 +122,11 @@
 
                         <EditText
                             android:id="@+id/mp02g0296x"
-                            android:tag="mp02g0296"
                             style="@style/EditText"
                             android:hint="@string/mp02g02f"
-                            android:visibility='@{mp02g0296.checked? View.VISIBLE : View.GONE}'
-                            android:text='@{mp02g0296.checked ? mp02g0296x.getText.toString : "" }'/>
+                            android:tag="mp02g0296"
+                            android:text='@{mp02g0296.checked ? mp02g0296x.getText.toString : "" }'
+                            android:visibility='@{mp02g0296.checked? View.VISIBLE : View.GONE}' />
 
                     </RadioGroup>
 
@@ -196,11 +197,11 @@
 
                         <EditText
                             android:id="@+id/mp02g0396x"
-                            android:tag="mp02g0396"
                             style="@style/EditText"
                             android:hint="@string/exp"
-                            android:visibility='@{mp02g0396.checked? View.VISIBLE : View.GONE}'
-                            android:text='@{mp02g0396.checked ? mp02g0396x.getText.toString : "" }'/>
+                            android:tag="mp02g0396"
+                            android:text='@{mp02g0396.checked ? mp02g0396x.getText.toString : "" }'
+                            android:visibility='@{mp02g0396.checked? View.VISIBLE : View.GONE}' />
 
                     </RadioGroup>
 

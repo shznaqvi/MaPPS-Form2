@@ -300,7 +300,7 @@
     <string name="mp02cb00404"> عيسائي </string>
     <string name="mp02cb005"> ڇا توهان ڪڏهن اسڪول ۾ پڙهڻ ويا؟ </string>
     <string name="mp02cb006"> توهان آخري درجو ڪهڙو پاس ڪيو آهي؟ </string>
-    <string name="mp02cb007"> توهان وڌ ۾ وڌ ڪهڙو ڪلاس اٽينڊ آهي؟ </string>
+    <string name="mp02cb007"> توهان وڌ ۾ وڌ ڪهڙي تعليم حاصل ڪئي آهي؟ </string>
     <string name="mp02cb00701"> ڪا به نه </string>
     <string name="mp02cb00702"> پرائيمري </string>
     <string name="mp02cb00703"> سيڪينڊري </string>
@@ -311,7 +311,7 @@
     <string name="mp02cb00801"> اڻ سکيل هٿ جي مزدوري </string>
     <string name="mp02cb00802"> سکيل هٿ جي مزدوري </string>
     <string name="mp02cb00803"> زراعت </string>
-    <string name="mp02cb00804"> گهريلو ڪم ڪار </string>
+    <string name="mp02cb00804"> گهريلو ڪم ڪار (پئسن جي عيوض) </string>
     <string name="mp02cb00805"> ڪاروبار </string>
     <string name="mp02cb00806"> ماهر </string>
     <string name="mp02cb00807"> شاگرد </string>
@@ -327,7 +327,7 @@
     <string name="mp02cb010"> توهان جو مڙس پنهنجي گذريل جنم ڏينهن تي ڪيترن سالن جو ٿيو هو ؟(پورا سال) </string>
     <string name="mp02cb011"> ڇا توهان جو مڙس ڪڏهن اسڪول ۾ پڙهڻ ويو؟ </string>
     <string name="mp02cb012"> توهان جي مڙس ڪهڙو درجو پاس ڪيو آهي؟ </string>
-    <string name="mp02cb013"> توهان جي مڙس وڌ ۾ وڌ ڪهڙو ڪلاس اٽينڊ ڪيو </string>
+    <string name="mp02cb013"> توهان جي مڙس وڌ ۾ وڌ ڪهڙي تعليم حاصل ڪئي آهي؟ </string>
     <string name="mp02cb01301"> ڪا به نه </string>
     <string name="mp02cb01302"> پرائيمري </string>
     <string name="mp02cb01303"> سيڪينڊري </string>
@@ -998,7 +998,7 @@
     <string name="mp02g03f"> ماء جي غلاج لاء </string>
     <string name="mp02g03g"> ٻار جي غلاج لاء </string>
     <string name="mp02g03h">MMN/IFA supply</string>
-    <string name="mp02g04"> ڇا توهان ڪڏهن به صحت متعلق ڪنهن گڏجاڻي ۾ ويا آهيو ؟ </string>
+    <string name="mp02g04"> ليڊي هيلٿ ورڪر آخري دفعو صحت بابت ڄاڻ ڏيڻ لاء ڪڌهن گڏجاڻي ڪئي ؟ </string>
     <string name="mp02g04a"> گزريل مهيني </string>
     <string name="mp02g04b"> گزريل ٽن مهينن دوران </string>
     <string name="mp02g04c"> گزريل ڇهن مهينن  ۾ </string>

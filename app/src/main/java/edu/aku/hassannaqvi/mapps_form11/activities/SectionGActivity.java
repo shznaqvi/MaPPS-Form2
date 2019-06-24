@@ -80,8 +80,9 @@ public class SectionGActivity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("mp02g01a", bi.mp02g0197.isChecked() ? "97" : bi.mp02g01a.getText().toString());
-        json.put("mp02g01b", bi.mp02g0197.isChecked() ? "97" : bi.mp02g01b.getText().toString());
+        json.put("mp02g01a", bi.mp02g01a.getText().toString());
+        json.put("mp02g01b", bi.mp02g01b.getText().toString());
+        json.put("mp02g0197", bi.mp02g0197.isChecked() ? "97" : "0");
 
         json.put("mp02g02", bi.mp02g02a.isChecked() ? "1"
                 : bi.mp02g02b.isChecked() ? "2"
@@ -151,7 +152,7 @@ public class SectionGActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-                if (checkedId != bi.mp02g05a.getId()) {
+                if (checkedId == bi.mp02g05a.getId()) {
                     bi.mp02g06cv.setVisibility(View.VISIBLE);
                 } else {
                     ClearClass.ClearAllC(bi.mp02g06cv);
