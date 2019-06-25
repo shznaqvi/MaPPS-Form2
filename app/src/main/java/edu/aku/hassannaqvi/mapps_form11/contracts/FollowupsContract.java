@@ -48,7 +48,11 @@ public class FollowupsContract {
         this.lhwCode = jsonObject.getString(FollowupsTable.COLUMN_NAME_LHWCODE);
         this.houseHold = jsonObject.getString(FollowupsTable.COLUMN_NAME_HOUSEHOLD);
         this.women_name = jsonObject.getString(FollowupsTable.COLUMN_NAME_WOMEN_NAME);
-        this.fupdate = jsonObject.getString(FollowupsTable.COLUMN_NAME_FUP_DATE);
+
+
+        this.fupdate = jsonObject.getString(FollowupsTable.COLUMN_NAME_FUP_DATE_F4);
+
+
         this.sno = jsonObject.getString(FollowupsTable.COLUMN_NAME_SNO);
         this.s1 = jsonObject.getString(FollowupsTable.COLUMN_NAME_S1);
         return this;
@@ -168,12 +172,15 @@ public class FollowupsContract {
         public static final String COLUMN_NAME_HOUSEHOLD = "hhno";
         public static final String COLUMN_NAME_WOMEN_NAME = "epname";
         public static final String COLUMN_NAME_FUP_DATE = "fupdt";
+        public static final String COLUMN_NAME_FUP_DATE_F4 = "fdate_f4";
         public static final String COLUMN_NAME_SNO = "sno";
         public static final String COLUMN_NAME_S1 = "s1";
 
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "synced_date";
         public static final String _URIGET = "annual_followups.php";
+
+        public static final String _URIGET1 = "getenrolled.php";
     }
 
 }
