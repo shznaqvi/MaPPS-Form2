@@ -1,8 +1,8 @@
 package edu.aku.hassannaqvi.mapps_form11.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -15,7 +15,7 @@ import edu.aku.hassannaqvi.mapps_form11.R;
 import edu.aku.hassannaqvi.mapps_form11.core.AppMain;
 import edu.aku.hassannaqvi.mapps_form11.core.DatabaseHelper;
 
-public class EndingActivity extends Activity {
+public class EndingActivity extends AppCompatActivity {
 
     @BindView(R.id.activity_ending)
     RelativeLayout activityEnding;

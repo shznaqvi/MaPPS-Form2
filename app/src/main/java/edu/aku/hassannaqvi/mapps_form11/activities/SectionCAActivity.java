@@ -1,9 +1,9 @@
 package edu.aku.hassannaqvi.mapps_form11.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -16,6 +16,8 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.edittextpicker.aliazaz.EditTextPicker;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,7 +34,7 @@ import edu.aku.hassannaqvi.mapps_form11.R;
 import edu.aku.hassannaqvi.mapps_form11.core.AppMain;
 import edu.aku.hassannaqvi.mapps_form11.core.DatabaseHelper;
 
-public class SectionCAActivity extends Activity {
+public class SectionCAActivity extends AppCompatActivity {
 
     private static final String TAG = SectionCAActivity.class.getSimpleName();
 
@@ -1150,7 +1152,7 @@ public class SectionCAActivity extends Activity {
                 mp02cb02002.setError(null);
             }
 
-            if (mp02cb021.getText().toString().isEmpty()) {
+           /* if (mp02cb021.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb021), Toast.LENGTH_LONG).show();
                 mp02cb021.setError("This data is Required!");    // Set Error on last radio button
 
@@ -1207,7 +1209,13 @@ public class SectionCAActivity extends Activity {
                     mp02cb022.setError(null);
                 }
 
-            }
+            }*/
+
+            if (!((EditTextPicker) mp02cb021).isRangeTextValidate())
+                return false;
+
+            if (!((EditTextPicker) mp02cb022).isRangeTextValidate())
+                return false;
 
             if (mp02cb023.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mp02cb023), Toast.LENGTH_LONG).show();

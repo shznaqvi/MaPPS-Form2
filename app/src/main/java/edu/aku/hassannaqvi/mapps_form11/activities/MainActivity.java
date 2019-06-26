@@ -1,6 +1,5 @@
 package edu.aku.hassannaqvi.mapps_form11.activities;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -11,6 +10,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
@@ -44,7 +44,7 @@ import edu.aku.hassannaqvi.mapps_form11.otherclasses.FormsList;
 import edu.aku.hassannaqvi.mapps_form11.syncclasses.SyncForms;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 

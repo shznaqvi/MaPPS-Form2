@@ -1,9 +1,9 @@
 package edu.aku.hassannaqvi.mapps_form11.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -29,7 +29,7 @@ import edu.aku.hassannaqvi.mapps_form11.R;
 import edu.aku.hassannaqvi.mapps_form11.core.AppMain;
 import edu.aku.hassannaqvi.mapps_form11.core.DatabaseHelper;
 
-public class SectionCEActivity extends Activity {
+public class SectionCEActivity extends AppCompatActivity {
 
     private static final String TAG = SectionCEActivity.class.getSimpleName();
 

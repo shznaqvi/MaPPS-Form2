@@ -1,8 +1,8 @@
 package edu.aku.hassannaqvi.mapps_form11.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -21,7 +21,7 @@ import edu.aku.hassannaqvi.mapps_form11.R;
 import edu.aku.hassannaqvi.mapps_form11.core.AppMain;
 import edu.aku.hassannaqvi.mapps_form11.core.DatabaseHelper;
 
-public class SectionCCActivity extends Activity {
+public class SectionCCActivity extends AppCompatActivity {
 
     private static final String TAG = SectionCCActivity.class.getSimpleName();
 

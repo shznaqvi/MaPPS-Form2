@@ -155,7 +155,7 @@ public class SectionGActivity extends AppCompatActivity {
                 if (checkedId == bi.mp02g05a.getId()) {
                     bi.mp02g06cv.setVisibility(View.VISIBLE);
                 } else {
-                    ClearClass.ClearAllC(bi.mp02g06cv);
+                    bi.mp02g06.clearCheck();
                     bi.mp02g06cv.setVisibility(View.GONE);
                 }
 

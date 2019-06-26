@@ -1,12 +1,12 @@
 package edu.aku.hassannaqvi.mapps_form11.activities;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.DateFormat;
@@ -43,7 +43,7 @@ import edu.aku.hassannaqvi.mapps_form11.contracts.FormsContract;
 import edu.aku.hassannaqvi.mapps_form11.core.AppMain;
 import edu.aku.hassannaqvi.mapps_form11.core.DatabaseHelper;
 
-public class SectionAActivity extends Activity {
+public class SectionAActivity extends AppCompatActivity {
 
     private static final String TAG = SectionAActivity.class.getSimpleName();
 

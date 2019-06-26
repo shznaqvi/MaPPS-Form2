@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:contentDescription="Mapps LOGO"
-            android:src="@drawable/mapps2_icon"
+            android:src="@drawable/icon"
             android:paddingTop="72dp" />
 
         <TextView
