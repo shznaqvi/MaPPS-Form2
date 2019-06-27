@@ -622,6 +622,14 @@ public class SectionCAActivity extends AppCompatActivity {
                     mp02cb00704.setEnabled(true);
                     mp02cb00705.setEnabled(true);
                     mp02cb00706.setEnabled(true);
+                } else {
+                    mp02cb007.clearCheck();
+                    mp02cb00701.setEnabled(true);
+                    mp02cb00702.setEnabled(true);
+                    mp02cb00703.setEnabled(true);
+                    mp02cb00704.setEnabled(true);
+                    mp02cb00705.setEnabled(true);
+                    mp02cb00706.setEnabled(true);
                 }
             }
 
