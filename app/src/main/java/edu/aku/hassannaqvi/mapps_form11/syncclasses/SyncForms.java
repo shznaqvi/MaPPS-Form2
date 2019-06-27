@@ -17,6 +17,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 
 import edu.aku.hassannaqvi.mapps_form11.contracts.FormsContract;
@@ -58,7 +59,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
     protected String doInBackground(Void... params) {
 
         String line = "No Response";
-        String url = AppMain._HOST_URL + FormsContract.FormsTable._URL;
+        String url = AppMain._HOST_URL_11 + FormsContract.FormsTable._URL;
         Log.d(TAG, "doInBackground: URL " + url);
         return downloadUrl(url);
     }
@@ -78,12 +79,12 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
                     db.updateSyncedForms(jsonObject.getString("id"));
                     sSynced++;
                 } else {
-                    sSyncedError += "\nError: " + jsonObject.getString("message").toString();
+                    sSyncedError += "\nError: " + jsonObject.getString("message");
                 }
             }
-            Toast.makeText(mContext, sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError, Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, sSynced + " Forms synced." + (json.length() - sSynced) + " Errors: " + sSyncedError, Toast.LENGTH_SHORT).show();
 
-            pd.setMessage(sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError);
+            pd.setMessage(sSynced + " Forms synced." + (json.length() - sSynced) + " Errors: " + sSyncedError);
             pd.setTitle("Done uploading Forms data");
             pd.show();
         } catch (JSONException e) {
@@ -137,11 +138,11 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
                     e.printStackTrace();
                 }
 
-/*===================================================================*/
+                /*===================================================================*/
                 int HttpResult = conn.getResponseCode();
                 if (HttpResult == HttpURLConnection.HTTP_OK) {
                     BufferedReader br = new BufferedReader(new InputStreamReader(
-                            conn.getInputStream(), "utf-8"));
+                            conn.getInputStream(), StandardCharsets.UTF_8));
                     StringBuffer sb = new StringBuffer();
 
                     while ((line = br.readLine()) != null) {
@@ -166,7 +167,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
             return "No new records to sync";
         }
         return line;
-            /*===================================================================*/
+        /*===================================================================*/
 
     }
 
