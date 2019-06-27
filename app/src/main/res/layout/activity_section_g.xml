@@ -52,17 +52,13 @@
                         android:id="@+id/mp02g01a"
                         style="@style/EditText_number"
                         android:hint="@string/mp02g01a"
-                        android:maxLength="2"
-                        android:text='@{mp02g0197.checked ? "" : mp02g01a.getText.toString }'
-                        android:visibility='@{mp02g0197.checked? View.GONE : View.VISIBLE}' />
+                        android:maxLength="2" />
 
                     <EditText
                         android:id="@+id/mp02g01b"
                         style="@style/EditText_number"
                         android:hint="@string/mp02g01b"
-                        android:maxLength="2"
-                        android:text='@{mp02g0197.checked ? "" : mp02g01b.getText.toString }'
-                        android:visibility='@{mp02g0197.checked? View.GONE : View.VISIBLE}' />
+                        android:maxLength="2" />
 
                     <CheckBox
                         android:id="@+id/mp02g0197"

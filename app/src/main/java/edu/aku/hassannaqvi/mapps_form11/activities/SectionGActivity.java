@@ -16,7 +16,6 @@ import edu.aku.hassannaqvi.mapps_form11.R;
 import edu.aku.hassannaqvi.mapps_form11.core.AppMain;
 import edu.aku.hassannaqvi.mapps_form11.core.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form11.databinding.ActivitySectionGBinding;
-import edu.aku.hassannaqvi.mapps_form11.validation.ClearClass;
 import edu.aku.hassannaqvi.mapps_form11.validation.ValidatorClass;
 
 public class SectionGActivity extends AppCompatActivity {
@@ -133,13 +132,24 @@ public class SectionGActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
 
                 if (bi.mp02g0197.isChecked()) {
-                    bi.mp02g02cv.setVisibility(View.VISIBLE);
-                    bi.mp02g03cv.setVisibility(View.VISIBLE);
-                } else {
-                    ClearClass.ClearAllC(bi.mp02g02cv);
-                    ClearClass.ClearAllC(bi.mp02g03cv);
+                    bi.mp02g01a.setVisibility(View.GONE);
+                    bi.mp02g01b.setVisibility(View.GONE);
+                    bi.mp02g01a.setText(null);
+                    bi.mp02g01b.setText(null);
+
+
                     bi.mp02g02cv.setVisibility(View.GONE);
                     bi.mp02g03cv.setVisibility(View.GONE);
+                    bi.mp02g02.clearCheck();
+                    bi.mp02g03.clearCheck();
+
+
+                } else {
+                    bi.mp02g01a.setVisibility(View.VISIBLE);
+                    bi.mp02g01b.setVisibility(View.VISIBLE);
+
+                    bi.mp02g02cv.setVisibility(View.VISIBLE);
+                    bi.mp02g03cv.setVisibility(View.VISIBLE);
                 }
 
             }
