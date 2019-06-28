@@ -234,10 +234,10 @@ public class SectionEActivity extends AppCompatActivity {
                     return false;
                 } else {
                     mp02d001.setError(null);
-                    if (Double.parseDouble(mp02d001.getText().toString()) < 50 || Double.parseDouble(mp02d001.getText().toString()) > 200) {
+                    if (Double.parseDouble(mp02d001.getText().toString()) < 50 || Double.parseDouble(mp02d001.getText().toString()) > 180) {
                         Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02d001), Toast.LENGTH_SHORT).show();
-                        mp02d001.setError("Invalid: Range 50-200");
-                        Log.i(TAG, "mp02d001: Invalid Range 50-200");
+                        mp02d001.setError("Invalid: Range 50-180");
+                        Log.i(TAG, "mp02d001: Invalid Range 50-180");
                         return false;
                     } else {
                         mp02d001.setError(null);
@@ -279,10 +279,10 @@ public class SectionEActivity extends AppCompatActivity {
                     return false;
                 } else {
                     mp02d002.setError(null);
-                    if (Double.parseDouble(mp02d002.getText().toString()) < 50 || Double.parseDouble(mp02d002.getText().toString()) > 200) {
+                    if (Double.parseDouble(mp02d002.getText().toString()) < 50 || Double.parseDouble(mp02d002.getText().toString()) > 180) {
                         Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02d002), Toast.LENGTH_SHORT).show();
-                        mp02d002.setError("Invalid: Range between 50-200");
-                        Log.i(TAG, "mp02d002: Invalid Range between 50-200");
+                        mp02d002.setError("Invalid: Range between 50-180");
+                        Log.i(TAG, "mp02d002: Invalid Range between 50-180");
                         return false;
                     } else {
                         mp02d002.setError(null);
@@ -365,10 +365,10 @@ public class SectionEActivity extends AppCompatActivity {
                         return false;
                     } else {
                         mp02d004.setError(null);
-                        if (Double.parseDouble(mp02d004.getText().toString()) < 50 || Double.parseDouble(mp02d004.getText().toString()) > 200) {
+                        if (Double.parseDouble(mp02d004.getText().toString()) < 50 || Double.parseDouble(mp02d004.getText().toString()) > 180) {
                             Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02d004), Toast.LENGTH_SHORT).show();
-                            mp02d004.setError("Invalid: Range 50-200");
-                            Log.i(TAG, "mp02d004: Invalid Range 50-200");
+                            mp02d004.setError("Invalid: Range 50-180");
+                            Log.i(TAG, "mp02d004: Invalid Range 50-180");
                             return false;
                         } else {
                             mp02d004.setError(null);
@@ -411,10 +411,10 @@ public class SectionEActivity extends AppCompatActivity {
                     return false;
                 } else {
                     mp02d005.setError(null);
-                    if (Double.parseDouble(mp02d005.getText().toString()) < 35 || Double.parseDouble(mp02d005.getText().toString()) > 170) {
+                    if (Double.parseDouble(mp02d005.getText().toString()) < 30 || Double.parseDouble(mp02d005.getText().toString()) > 170) {
                         Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02d005), Toast.LENGTH_SHORT).show();
-                        mp02d005.setError("Invalid: Range 35-170");
-                        Log.i(TAG, "mp02d005: Invalid Range 35-170");
+                        mp02d005.setError("Invalid: Range 30-170");
+                        Log.i(TAG, "mp02d005: Invalid Range 30-170");
                         return false;
                     } else {
                         mp02d005.setError(null);
@@ -456,10 +456,10 @@ public class SectionEActivity extends AppCompatActivity {
                     return false;
                 } else {
                     mp02d006.setError(null);
-                    if (Double.parseDouble(mp02d006.getText().toString()) < 35 || Double.parseDouble(mp02d006.getText().toString()) > 170) {
+                    if (Double.parseDouble(mp02d006.getText().toString()) < 30 || Double.parseDouble(mp02d006.getText().toString()) > 170) {
                         Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02d006), Toast.LENGTH_SHORT).show();
-                        mp02d006.setError("Invalid: Range 35-170");
-                        Log.i(TAG, "mp02d006: Invalid Range 35-170");
+                        mp02d006.setError("Invalid: Range 30-170");
+                        Log.i(TAG, "mp02d006: Invalid Range 30-170");
                         return false;
                     } else {
                         mp02d006.setError(null);
@@ -542,10 +542,10 @@ public class SectionEActivity extends AppCompatActivity {
                         return false;
                     } else {
                         mp02d008.setError(null);
-                        if (Double.parseDouble(mp02d008.getText().toString()) < 35 || Double.parseDouble(mp02d008.getText().toString()) > 170) {
+                        if (Double.parseDouble(mp02d008.getText().toString()) < 30 || Double.parseDouble(mp02d008.getText().toString()) > 170) {
                             Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02d008), Toast.LENGTH_SHORT).show();
-                            mp02d008.setError("Invalid: Range 35-170");
-                            Log.i(TAG, "mp02d008: Invalid Range 35-170");
+                            mp02d008.setError("Invalid: Range 30-170");
+                            Log.i(TAG, "mp02d008: Invalid Range 30-170");
                             return false;
                         } else {
                             mp02d008.setError(null);
@@ -589,10 +589,10 @@ public class SectionEActivity extends AppCompatActivity {
                     return false;
                 } else {
                     mp02d009.setError(null);
-                    if (Double.parseDouble(mp02d009.getText().toString()) < 8 || Double.parseDouble(mp02d009.getText().toString()) > 99.9) {
+                    if (Double.parseDouble(mp02d009.getText().toString()) < 8 || Double.parseDouble(mp02d009.getText().toString()) > 50.0) {
                         Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02d009), Toast.LENGTH_SHORT).show();
-                        mp02d009.setError("Invalid: Range 8-99.9");
-                        Log.i(TAG, "mp02d009: Invalid Range 8-99.9");
+                        mp02d009.setError("Invalid: Range 8-50.0");
+                        Log.i(TAG, "mp02d009: Invalid Range 8-50.0");
                         return false;
                     } else {
                         mp02d009.setError(null);
@@ -634,10 +634,10 @@ public class SectionEActivity extends AppCompatActivity {
                     return false;
                 } else {
                     mp02d010.setError(null);
-                    if (Double.parseDouble(mp02d010.getText().toString()) < 8 || Double.parseDouble(mp02d010.getText().toString()) > 99.9) {
+                    if (Double.parseDouble(mp02d010.getText().toString()) < 8 || Double.parseDouble(mp02d010.getText().toString()) > 50.0) {
                         Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02d010), Toast.LENGTH_SHORT).show();
-                        mp02d010.setError("Invalid: Range 8-99.9");
-                        Log.i(TAG, "mp02d010: Invalid Range 8-99.9");
+                        mp02d010.setError("Invalid: Range 8-50.0");
+                        Log.i(TAG, "mp02d010: Invalid Range 8-50.0");
                         return false;
                     } else {
                         mp02d010.setError(null);
@@ -717,10 +717,10 @@ public class SectionEActivity extends AppCompatActivity {
                         return false;
                     } else {
                         mp02d012.setError(null);
-                        if (Double.parseDouble(mp02d012.getText().toString()) < 8 || Double.parseDouble(mp02d012.getText().toString()) > 99.9) {
+                        if (Double.parseDouble(mp02d012.getText().toString()) < 8 || Double.parseDouble(mp02d012.getText().toString()) > 50.0) {
                             Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mp02d012), Toast.LENGTH_SHORT).show();
-                            mp02d012.setError("Invalid: Range 8-99.9");
-                            Log.i(TAG, "mp02d012: Range 8-99.9");
+                            mp02d012.setError("Invalid: Range 8-50.0");
+                            Log.i(TAG, "mp02d012: Range 8-50.0");
                             return false;
                         } else {
                             mp02d012.setError(null);

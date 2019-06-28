@@ -586,22 +586,22 @@ public class SectionCAActivity extends AppCompatActivity {
                     mp02cb00702.setEnabled(false);
                     mp02cb00703.setEnabled(false);
                     mp02cb00704.setEnabled(false);
-                    mp02cb00705.setEnabled(false);
+                    mp02cb00705.setEnabled(true);
                     mp02cb00706.setEnabled(false);
 
-                } else if (Integer.valueOf(mp02cb006.getText().toString().isEmpty() ? "0" : mp02cb006.getText().toString()) > 1
+                } else if (Integer.valueOf(mp02cb006.getText().toString().isEmpty() ? "0" : mp02cb006.getText().toString()) >= 1
                         && Integer.valueOf(mp02cb006.getText().toString()) <= 5) {
                     mp02cb00701.setEnabled(false);
                     mp02cb00702.setEnabled(true);
                     mp02cb00703.setEnabled(false);
                     mp02cb00704.setEnabled(false);
-                    mp02cb00705.setEnabled(false);
+                    mp02cb00705.setEnabled(true);
                     mp02cb00706.setEnabled(false);
 
                 } else if (Integer.valueOf(mp02cb006.getText().toString().isEmpty() ? "0" : mp02cb006.getText().toString()) > 5
                         && Integer.valueOf(mp02cb006.getText().toString()) <= 10) {
                     mp02cb00701.setEnabled(false);
-                    mp02cb00702.setEnabled(true);
+                    mp02cb00702.setEnabled(false);
                     mp02cb00703.setEnabled(true);
                     mp02cb00704.setEnabled(false);
                     mp02cb00705.setEnabled(true);
@@ -609,17 +609,17 @@ public class SectionCAActivity extends AppCompatActivity {
                 } else if (Integer.valueOf(mp02cb006.getText().toString().isEmpty() ? "0" : mp02cb006.getText().toString()) > 10
                         && Integer.valueOf(mp02cb006.getText().toString()) <= 12) {
                     mp02cb00701.setEnabled(false);
-                    mp02cb00702.setEnabled(true);
-                    mp02cb00703.setEnabled(true);
+                    mp02cb00702.setEnabled(false);
+                    mp02cb00703.setEnabled(false);
                     mp02cb00704.setEnabled(true);
                     mp02cb00705.setEnabled(true);
                     mp02cb00706.setEnabled(false);
                 } else if (Integer.valueOf(mp02cb006.getText().toString().isEmpty() ? "0" : mp02cb006.getText().toString()) > 12
                         && Integer.valueOf(mp02cb006.getText().toString()) <= 16) {
                     mp02cb00701.setEnabled(false);
-                    mp02cb00702.setEnabled(true);
-                    mp02cb00703.setEnabled(true);
-                    mp02cb00704.setEnabled(true);
+                    mp02cb00702.setEnabled(false);
+                    mp02cb00703.setEnabled(false);
+                    mp02cb00704.setEnabled(false);
                     mp02cb00705.setEnabled(true);
                     mp02cb00706.setEnabled(true);
                 } else {
@@ -652,22 +652,22 @@ public class SectionCAActivity extends AppCompatActivity {
                     mp02cb01302.setEnabled(false);
                     mp02cb01303.setEnabled(false);
                     mp02cb01304.setEnabled(false);
-                    mp02cb01305.setEnabled(false);
+                    mp02cb01305.setEnabled(true);
                     mp02cb01306.setEnabled(false);
 
-                } else if (Integer.valueOf(mp02cb012.getText().toString().isEmpty() ? "0" : mp02cb012.getText().toString()) > 1
+                } else if (Integer.valueOf(mp02cb012.getText().toString().isEmpty() ? "0" : mp02cb012.getText().toString()) >= 1
                         && Integer.valueOf(mp02cb012.getText().toString()) <= 5) {
                     mp02cb01301.setEnabled(false);
                     mp02cb01302.setEnabled(true);
                     mp02cb01303.setEnabled(false);
                     mp02cb01304.setEnabled(false);
-                    mp02cb01305.setEnabled(false);
+                    mp02cb01305.setEnabled(true);
                     mp02cb01306.setEnabled(false);
 
                 } else if (Integer.valueOf(mp02cb012.getText().toString().isEmpty() ? "0" : mp02cb012.getText().toString()) > 5
                         && Integer.valueOf(mp02cb012.getText().toString()) <= 10) {
                     mp02cb01301.setEnabled(false);
-                    mp02cb01302.setEnabled(true);
+                    mp02cb01302.setEnabled(false);
                     mp02cb01303.setEnabled(true);
                     mp02cb01304.setEnabled(false);
                     mp02cb01305.setEnabled(true);
@@ -675,14 +675,22 @@ public class SectionCAActivity extends AppCompatActivity {
                 } else if (Integer.valueOf(mp02cb012.getText().toString().isEmpty() ? "0" : mp02cb012.getText().toString()) > 10
                         && Integer.valueOf(mp02cb012.getText().toString()) <= 12) {
                     mp02cb01301.setEnabled(false);
-                    mp02cb01302.setEnabled(true);
-                    mp02cb01303.setEnabled(true);
+                    mp02cb01302.setEnabled(false);
+                    mp02cb01303.setEnabled(false);
                     mp02cb01304.setEnabled(true);
                     mp02cb01305.setEnabled(true);
                     mp02cb01306.setEnabled(false);
                 } else if (Integer.valueOf(mp02cb012.getText().toString().isEmpty() ? "0" : mp02cb012.getText().toString()) > 12
                         && Integer.valueOf(mp02cb012.getText().toString()) <= 16) {
                     mp02cb01301.setEnabled(false);
+                    mp02cb01302.setEnabled(false);
+                    mp02cb01303.setEnabled(false);
+                    mp02cb01304.setEnabled(false);
+                    mp02cb01305.setEnabled(true);
+                    mp02cb01306.setEnabled(true);
+                } else {
+                    mp02cb013.clearCheck();
+                    mp02cb01301.setEnabled(true);
                     mp02cb01302.setEnabled(true);
                     mp02cb01303.setEnabled(true);
                     mp02cb01304.setEnabled(true);
@@ -1117,11 +1125,11 @@ public class SectionCAActivity extends AppCompatActivity {
                 }
 
                 if ((Integer.valueOf(mp02cb017.getText().toString().isEmpty() ? "0" : mp02cb017.getText().toString()) < 2)
-                        || ((Integer.valueOf(mp02cb017.getText().toString().isEmpty() ? "0" : mp02cb017.getText().toString()) > 4)
+                        || ((Integer.valueOf(mp02cb017.getText().toString().isEmpty() ? "0" : mp02cb017.getText().toString()) > 6)
                         && Integer.valueOf(mp02cb017.getText().toString().isEmpty() ? "0" : mp02cb017.getText().toString()) != 99)) {
                     Toast.makeText(this, "ERROR: " + getString(R.string.mp02cb017), Toast.LENGTH_LONG).show();
-                    mp02cb017.setError("Range is 2 to 4");    // Set Error on last radio button
-                    Log.i(TAG, "mp02cb0017: Range is 2 to 4");
+                    mp02cb017.setError("Range is 2 to 6");    // Set Error on last radio button
+                    Log.i(TAG, "mp02cb0017: Range is 2 to 6");
 
                 } else {
                     mp02cb017.setError(null);
@@ -1330,11 +1338,11 @@ public class SectionCAActivity extends AppCompatActivity {
         }
 
         if (Integer.valueOf(mp02cb024.getText().toString().isEmpty() ? "0" : mp02cb024.getText().toString()) < 13
-                || Integer.valueOf(mp02cb024.getText().toString().isEmpty() ? "0" : mp02cb024.getText().toString()) > 35) {
+                || Integer.valueOf(mp02cb024.getText().toString().isEmpty() ? "0" : mp02cb024.getText().toString()) > 50) {
             Toast.makeText(this, "ERROR(range): " + getString(R.string.mp02cb024), Toast.LENGTH_LONG).show();
-            mp02cb024.setError("Range is 13 to 35 years");    // Set Error on last radio button
+            mp02cb024.setError("Range is 13 to 50 years");    // Set Error on last radio button
 
-            Log.i(TAG, "mp02cb024 : Range is 13 to 35 Years");
+            Log.i(TAG, "mp02cb024 : Range is 13 to 50 Years");
             return false;
         } else {
             mp02cb024.setError(null);
