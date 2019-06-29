@@ -581,6 +581,9 @@ public class SectionCAActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                mp02cb007.clearCheck();
+
                 if (Integer.valueOf(mp02cb006.getText().toString().isEmpty() ? "0" : mp02cb006.getText().toString()) == 0) {
                     mp02cb00701.setEnabled(true);
                     mp02cb00702.setEnabled(false);
@@ -623,7 +626,6 @@ public class SectionCAActivity extends AppCompatActivity {
                     mp02cb00705.setEnabled(true);
                     mp02cb00706.setEnabled(true);
                 } else {
-                    mp02cb007.clearCheck();
                     mp02cb00701.setEnabled(true);
                     mp02cb00702.setEnabled(true);
                     mp02cb00703.setEnabled(true);
@@ -647,6 +649,9 @@ public class SectionCAActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                mp02cb013.clearCheck();
+
                 if (Integer.valueOf(mp02cb012.getText().toString().isEmpty() ? "0" : mp02cb012.getText().toString()) == 0) {
                     mp02cb01301.setEnabled(true);
                     mp02cb01302.setEnabled(false);
@@ -689,7 +694,6 @@ public class SectionCAActivity extends AppCompatActivity {
                     mp02cb01305.setEnabled(true);
                     mp02cb01306.setEnabled(true);
                 } else {
-                    mp02cb013.clearCheck();
                     mp02cb01301.setEnabled(true);
                     mp02cb01302.setEnabled(true);
                     mp02cb01303.setEnabled(true);

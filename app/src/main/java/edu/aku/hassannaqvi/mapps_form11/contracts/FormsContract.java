@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class FormsContract {
 
     private String projectName = "MaPPS Study";
-    private String surveyType = "Form 11: Annual Follow-up Form - Year 1 (Preconception)";
+    private String surveyType = "MaPPS - Form-11: Endline Assessment";
     private Long _ID;
     private String UID = "";
     private String formDate = ""; // Date
